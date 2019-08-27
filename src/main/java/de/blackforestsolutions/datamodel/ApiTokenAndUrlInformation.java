@@ -31,6 +31,7 @@ public class ApiTokenAndUrlInformation {
     private final String germanRailDepartureBoardPath;
     private final String germanRailArrivalBoardPath;
     private final String germanRailLocationPath;
+    private final Date germanRailDatePathVariable;
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
@@ -64,6 +65,7 @@ public class ApiTokenAndUrlInformation {
         this.stationId = apiTokenAndUrlInformation.getStationId();
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
+        this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
 
     }
 
@@ -93,6 +95,7 @@ public class ApiTokenAndUrlInformation {
         this.stationId = apiTokenAndUrlInformation.getStationId();
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
+        this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -115,12 +118,20 @@ public class ApiTokenAndUrlInformation {
         this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
         this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
         this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
+        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPathVariable();
         this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
         this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
+        this.germanRailDatePathVariable = null;
         this.stationId = null;
         this.journeyDetailsId = null;
         this.bahnLocation = null;
+    }
+
+    public Date getGermanRailDatePathVariable() {
+        if (germanRailDatePathVariable != null) {
+            return (Date) germanRailDatePathVariable.clone();
+        }
+        return null;
     }
 
     public Date getDepartureDate() {
@@ -182,22 +193,13 @@ public class ApiTokenAndUrlInformation {
         private String germanRailJourneyDeatilsPath;
         @Getter
         @Setter
-        private String germanRailDepartureBoardPath;
-        @Getter
-        @Setter
         private String germanRailArrivalBoardPath;
         @Getter
         @Setter
         private String germanRailLocationPath;
         @Getter
         @Setter
-        private String stationId;
-        @Getter
-        @Setter
-        private String journeyDetailsId;
-        @Getter
-        @Setter
-        private String bahnLocation;
+        private String germanRailDepartureBoardPathVariable;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -233,6 +235,7 @@ public class ApiTokenAndUrlInformation {
         private String germanRailDepartureBoardPath;
         private String germanRailArrivalBoardPath;
         private String germanRailLocationPath;
+        private Date germanRailDatePathVariable;
         private String stationId;
         private String journeyDetailsId;
         private String bahnLocation;
@@ -260,6 +263,7 @@ public class ApiTokenAndUrlInformation {
             this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
             this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
             this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
+            this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
             this.stationId = apiTokenAndUrlInformation.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
             this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
@@ -267,6 +271,17 @@ public class ApiTokenAndUrlInformation {
 
         public ApiTokenAndUrlInformationBuilder() {
 
+        }
+
+        public Date getGermanRailDatePathVariable() {
+            if (germanRailDatePathVariable != null) {
+                return (Date) germanRailDatePathVariable.clone();
+            }
+            return null;
+        }
+
+        public void setGermanRailDatePathVariable(Date germanRailDatePathVariable) {
+            this.germanRailDatePathVariable = (Date) germanRailDatePathVariable.clone();
         }
 
         public Date getDepartureDate() {
