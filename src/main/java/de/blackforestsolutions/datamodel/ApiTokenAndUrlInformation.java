@@ -134,6 +134,7 @@ public class ApiTokenAndUrlInformation {
         return null;
     }
 
+
     public Date getDepartureDate() {
         if (departureDate != null) {
             return (Date) departureDate.clone();
