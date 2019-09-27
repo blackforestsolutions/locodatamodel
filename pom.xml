@@ -23,6 +23,7 @@
         <jdk.version>1.8</jdk.version>
         <lombok.version>1.18.8</lombok.version>
         <apache.lang-version>2.6</apache.lang-version>
+        <mvn.deploy.plugin>2.8.2</mvn.deploy.plugin>
         <maven.eclipse.plugin.version>2.10</maven.eclipse.plugin.version>
         <maven.comiler.plugin.version>3.8.1</maven.comiler.plugin.version>
         <maven.assambly.plugin.version>3.1.1</maven.assambly.plugin.version>
@@ -56,6 +57,13 @@
             <artifactId>commons-lang</artifactId>
             <version>${apache.lang-version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.github</groupId>
+            <artifactId>github-maven-core</artifactId>
+            <version>${maven.github.version}</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -139,5 +147,13 @@
 
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
 
 </project>
