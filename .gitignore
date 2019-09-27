@@ -1,5 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-target/archive-tmp/
-target/generated-sources/
-*.iml
+*.iml/
+target
