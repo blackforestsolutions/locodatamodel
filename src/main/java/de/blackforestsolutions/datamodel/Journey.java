@@ -1,6 +1,8 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import de.blackforestsolutions.datamodel.deserializer.DistanceDeserializer;
+import de.blackforestsolutions.datamodel.deserializer.DurationDeserializer;
 import de.blackforestsolutions.datamodel.deserializer.PostalAdressDeserializer;
 import de.blackforestsolutions.datamodel.deserializer.PriceDeserializer;
 import lombok.Getter;
@@ -71,6 +73,16 @@ public class Journey {
     @JsonDeserialize(using = PostalAdressDeserializer.class)
     public void setDestination(TravelPoint destination) {
         this.destination = destination;
+    }
+
+    @JsonDeserialize(using = DurationDeserializer.class)
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    @JsonDeserialize(using = DistanceDeserializer.class)
+    public void setDistance(Distance distance) {
+        this.distance = distance;
     }
 
 
