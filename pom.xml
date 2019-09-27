@@ -9,7 +9,7 @@
     <!-- Output to jar format -->
     <packaging>jar</packaging>
 
-    <version>0.0.6-RELEASE</version>
+    <version>0.0.7-RELEASE</version>
     <name>datamodel</name>
     <url>http://maven.apache.org</url>
 
