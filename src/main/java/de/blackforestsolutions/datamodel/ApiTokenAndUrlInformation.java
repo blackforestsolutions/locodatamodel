@@ -35,8 +35,14 @@ public class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
-
-
+    //possible damage
+    private final String bbcPathVariable;
+    private final String bbcVersion;
+    private final String baApplication;
+    private final String baClientKey;
+    private final String baHost;
+    private final String baVersion;
+    private final String baVariable;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -66,7 +72,13 @@ public class ApiTokenAndUrlInformation {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
-
+        this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
+        this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
+        this.baApplication = apiTokenAndUrlInformation.getBaApplication();
+        this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
+        this.baHost = apiTokenAndUrlInformation.getBaHost();
+        this.baVersion = apiTokenAndUrlInformation.getBaVersion();
+        this.baVariable = apiTokenAndUrlInformation.getBaVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -96,6 +108,13 @@ public class ApiTokenAndUrlInformation {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
+        this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
+        this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
+        this.baApplication = apiTokenAndUrlInformation.getBaApplication();
+        this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
+        this.baHost = apiTokenAndUrlInformation.getBaHost();
+        this.baVersion = apiTokenAndUrlInformation.getBaVersion();
+        this.baVariable = apiTokenAndUrlInformation.getBaVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -125,6 +144,43 @@ public class ApiTokenAndUrlInformation {
         this.stationId = null;
         this.journeyDetailsId = null;
         this.bahnLocation = null;
+        // possible damage when should we use null and when getter
+        this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
+        this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
+        this.baApplication = apiTokenAndUrlInformation.getBaApplication();
+        this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
+        this.baHost = apiTokenAndUrlInformation.getBaHost();
+        this.baVersion = apiTokenAndUrlInformation.getBaVersion();
+        this.baVariable = apiTokenAndUrlInformation.getBaVariable();
+    }
+
+    // possible damage
+    public String getBbcPathVariable() {
+        return bbcPathVariable;
+    }
+
+    public String getBbcVersion() {
+        return bbcVersion;
+    }
+
+    public String getBaApplication() {
+        return baApplication;
+    }
+
+    public String getBaClientKey() {
+        return baClientKey;
+    }
+
+    public String getBaHost() {
+        return baHost;
+    }
+
+    public String getBaVersion() {
+        return baVersion;
+    }
+
+    public String getBaVariable() {
+        return baVariable;
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -202,6 +258,30 @@ public class ApiTokenAndUrlInformation {
         @Setter
         private String germanRailDepartureBoardPathVariable;
 
+
+        // possible damage
+        @Getter
+        @Setter
+        private String bbcPathVariable;
+        @Getter
+        @Setter
+        private String bbcVersion;
+        @Getter
+        @Setter
+        private String baApplication;
+        @Getter
+        @Setter
+        private String baClientKey;
+        @Getter
+        @Setter
+        private String baHost;
+        @Getter
+        @Setter
+        private String baVersion;
+        @Getter
+        @Setter
+        private String baVariable;
+
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
 
@@ -240,6 +320,13 @@ public class ApiTokenAndUrlInformation {
         private String stationId;
         private String journeyDetailsId;
         private String bahnLocation;
+        private String bbcPathVariable;
+        private String bbcVersion;
+        private String baApplication;
+        private String baClientKey;
+        private String baHost;
+        private String baVersion;
+        private String baVariable;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -268,10 +355,47 @@ public class ApiTokenAndUrlInformation {
             this.stationId = apiTokenAndUrlInformation.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
             this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
+            // possible damage
+            this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
+            this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
+            this.baApplication = apiTokenAndUrlInformation.getBaApplication();
+            this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
+            this.baHost = apiTokenAndUrlInformation.getBaHost();
+            this.baVersion = apiTokenAndUrlInformation.getBaVersion();
+            this.baVariable = apiTokenAndUrlInformation.getBaVariable();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
 
+        }
+
+        // possible damage
+        public String getBbcPathVariable() {
+            return bbcPathVariable;
+        }
+
+        public String getBbcVersion() {
+            return bbcVersion;
+        }
+
+        public String getBaApplication() {
+            return baApplication;
+        }
+
+        public String getBaClientKey() {
+            return baClientKey;
+        }
+
+        public String getBaHost() {
+            return baHost;
+        }
+
+        public String getBaVersion() {
+            return baVersion;
+        }
+
+        public String getBaVariable() {
+            return baVariable;
         }
 
         public Date getGermanRailDatePathVariable() {
@@ -318,4 +442,5 @@ public class ApiTokenAndUrlInformation {
             return apiTokenAndUrlInformation;
         }
     }
+
 }
