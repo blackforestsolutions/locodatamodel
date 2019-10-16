@@ -43,6 +43,9 @@ public class ApiTokenAndUrlInformation {
     private final String baVersion;
     private final String baVariable;
     private final String bbcAuthorization;
+    private final String bbcAuthorizationKey;
+    private final String baApplicationKey;
+    private final String baClientKeyKey;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -80,6 +83,9 @@ public class ApiTokenAndUrlInformation {
         this.baVersion = apiTokenAndUrlInformation.getBaVersion();
         this.baVariable = apiTokenAndUrlInformation.getBaVariable();
         this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
+        this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
+        this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
+        this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -117,6 +123,9 @@ public class ApiTokenAndUrlInformation {
         this.baVersion = apiTokenAndUrlInformation.getBaVersion();
         this.baVariable = apiTokenAndUrlInformation.getBaVariable();
         this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
+        this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
+        this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
+        this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -154,6 +163,9 @@ public class ApiTokenAndUrlInformation {
         this.baVersion = apiTokenAndUrlInformation.getBaVersion();
         this.baVariable = apiTokenAndUrlInformation.getBaVariable();
         this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
+        this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
+        this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
+        this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
     }
 
     public String getBbcPathVariable() {
@@ -282,6 +294,15 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String bbcAuthorization;
+        @Getter
+        @Setter
+        private String bbcAuthorizationKey;
+        @Getter
+        @Setter
+        private String baApplicationKey;
+        @Getter
+        @Setter
+        private String baClientKeyKey;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -329,6 +350,9 @@ public class ApiTokenAndUrlInformation {
         private String baVersion;
         private String baVariable;
         private String bbcAuthorization;
+        private String bbcAuthorizationKey;
+        private String baApplicationKey;
+        private String baClientKeyKey;
 
 
 
@@ -367,6 +391,9 @@ public class ApiTokenAndUrlInformation {
             this.baVersion = apiTokenAndUrlInformation.getBaVersion();
             this.baVariable = apiTokenAndUrlInformation.getBaVariable();
             this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
+            this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
+            this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
+            this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
@@ -403,7 +430,14 @@ public class ApiTokenAndUrlInformation {
         public String getBbcAuthorization() {
             return bbcAuthorization;
         }
-
+        public String getBbcAuthorizationKey() {
+            return bbcAuthorizationKey;
+        }
+        public String getBaApplicationKey() {
+            return baApplicationKey;
+        }
+        public String getBaClientKeyKey() {
+            return baClientKeyKey;}
 
 
         public Date getGermanRailDatePathVariable() {
