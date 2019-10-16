@@ -35,7 +35,6 @@ public class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
-    //possible damage
     private final String bbcPathVariable;
     private final String bbcVersion;
     private final String baApplication;
@@ -43,6 +42,7 @@ public class ApiTokenAndUrlInformation {
     private final String baHost;
     private final String baVersion;
     private final String baVariable;
+    private final String bbcAuthorization;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -79,6 +79,7 @@ public class ApiTokenAndUrlInformation {
         this.baHost = apiTokenAndUrlInformation.getBaHost();
         this.baVersion = apiTokenAndUrlInformation.getBaVersion();
         this.baVariable = apiTokenAndUrlInformation.getBaVariable();
+        this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -115,6 +116,7 @@ public class ApiTokenAndUrlInformation {
         this.baHost = apiTokenAndUrlInformation.getBaHost();
         this.baVersion = apiTokenAndUrlInformation.getBaVersion();
         this.baVariable = apiTokenAndUrlInformation.getBaVariable();
+        this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -144,7 +146,6 @@ public class ApiTokenAndUrlInformation {
         this.stationId = null;
         this.journeyDetailsId = null;
         this.bahnLocation = null;
-        // possible damage when should we use null and when getter
         this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
         this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
         this.baApplication = apiTokenAndUrlInformation.getBaApplication();
@@ -152,9 +153,9 @@ public class ApiTokenAndUrlInformation {
         this.baHost = apiTokenAndUrlInformation.getBaHost();
         this.baVersion = apiTokenAndUrlInformation.getBaVersion();
         this.baVariable = apiTokenAndUrlInformation.getBaVariable();
+        this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
     }
 
-    // possible damage
     public String getBbcPathVariable() {
         return bbcPathVariable;
     }
@@ -257,9 +258,6 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String germanRailDepartureBoardPathVariable;
-
-
-        // possible damage
         @Getter
         @Setter
         private String bbcPathVariable;
@@ -281,6 +279,9 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String baVariable;
+        @Getter
+        @Setter
+        private String bbcAuthorization;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -291,7 +292,7 @@ public class ApiTokenAndUrlInformation {
 
     }
 
-    @Getter
+    @Getter //was machen die da?
     @Setter
     public static class ApiTokenAndUrlInformationBuilder {
         private String protocol;
@@ -327,6 +328,9 @@ public class ApiTokenAndUrlInformation {
         private String baHost;
         private String baVersion;
         private String baVariable;
+        private String bbcAuthorization;
+
+
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -355,7 +359,6 @@ public class ApiTokenAndUrlInformation {
             this.stationId = apiTokenAndUrlInformation.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
             this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
-            // possible damage
             this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
             this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
             this.baApplication = apiTokenAndUrlInformation.getBaApplication();
@@ -363,13 +366,13 @@ public class ApiTokenAndUrlInformation {
             this.baHost = apiTokenAndUrlInformation.getBaHost();
             this.baVersion = apiTokenAndUrlInformation.getBaVersion();
             this.baVariable = apiTokenAndUrlInformation.getBaVariable();
+            this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
 
         }
 
-        // possible damage
         public String getBbcPathVariable() {
             return bbcPathVariable;
         }
@@ -397,6 +400,11 @@ public class ApiTokenAndUrlInformation {
         public String getBaVariable() {
             return baVariable;
         }
+        public String getBbcAuthorization() {
+            return bbcAuthorization;
+        }
+
+
 
         public Date getGermanRailDatePathVariable() {
             if (germanRailDatePathVariable != null) {
