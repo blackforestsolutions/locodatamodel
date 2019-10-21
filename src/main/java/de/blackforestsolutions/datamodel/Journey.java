@@ -50,6 +50,16 @@ public class Journey {
 
     private String vehicleNumber;
 
+    private String startStatus;
+
+    private String arrivalStatus;
+
+    private String startTimeUpdated;
+
+    private String arrivalTimeUpdated;
+
+
+
 
     public Journey() {
     }
