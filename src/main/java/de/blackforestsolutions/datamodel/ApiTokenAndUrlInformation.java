@@ -279,9 +279,6 @@ public class ApiTokenAndUrlInformation {
         private String authorization;
         @Getter
         @Setter
-        private String stationId;
-        @Getter
-        @Setter
         private String germanRailJourneyDeatilsPath;
         @Getter
         @Setter
