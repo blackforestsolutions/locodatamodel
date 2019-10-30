@@ -211,6 +211,10 @@ public class ApiTokenAndUrlInformation {
         return searchChStationCoordinateParameter;
     }
 
+    public String getStationId() {
+        return stationId;
+    }
+
     public Date getGermanRailDatePathVariable() {
         if (germanRailDatePathVariable != null) {
             return (Date) germanRailDatePathVariable.clone();
@@ -469,6 +473,10 @@ public class ApiTokenAndUrlInformation {
 
         public String getSearchChStationCoordinateParameter() {
             return searchChStationCoordinateParameter;
+        }
+
+        public String getStationId() {
+            return stationId;
         }
 
         public Date getGermanRailDatePathVariable() {
