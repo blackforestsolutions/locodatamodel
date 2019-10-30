@@ -48,6 +48,7 @@ public class ApiTokenAndUrlInformation {
     private final String baClientKeyKey;
     private final String searchChTermParameter;
     private final String searchChStationCoordinateParameter;
+    private final String searchChStationId;
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -89,6 +90,7 @@ public class ApiTokenAndUrlInformation {
         this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -131,6 +133,7 @@ public class ApiTokenAndUrlInformation {
         this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -173,6 +176,7 @@ public class ApiTokenAndUrlInformation {
         this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
     }
 
     public String getBbcPathVariable() {
@@ -209,6 +213,10 @@ public class ApiTokenAndUrlInformation {
 
     public String getSearchChStationCoordinateParameter() {
         return searchChStationCoordinateParameter;
+    }
+
+    public String getSearchChStationId() {
+        return searchChStationId;
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -324,6 +332,9 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String searchChStationCoordinateParameter;
+        @Getter
+        @Setter
+        private String searchChStationId;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -376,6 +387,7 @@ public class ApiTokenAndUrlInformation {
         private String baClientKeyKey;
         private String searchChTermParameter;
         private String searchChStationCoordinateParameter;
+        private String searchChStationId;
 
 
 
@@ -419,6 +431,7 @@ public class ApiTokenAndUrlInformation {
             this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
@@ -469,6 +482,10 @@ public class ApiTokenAndUrlInformation {
 
         public String getSearchChStationCoordinateParameter() {
             return searchChStationCoordinateParameter;
+        }
+
+        public String getSearchChStationId() {
+            return searchChStationId;
         }
 
         public Date getGermanRailDatePathVariable() {
