@@ -49,6 +49,8 @@ public class ApiTokenAndUrlInformation {
     private final String searchChTermParameter;
     private final String searchChStationCoordinateParameter;
     private final String searchChStationId;
+    private final String locationPath;
+
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -91,6 +93,7 @@ public class ApiTokenAndUrlInformation {
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -134,6 +137,7 @@ public class ApiTokenAndUrlInformation {
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -177,6 +181,7 @@ public class ApiTokenAndUrlInformation {
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
     }
 
     public String getBbcPathVariable() {
@@ -323,6 +328,9 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String searchChStationId;
+        @Getter
+        @Setter
+        private String locationPath;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -376,8 +384,7 @@ public class ApiTokenAndUrlInformation {
         private String searchChTermParameter;
         private String searchChStationCoordinateParameter;
         private String searchChStationId;
-
-
+        private String locationPath;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -420,6 +427,7 @@ public class ApiTokenAndUrlInformation {
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
@@ -508,5 +516,4 @@ public class ApiTokenAndUrlInformation {
             return apiTokenAndUrlInformation;
         }
     }
-
 }
