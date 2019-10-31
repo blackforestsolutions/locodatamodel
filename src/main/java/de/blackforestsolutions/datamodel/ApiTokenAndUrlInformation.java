@@ -136,11 +136,7 @@ public class ApiTokenAndUrlInformation {
         this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-<<<<<<< HEAD
-        this.searchChStationIdParameter = apiTokenAndUrlInformation.getSearchChStationIdParameter();
-=======
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
->>>>>>> parent of 8554c84... I added a general search term variable and removed the getters for ba and bbc
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
     }
 
@@ -387,7 +383,7 @@ public class ApiTokenAndUrlInformation {
         private String baClientKeyKey;
         private String searchChTermParameter;
         private String searchChStationCoordinateParameter;
-        private String searchChStationIdParameter;
+        private String searchChStationId;
         private String locationPath;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -430,11 +426,7 @@ public class ApiTokenAndUrlInformation {
             this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-<<<<<<< HEAD
-            this.searchChStationIdParameter = apiTokenAndUrlInformation.getSearchChStationIdParameter();
-=======
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
->>>>>>> parent of 8554c84... I added a general search term variable and removed the getters for ba and bbc
             this.locationPath = apiTokenAndUrlInformation.getLocationPath();
         }
 
