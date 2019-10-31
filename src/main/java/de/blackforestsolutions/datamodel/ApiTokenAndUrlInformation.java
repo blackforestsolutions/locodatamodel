@@ -138,7 +138,7 @@ public class ApiTokenAndUrlInformation {
         this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.searchChStationIdParameter = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationIdParameter = apiTokenAndUrlInformation.getSearchChStationIdParameter();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
         this.searchTerm = apiTokenAndUrlInformation.getSearchTerm();
     }
@@ -362,7 +362,7 @@ public class ApiTokenAndUrlInformation {
         private String baClientKeyKey;
         private String searchChTermParameter;
         private String searchChStationCoordinateParameter;
-        private String searchChStationId;
+        private String searchChStationIdParameter;
         private String locationPath;
         private String searchTerm;
 
@@ -406,7 +406,7 @@ public class ApiTokenAndUrlInformation {
             this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationIdParameter();
+            this.searchChStationIdParameter = apiTokenAndUrlInformation.getSearchChStationIdParameter();
             this.locationPath = apiTokenAndUrlInformation.getLocationPath();
             this.searchTerm = apiTokenAndUrlInformation.getSearchTerm();
         }
