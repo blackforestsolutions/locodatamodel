@@ -207,18 +207,6 @@ public class ApiTokenAndUrlInformation {
         return baVariable;
     }
 
-    public String getSearchChTermParameter() {
-        return searchChTermParameter;
-    }
-
-    public String getSearchChStationCoordinateParameter() {
-        return searchChStationCoordinateParameter;
-    }
-
-    public String getSearchChStationId() {
-        return searchChStationId;
-    }
-
     public Date getGermanRailDatePathVariable() {
         if (germanRailDatePathVariable != null) {
             return (Date) germanRailDatePathVariable.clone();
@@ -475,18 +463,6 @@ public class ApiTokenAndUrlInformation {
             return baApplicationKey;
         }
         public String getBaClientKeyKey() { return baClientKeyKey;}
-
-        public String getSearchChTermParameter() {
-            return searchChTermParameter;
-        }
-
-        public String getSearchChStationCoordinateParameter() {
-            return searchChStationCoordinateParameter;
-        }
-
-        public String getSearchChStationId() {
-            return searchChStationId;
-        }
 
         public Date getGermanRailDatePathVariable() {
             if (germanRailDatePathVariable != null) {
