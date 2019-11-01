@@ -42,6 +42,8 @@ public class TravelPoint {
 
     private String terminal = "";
 
+    private String stationName = "";
+
     public TravelPoint() {
     }
 
@@ -92,7 +94,9 @@ public class TravelPoint {
                 &&
                 platform.equals(c.platform)
                 &&
-                terminal.equals(c.terminal);
+                terminal.equals(c.terminal)
+                &&
+                stationName.equals(c.stationName);
     }
 
 
@@ -111,6 +115,7 @@ public class TravelPoint {
                 .append(airportName)
                 .append(platform)
                 .append(terminal.hashCode())
+                .append(stationName.hashCode())
                 .toHashCode();
     }
 }
