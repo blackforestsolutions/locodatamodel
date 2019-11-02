@@ -268,6 +268,12 @@ public class ApiTokenAndUrlInformation {
         private String pathVariable;
         @Getter
         @Setter
+        private String departure;
+        @Getter
+        @Setter
+        private String arrival;
+        @Getter
+        @Setter
         private String hazelcastPath;
         @Getter
         @Setter
