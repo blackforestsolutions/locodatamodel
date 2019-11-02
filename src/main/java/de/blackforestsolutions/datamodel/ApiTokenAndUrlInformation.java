@@ -56,6 +56,8 @@ public class ApiTokenAndUrlInformation {
     private final String locationSearchTerm;
     private final String startLocation;
     private final String destinationLocation;
+    private final String datePathVariable;
+    private final String timePathVaraible;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -106,6 +108,8 @@ public class ApiTokenAndUrlInformation {
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+        this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -156,6 +160,8 @@ public class ApiTokenAndUrlInformation {
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+        this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -206,6 +212,8 @@ public class ApiTokenAndUrlInformation {
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+        this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
     }
 
     public String getBbcPathVariable() {
@@ -379,6 +387,12 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String destinationLocation;
+        @Getter
+        @Setter
+        private String datePathVariable;
+        @Getter
+        @Setter
+        private String timePathVaraible;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -439,6 +453,8 @@ public class ApiTokenAndUrlInformation {
         private String searchChRoutePathVariable;
         private String startLocation;
         private String destinationLocation;
+        private String datePathVariable;
+        private String timePathVaraible;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -489,6 +505,8 @@ public class ApiTokenAndUrlInformation {
             this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+            this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+            this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
