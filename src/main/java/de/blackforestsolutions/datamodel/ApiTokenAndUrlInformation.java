@@ -54,6 +54,8 @@ public class ApiTokenAndUrlInformation {
     private final String searchChResults;
     private final String locationPath;
     private final String locationSearchTerm;
+    private final String startLocation;
+    private final String destinationLocation;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -102,6 +104,8 @@ public class ApiTokenAndUrlInformation {
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -150,6 +154,8 @@ public class ApiTokenAndUrlInformation {
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -198,6 +204,8 @@ public class ApiTokenAndUrlInformation {
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
     }
 
     public String getBbcPathVariable() {
@@ -365,6 +373,12 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String searchChRoutePathVariable;
+        @Getter
+        @Setter
+        private String startLocation;
+        @Getter
+        @Setter
+        private String destinationLocation;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -423,6 +437,8 @@ public class ApiTokenAndUrlInformation {
         private String searchChDelayParameter;
         private String searchChResults;
         private String searchChRoutePathVariable;
+        private String startLocation;
+        private String destinationLocation;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -471,6 +487,8 @@ public class ApiTokenAndUrlInformation {
             this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
             this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
             this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+            this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+            this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
