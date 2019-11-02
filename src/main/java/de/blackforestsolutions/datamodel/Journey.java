@@ -59,8 +59,6 @@ public class Journey {
     private String arrivalTimeUpdated;
 
 
-
-
     public Journey() {
     }
 
