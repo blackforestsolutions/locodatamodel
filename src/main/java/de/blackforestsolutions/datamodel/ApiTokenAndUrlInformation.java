@@ -49,8 +49,8 @@ public class ApiTokenAndUrlInformation {
     private final String searchChTermParameter;
     private final String searchChStationCoordinateParameter;
     private final String searchChStationId;
-    private final Integer searchChDelayParameter;
-    private final Integer searchChResults;
+    private final String searchChDelayParameter;
+    private final String searchChResults;
     private final String locationPath;
     private final String locationSearchTerm;
 
@@ -348,10 +348,10 @@ public class ApiTokenAndUrlInformation {
         private String locationSearchTerm;
         @Getter
         @Setter
-        private Integer searchChDelayParameter;
+        private String searchChDelayParameter;
         @Getter
         @Setter
-        private Integer searchChResults;
+        private String searchChResults;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -407,8 +407,8 @@ public class ApiTokenAndUrlInformation {
         private String searchChStationId;
         private String locationPath;
         private String locationSearchTerm;
-        private Integer searchChDelayParameter;
-        private Integer searchChResults;
+        private String searchChDelayParameter;
+        private String searchChResults;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
