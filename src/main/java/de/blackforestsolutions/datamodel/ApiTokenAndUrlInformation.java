@@ -48,6 +48,7 @@ public class ApiTokenAndUrlInformation {
     private final String baClientKeyKey;
     private final String searchChTermParameter;
     private final String searchChStationCoordinateParameter;
+    private final String searchChRoutePathVariable;
     private final String searchChStationId;
     private final String searchChDelayParameter;
     private final String searchChResults;
@@ -100,6 +101,7 @@ public class ApiTokenAndUrlInformation {
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -147,6 +149,7 @@ public class ApiTokenAndUrlInformation {
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -194,6 +197,7 @@ public class ApiTokenAndUrlInformation {
         this.locationSearchTerm = null;
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
     }
 
     public String getBbcPathVariable() {
@@ -352,6 +356,9 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String searchChResults;
+        @Getter
+        @Setter
+        private String searchChRoutePathVariable;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -409,6 +416,8 @@ public class ApiTokenAndUrlInformation {
         private String locationSearchTerm;
         private String searchChDelayParameter;
         private String searchChResults;
+        private String searchChRoutePathVariable;
+
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -455,6 +464,7 @@ public class ApiTokenAndUrlInformation {
             this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
             this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
             this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+            this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
