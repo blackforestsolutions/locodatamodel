@@ -28,6 +28,8 @@ public class Journey {
 
     private TravelProvider travelProvider;
 
+    private UnknownTravelProvider unknownTravelProvider;
+
     private Date startTime;
 
     private Date arrivalTime;
@@ -57,6 +59,8 @@ public class Journey {
     private String startTimeUpdated;
 
     private String arrivalTimeUpdated;
+
+    private String description;
 
 
     public Journey() {
