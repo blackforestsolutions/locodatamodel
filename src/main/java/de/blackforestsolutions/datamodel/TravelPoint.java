@@ -44,6 +44,8 @@ public class TravelPoint {
 
     private String stationName = "";
 
+    private String stationId = "";
+
     public TravelPoint() {
     }
 
