@@ -28,7 +28,7 @@ public class Journey {
 
     private TravelProvider travelProvider;
 
-    private UnknownTravelProvider unknownTravelProvider;
+    private String unknownTravelProvider;
 
     private Date startTime;
 
@@ -49,6 +49,8 @@ public class Journey {
     private Duration delay;
 
     private String trainName;
+
+    private String vehicleName;
 
     private String vehicleNumber;
 
