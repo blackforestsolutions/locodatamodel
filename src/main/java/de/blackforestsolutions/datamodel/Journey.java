@@ -58,13 +58,16 @@ public class Journey {
 
     private String arrivalStatus;
 
-    private String startTimeUpdated;
+    private Date startTimeUpdated;
 
-    private String arrivalTimeUpdated;
+    private Date arrivalTimeUpdated;
 
     private String description;
 
+    private int aircraftTypeCode;
 
+    private boolean matchesRequest;
+    
     public Journey() {
     }
 
