@@ -10,7 +10,7 @@ import de.blackforestsolutions.datamodel.TravelPoint;
 
 import java.io.IOException;
 
-public class PostalAdressDeserializer extends JsonDeserializer<TravelPoint> {
+public class TravelPointDeserializer extends JsonDeserializer<TravelPoint> {
     @Override
     public TravelPoint deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectCodec objectCodec = jsonParser.getCodec();
