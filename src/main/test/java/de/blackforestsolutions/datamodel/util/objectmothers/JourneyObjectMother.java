@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 
+import static de.blackforestsolutions.datamodel.util.testutil.TestUtils.getResourceFileAsString;
+import static org.apache.commons.lang.StringUtils.deleteWhitespace;
+
 
 public class JourneyObjectMother {
 
@@ -21,8 +24,6 @@ public class JourneyObjectMother {
         start.setStreet("Feldweg");
         start.setCountry(new Locale("DE", "DE"));
         start.setGpsCoordinates(new Coordinates(1, 0));
-        start.setStartTime(Date.from(Instant.ofEpochMilli(1l)));
-        start.setArrivalTime(Date.from(Instant.ofEpochMilli(1l)));
         TravelPoint destination = new TravelPoint();
         destination.setCity("Hamburg");
         destination.setPostalCode("58974");
@@ -31,18 +32,14 @@ public class JourneyObjectMother {
         destination.setStreet("Fischmarkt");
         destination.setCountry(new Locale("DE", "DE"));
         destination.setGpsCoordinates(new Coordinates(1, 0));
-        destination.setStartTime(Date.from(Instant.ofEpochMilli(1l)));
-        destination.setArrivalTime(Date.from(Instant.ofEpochMilli(1l)));
-        start.setStart(null);
-        start.setDestination(null);
-        destination.setStart(null);
-        destination.setDestination(null);
         Journey journey = new Journey();
+        journey.getBetweenHolds().put(1, start);
+        journey.getBetweenHolds().put(2, destination);
         journey.setStart(start);
         journey.setDestination(destination);
         journey.setTravelProvider(TravelProvider.DB);
-        journey.setStartTime(Date.from(Instant.ofEpochMilli(1l)));
-        journey.setArrivalTime(Date.from(Instant.ofEpochMilli(1l)));
+        journey.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
         journey.setId(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
         Price price = new Price();
         price.setCurrency(Currency.getInstance("EUR"));
@@ -53,6 +50,6 @@ public class JourneyObjectMother {
     }
 
     public static String getJourneyStringBerlinHamburg() {
-        return "{\"id\":\"cb11896e-c38a-4f53-8d40-1f28ca690f5a\",\"start\":{\"city\":\"Berlin\",\"country\":\"de_DE\",\"postalCode\":\"64664\",\"stateOrProvince\":\"Brandenburg\",\"street\":\"Feldweg\",\"streetNumber\":\"34\",\"gpsCoordinates\":{\"latitude\":1.0,\"longitude\":0.0},\"dbStationId\":\"\",\"dbStationName\":\"\",\"airportId\":\"\",\"airportName\":\"\",\"platform\":\"\",\"terminal\":\"\",\"start\":null,\"destination\":null,\"startTime\":1,\"arrivalTime\":1},\"destination\":{\"city\":\"Hamburg\",\"country\":\"de_DE\",\"postalCode\":\"58974\",\"stateOrProvince\":\"Hamburg\",\"street\":\"Fischmarkt\",\"streetNumber\":\"6\",\"gpsCoordinates\":{\"latitude\":1.0,\"longitude\":0.0},\"dbStationId\":\"\",\"dbStationName\":\"\",\"airportId\":\"\",\"airportName\":\"\",\"platform\":\"\",\"terminal\":\"\",\"start\":null,\"destination\":null,\"startTime\":1,\"arrivalTime\":1},\"travelProvider\":\"DB\",\"startTime\":1,\"arrivalTime\":1,\"duration\":null,\"price\":{\"value\":234.9,\"currency\":\"EUR\",\"symbol\":\"€\"},\"priceWithCommision\":null,\"journeysRelated\":null,\"distance\":null,\"providerId\":null,\"delay\":null,\"trainName\":null,\"vehicleNumber\":null}";
+        return deleteWhitespace(getResourceFileAsString("json/journey.json"));
     }
 }
