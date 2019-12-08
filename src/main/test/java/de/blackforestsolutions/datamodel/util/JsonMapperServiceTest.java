@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static org.apache.commons.lang.StringUtils.deleteWhitespace;
+
 public class JsonMapperServiceTest {
 
     private LocoJsonMapper classUnderTest = new LocoJsonMapper();
@@ -20,7 +22,7 @@ public class JsonMapperServiceTest {
 
         String result = classUnderTest.map(journey);
 
-        Assertions.assertThat(result).isEqualTo(JourneyObjectMother.getJourneyStringBerlinHamburg());
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(JourneyObjectMother.getJourneyStringBerlinHamburg());
     }
 
     @Test
@@ -40,7 +42,7 @@ public class JsonMapperServiceTest {
 
         String result = classUnderTest.map(travelPoint);
 
-        Assertions.assertThat(result).isEqualTo(TravelpointObjectMother.getTravelPointString());
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(TravelpointObjectMother.getTravelPointString());
     }
 
     @Test
@@ -50,7 +52,7 @@ public class JsonMapperServiceTest {
         TravelPoint result = classUnderTest.mapJsonToTravelPoint(travelPoint);
 
         Assertions.assertThat(result.getCity()).isEqualTo(TravelpointObjectMother.getTravelPoint().getCity());
-        Assertions.assertThat(result.getAirportName()).isEqualTo(TravelpointObjectMother.getTravelPoint().getAirportName());
+        Assertions.assertThat(result.getAirportName()).isEqualTo(deleteWhitespace(TravelpointObjectMother.getTravelPoint().getAirportName()));
         Assertions.assertThat(result.getAirportId()).isEqualTo(TravelpointObjectMother.getTravelPoint().getAirportId());
         Assertions.assertThat(result.getGpsCoordinates().getLatitude()).isEqualTo(TravelpointObjectMother.getTravelPoint().getGpsCoordinates().getLatitude());
         Assertions.assertThat(result.getGpsCoordinates().getLongitude()).isEqualTo(TravelpointObjectMother.getTravelPoint().getGpsCoordinates().getLongitude());

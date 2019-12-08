@@ -1,0 +1,93 @@
+{
+  "id": "cb11896e-c38a-4f53-8d40-1f28ca690f5a",
+  "start": {
+    "city": "Berlin",
+    "country": "de_DE",
+    "postalCode": "64664",
+    "stateOrProvince": "Brandenburg",
+    "street": "Feldweg",
+    "streetNumber": "34",
+    "gpsCoordinates": {
+      "latitude": 1.0,
+      "longitude": 0.0
+    },
+    "dbStationId": "",
+    "dbStationName": "",
+    "airportId": "",
+    "airportName": "",
+    "platform": "",
+    "terminal": ""
+  },
+  "destination": {
+    "city": "Hamburg",
+    "country": "de_DE",
+    "postalCode": "58974",
+    "stateOrProvince": "Hamburg",
+    "street": "Fischmarkt",
+    "streetNumber": "6",
+    "gpsCoordinates": {
+      "latitude": 1.0,
+      "longitude": 0.0
+    },
+    "dbStationId": "",
+    "dbStationName": "",
+    "airportId": "",
+    "airportName": "",
+    "platform": "",
+    "terminal": ""
+  },
+  "betweenHolds": {
+    "1": {
+      "city": "Berlin",
+      "country": "de_DE",
+      "postalCode": "64664",
+      "stateOrProvince": "Brandenburg",
+      "street": "Feldweg",
+      "streetNumber": "34",
+      "gpsCoordinates": {
+        "latitude": 1.0,
+        "longitude": 0.0
+      },
+      "dbStationId": "",
+      "dbStationName": "",
+      "airportId": "",
+      "airportName": "",
+      "platform": "",
+      "terminal": ""
+    },
+    "2": {
+      "city": "Hamburg",
+      "country": "de_DE",
+      "postalCode": "58974",
+      "stateOrProvince": "Hamburg",
+      "street": "Fischmarkt",
+      "streetNumber": "6",
+      "gpsCoordinates": {
+        "latitude": 1.0,
+        "longitude": 0.0
+      },
+      "dbStationId": "",
+      "dbStationName": "",
+      "airportId": "",
+      "airportName": "",
+      "platform": "",
+      "terminal": ""
+    }
+  },
+  "travelProvider": "DB",
+  "startTime": 1,
+  "arrivalTime": 1,
+  "duration": null,
+  "price": {
+    "value": 234.9,
+    "currency": "EUR",
+    "symbol": "€"
+  },
+  "priceWithCommision": null,
+  "journeysRelated": null,
+  "distance": null,
+  "providerId": null,
+  "delay": null,
+  "trainName": null,
+  "vehicleNumber": null
+}
