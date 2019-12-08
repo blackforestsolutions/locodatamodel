@@ -16,7 +16,9 @@
     "airportId": "",
     "airportName": "",
     "platform": "",
-    "terminal": ""
+    "terminal": "",
+    "departureTime": 1,
+    "arrivalTime": 1
   },
   "destination": {
     "city": "Hamburg",
@@ -34,7 +36,9 @@
     "airportId": "",
     "airportName": "",
     "platform": "",
-    "terminal": ""
+    "terminal": "",
+    "departureTime": 1,
+    "arrivalTime": 1
   },
   "betweenHolds": {
     "1": {
@@ -53,7 +57,9 @@
       "airportId": "",
       "airportName": "",
       "platform": "",
-      "terminal": ""
+      "terminal": "",
+      "departureTime": 1,
+      "arrivalTime": 1
     },
     "2": {
       "city": "Hamburg",
@@ -71,7 +77,9 @@
       "airportId": "",
       "airportName": "",
       "platform": "",
-      "terminal": ""
+      "terminal": "",
+      "departureTime": 1,
+      "arrivalTime": 1
     }
   },
   "travelProvider": "DB",

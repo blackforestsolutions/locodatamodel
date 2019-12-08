@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.util.Date;
 import java.util.Locale;
 
 @Setter
@@ -42,7 +43,33 @@ public class TravelPoint {
 
     private String terminal = "";
 
+    private Date departureTime;
+
+    private Date arrivalTime;
+
     public TravelPoint() {
+    }
+
+    public Date getDepartureTime() {
+        if (departureTime != null) {
+            return (Date) departureTime.clone();
+        }
+        return null;
+    }
+
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = (Date) departureTime.clone();
+    }
+
+    public Date getArrivalTime() {
+        if (arrivalTime != null) {
+            return (Date) arrivalTime.clone();
+        }
+        return null;
+    }
+
+    public void setArrivalTime(Date arrivalTime) {
+        this.arrivalTime = (Date) arrivalTime.clone();
     }
 
     @JsonDeserialize(using = CoordinatesDeserializer.class)
