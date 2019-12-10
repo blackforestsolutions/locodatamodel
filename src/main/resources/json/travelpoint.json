@@ -16,5 +16,7 @@
   "platform": "",
   "terminal": "",
   "departureTime": 1,
-  "arrivalTime": 1
+  "arrivalTime": 1,
+  "stationName"
+  "stationId"
 }

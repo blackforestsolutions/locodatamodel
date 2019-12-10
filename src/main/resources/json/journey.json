@@ -18,7 +18,8 @@
     "platform": "",
     "terminal": "",
     "departureTime": 1,
-    "arrivalTime": 1
+    "arrivalTime": 1,
+    "vehicleName"
   },
   "destination": {
     "city": "Hamburg",
@@ -38,7 +39,8 @@
     "platform": "",
     "terminal": "",
     "departureTime": 1,
-    "arrivalTime": 1
+    "arrivalTime": 1,
+    "vehicleName"
   },
   "betweenHolds": {
     "1": {
@@ -59,7 +61,7 @@
       "platform": "",
       "terminal": "",
       "departureTime": 1,
-      "arrivalTime": 1
+      "arrivalTime": 1,
     },
     "2": {
       "city": "Hamburg",
