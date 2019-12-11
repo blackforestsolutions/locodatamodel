@@ -1,9 +1,20 @@
 package de.blackforestsolutions.datamodel;
 
-public enum TravelProvider {
-    DB("DB"), SBB("SBB"), ÖBB("ÖBB"), LUFTHANSA("Lufthansa"), EUROWINGS("Eurowings"), CONDOR("Condor"), FLIXBUS("Flixbus");
+import lombok.Getter;
+import lombok.Setter;
 
-    private final String unknownTravelProvider;
+public enum TravelProvider {
+    DB("DB"),
+    SBB("SBB"),
+    ÖBB("ÖBB"),
+    LUFTHANSA("Lufthansa"),
+    EUROWINGS("Eurowings"),
+    CONDOR("Condor"),
+    FLIXBUS("Flixbus");
+
+    @Getter
+    @Setter
+    private String unknownTravelProvider;
 
     TravelProvider(String unknownTravelProvider) {
         this.unknownTravelProvider = unknownTravelProvider;

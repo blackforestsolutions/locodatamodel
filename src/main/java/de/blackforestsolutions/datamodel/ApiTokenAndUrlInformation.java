@@ -42,6 +42,11 @@ public class ApiTokenAndUrlInformation {
     private final String timePathVariable;
     private final String startLocation;
     private final String destinationLocation;
+    private final String locationPath;
+    private final String searchChTermParameter;
+    private final String searchChStationId;
+    private final String searchChStationCoordinateParameter;
+    private final String locationSearchTerm;
 
 
 
@@ -79,6 +84,11 @@ public class ApiTokenAndUrlInformation {
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -115,6 +125,11 @@ public class ApiTokenAndUrlInformation {
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -151,6 +166,11 @@ public class ApiTokenAndUrlInformation {
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -254,6 +274,21 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String destinationLocation;
+        @Getter
+        @Setter
+        private String locationPath;
+        @Getter
+        @Setter
+        private String searchChTermParameter;
+        @Getter
+        @Setter
+        private String searchChStationId;
+        @Getter
+        @Setter
+        private String searchChStationCoordinateParameter;
+        @Getter
+        @Setter
+        private String locationSearchTerm;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -300,6 +335,11 @@ public class ApiTokenAndUrlInformation {
         private String timePathVariable;
         private String startLocation;
         private String destinationLocation;
+        private String locationPath;
+        private String searchChTermParameter;
+        private String searchChStationId;
+        private String searchChStationCoordinateParameter;
+        private String locationSearchTerm;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -336,6 +376,12 @@ public class ApiTokenAndUrlInformation {
             this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+            this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+            this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
