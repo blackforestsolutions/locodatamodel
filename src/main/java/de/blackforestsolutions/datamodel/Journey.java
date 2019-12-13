@@ -28,6 +28,8 @@ public class Journey {
 
     private TravelProvider travelProvider;
 
+    private String unknownTravelProvider;
+
     private Date startTime;
 
     private Date arrivalTime;
@@ -48,11 +50,12 @@ public class Journey {
 
     private String trainName;
 
-    private String vehicleNumber;
-
     private String vehicleName;
 
+    private String vehicleNumber;
 
+    private boolean matchesRequest;
+    
     public Journey() {
     }
 

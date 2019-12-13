@@ -35,6 +35,7 @@ public class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
+
     private final String datePathVariable;
     private final String searchChRoutePathVariable;
     private final String searchChResults;
@@ -47,7 +48,6 @@ public class ApiTokenAndUrlInformation {
     private final String searchChStationId;
     private final String searchChStationCoordinateParameter;
     private final String locationSearchTerm;
-
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -213,6 +213,12 @@ public class ApiTokenAndUrlInformation {
         private String pathVariable;
         @Getter
         @Setter
+        private String departure;
+        @Getter
+        @Setter
+        private String arrival;
+        @Getter
+        @Setter
         private String hazelcastPath;
         @Getter
         @Setter
@@ -249,12 +255,6 @@ public class ApiTokenAndUrlInformation {
         private String germanRailDepartureBoardPathVariable;
         @Getter
         @Setter
-        private String arrival;
-        @Getter
-        @Setter
-        private String departure;
-        @Getter
-        @Setter
         private String datePathVariable;
         @Getter
         @Setter
@@ -289,6 +289,9 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String locationSearchTerm;
+        @Getter
+        @Setter
+        private String timePathVaraible;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }

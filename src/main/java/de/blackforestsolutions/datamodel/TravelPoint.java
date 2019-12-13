@@ -147,7 +147,7 @@ public class TravelPoint {
                 .append(platform)
                 .append(terminal.hashCode())
                 .append(stationName.hashCode())
-                .append(stationId)
+                .append(stationId.hashCode())
                 .toHashCode();
     }
 }
