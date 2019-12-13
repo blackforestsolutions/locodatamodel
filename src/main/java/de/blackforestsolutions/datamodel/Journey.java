@@ -3,17 +3,15 @@ package de.blackforestsolutions.datamodel;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import de.blackforestsolutions.datamodel.deserializer.DistanceDeserializer;
 import de.blackforestsolutions.datamodel.deserializer.DurationDeserializer;
-import de.blackforestsolutions.datamodel.deserializer.PostalAdressDeserializer;
 import de.blackforestsolutions.datamodel.deserializer.PriceDeserializer;
+import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Distance;
 
 import java.time.Duration;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Setter
 @Getter
@@ -25,6 +23,8 @@ public class Journey {
     private TravelPoint start;
 
     private TravelPoint destination;
+
+    private Map<Integer, TravelPoint> betweenHolds = new HashMap<>();
 
     private TravelProvider travelProvider;
 
@@ -71,10 +71,9 @@ public class Journey {
     public Journey() {
     }
 
-
     @JsonDeserialize(using = PriceDeserializer.class)
-    public void setPriceWithCommision(Price priceWithCommision) {
-        this.priceWithCommision = priceWithCommision;
+    public void setPriceWithCommission(Price priceWithCommission) {
+        this.priceWithCommision = priceWithCommission;
     }
 
     @JsonDeserialize(using = PriceDeserializer.class)
@@ -82,12 +81,12 @@ public class Journey {
         this.price = price;
     }
 
-    @JsonDeserialize(using = PostalAdressDeserializer.class)
+    @JsonDeserialize(using = TravelPointDeserializer.class)
     public void setStart(TravelPoint start) {
         this.start = start;
     }
 
-    @JsonDeserialize(using = PostalAdressDeserializer.class)
+    @JsonDeserialize(using = TravelPointDeserializer.class)
     public void setDestination(TravelPoint destination) {
         this.destination = destination;
     }
