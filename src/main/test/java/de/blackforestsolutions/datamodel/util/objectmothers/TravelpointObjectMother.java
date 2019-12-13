@@ -3,6 +3,8 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 import de.blackforestsolutions.datamodel.Coordinates;
 import de.blackforestsolutions.datamodel.TravelPoint;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.Locale;
 
 import static de.blackforestsolutions.datamodel.util.testutil.TestUtils.getResourceFileAsString;
@@ -17,6 +19,8 @@ public class TravelpointObjectMother {
         travelPoint.setAirportId("TXL");
         travelPoint.setCountry(new Locale("", "DEU"));
         travelPoint.setGpsCoordinates(new Coordinates(1, 0));
+        travelPoint.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
+        travelPoint.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
         return travelPoint;
     }
 

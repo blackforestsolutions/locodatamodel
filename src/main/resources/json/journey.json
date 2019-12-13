@@ -16,7 +16,11 @@
     "airportId": "",
     "airportName": "",
     "platform": "",
-    "terminal": ""
+    "terminal": "",
+    "departureTime": 1,
+    "arrivalTime": 1,
+    "stationName": "",
+    "stationId": ""
   },
   "destination": {
     "city": "Hamburg",
@@ -34,7 +38,11 @@
     "airportId": "",
     "airportName": "",
     "platform": "",
-    "terminal": ""
+    "terminal": "",
+    "departureTime": 1,
+    "arrivalTime": 1,
+    "stationName": "",
+    "stationId": ""
   },
   "betweenHolds": {
     "1": {
@@ -53,7 +61,11 @@
       "airportId": "",
       "airportName": "",
       "platform": "",
-      "terminal": ""
+      "terminal": "",
+      "departureTime": 1,
+      "arrivalTime": 1,
+      "stationName": "",
+      "stationId": ""
     },
     "2": {
       "city": "Hamburg",
@@ -71,7 +83,11 @@
       "airportId": "",
       "airportName": "",
       "platform": "",
-      "terminal": ""
+      "terminal": "",
+      "departureTime": 1,
+      "arrivalTime": 1,
+      "stationName": "",
+      "stationId": ""
     }
   },
   "travelProvider": "DB",
@@ -89,5 +105,6 @@
   "providerId": null,
   "delay": null,
   "trainName": null,
-  "vehicleNumber": null
+  "vehicleNumber": null,
+  "vehicleName": null
 }

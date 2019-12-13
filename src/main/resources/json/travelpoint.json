@@ -14,5 +14,9 @@
   "airportId": "TXL",
   "airportName": "Berlin Tegel",
   "platform": "",
-  "terminal": ""
+  "terminal": "",
+  "departureTime": 1,
+  "arrivalTime": 1,
+  "stationName": "",
+  "stationId": ""
 }

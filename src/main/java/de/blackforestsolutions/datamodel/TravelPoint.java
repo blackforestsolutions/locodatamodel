@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.util.Date;
 import java.util.Locale;
 
 @Setter
@@ -42,7 +43,37 @@ public class TravelPoint {
 
     private String terminal = "";
 
+    private Date departureTime;
+
+    private Date arrivalTime;
+
+    private String stationName = "";
+
+    private String stationId = "";
+
     public TravelPoint() {
+    }
+
+    public Date getDepartureTime() {
+        if (departureTime != null) {
+            return (Date) departureTime.clone();
+        }
+        return null;
+    }
+
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = (Date) departureTime.clone();
+    }
+
+    public Date getArrivalTime() {
+        if (arrivalTime != null) {
+            return (Date) arrivalTime.clone();
+        }
+        return null;
+    }
+
+    public void setArrivalTime(Date arrivalTime) {
+        this.arrivalTime = (Date) arrivalTime.clone();
     }
 
     @JsonDeserialize(using = CoordinatesDeserializer.class)
@@ -92,7 +123,11 @@ public class TravelPoint {
                 &&
                 platform.equals(c.platform)
                 &&
-                terminal.equals(c.terminal);
+                terminal.equals(c.terminal)
+                &&
+                stationName.equals(c.stationName)
+                &&
+                stationId.equals(c.stationId);
     }
 
 
@@ -111,6 +146,8 @@ public class TravelPoint {
                 .append(airportName)
                 .append(platform)
                 .append(terminal.hashCode())
+                .append(stationName.hashCode())
+                .append(stationId)
                 .toHashCode();
     }
 }

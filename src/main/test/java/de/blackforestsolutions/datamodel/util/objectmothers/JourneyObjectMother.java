@@ -22,6 +22,8 @@ public class JourneyObjectMother {
         start.setStateOrProvince("Brandenburg");
         start.setStreetNumber("34");
         start.setStreet("Feldweg");
+        start.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
+        start.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
         start.setCountry(new Locale("DE", "DE"));
         start.setGpsCoordinates(new Coordinates(1, 0));
         TravelPoint destination = new TravelPoint();
@@ -32,6 +34,8 @@ public class JourneyObjectMother {
         destination.setStreet("Fischmarkt");
         destination.setCountry(new Locale("DE", "DE"));
         destination.setGpsCoordinates(new Coordinates(1, 0));
+        destination.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
+        destination.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
         Journey journey = new Journey();
         journey.getBetweenHolds().put(1, start);
         journey.getBetweenHolds().put(2, destination);
