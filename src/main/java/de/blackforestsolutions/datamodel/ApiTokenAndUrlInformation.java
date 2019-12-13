@@ -35,7 +35,18 @@ public class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
-
+    private final String datePathVariable;
+    private final String searchChRoutePathVariable;
+    private final String searchChResults;
+    private final String searchChDelayParameter;
+    private final String timePathVariable;
+    private final String startLocation;
+    private final String destinationLocation;
+    private final String locationPath;
+    private final String searchChTermParameter;
+    private final String searchChStationId;
+    private final String searchChStationCoordinateParameter;
+    private final String locationSearchTerm;
 
 
 
@@ -66,7 +77,18 @@ public class ApiTokenAndUrlInformation {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
-
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
+        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -96,6 +118,18 @@ public class ApiTokenAndUrlInformation {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
+        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -125,6 +159,18 @@ public class ApiTokenAndUrlInformation {
         this.stationId = null;
         this.journeyDetailsId = null;
         this.bahnLocation = null;
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
+        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -201,6 +247,48 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String germanRailDepartureBoardPathVariable;
+        @Getter
+        @Setter
+        private String arrival;
+        @Getter
+        @Setter
+        private String departure;
+        @Getter
+        @Setter
+        private String datePathVariable;
+        @Getter
+        @Setter
+        private String searchChRoutePathVariable;
+        @Getter
+        @Setter
+        private String searchChResults;
+        @Getter
+        @Setter
+        private String searchChDelayParameter;
+        @Getter
+        @Setter
+        private String timePathVariable;
+        @Getter
+        @Setter
+        private String startLocation;
+        @Getter
+        @Setter
+        private String destinationLocation;
+        @Getter
+        @Setter
+        private String locationPath;
+        @Getter
+        @Setter
+        private String searchChTermParameter;
+        @Getter
+        @Setter
+        private String searchChStationId;
+        @Getter
+        @Setter
+        private String searchChStationCoordinateParameter;
+        @Getter
+        @Setter
+        private String locationSearchTerm;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -240,6 +328,19 @@ public class ApiTokenAndUrlInformation {
         private String stationId;
         private String journeyDetailsId;
         private String bahnLocation;
+        private String datePathVariable;
+        private String searchChRoutePathVariable;
+        private String searchChResults;
+        private String searchChDelayParameter;
+        private String timePathVariable;
+        private String startLocation;
+        private String destinationLocation;
+        private String locationPath;
+        private String searchChTermParameter;
+        private String searchChStationId;
+        private String searchChStationCoordinateParameter;
+        private String locationSearchTerm;
+
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -268,6 +369,19 @@ public class ApiTokenAndUrlInformation {
             this.stationId = apiTokenAndUrlInformation.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
             this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
+            this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
+            this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+            this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+            this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+            this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
+            this.startLocation = apiTokenAndUrlInformation.getStartLocation();
+            this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
+            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+            this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+            this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         }
 
         public ApiTokenAndUrlInformationBuilder() {

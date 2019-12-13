@@ -1,7 +1,24 @@
 package de.blackforestsolutions.datamodel;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public enum TravelProvider {
-    DB, SBB, ÖBB, LUFTHANSA, EUROWINGS, CONDOR, FLIXBUS;
+    DB("DB"),
+    SBB("SBB"),
+    ÖBB("ÖBB"),
+    LUFTHANSA("Lufthansa"),
+    EUROWINGS("Eurowings"),
+    CONDOR("Condor"),
+    FLIXBUS("Flixbus");
+
+    @Getter
+    @Setter
+    private String unknownTravelProvider;
+
+    TravelProvider(String unknownTravelProvider) {
+        this.unknownTravelProvider = unknownTravelProvider;
+    }
 
     public static TravelProvider map(String providerVariable) {
         if (providerVariable.equalsIgnoreCase("LH") || providerVariable.equalsIgnoreCase("LX")) {

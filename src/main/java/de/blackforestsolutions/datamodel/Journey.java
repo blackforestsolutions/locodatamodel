@@ -50,6 +50,8 @@ public class Journey {
 
     private String vehicleNumber;
 
+    private String vehicleName;
+
 
     public Journey() {
     }
