@@ -55,7 +55,11 @@ public class Journey {
     private String vehicleNumber;
 
     private boolean matchesRequest;
-    
+
+    private Date startTimeUpdated;
+
+    private Date arrivalTimeUpdated;
+
     public Journey() {
     }
 
@@ -90,9 +94,31 @@ public class Journey {
     }
 
 
+    public Date getStartTimeUpdated() {
+        if (startTimeUpdated != null) {
+            return (Date) startTimeUpdated.clone();
+        }
+        return null;
+    }
+
+    public void setStartTimeUpdated(Date startTimeUpdated) {
+        this.startTimeUpdated = (Date) startTimeUpdated.clone();
+    }
+
+    public Date getArrivalTimeUpdated() {
+        if (arrivalTimeUpdated != null) {
+            return (Date) arrivalTimeUpdated.clone();
+        }
+        return null;
+    }
+
+    public void setArrivalTimeUpdated(Date arrivalTimeUpdated) {
+        this.arrivalTimeUpdated = (Date) arrivalTimeUpdated.clone();
+    }
+
     public Date getStartTime() {
-        if (startTime != null) {
-            return (Date) startTime.clone();
+        if (startTimeUpdated != null) {
+            return (Date) startTimeUpdated.clone();
         }
         return null;
     }

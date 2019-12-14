@@ -44,6 +44,9 @@ public class JourneyObjectMother {
         journey.setTravelProvider(TravelProvider.DB);
         journey.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
         journey.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setMatchesRequest(false);
+        journey.setStartTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setArrivalTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
         journey.setId(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
         Price price = new Price();
         price.setCurrency(Currency.getInstance("EUR"));

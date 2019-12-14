@@ -380,7 +380,6 @@ public class ApiTokenAndUrlInformation {
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
             this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();

@@ -91,6 +91,7 @@
     }
   },
   "travelProvider": "DB",
+  "unknownTravelProvider": null,
   "startTime": 1,
   "arrivalTime": 1,
   "duration": null,
@@ -105,6 +106,9 @@
   "providerId": null,
   "delay": null,
   "trainName": null,
+  "vehicleName": null,
   "vehicleNumber": null,
-  "vehicleName": null
+  "matchesRequest": false,
+  "startTimeUpdated": 1,
+  "arrivalTimeUpdated": 1
 }
