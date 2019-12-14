@@ -117,8 +117,8 @@ public class Journey {
     }
 
     public Date getStartTime() {
-        if (startTimeUpdated != null) {
-            return (Date) startTimeUpdated.clone();
+        if (startTime != null) {
+            return (Date) startTime.clone();
         }
         return null;
     }
