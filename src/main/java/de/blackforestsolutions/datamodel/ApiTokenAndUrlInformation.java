@@ -289,9 +289,6 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String locationSearchTerm;
-        @Getter
-        @Setter
-        private String timePathVaraible;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
