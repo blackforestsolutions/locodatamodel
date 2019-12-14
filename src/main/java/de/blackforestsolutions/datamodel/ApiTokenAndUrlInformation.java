@@ -540,16 +540,22 @@ public class ApiTokenAndUrlInformation {
         public String getBaVariable() {
             return baVariable;
         }
+
         public String getBbcAuthorization() {
             return bbcAuthorization;
         }
+
         public String getBbcAuthorizationKey() {
             return bbcAuthorizationKey;
         }
+
         public String getBaApplicationKey() {
             return baApplicationKey;
         }
-        public String getBaClientKeyKey() { return baClientKeyKey;}
+
+        public String getBaClientKeyKey() {
+            return baClientKeyKey;
+        }
 
         public Date getGermanRailDatePathVariable() {
             if (germanRailDatePathVariable != null) {
