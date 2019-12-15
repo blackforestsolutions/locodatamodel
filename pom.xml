@@ -155,6 +155,7 @@
                         <class>de.blackforestsolutions.datamodel.TravelProvider</class>
                     </classes>
                     <mapEnum>asEnum</mapEnum>
+                    <outputFileType>implementationFile</outputFileType>
                     <outputKind>module</outputKind>
                 </configuration>
             </plugin>
