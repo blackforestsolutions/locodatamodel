@@ -123,15 +123,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-
+            <!-- 3. Convert java datmodel to typescript datamodel -->
             <plugin>
                 <groupId>cz.habarta.typescript-generator</groupId>
                 <artifactId>typescript-generator-maven-plugin</artifactId>
@@ -148,15 +140,28 @@
                 <configuration>
                     <jsonLibrary>jackson2</jsonLibrary>
                     <classes>
-                        <class>de.blackforestsolutions.datamodel.Coordinates</class>
                         <class>de.blackforestsolutions.datamodel.Journey</class>
-                        <class>de.blackforestsolutions.datamodel.Price</class>
-                        <class>de.blackforestsolutions.datamodel.TravelPoint</class>
-                        <class>de.blackforestsolutions.datamodel.TravelProvider</class>
                     </classes>
+                    <customTypeMappings>
+                        <mapping>java.time.Duration:number</mapping>
+                        <mapping>org.springframework.data.geo.Distance:number</mapping>
+                        <mapping>java.util.Currency:string</mapping>
+                        <mapping>java.util.Locale:string</mapping>
+                    </customTypeMappings>
                     <mapEnum>asEnum</mapEnum>
+                    <nonConstEnums>true</nonConstEnums>
+                    <noTslintDisable>true</noTslintDisable>
+                    <outputFile>target/typescript-generator/locodatamodel.ts</outputFile>
                     <outputFileType>implementationFile</outputFileType>
                     <outputKind>module</outputKind>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
