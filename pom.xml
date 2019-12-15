@@ -131,6 +131,33 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>cz.habarta.typescript-generator</groupId>
+                <artifactId>typescript-generator-maven-plugin</artifactId>
+                <version>2.18.565</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jsonLibrary>jackson2</jsonLibrary>
+                    <classes>
+                        <class>de.blackforestsolutions.datamodel.Coordinates</class>
+                        <class>de.blackforestsolutions.datamodel.Journey</class>
+                        <class>de.blackforestsolutions.datamodel.Price</class>
+                        <class>de.blackforestsolutions.datamodel.TravelPoint</class>
+                        <class>de.blackforestsolutions.datamodel.TravelProvider</class>
+                    </classes>
+                    <mapEnum>asEnum</mapEnum>
+                    <outputKind>module</outputKind>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
