@@ -48,8 +48,6 @@ public class Journey {
 
     private Duration delay;
 
-    private String trainName;
-
     private String vehicleName;
 
     private String vehicleNumber;
