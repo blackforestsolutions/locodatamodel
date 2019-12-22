@@ -64,7 +64,7 @@ public class Journey {
 
     private String description;
 
-    private int aircraftTypeCode;
+    private String aircraftTypeCode;
 
     private boolean matchesRequest;
 
