@@ -31,10 +31,6 @@ public class TravelPoint {
 
     private Coordinates gpsCoordinates = new Coordinates(0, 0);
 
-    private String dbStationId = "";
-
-    private String dbStationName = "";
-
     private String airportId = "";
 
     private String airportName = "";
@@ -113,10 +109,6 @@ public class TravelPoint {
                 &&
                 gpsCoordinates.equals(c.gpsCoordinates)
                 &&
-                dbStationId.equals(c.dbStationId)
-                &&
-                dbStationName.equals(c.dbStationName)
-                &&
                 airportId.equals(c.airportId)
                 &&
                 airportName.equals(c.airportName)
@@ -140,8 +132,6 @@ public class TravelPoint {
                 .append(stateOrProvince)
                 .append(streetNumber)
                 .append(gpsCoordinates.hashCode())
-                .append(dbStationId)
-                .append(dbStationName.hashCode())
                 .append(airportId)
                 .append(airportName)
                 .append(platform)
