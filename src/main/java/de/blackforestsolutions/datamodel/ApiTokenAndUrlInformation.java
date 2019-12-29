@@ -35,29 +35,19 @@ public class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
-    private final String bbcPathVariable;
-    private final String bbcVersion;
-    private final String baApplication;
-    private final String baClientKey;
-    private final String baHost;
-    private final String baVersion;
-    private final String baVariable;
-    private final String bbcAuthorization;
-    private final String bbcAuthorizationKey;
-    private final String baApplicationKey;
-    private final String baClientKeyKey;
-    private final String searchChTermParameter;
-    private final String searchChStationCoordinateParameter;
+
+    private final String datePathVariable;
     private final String searchChRoutePathVariable;
-    private final String searchChStationId;
-    private final String searchChDelayParameter;
     private final String searchChResults;
-    private final String locationPath;
-    private final String locationSearchTerm;
+    private final String searchChDelayParameter;
+    private final String timePathVariable;
     private final String startLocation;
     private final String destinationLocation;
-    private final String datePathVariable;
-    private final String timePathVaraible;
+    private final String locationPath;
+    private final String searchChTermParameter;
+    private final String searchChStationId;
+    private final String searchChStationCoordinateParameter;
+    private final String locationSearchTerm;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -87,29 +77,18 @@ public class ApiTokenAndUrlInformation {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
-        this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
-        this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
-        this.baApplication = apiTokenAndUrlInformation.getBaApplication();
-        this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
-        this.baHost = apiTokenAndUrlInformation.getBaHost();
-        this.baVersion = apiTokenAndUrlInformation.getBaVersion();
-        this.baVariable = apiTokenAndUrlInformation.getBaVariable();
-        this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
-        this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
-        this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
-        this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
-        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -139,29 +118,18 @@ public class ApiTokenAndUrlInformation {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
-        this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
-        this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
-        this.baApplication = apiTokenAndUrlInformation.getBaApplication();
-        this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
-        this.baHost = apiTokenAndUrlInformation.getBaHost();
-        this.baVersion = apiTokenAndUrlInformation.getBaVersion();
-        this.baVariable = apiTokenAndUrlInformation.getBaVariable();
-        this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
-        this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
-        this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
-        this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
-        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -191,57 +159,18 @@ public class ApiTokenAndUrlInformation {
         this.stationId = null;
         this.journeyDetailsId = null;
         this.bahnLocation = null;
-        this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
-        this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
-        this.baApplication = apiTokenAndUrlInformation.getBaApplication();
-        this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
-        this.baHost = apiTokenAndUrlInformation.getBaHost();
-        this.baVersion = apiTokenAndUrlInformation.getBaVersion();
-        this.baVariable = apiTokenAndUrlInformation.getBaVariable();
-        this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
-        this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
-        this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
-        this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-        this.locationSearchTerm = null;
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
-        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
-    }
-
-    public String getBbcPathVariable() {
-        return bbcPathVariable;
-    }
-
-    public String getBbcVersion() {
-        return bbcVersion;
-    }
-
-    public String getBaApplication() {
-        return baApplication;
-    }
-
-    public String getBaClientKey() {
-        return baClientKey;
-    }
-
-    public String getBaHost() {
-        return baHost;
-    }
-
-    public String getBaVersion() {
-        return baVersion;
-    }
-
-    public String getBaVariable() {
-        return baVariable;
+        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -326,61 +255,19 @@ public class ApiTokenAndUrlInformation {
         private String germanRailDepartureBoardPathVariable;
         @Getter
         @Setter
-        private String bbcPathVariable;
+        private String datePathVariable;
         @Getter
         @Setter
-        private String bbcVersion;
-        @Getter
-        @Setter
-        private String baApplication;
-        @Getter
-        @Setter
-        private String baClientKey;
-        @Getter
-        @Setter
-        private String baHost;
-        @Getter
-        @Setter
-        private String baVersion;
-        @Getter
-        @Setter
-        private String baVariable;
-        @Getter
-        @Setter
-        private String bbcAuthorization;
-        @Getter
-        @Setter
-        private String bbcAuthorizationKey;
-        @Getter
-        @Setter
-        private String baApplicationKey;
-        @Getter
-        @Setter
-        private String baClientKeyKey;
-        @Getter
-        @Setter
-        private String searchChTermParameter;
-        @Getter
-        @Setter
-        private String searchChStationCoordinateParameter;
-        @Getter
-        @Setter
-        private String searchChStationId;
-        @Getter
-        @Setter
-        private String locationPath;
-        @Getter
-        @Setter
-        private String locationSearchTerm;
-        @Getter
-        @Setter
-        private String searchChDelayParameter;
+        private String searchChRoutePathVariable;
         @Getter
         @Setter
         private String searchChResults;
         @Getter
         @Setter
-        private String searchChRoutePathVariable;
+        private String searchChDelayParameter;
+        @Getter
+        @Setter
+        private String timePathVariable;
         @Getter
         @Setter
         private String startLocation;
@@ -389,10 +276,19 @@ public class ApiTokenAndUrlInformation {
         private String destinationLocation;
         @Getter
         @Setter
-        private String datePathVariable;
+        private String locationPath;
         @Getter
         @Setter
-        private String timePathVaraible;
+        private String searchChTermParameter;
+        @Getter
+        @Setter
+        private String searchChStationId;
+        @Getter
+        @Setter
+        private String searchChStationCoordinateParameter;
+        @Getter
+        @Setter
+        private String locationSearchTerm;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -432,29 +328,18 @@ public class ApiTokenAndUrlInformation {
         private String stationId;
         private String journeyDetailsId;
         private String bahnLocation;
-        private String bbcPathVariable;
-        private String bbcVersion;
-        private String baApplication;
-        private String baClientKey;
-        private String baHost;
-        private String baVersion;
-        private String baVariable;
-        private String bbcAuthorization;
-        private String bbcAuthorizationKey;
-        private String baApplicationKey;
-        private String baClientKeyKey;
-        private String searchChTermParameter;
-        private String searchChStationCoordinateParameter;
-        private String searchChStationId;
-        private String locationPath;
-        private String locationSearchTerm;
-        private String searchChDelayParameter;
-        private String searchChResults;
+        private String datePathVariable;
         private String searchChRoutePathVariable;
+        private String searchChResults;
+        private String searchChDelayParameter;
+        private String timePathVariable;
         private String startLocation;
         private String destinationLocation;
-        private String datePathVariable;
-        private String timePathVaraible;
+        private String locationPath;
+        private String searchChTermParameter;
+        private String searchChStationId;
+        private String searchChStationCoordinateParameter;
+        private String locationSearchTerm;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -484,77 +369,22 @@ public class ApiTokenAndUrlInformation {
             this.stationId = apiTokenAndUrlInformation.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
             this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
-            this.bbcPathVariable = apiTokenAndUrlInformation.getBbcPathVariable();
-            this.bbcVersion = apiTokenAndUrlInformation.getBbcVersion();
-            this.baApplication = apiTokenAndUrlInformation.getBaApplication();
-            this.baClientKey = apiTokenAndUrlInformation.getBaClientKey();
-            this.baHost = apiTokenAndUrlInformation.getBaHost();
-            this.baVersion = apiTokenAndUrlInformation.getBaVersion();
-            this.baVariable = apiTokenAndUrlInformation.getBaVariable();
-            this.bbcAuthorization = apiTokenAndUrlInformation.getBbcAuthorization();
-            this.bbcAuthorizationKey = apiTokenAndUrlInformation.getBbcAuthorizationKey();
-            this.baApplicationKey = apiTokenAndUrlInformation.getBaApplicationKey();
-            this.baClientKeyKey = apiTokenAndUrlInformation.getBaClientKeyKey();
-            this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-            this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-            this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-            this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
-            this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+            this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
             this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
+            this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
+            this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+            this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
-            this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-            this.timePathVaraible = apiTokenAndUrlInformation.getTimePathVaraible();
+            this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
+            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
+            this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
+            this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
 
-        }
-
-        public String getBbcPathVariable() {
-            return bbcPathVariable;
-        }
-
-        public String getBbcVersion() {
-            return bbcVersion;
-        }
-
-        public String getBaApplication() {
-            return baApplication;
-        }
-
-        public String getBaClientKey() {
-            return baClientKey;
-        }
-
-        public String getBaHost() {
-            return baHost;
-        }
-
-        public String getBaVersion() {
-            return baVersion;
-        }
-
-        public String getBaVariable() {
-            return baVariable;
-        }
-
-        public String getBbcAuthorization() {
-            return bbcAuthorization;
-        }
-
-        public String getBbcAuthorizationKey() {
-            return bbcAuthorizationKey;
-        }
-
-        public String getBaApplicationKey() {
-            return baApplicationKey;
-        }
-
-        public String getBaClientKeyKey() {
-            return baClientKeyKey;
         }
 
         public Date getGermanRailDatePathVariable() {
