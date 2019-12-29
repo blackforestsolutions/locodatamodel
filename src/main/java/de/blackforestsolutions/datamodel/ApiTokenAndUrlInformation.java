@@ -8,7 +8,6 @@ import java.util.Date;
 @Getter
 public class ApiTokenAndUrlInformation {
 
-    public static final String ACCEPT = "Accept";
     private final String protocol;
     private final String host;
     private final Integer port;
@@ -48,6 +47,20 @@ public class ApiTokenAndUrlInformation {
     private final String searchChStationId;
     private final String searchChStationCoordinateParameter;
     private final String locationSearchTerm;
+    private final String accept;
+    private final String contentType;
+    private final String language;
+    private final String authentificationUser;
+    private final String authentificationType;
+    private final String authentificationPassword;
+    private final String stationListPathVariable;
+    private final String journeyPathVariable;
+    private final String travelPointPathVariable;
+    private final int resultLength;
+    private final int distanceFromTravelPoint;
+    private final int resultLengthBeforeDepartureTime;
+    private final int resultLengthAfterDepartureTime;
+    private final String tariff;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -89,6 +102,20 @@ public class ApiTokenAndUrlInformation {
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
+        this.accept = apiTokenAndUrlInformation.getAccept();
+        this.contentType = apiTokenAndUrlInformation.getContentType();
+        this.language = apiTokenAndUrlInformation.getLanguage();
+        this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
+        this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
+        this.authentificationPassword = apiTokenAndUrlInformation.getAuthentificationPassword();
+        this.stationListPathVariable = apiTokenAndUrlInformation.getStationListPathVariable();
+        this.journeyPathVariable = apiTokenAndUrlInformation.getJourneyPathVariable();
+        this.travelPointPathVariable = apiTokenAndUrlInformation.getTravelPointPathVariable();
+        this.resultLength = apiTokenAndUrlInformation.getResultLength();
+        this.distanceFromTravelPoint = apiTokenAndUrlInformation.getDistanceFromTravelPoint();
+        this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
+        this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
+        this.tariff = apiTokenAndUrlInformation.getTariff();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -130,6 +157,20 @@ public class ApiTokenAndUrlInformation {
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
+        this.accept = apiTokenAndUrlInformation.getAccept();
+        this.contentType = apiTokenAndUrlInformation.getContentType();
+        this.language = apiTokenAndUrlInformation.getLanguage();
+        this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
+        this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
+        this.authentificationPassword = apiTokenAndUrlInformation.getAuthentificationPassword();
+        this.stationListPathVariable = apiTokenAndUrlInformation.getStationListPathVariable();
+        this.journeyPathVariable = apiTokenAndUrlInformation.getJourneyPathVariable();
+        this.travelPointPathVariable = apiTokenAndUrlInformation.getTravelPointPathVariable();
+        this.resultLength = apiTokenAndUrlInformation.getResultLength();
+        this.distanceFromTravelPoint = apiTokenAndUrlInformation.getDistanceFromTravelPoint();
+        this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
+        this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
+        this.tariff = apiTokenAndUrlInformation.getTariff();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -171,6 +212,20 @@ public class ApiTokenAndUrlInformation {
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
+        this.accept = apiTokenAndUrlInformation.getAccept();
+        this.contentType = apiTokenAndUrlInformation.getContentType();
+        this.language = apiTokenAndUrlInformation.getLanguage();
+        this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
+        this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
+        this.authentificationPassword = apiTokenAndUrlInformation.getAuthentificationPassword();
+        this.stationListPathVariable = apiTokenAndUrlInformation.getStationListPathVariable();
+        this.journeyPathVariable = apiTokenAndUrlInformation.getJourneyPathVariable();
+        this.travelPointPathVariable = apiTokenAndUrlInformation.getTravelPointPathVariable();
+        this.resultLength = apiTokenAndUrlInformation.getResultLength();
+        this.distanceFromTravelPoint = apiTokenAndUrlInformation.getDistanceFromTravelPoint();
+        this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
+        this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
+        this.tariff = apiTokenAndUrlInformation.getTariff();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -289,6 +344,48 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String locationSearchTerm;
+        @Getter
+        @Setter
+        private String accept;
+        @Getter
+        @Setter
+        private String contentType;
+        @Getter
+        @Setter
+        private String language;
+        @Getter
+        @Setter
+        private String authentificationUser;
+        @Getter
+        @Setter
+        private String authentificationType;
+        @Getter
+        @Setter
+        private String authentificationPassword;
+        @Getter
+        @Setter
+        private String stationListPathVariable;
+        @Getter
+        @Setter
+        private String journeyPathVariable;
+        @Getter
+        @Setter
+        private String travelPointPathVariable;
+        @Getter
+        @Setter
+        private int resultLength;
+        @Getter
+        @Setter
+        private int distanceFromTravelPoint;
+        @Getter
+        @Setter
+        private int resultLengthBeforeDepartureTime;
+        @Getter
+        @Setter
+        private int resultLengthAfterDepartureTime;
+        @Getter
+        @Setter
+        private String tariff;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -340,6 +437,20 @@ public class ApiTokenAndUrlInformation {
         private String searchChStationId;
         private String searchChStationCoordinateParameter;
         private String locationSearchTerm;
+        private String accept;
+        private String contentType;
+        private String language;
+        private String authentificationUser;
+        private String authentificationType;
+        private String authentificationPassword;
+        private String stationListPathVariable;
+        private String journeyPathVariable;
+        private String travelPointPathVariable;
+        private int resultLength;
+        private int distanceFromTravelPoint;
+        private int resultLengthBeforeDepartureTime;
+        private int resultLengthAfterDepartureTime;
+        private String tariff;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -381,6 +492,20 @@ public class ApiTokenAndUrlInformation {
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
             this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
+            this.accept = apiTokenAndUrlInformation.getAccept();
+            this.contentType = apiTokenAndUrlInformation.getContentType();
+            this.language = apiTokenAndUrlInformation.getLanguage();
+            this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
+            this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
+            this.authentificationPassword = apiTokenAndUrlInformation.getAuthentificationPassword();
+            this.stationListPathVariable = apiTokenAndUrlInformation.getStationListPathVariable();
+            this.journeyPathVariable = apiTokenAndUrlInformation.getJourneyPathVariable();
+            this.travelPointPathVariable = apiTokenAndUrlInformation.getTravelPointPathVariable();
+            this.resultLength = apiTokenAndUrlInformation.getResultLength();
+            this.distanceFromTravelPoint = apiTokenAndUrlInformation.getDistanceFromTravelPoint();
+            this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
+            this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
+            this.tariff = apiTokenAndUrlInformation.getTariff();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
