@@ -52,11 +52,17 @@ public class Journey {
 
     private String vehicleNumber;
 
+    private String startStatus;
+
+    private String arrivalStatus;
+
     private boolean matchesRequest;
 
     private Date startTimeUpdated;
 
     private Date arrivalTimeUpdated;
+
+    private String description;
 
     public Journey() {
     }
