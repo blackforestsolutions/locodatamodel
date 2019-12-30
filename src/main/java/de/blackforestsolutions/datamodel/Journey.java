@@ -48,8 +48,6 @@ public class Journey {
 
     private Duration delay;
 
-    private String trainName;
-
     private String vehicleName;
 
     private String vehicleNumber;
@@ -58,15 +56,13 @@ public class Journey {
 
     private String arrivalStatus;
 
+    private boolean matchesRequest;
+
     private Date startTimeUpdated;
 
     private Date arrivalTimeUpdated;
 
     private String description;
-
-    private String aircraftTypeCode;
-
-    private boolean matchesRequest;
 
     public Journey() {
     }
@@ -125,8 +121,8 @@ public class Journey {
     }
 
     public Date getStartTime() {
-        if (startTimeUpdated != null) {
-            return (Date) startTimeUpdated.clone();
+        if (startTime != null) {
+            return (Date) startTime.clone();
         }
         return null;
     }
