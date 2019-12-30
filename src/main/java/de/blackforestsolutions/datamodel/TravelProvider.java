@@ -7,6 +7,7 @@ public enum TravelProvider {
     LUFTHANSA,
     EUROWINGS,
     CONDOR,
+    BRITISHAIRWAYS,
     FLIXBUS;
 
     public static TravelProvider map(String providerVariable) {
