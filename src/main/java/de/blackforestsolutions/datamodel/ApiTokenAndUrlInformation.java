@@ -47,8 +47,6 @@ public class ApiTokenAndUrlInformation {
     private final String searchChStationId;
     private final String searchChStationCoordinateParameter;
     private final String locationSearchTerm;
-    private final String accept;
-    private final String contentType;
     private final String language;
     private final String authentificationUser;
     private final String authentificationType;
@@ -61,6 +59,7 @@ public class ApiTokenAndUrlInformation {
     private final int resultLengthBeforeDepartureTime;
     private final int resultLengthAfterDepartureTime;
     private final String tariff;
+    private final Boolean timeIsDeparture;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -102,8 +101,6 @@ public class ApiTokenAndUrlInformation {
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.accept = apiTokenAndUrlInformation.getAccept();
-        this.contentType = apiTokenAndUrlInformation.getContentType();
         this.language = apiTokenAndUrlInformation.getLanguage();
         this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
         this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
@@ -116,6 +113,7 @@ public class ApiTokenAndUrlInformation {
         this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
         this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
         this.tariff = apiTokenAndUrlInformation.getTariff();
+        this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -149,6 +147,7 @@ public class ApiTokenAndUrlInformation {
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
         this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
         this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
+        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
@@ -156,9 +155,6 @@ public class ApiTokenAndUrlInformation {
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.accept = apiTokenAndUrlInformation.getAccept();
-        this.contentType = apiTokenAndUrlInformation.getContentType();
         this.language = apiTokenAndUrlInformation.getLanguage();
         this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
         this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
@@ -171,6 +167,7 @@ public class ApiTokenAndUrlInformation {
         this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
         this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
         this.tariff = apiTokenAndUrlInformation.getTariff();
+        this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -212,8 +209,6 @@ public class ApiTokenAndUrlInformation {
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.accept = apiTokenAndUrlInformation.getAccept();
-        this.contentType = apiTokenAndUrlInformation.getContentType();
         this.language = apiTokenAndUrlInformation.getLanguage();
         this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
         this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
@@ -226,6 +221,7 @@ public class ApiTokenAndUrlInformation {
         this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
         this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
         this.tariff = apiTokenAndUrlInformation.getTariff();
+        this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -346,12 +342,6 @@ public class ApiTokenAndUrlInformation {
         private String locationSearchTerm;
         @Getter
         @Setter
-        private String accept;
-        @Getter
-        @Setter
-        private String contentType;
-        @Getter
-        @Setter
         private String language;
         @Getter
         @Setter
@@ -386,6 +376,10 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String tariff;
+        @Getter
+        @Setter
+        private Boolean timeIsDeparture;
+
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -437,8 +431,6 @@ public class ApiTokenAndUrlInformation {
         private String searchChStationId;
         private String searchChStationCoordinateParameter;
         private String locationSearchTerm;
-        private String accept;
-        private String contentType;
         private String language;
         private String authentificationUser;
         private String authentificationType;
@@ -451,6 +443,7 @@ public class ApiTokenAndUrlInformation {
         private int resultLengthBeforeDepartureTime;
         private int resultLengthAfterDepartureTime;
         private String tariff;
+        private Boolean timeIsDeparture;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -492,8 +485,6 @@ public class ApiTokenAndUrlInformation {
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
             this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-            this.accept = apiTokenAndUrlInformation.getAccept();
-            this.contentType = apiTokenAndUrlInformation.getContentType();
             this.language = apiTokenAndUrlInformation.getLanguage();
             this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
             this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
@@ -506,6 +497,7 @@ public class ApiTokenAndUrlInformation {
             this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
             this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
             this.tariff = apiTokenAndUrlInformation.getTariff();
+            this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
         }
 
         public ApiTokenAndUrlInformationBuilder() {

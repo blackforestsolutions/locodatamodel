@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 @Setter
@@ -46,6 +48,8 @@ public class TravelPoint {
     private String stationName = "";
 
     private String stationId = "";
+
+    private List<String> vehicleTypes = new ArrayList<>();
 
     public TravelPoint() {
     }
