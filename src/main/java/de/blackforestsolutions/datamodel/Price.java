@@ -15,6 +15,8 @@ public class Price {
 
     private String symbol;
 
+    private String affiliateLink;
+
     public Price() {
     }
 
