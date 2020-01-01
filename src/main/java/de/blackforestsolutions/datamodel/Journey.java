@@ -40,7 +40,11 @@ public class Journey {
 
     private Price priceWithCommision;
 
+    private Price childPrice;
+
     private List<UUID> journeysRelated;
+
+    private List<Journey> betweenTrips;
 
     private Distance distance;
 
@@ -69,6 +73,11 @@ public class Journey {
     @JsonDeserialize(using = PriceDeserializer.class)
     public void setPrice(Price price) {
         this.price = price;
+    }
+
+    @JsonDeserialize(using = PriceDeserializer.class)
+    public void setChildPrice(Price childPrice) {
+        this.childPrice = childPrice;
     }
 
     @JsonDeserialize(using = TravelPointDeserializer.class)

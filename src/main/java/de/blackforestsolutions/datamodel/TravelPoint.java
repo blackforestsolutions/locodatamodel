@@ -2,6 +2,7 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
+import de.blackforestsolutions.datamodel.util.TravelPointType;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -50,6 +51,8 @@ public class TravelPoint {
     private String stationId = "";
 
     private List<String> vehicleTypes = new ArrayList<>();
+
+    private TravelPointType type;
 
     public TravelPoint() {
     }
