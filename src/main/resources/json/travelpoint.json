@@ -16,5 +16,7 @@
   "departureTime": 1,
   "arrivalTime": 1,
   "stationName": "",
-  "stationId": ""
+  "stationId": "",
+  "vehicleTypes": [],
+  "type": null
 }

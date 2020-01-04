@@ -18,7 +18,9 @@
     "departureTime": 1,
     "arrivalTime": 1,
     "stationName": "",
-    "stationId": ""
+    "stationId": "",
+    "vehicleTypes": [],
+    "type": null
   },
   "destination": {
     "city": "Hamburg",
@@ -38,50 +40,11 @@
     "departureTime": 1,
     "arrivalTime": 1,
     "stationName": "",
-    "stationId": ""
+    "stationId": "",
+    "vehicleTypes": [],
+    "type": null
   },
-  "betweenHolds": {
-    "1": {
-      "city": "Berlin",
-      "country": "de_DE",
-      "postalCode": "64664",
-      "stateOrProvince": "Brandenburg",
-      "street": "Feldweg",
-      "streetNumber": "34",
-      "gpsCoordinates": {
-        "latitude": 1.0,
-        "longitude": 0.0
-      },
-      "airportId": "",
-      "airportName": "",
-      "platform": "",
-      "terminal": "",
-      "departureTime": 1,
-      "arrivalTime": 1,
-      "stationName": "",
-      "stationId": ""
-    },
-    "2": {
-      "city": "Hamburg",
-      "country": "de_DE",
-      "postalCode": "58974",
-      "stateOrProvince": "Hamburg",
-      "street": "Fischmarkt",
-      "streetNumber": "6",
-      "gpsCoordinates": {
-        "latitude": 1.0,
-        "longitude": 0.0
-      },
-      "airportId": "",
-      "airportName": "",
-      "platform": "",
-      "terminal": "",
-      "departureTime": 1,
-      "arrivalTime": 1,
-      "stationName": "",
-      "stationId": ""
-    }
-  },
+  "travelLine": null,
   "travelProvider": "DB",
   "unknownTravelProvider": null,
   "startTime": 1,
@@ -90,13 +53,17 @@
   "price": {
     "value": 234.9,
     "currency": "EUR",
-    "symbol": "€"
+    "symbol": "€",
+    "affiliateLink": null
   },
   "priceWithCommision": null,
+  "childPrice": null,
   "journeysRelated": null,
+  "betweenTrips":null,
   "distance": null,
   "providerId": null,
   "delay": null,
+  "vehicleType":null,
   "vehicleName": null,
   "vehicleNumber": null,
   "matchesRequest": false,

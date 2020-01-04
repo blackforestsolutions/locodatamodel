@@ -24,7 +24,7 @@ public class Journey {
 
     private TravelPoint destination;
 
-    private Map<Integer, TravelPoint> betweenHolds = new HashMap<>();
+    private TravelLine travelLine;
 
     private TravelProvider travelProvider;
 
@@ -51,6 +51,8 @@ public class Journey {
     private String providerId;
 
     private Duration delay;
+
+    private String vehicleType;
 
     private String vehicleName;
 

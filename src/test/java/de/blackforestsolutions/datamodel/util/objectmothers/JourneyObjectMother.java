@@ -37,8 +37,6 @@ public class JourneyObjectMother {
         destination.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
         destination.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
         Journey journey = new Journey();
-        journey.getBetweenHolds().put(1, start);
-        journey.getBetweenHolds().put(2, destination);
         journey.setStart(start);
         journey.setDestination(destination);
         journey.setTravelProvider(TravelProvider.DB);
