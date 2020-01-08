@@ -3,11 +3,14 @@ package de.blackforestsolutions.datamodel;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Data
+@Setter
+@Getter
 public class TravelLine {
 
     private TravelPoint origin;
