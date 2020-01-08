@@ -7,7 +7,8 @@ public enum TravelProvider {
     LUFTHANSA,
     EUROWINGS,
     CONDOR,
-    FLIXBUS;
+    FLIXBUS,
+    HVV;
 
     public static TravelProvider map(String providerVariable) {
         if (providerVariable.equalsIgnoreCase("LH") || providerVariable.equalsIgnoreCase("LX")) {
