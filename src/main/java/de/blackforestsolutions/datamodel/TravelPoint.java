@@ -80,25 +80,4 @@ public class TravelPoint {
     public void setGpsCoordinates(Coordinates gpsCoordinates) {
         this.gpsCoordinates = gpsCoordinates;
     }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE)
-                .append(city)
-                .append(country.hashCode())
-                .append(postalCode)
-                .append(stateOrProvince)
-                .append(streetNumber)
-                .append(gpsCoordinates.hashCode())
-                .append(airportId)
-                .append(airportName)
-                .append(platform)
-                .append(terminal)
-                .append(stationName)
-                .append(stationId)
-                .append(arrivalTime.hashCode())
-                .append(departureTime.hashCode())
-                .append(vehicleTypes.hashCode())
-                .toHashCode();
-    }
 }
