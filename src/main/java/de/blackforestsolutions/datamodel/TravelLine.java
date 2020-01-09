@@ -2,7 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,4 +25,6 @@ public class TravelLine {
     public void setDirection(TravelPoint direction) {
         this.direction = direction;
     }
+
+
 }

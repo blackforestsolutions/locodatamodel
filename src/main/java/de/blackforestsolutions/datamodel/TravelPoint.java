@@ -82,59 +82,6 @@ public class TravelPoint {
     }
 
     @Override
-    public boolean equals(Object o) {
-
-        // If the object is compared with itself then return true
-        if (o == this) {
-            return true;
-        }
-
-        /* Check if o is an instance of Complex or not
-          "null instanceof [type]" also returns false */
-        if (!(o instanceof TravelPoint)) {
-            return false;
-        }
-
-        // typecast o to Complex so that we can compare data members
-        TravelPoint c = (TravelPoint) o;
-
-        // Compare the data members and return accordingly
-        return city.equals(c.city)
-                &&
-                country.equals(c.country)
-                &&
-                postalCode.equals(c.postalCode)
-                &&
-                stateOrProvince.equals(c.stateOrProvince)
-                &&
-                street.equals(c.street)
-                &&
-                streetNumber.equals(c.streetNumber)
-                &&
-                gpsCoordinates.equals(c.gpsCoordinates)
-                &&
-                airportId.equals(c.airportId)
-                &&
-                airportName.equals(c.airportName)
-                &&
-                platform.equals(c.platform)
-                &&
-                terminal.equals(c.terminal)
-                &&
-                stationName.equals(c.stationName)
-                &&
-                stationId.equals(c.stationId)
-                &&
-                departureTime.equals(c.departureTime)
-                &&
-                arrivalTime.equals(arrivalTime)
-                &&
-                vehicleTypes.equals(c.vehicleTypes);
-
-    }
-
-
-    @Override
     public int hashCode() {
         return new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE)
                 .append(city)
