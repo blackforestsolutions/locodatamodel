@@ -12,6 +12,7 @@ import java.util.Map;
 @Getter
 public class TravelLine {
 
+    private String name;
     private TravelPoint origin;
     private TravelPoint direction;
     private Map<Integer, TravelPoint> betweenHolds = new HashMap<>();
