@@ -11,14 +11,12 @@
       "latitude": 1.0,
       "longitude": 0.0
     },
-    "dbStationId": "",
-    "dbStationName": "",
     "airportId": "",
     "airportName": "",
     "platform": "",
     "terminal": "",
-    "departureTime": 1,
-    "arrivalTime": 1,
+    "departureTime": "1970-01-01T00:00:00.001+0000",
+    "arrivalTime": "1970-01-01T00:00:00.001+0000",
     "stationName": "",
     "stationId": ""
   },
@@ -33,14 +31,12 @@
       "latitude": 1.0,
       "longitude": 0.0
     },
-    "dbStationId": "",
-    "dbStationName": "",
     "airportId": "",
     "airportName": "",
     "platform": "",
     "terminal": "",
-    "departureTime": 1,
-    "arrivalTime": 1,
+    "departureTime": "1970-01-01T00:00:00.001+0000",
+    "arrivalTime": "1970-01-01T00:00:00.001+0000",
     "stationName": "",
     "stationId": ""
   },
@@ -56,14 +52,12 @@
         "latitude": 1.0,
         "longitude": 0.0
       },
-      "dbStationId": "",
-      "dbStationName": "",
       "airportId": "",
       "airportName": "",
       "platform": "",
       "terminal": "",
-      "departureTime": 1,
-      "arrivalTime": 1,
+      "departureTime": "1970-01-01T00:00:00.001+0000",
+      "arrivalTime": "1970-01-01T00:00:00.001+0000",
       "stationName": "",
       "stationId": ""
     },
@@ -78,37 +72,46 @@
         "latitude": 1.0,
         "longitude": 0.0
       },
-      "dbStationId": "",
-      "dbStationName": "",
       "airportId": "",
       "airportName": "",
       "platform": "",
       "terminal": "",
-      "departureTime": 1,
-      "arrivalTime": 1,
+      "departureTime": "1970-01-01T00:00:00.001+0000",
+      "arrivalTime": "1970-01-01T00:00:00.001+0000",
       "stationName": "",
       "stationId": ""
     }
   },
   "travelProvider": "DB",
-  "unknownTravelProvider": null,
-  "startTime": 1,
-  "arrivalTime": 1,
-  "duration": null,
+  "unknownTravelProvider": "unknownTravelProvider",
+  "startTime": "1970-01-01T00:00:00.001+0000",
+  "arrivalTime": "1970-01-01T00:00:00.001+0000",
+  "duration": 22222.000000000,
   "price": {
     "value": 234.9,
     "currency": "EUR",
     "symbol": "€"
   },
-  "priceWithCommision": null,
-  "journeysRelated": null,
-  "distance": null,
-  "providerId": null,
-  "delay": null,
-  "trainName": null,
-  "vehicleName": null,
-  "vehicleNumber": null,
+  "priceWithCommision": {
+    "value": 234.9,
+    "currency": "EUR",
+    "symbol": "€"
+  },
+  "journeysRelated": [
+    "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
+  ],
+  "distance": {
+    "value": 20000.0,
+    "metric": "KILOMETERS"
+  },
+  "providerId": "providerId",
+  "delay": 22.000000000,
+  "vehicleName": "vehicleName",
+  "vehicleNumber": "vehicleNumber",
+  "startStatus": "startStatus",
+  "arrivalStatus": "arrivalStatus",
   "matchesRequest": false,
-  "startTimeUpdated": 1,
-  "arrivalTimeUpdated": 1
+  "startTimeUpdated": "1970-01-01T00:00:00.001+0000",
+  "arrivalTimeUpdated": "1970-01-01T00:00:00.001+0000",
+  "description": "description"
 }

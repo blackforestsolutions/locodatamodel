@@ -4,13 +4,17 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.Locale;
 
 @Setter
 @Getter
+@Slf4j
 public class TravelPoint {
 
     private static final int HASHCODECONSTANT_SEVENTEEN = 17;
@@ -50,6 +54,29 @@ public class TravelPoint {
     public TravelPoint() {
     }
 
+    /**
+     * Copy constructor for travel point.
+     *
+     * @param travelPoint you would like to copy
+     */
+    public TravelPoint(TravelPoint travelPoint) {
+        this.city = travelPoint.getCity();
+        this.country = travelPoint.getCountry();
+        this.postalCode = travelPoint.getPostalCode();
+        this.stateOrProvince = travelPoint.getStateOrProvince();
+        this.street = travelPoint.getStreet();
+        this.streetNumber = travelPoint.getStreetNumber();
+        this.gpsCoordinates = travelPoint.getGpsCoordinates();
+        this.airportId = travelPoint.getAirportId();
+        this.airportName = travelPoint.getAirportName();
+        this.platform = travelPoint.getPlatform();
+        this.terminal = travelPoint.getTerminal();
+        this.departureTime = travelPoint.getDepartureTime();
+        this.arrivalTime = travelPoint.getArrivalTime();
+        this.stationName = travelPoint.getStationName();
+        this.stationId = travelPoint.getStationId();
+    }
+
     public Date getDepartureTime() {
         if (departureTime != null) {
             return (Date) departureTime.clone();
@@ -78,66 +105,51 @@ public class TravelPoint {
     }
 
     @Override
-    public boolean equals(Object o) {
-
-        // If the object is compared with itself then return true
-        if (o == this) {
-            return true;
+    public int hashCode() {
+        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE);
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            try {
+                if (attributeToCheck.get(this) != null) {
+                    hashCodeBuilder.append(attributeToCheck.hashCode());
+                }
+            } catch (IllegalAccessException e) {
+                log.error("Access Error while accessing to Travelpoint", e);
+            }
         }
-
-        /* Check if o is an instance of Complex or not
-          "null instanceof [type]" also returns false */
-        if (!(o instanceof TravelPoint)) {
-            return false;
-        }
-
-        // typecast o to Complex so that we can compare data members
-        TravelPoint c = (TravelPoint) o;
-
-        // Compare the data members and return accordingly
-        return city.equals(c.city)
-                &&
-                country.equals(c.country)
-                &&
-                postalCode.equals(c.postalCode)
-                &&
-                stateOrProvince.equals(c.stateOrProvince)
-                &&
-                street.equals(c.street)
-                &&
-                streetNumber.equals(c.streetNumber)
-                &&
-                gpsCoordinates.equals(c.gpsCoordinates)
-                &&
-                airportId.equals(c.airportId)
-                &&
-                airportName.equals(c.airportName)
-                &&
-                platform.equals(c.platform)
-                &&
-                terminal.equals(c.terminal)
-                &&
-                stationName.equals(c.stationName)
-                &&
-                stationId.equals(c.stationId);
+        return hashCodeBuilder.toHashCode();
     }
 
+    /**
+     * Checks all first level attributes of an object and tells if there are null values
+     *
+     * @return if object has null values or not
+     */
+    public boolean hasNullAttributes() throws IllegalAccessException {
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            if (attributeToCheck.get(this) == null) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE)
-                .append(city)
-                .append(country.hashCode())
-                .append(postalCode)
-                .append(stateOrProvince)
-                .append(streetNumber)
-                .append(gpsCoordinates.hashCode())
-                .append(airportId)
-                .append(airportName)
-                .append(platform)
-                .append(terminal.hashCode())
-                .append(stationName.hashCode())
-                .append(stationId.hashCode())
-                .toHashCode();
+    /**
+     * Checks if an object string field is empty or not
+     *
+     * @return if object has empty strings or not
+     */
+    public boolean hasEmptyString() throws IllegalAccessException {
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            if (attributeToCheck.get(this) != null) {
+                if (attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
+                    String value = (String) attributeToCheck.get(this);
+                    if (StringUtils.isEmpty(value)) {
+                        System.out.println(attributeToCheck.getName() + " is empty in TravelPoint");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
