@@ -60,6 +60,12 @@ public class ApiTokenAndUrlInformation {
     private final int resultLengthAfterDepartureTime;
     private final String tariff;
     private final Boolean timeIsDeparture;
+    private final Boolean hvvFilterEquivalent;
+    private final Boolean hvvAllowTypeSwitch;
+    private final Boolean allowTariffDetails;
+    private final Boolean allowReducedPrice;
+    private final Boolean allowIntermediateStops;
+    private final Boolean hvvReturnContSearchData;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -114,6 +120,12 @@ public class ApiTokenAndUrlInformation {
         this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
         this.tariff = apiTokenAndUrlInformation.getTariff();
         this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
+        this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
+        this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
+        this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
+        this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
+        this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
+        this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -168,6 +180,12 @@ public class ApiTokenAndUrlInformation {
         this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
         this.tariff = apiTokenAndUrlInformation.getTariff();
         this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
+        this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
+        this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
+        this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
+        this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
+        this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
+        this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -222,6 +240,12 @@ public class ApiTokenAndUrlInformation {
         this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
         this.tariff = apiTokenAndUrlInformation.getTariff();
         this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
+        this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
+        this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
+        this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
+        this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
+        this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
+        this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -379,6 +403,24 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private Boolean timeIsDeparture;
+        @Getter
+        @Setter
+        private Boolean hvvFilterEquivalent;
+        @Getter
+        @Setter
+        private Boolean hvvAllowTypeSwitch;
+        @Getter
+        @Setter
+        private Boolean allowTariffDetails;
+        @Getter
+        @Setter
+        private Boolean allowReducedPrice;
+        @Getter
+        @Setter
+        private Boolean allowIntermediateStops;
+        @Getter
+        @Setter
+        private Boolean hvvReturnContSearchData;
 
 
         public ApiTokenAndUrlInformationBuilderConfig() {
@@ -444,6 +486,12 @@ public class ApiTokenAndUrlInformation {
         private int resultLengthAfterDepartureTime;
         private String tariff;
         private Boolean timeIsDeparture;
+        private Boolean hvvFilterEquivalent;
+        private Boolean hvvAllowTypeSwitch;
+        private Boolean allowTariffDetails;
+        private Boolean allowReducedPrice;
+        private Boolean allowIntermediateStops;
+        private Boolean hvvReturnContSearchData;
 
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -498,6 +546,13 @@ public class ApiTokenAndUrlInformation {
             this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
             this.tariff = apiTokenAndUrlInformation.getTariff();
             this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
+            this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
+            this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
+            this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
+            this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
+            this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
+            this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
+            this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
