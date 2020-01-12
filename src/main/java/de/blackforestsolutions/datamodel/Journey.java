@@ -11,6 +11,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Distance;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.*;
@@ -18,7 +19,7 @@ import java.util.*;
 @Setter
 @Getter
 @Slf4j
-public class Journey {
+public class Journey implements Serializable {
 
     private static final int HASHCODECONSTANT_SEVENTEEN = 17;
 

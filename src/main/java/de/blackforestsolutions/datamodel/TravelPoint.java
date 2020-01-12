@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.Date;
 import java.util.Locale;
@@ -15,7 +16,7 @@ import java.util.Locale;
 @Setter
 @Getter
 @Slf4j
-public class TravelPoint {
+public class TravelPoint implements Serializable {
 
     private static final int HASHCODECONSTANT_SEVENTEEN = 17;
 
