@@ -1,9 +1,11 @@
 package de.blackforestsolutions.datamodel;
 
-public enum TravelProvider {
+import java.io.Serializable;
+
+public enum TravelProvider implements Serializable {
     DB,
     SBB,
-    ÖBB,
+    OEBB,
     LUFTHANSA,
     EUROWINGS,
     CONDOR,

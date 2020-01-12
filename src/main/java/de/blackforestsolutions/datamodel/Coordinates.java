@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class Coordinates {
+public class Coordinates implements Serializable {
 
     private static final int HASHCODECONSTANT_SEVENTEEN = 17;
     private static final int HASHCODECONSTANT_THIRTY_ONE = 31;
