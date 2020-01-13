@@ -397,8 +397,9 @@ public class ApiTokenAndUrlInformation {
         public void setGermanRailDatePathVariable(Date germanRailDatePathVariable) {
             if (germanRailDatePathVariable != null) {
                 this.germanRailDatePathVariable = (Date) germanRailDatePathVariable.clone();
+            } else {
+                this.germanRailDatePathVariable = null;
             }
-            this.germanRailDatePathVariable = null;
         }
 
         public Date getDepartureDate() {
@@ -411,8 +412,9 @@ public class ApiTokenAndUrlInformation {
         public void setDepartureDate(Date departureDate) {
             if (departureDate != null) {
                 this.departureDate = (Date) departureDate.clone();
+            } else {
+                this.departureDate = null;
             }
-            this.departureDate = null;
         }
 
         public Date getArrivalDate() {
@@ -425,8 +427,9 @@ public class ApiTokenAndUrlInformation {
         public void setArrivalDate(Date arrivalDate) {
             if (arrivalDate != null) {
                 this.arrivalDate = (Date) arrivalDate.clone();
+            } else {
+                this.arrivalDate = null;
             }
-            this.arrivalDate = null;
         }
 
         public ApiTokenAndUrlInformationBuilder buildFrom(ApiTokenAndUrlInformation copySource) {
