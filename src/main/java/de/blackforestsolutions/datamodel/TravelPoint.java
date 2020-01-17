@@ -85,7 +85,6 @@ public class TravelPoint {
     public int hashCode() {
         return new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE)
                 .append(city)
-//                .append(country.hashCode())
                 .append(postalCode)
                 .append(stateOrProvince)
                 .append(streetNumber)
@@ -96,8 +95,6 @@ public class TravelPoint {
                 .append(terminal)
                 .append(stationName)
                 .append(stationId)
-//                .append(arrivalTime.hashCode())
-//                .append(departureTime.hashCode())
                 .append(vehicleTypes.hashCode())
                 .toHashCode();
     }
