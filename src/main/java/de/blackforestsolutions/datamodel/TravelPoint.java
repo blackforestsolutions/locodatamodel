@@ -88,7 +88,6 @@ public class TravelPoint {
                 .append(postalCode)
                 .append(stateOrProvince)
                 .append(streetNumber)
-                .append(gpsCoordinates.hashCode())
                 .append(airportId)
                 .append(airportName)
                 .append(platform)
