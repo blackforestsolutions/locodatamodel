@@ -10,7 +10,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 @Setter
@@ -52,6 +54,8 @@ public class TravelPoint implements Serializable {
 
     private String stationId = "";
 
+    private List<String> vehicleTypes = new ArrayList<>();
+
     public TravelPoint() {
     }
 
@@ -76,6 +80,7 @@ public class TravelPoint implements Serializable {
         this.arrivalTime = travelPoint.getArrivalTime();
         this.stationName = travelPoint.getStationName();
         this.stationId = travelPoint.getStationId();
+        this.vehicleTypes = travelPoint.getVehicleTypes();
     }
 
     public Date getDepartureTime() {

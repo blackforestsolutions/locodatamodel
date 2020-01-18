@@ -10,7 +10,8 @@ public enum TravelProvider implements Serializable {
     EUROWINGS,
     CONDOR,
     BRITISHAIRWAYS,
-    FLIXBUS;
+    FLIXBUS,
+    HVV;
 
     public static TravelProvider map(String providerVariable) {
         if (providerVariable.equalsIgnoreCase("LH") || providerVariable.equalsIgnoreCase("LX")) {

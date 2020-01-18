@@ -16,6 +16,8 @@ public class Price implements Serializable {
 
     private String symbol;
 
+    private String affiliateLink;
+
     public Price() {
     }
 

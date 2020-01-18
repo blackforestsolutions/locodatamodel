@@ -18,7 +18,8 @@
     "departureTime": "1970-01-01T00:00:00.001+0000",
     "arrivalTime": "1970-01-01T00:00:00.001+0000",
     "stationName": "",
-    "stationId": ""
+    "stationId": "",
+    "vehicleTypes": []
   },
   "destination": {
     "city": "Hamburg",
@@ -38,30 +39,12 @@
     "departureTime": "1970-01-01T00:00:00.001+0000",
     "arrivalTime": "1970-01-01T00:00:00.001+0000",
     "stationName": "",
-    "stationId": ""
+    "stationId": "",
+    "vehicleTypes": []
   },
-  "betweenHolds": {
-    "1": {
-      "city": "Berlin",
-      "country": "de_DE",
-      "postalCode": "64664",
-      "stateOrProvince": "Brandenburg",
-      "street": "Feldweg",
-      "streetNumber": "34",
-      "gpsCoordinates": {
-        "latitude": 1.0,
-        "longitude": 0.0
-      },
-      "airportId": "",
-      "airportName": "",
-      "platform": "",
-      "terminal": "",
-      "departureTime": "1970-01-01T00:00:00.001+0000",
-      "arrivalTime": "1970-01-01T00:00:00.001+0000",
-      "stationName": "",
-      "stationId": ""
-    },
-    "2": {
+  "travelLine": {
+    "name": null,
+    "origin": {
       "city": "Hamburg",
       "country": "de_DE",
       "postalCode": "58974",
@@ -79,7 +62,73 @@
       "departureTime": "1970-01-01T00:00:00.001+0000",
       "arrivalTime": "1970-01-01T00:00:00.001+0000",
       "stationName": "",
-      "stationId": ""
+      "stationId": "",
+      "vehicleTypes": []
+    },
+    "direction": {
+      "city": "Berlin",
+      "country": "de_DE",
+      "postalCode": "64664",
+      "stateOrProvince": "Brandenburg",
+      "street": "Feldweg",
+      "streetNumber": "34",
+      "gpsCoordinates": {
+        "latitude": 1.0,
+        "longitude": 0.0
+      },
+      "airportId": "",
+      "airportName": "",
+      "platform": "",
+      "terminal": "",
+      "departureTime": "1970-01-01T00:00:00.001+0000",
+      "arrivalTime": "1970-01-01T00:00:00.001+0000",
+      "stationName": "",
+      "stationId": "",
+      "vehicleTypes": []
+    },
+    "betweenHolds": {
+      "1": {
+        "city": "Berlin",
+        "country": "de_DE",
+        "postalCode": "64664",
+        "stateOrProvince": "Brandenburg",
+        "street": "Feldweg",
+        "streetNumber": "34",
+        "gpsCoordinates": {
+          "latitude": 1.0,
+          "longitude": 0.0
+        },
+        "airportId": "",
+        "airportName": "",
+        "platform": "",
+        "terminal": "",
+        "departureTime": "1970-01-01T00:00:00.001+0000",
+        "arrivalTime": "1970-01-01T00:00:00.001+0000",
+        "stationName": "",
+        "stationId": "",
+        "vehicleTypes": []
+      },
+      "2": {
+        "city": "Hamburg",
+        "country": "de_DE",
+        "postalCode": "58974",
+        "stateOrProvince": "Hamburg",
+        "street": "Fischmarkt",
+        "streetNumber": "6",
+        "gpsCoordinates": {
+          "latitude": 1.0,
+          "longitude": 0.0
+        },
+        "airportId": "",
+        "airportName": "",
+        "platform": "",
+        "terminal": "",
+        "departureTime": "1970-01-01T00:00:00.001+0000",
+        "arrivalTime": "1970-01-01T00:00:00.001+0000",
+        "stationName": "",
+        "stationId": "",
+        "vehicleTypes": []
+      }
     }
   },
   "travelProvider": "DB",
@@ -90,15 +139,201 @@
   "price": {
     "value": 234.9,
     "currency": "EUR",
-    "symbol": "€"
+    "symbol": "€",
+    "affiliateLink": null
   },
   "priceWithCommision": {
     "value": 234.9,
     "currency": "EUR",
-    "symbol": "€"
+    "symbol": "€",
+    "affiliateLink": null
+  },
+  "childPrice": {
+    "value": 234.9,
+    "currency": "EUR",
+    "symbol": "€",
+    "affiliateLink": null
   },
   "journeysRelated": [
     "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
+  ],
+  "betweenTrips": [
+    {
+      "id": "cb11896e-c38a-4f53-8d40-1f28ca690f5a",
+      "start": {
+        "city": "Berlin",
+        "country": "de_DE",
+        "postalCode": "64664",
+        "stateOrProvince": "Brandenburg",
+        "street": "Feldweg",
+        "streetNumber": "34",
+        "gpsCoordinates": {
+          "latitude": 1.0,
+          "longitude": 0.0
+        },
+        "airportId": "",
+        "airportName": "",
+        "platform": "",
+        "terminal": "",
+        "departureTime": "1970-01-01T00:00:00.001+0000",
+        "arrivalTime": "1970-01-01T00:00:00.001+0000",
+        "stationName": "",
+        "stationId": "",
+        "vehicleTypes": []
+      },
+      "destination": {
+        "city": "Hamburg",
+        "country": "de_DE",
+        "postalCode": "58974",
+        "stateOrProvince": "Hamburg",
+        "street": "Fischmarkt",
+        "streetNumber": "6",
+        "gpsCoordinates": {
+          "latitude": 1.0,
+          "longitude": 0.0
+        },
+        "airportId": "",
+        "airportName": "",
+        "platform": "",
+        "terminal": "",
+        "departureTime": "1970-01-01T00:00:00.001+0000",
+        "arrivalTime": "1970-01-01T00:00:00.001+0000",
+        "stationName": "",
+        "stationId": "",
+        "vehicleTypes": []
+      },
+      "travelLine": {
+        "name": null,
+        "origin": {
+          "city": "Hamburg",
+          "country": "de_DE",
+          "postalCode": "58974",
+          "stateOrProvince": "Hamburg",
+          "street": "Fischmarkt",
+          "streetNumber": "6",
+          "gpsCoordinates": {
+            "latitude": 1.0,
+            "longitude": 0.0
+          },
+          "airportId": "",
+          "airportName": "",
+          "platform": "",
+          "terminal": "",
+          "departureTime": "1970-01-01T00:00:00.001+0000",
+          "arrivalTime": "1970-01-01T00:00:00.001+0000",
+          "stationName": "",
+          "stationId": "",
+          "vehicleTypes": []
+        },
+        "direction": {
+          "city": "Berlin",
+          "country": "de_DE",
+          "postalCode": "64664",
+          "stateOrProvince": "Brandenburg",
+          "street": "Feldweg",
+          "streetNumber": "34",
+          "gpsCoordinates": {
+            "latitude": 1.0,
+            "longitude": 0.0
+          },
+          "airportId": "",
+          "airportName": "",
+          "platform": "",
+          "terminal": "",
+          "departureTime": "1970-01-01T00:00:00.001+0000",
+          "arrivalTime": "1970-01-01T00:00:00.001+0000",
+          "stationName": "",
+          "stationId": "",
+          "vehicleTypes": []
+        },
+        "betweenHolds": {
+          "1": {
+            "city": "Berlin",
+            "country": "de_DE",
+            "postalCode": "64664",
+            "stateOrProvince": "Brandenburg",
+            "street": "Feldweg",
+            "streetNumber": "34",
+            "gpsCoordinates": {
+              "latitude": 1.0,
+              "longitude": 0.0
+            },
+            "airportId": "",
+            "airportName": "",
+            "platform": "",
+            "terminal": "",
+            "departureTime": "1970-01-01T00:00:00.001+0000",
+            "arrivalTime": "1970-01-01T00:00:00.001+0000",
+            "stationName": "",
+            "stationId": "",
+            "vehicleTypes": []
+          },
+          "2": {
+            "city": "Hamburg",
+            "country": "de_DE",
+            "postalCode": "58974",
+            "stateOrProvince": "Hamburg",
+            "street": "Fischmarkt",
+            "streetNumber": "6",
+            "gpsCoordinates": {
+              "latitude": 1.0,
+              "longitude": 0.0
+            },
+            "airportId": "",
+            "airportName": "",
+            "platform": "",
+            "terminal": "",
+            "departureTime": "1970-01-01T00:00:00.001+0000",
+            "arrivalTime": "1970-01-01T00:00:00.001+0000",
+            "stationName": "",
+            "stationId": "",
+            "vehicleTypes": []
+          }
+        }
+      },
+      "travelProvider": "DB",
+      "unknownTravelProvider": "unknownTravelProvider",
+      "startTime": "1970-01-01T00:00:00.001+0000",
+      "arrivalTime": "1970-01-01T00:00:00.001+0000",
+      "duration": 22222.000000000,
+      "price": {
+        "value": 234.9,
+        "currency": "EUR",
+        "symbol": "€",
+        "affiliateLink": null
+      },
+      "priceWithCommision": {
+        "value": 234.9,
+        "currency": "EUR",
+        "symbol": "€",
+        "affiliateLink": null
+      },
+      "childPrice": {
+        "value": 234.9,
+        "currency": "EUR",
+        "symbol": "€",
+        "affiliateLink": null
+      },
+      "journeysRelated": [
+        "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
+      ],
+      "betweenTrips": null,
+      "distance": {
+        "value": 20000.0,
+        "metric": "KILOMETERS"
+      },
+      "providerId": "providerId",
+      "delay": 22.000000000,
+      "vehicleType": "",
+      "vehicleName": "vehicleName",
+      "vehicleNumber": "vehicleNumber",
+      "startStatus": "startStatus",
+      "arrivalStatus": "arrivalStatus",
+      "matchesRequest": false,
+      "startTimeUpdated": "1970-01-01T00:00:00.001+0000",
+      "arrivalTimeUpdated": "1970-01-01T00:00:00.001+0000",
+      "description": "description"
+    }
   ],
   "distance": {
     "value": 20000.0,
@@ -106,6 +341,7 @@
   },
   "providerId": "providerId",
   "delay": 22.000000000,
+  "vehicleType": "vehicleType",
   "vehicleName": "vehicleName",
   "vehicleNumber": "vehicleNumber",
   "startStatus": "startStatus",

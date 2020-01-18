@@ -32,7 +32,7 @@ public class Journey implements Serializable {
 
     private TravelPoint destination;
 
-    private Map<Integer, TravelPoint> betweenHolds = new HashMap<>();
+    private TravelLine travelLine;
 
     private TravelProvider travelProvider;
 
@@ -48,13 +48,19 @@ public class Journey implements Serializable {
 
     private Price priceWithCommision;
 
+    private Price childPrice;
+
     private List<UUID> journeysRelated;
+
+    private List<Journey> betweenTrips;
 
     private Distance distance;
 
-    private String providerId;
+    private String providerId = "";
 
     private Duration delay;
+
+    private String vehicleType = "";
 
     private String vehicleName = "";
 
@@ -79,7 +85,7 @@ public class Journey implements Serializable {
         this.id = journey.getId();
         this.start = journey.getStart();
         this.destination = journey.getDestination();
-        this.betweenHolds = journey.getBetweenHolds();
+        this.travelLine = journey.getTravelLine();
         this.travelProvider = journey.getTravelProvider();
         this.unknownTravelProvider = journey.getUnknownTravelProvider();
         this.startTime = journey.getStartTime();
@@ -87,10 +93,13 @@ public class Journey implements Serializable {
         this.duration = journey.getDuration();
         this.price = journey.getPrice();
         this.priceWithCommision = journey.getPriceWithCommision();
+        this.childPrice = journey.getChildPrice();
         this.journeysRelated = journey.getJourneysRelated();
+        this.betweenTrips = journey.getBetweenTrips();
         this.distance = journey.getDistance();
         this.providerId = journey.getProviderId();
         this.delay = journey.getDelay();
+        this.vehicleType = journey.getVehicleType();
         this.vehicleName = journey.getVehicleName();
         this.vehicleNumber = journey.getVehicleNumber();
         this.startStatus = journey.getStartStatus();
@@ -109,6 +118,11 @@ public class Journey implements Serializable {
     @JsonDeserialize(using = PriceDeserializer.class)
     public void setPrice(Price price) {
         this.price = price;
+    }
+
+    @JsonDeserialize(using = PriceDeserializer.class)
+    public void setChildPrice(Price childPrice) {
+        this.childPrice = childPrice;
     }
 
     @JsonDeserialize(using = TravelPointDeserializer.class)
