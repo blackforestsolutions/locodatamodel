@@ -4,8 +4,12 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +17,8 @@ import java.util.Locale;
 
 @Setter
 @Getter
-public class TravelPoint {
+@Slf4j
+public class TravelPoint implements Serializable {
 
     private static final int HASHCODECONSTANT_SEVENTEEN = 17;
 
@@ -54,6 +59,30 @@ public class TravelPoint {
     public TravelPoint() {
     }
 
+    /**
+     * Copy constructor for travel point.
+     *
+     * @param travelPoint you would like to copy
+     */
+    public TravelPoint(TravelPoint travelPoint) {
+        this.city = travelPoint.getCity();
+        this.country = travelPoint.getCountry();
+        this.postalCode = travelPoint.getPostalCode();
+        this.stateOrProvince = travelPoint.getStateOrProvince();
+        this.street = travelPoint.getStreet();
+        this.streetNumber = travelPoint.getStreetNumber();
+        this.gpsCoordinates = travelPoint.getGpsCoordinates();
+        this.airportId = travelPoint.getAirportId();
+        this.airportName = travelPoint.getAirportName();
+        this.platform = travelPoint.getPlatform();
+        this.terminal = travelPoint.getTerminal();
+        this.departureTime = travelPoint.getDepartureTime();
+        this.arrivalTime = travelPoint.getArrivalTime();
+        this.stationName = travelPoint.getStationName();
+        this.stationId = travelPoint.getStationId();
+        this.vehicleTypes = travelPoint.getVehicleTypes();
+    }
+
     public Date getDepartureTime() {
         if (departureTime != null) {
             return (Date) departureTime.clone();
@@ -83,18 +112,50 @@ public class TravelPoint {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE)
-                .append(city)
-                .append(postalCode)
-                .append(stateOrProvince)
-                .append(streetNumber)
-                .append(airportId)
-                .append(airportName)
-                .append(platform)
-                .append(terminal)
-                .append(stationName)
-                .append(stationId)
-                .append(vehicleTypes.hashCode())
-                .toHashCode();
+        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE);
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            try {
+                if (attributeToCheck.get(this) != null) {
+                    hashCodeBuilder.append(attributeToCheck.hashCode());
+                }
+            } catch (IllegalAccessException e) {
+                log.error("Access Error while accessing to Travelpoint", e);
+            }
+        }
+        return hashCodeBuilder.toHashCode();
+    }
+
+    /**
+     * Checks all first level attributes of an object and tells if there are null values
+     *
+     * @return if object has null values or not
+     */
+    public boolean hasNullAttributes() throws IllegalAccessException {
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            if (attributeToCheck.get(this) == null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks if an object string field is empty or not
+     *
+     * @return if object has empty strings or not
+     */
+    public boolean hasEmptyString() throws IllegalAccessException {
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            if (attributeToCheck.get(this) != null) {
+                if (attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
+                    String value = (String) attributeToCheck.get(this);
+                    if (StringUtils.isEmpty(value)) {
+                        System.out.println(attributeToCheck.getName() + " is empty in TravelPoint");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

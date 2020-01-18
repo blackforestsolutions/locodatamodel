@@ -1,21 +1,29 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import de.blackforestsolutions.datamodel.deserializer.DistanceDeserializer;
-import de.blackforestsolutions.datamodel.deserializer.DurationDeserializer;
 import de.blackforestsolutions.datamodel.deserializer.PriceDeserializer;
 import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Distance;
 
+import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.*;
 
 @Setter
 @Getter
-public class Journey {
+@Slf4j
+public class Journey implements Serializable {
+
+    private static final int HASHCODECONSTANT_SEVENTEEN = 17;
+
+    private static final int HASHCODECONSTANT_THIRTY_ONE = 31;
 
     @Id
     private UUID id;
@@ -28,7 +36,7 @@ public class Journey {
 
     private TravelProvider travelProvider;
 
-    private String unknownTravelProvider;
+    private String unknownTravelProvider = "";
 
     private Date startTime;
 
@@ -48,15 +56,19 @@ public class Journey {
 
     private Distance distance;
 
-    private String providerId;
+    private String providerId = "";
 
     private Duration delay;
 
-    private String vehicleType;
+    private String vehicleType = "";
 
-    private String vehicleName;
+    private String vehicleName = "";
 
-    private String vehicleNumber;
+    private String vehicleNumber = "";
+
+    private String startStatus = "";
+
+    private String arrivalStatus = "";
 
     private boolean matchesRequest;
 
@@ -64,7 +76,38 @@ public class Journey {
 
     private Date arrivalTimeUpdated;
 
+    private String description = "";
+
     public Journey() {
+    }
+
+    public Journey(Journey journey) {
+        this.id = journey.getId();
+        this.start = journey.getStart();
+        this.destination = journey.getDestination();
+        this.travelLine = journey.getTravelLine();
+        this.travelProvider = journey.getTravelProvider();
+        this.unknownTravelProvider = journey.getUnknownTravelProvider();
+        this.startTime = journey.getStartTime();
+        this.arrivalTime = journey.getArrivalTime();
+        this.duration = journey.getDuration();
+        this.price = journey.getPrice();
+        this.priceWithCommision = journey.getPriceWithCommision();
+        this.childPrice = journey.getChildPrice();
+        this.journeysRelated = journey.getJourneysRelated();
+        this.betweenTrips = journey.getBetweenTrips();
+        this.distance = journey.getDistance();
+        this.providerId = journey.getProviderId();
+        this.delay = journey.getDelay();
+        this.vehicleType = journey.getVehicleType();
+        this.vehicleName = journey.getVehicleName();
+        this.vehicleNumber = journey.getVehicleNumber();
+        this.startStatus = journey.getStartStatus();
+        this.arrivalStatus = journey.getArrivalStatus();
+        this.matchesRequest = journey.isMatchesRequest();
+        this.startTimeUpdated = journey.getStartTimeUpdated();
+        this.arrivalTimeUpdated = journey.getArrivalTimeUpdated();
+        this.description = journey.getDescription();
     }
 
     @JsonDeserialize(using = PriceDeserializer.class)
@@ -91,17 +134,6 @@ public class Journey {
     public void setDestination(TravelPoint destination) {
         this.destination = destination;
     }
-
-    @JsonDeserialize(using = DurationDeserializer.class)
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
-    @JsonDeserialize(using = DistanceDeserializer.class)
-    public void setDistance(Distance distance) {
-        this.distance = distance;
-    }
-
 
     public Date getStartTimeUpdated() {
         if (startTimeUpdated != null) {
@@ -147,4 +179,53 @@ public class Journey {
         this.arrivalTime = (Date) arrivalTime.clone();
     }
 
+
+    /**
+     * Checks all first level attributes of an object and tells if there are null values
+     *
+     * @return if object has null values or not
+     */
+    public boolean hasNullAttributes() throws IllegalAccessException {
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            if (attributeToCheck.get(this) == null) {
+                System.out.println(attributeToCheck.getName() + " is null in journey");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks if an object string field is empty or not
+     *
+     * @return if object has empty strings or not
+     */
+    public boolean hasEmptyString() throws IllegalAccessException {
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            if (attributeToCheck.get(this) != null) {
+                if (attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
+                    String value = (String) attributeToCheck.get(this);
+                    if (StringUtils.isEmpty(value)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE);
+        for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
+            try {
+                if (attributeToCheck.get(this) != null) {
+                    hashCodeBuilder.append(attributeToCheck.hashCode());
+                }
+            } catch (IllegalAccessException e) {
+                log.error("Access Error while accessing to Travelpoint", e);
+            }
+        }
+        return hashCodeBuilder.toHashCode();
+    }
 }

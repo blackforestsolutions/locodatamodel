@@ -1,4 +1,4 @@
-package de.blackforestsolutions.datamodel.util.testutil;
+package de.blackforestsolutions.datamodel.testutil;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-
 public class TestUtils {
 
     /**

@@ -567,7 +567,11 @@ public class ApiTokenAndUrlInformation {
         }
 
         public void setGermanRailDatePathVariable(Date germanRailDatePathVariable) {
-            this.germanRailDatePathVariable = (Date) germanRailDatePathVariable.clone();
+            if (germanRailDatePathVariable != null) {
+                this.germanRailDatePathVariable = (Date) germanRailDatePathVariable.clone();
+            } else {
+                this.germanRailDatePathVariable = null;
+            }
         }
 
         public Date getDepartureDate() {
@@ -578,7 +582,11 @@ public class ApiTokenAndUrlInformation {
         }
 
         public void setDepartureDate(Date departureDate) {
-            this.departureDate = (Date) departureDate.clone();
+            if (departureDate != null) {
+                this.departureDate = (Date) departureDate.clone();
+            } else {
+                this.departureDate = null;
+            }
         }
 
         public Date getArrivalDate() {
@@ -589,18 +597,20 @@ public class ApiTokenAndUrlInformation {
         }
 
         public void setArrivalDate(Date arrivalDate) {
-            this.arrivalDate = (Date) arrivalDate.clone();
+            if (arrivalDate != null) {
+                this.arrivalDate = (Date) arrivalDate.clone();
+            } else {
+                this.arrivalDate = null;
+            }
         }
 
         public ApiTokenAndUrlInformationBuilder buildFrom(ApiTokenAndUrlInformation copySource) {
-            ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformationBuilder(
+            return new ApiTokenAndUrlInformationBuilder(
                     copySource);
-            return builder;
         }
 
         public ApiTokenAndUrlInformation build() {
-            ApiTokenAndUrlInformation apiTokenAndUrlInformation = new ApiTokenAndUrlInformation(this);
-            return apiTokenAndUrlInformation;
+            return new ApiTokenAndUrlInformation(this);
         }
     }
 }
