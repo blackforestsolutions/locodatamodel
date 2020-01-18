@@ -5,12 +5,13 @@ import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @Setter
 @Getter
-public class TravelLine {
+public class TravelLine implements Serializable {
 
     private String name;
     private TravelPoint origin;

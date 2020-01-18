@@ -18,9 +18,7 @@ public class JourneyObjectMother {
         //Coordinates coordinates = new Coordinates(43974.48, 397937.34);
         Journey journey = new Journey();
         journey.setStart(getTravelPointBrandenBurg());
-        journey.getBetweenHolds().put(1, getTravelPointBrandenBurg());
-        journey.getBetweenHolds().put(2, getTravelPointHamburg());
-        journey.setStart(getTravelPointBrandenBurg());
+        journey.setTravelLine(getBerlinHamburgTravelLine());
         journey.setDestination(getTravelPointHamburg());
         journey.setTravelProvider(TravelProvider.DB);
         journey.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
@@ -34,6 +32,44 @@ public class JourneyObjectMother {
         price.setSymbol("€");
         price.setValue(234.90);
         journey.setPrice(price);
+        journey.setChildPrice(price);
+        journey.setPriceWithCommision(price);
+        journey.setUnknownTravelProvider("unknownTravelProvider");
+        journey.setDuration(Duration.ofSeconds(22222L));
+        journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));
+        journey.setJourneysRelated(Collections.singletonList(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a")));
+        journey.setBetweenTrips(getBetweenTrips());
+        journey.setProviderId("providerId");
+        journey.setDelay(Duration.ofSeconds(22L));
+        journey.setVehicleType("vehicleType");
+        journey.setVehicleName("vehicleName");
+        journey.setVehicleNumber("vehicleNumber");
+        journey.setStartStatus("startStatus");
+        journey.setArrivalStatus("arrivalStatus");
+        journey.setDescription("description");
+        return journey;
+    }
+
+    private static List<Journey> getBetweenTrips() {
+        List<Journey> betweenTrips = new ArrayList<>();
+
+        Journey journey = new Journey();
+        journey.setStart(getTravelPointBrandenBurg());
+        journey.setTravelLine(getBerlinHamburgTravelLine());
+        journey.setDestination(getTravelPointHamburg());
+        journey.setTravelProvider(TravelProvider.DB);
+        journey.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setMatchesRequest(false);
+        journey.setStartTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setArrivalTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
+        journey.setId(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
+        Price price = new Price();
+        price.setCurrency(Currency.getInstance("EUR"));
+        price.setSymbol("€");
+        price.setValue(234.90);
+        journey.setPrice(price);
+        journey.setChildPrice(price);
         journey.setPriceWithCommision(price);
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
@@ -46,7 +82,10 @@ public class JourneyObjectMother {
         journey.setStartStatus("startStatus");
         journey.setArrivalStatus("arrivalStatus");
         journey.setDescription("description");
-        return journey;
+
+        betweenTrips.add(journey);
+
+        return betweenTrips;
     }
 
     public static TravelPoint getTravelPointBrandenBurg() {
@@ -79,5 +118,14 @@ public class JourneyObjectMother {
 
     public static String getJourneyStringBerlinHamburg() {
         return deleteWhitespace(getResourceFileAsString("json/journey.json"));
+    }
+
+    public static TravelLine getBerlinHamburgTravelLine() {
+        TravelLine travelLine = new TravelLine();
+        travelLine.setOrigin(getTravelPointHamburg());
+        travelLine.getBetweenHolds().put(2, getTravelPointHamburg());
+        travelLine.getBetweenHolds().put(1, getTravelPointBrandenBurg());
+        travelLine.setDirection(getTravelPointBrandenBurg());
+        return travelLine;
     }
 }

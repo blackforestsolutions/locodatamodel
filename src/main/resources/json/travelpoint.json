@@ -1,21 +1,21 @@
 {
   "city": "Berlin",
   "country": "_DEU",
-  "postalCode": "",
-  "stateOrProvince": "",
-  "street": "",
-  "streetNumber": "",
+  "postalCode": "98383",
+  "stateOrProvince": "tikitakaland",
+  "street": "feldweg",
+  "streetNumber": "2",
   "gpsCoordinates": {
     "latitude": 1.0,
     "longitude": 0.0
   },
   "airportId": "TXL",
   "airportName": "Berlin Tegel",
-  "platform": "",
-  "terminal": "",
-  "departureTime": 1,
-  "arrivalTime": 1,
-  "stationName": "",
-  "stationId": "",
+  "platform": "3",
+  "terminal": "4",
+  "departureTime": "1970-01-01T00:00:00.001+0000",
+  "arrivalTime": "1970-01-01T00:00:00.001+0000",
+  "stationName": "transall",
+  "stationId": "34",
   "vehicleTypes": []
 }
