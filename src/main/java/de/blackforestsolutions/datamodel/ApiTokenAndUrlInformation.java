@@ -8,6 +8,7 @@ import java.util.Date;
 @Getter
 public class ApiTokenAndUrlInformation {
 
+    private final String apiName;
     private final String protocol;
     private final String host;
     private final Integer port;
@@ -51,6 +52,7 @@ public class ApiTokenAndUrlInformation {
     private final String authentificationUser;
     private final String authentificationType;
     private final String authentificationPassword;
+    private final String authorizationPathVariable;
     private final String stationListPathVariable;
     private final String journeyPathVariable;
     private final String travelPointPathVariable;
@@ -126,6 +128,8 @@ public class ApiTokenAndUrlInformation {
         this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
+        this.apiName = apiTokenAndUrlInformation.getApiName();
+        this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -186,6 +190,8 @@ public class ApiTokenAndUrlInformation {
         this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
+        this.apiName = apiTokenAndUrlInformation.getApiName();
+        this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -246,6 +252,8 @@ public class ApiTokenAndUrlInformation {
         this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
+        this.apiName = apiTokenAndUrlInformation.getApiName();
+        this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -271,6 +279,9 @@ public class ApiTokenAndUrlInformation {
     }
 
     public static class ApiTokenAndUrlInformationBuilderConfig {
+        @Getter
+        @Setter
+        private String apiName;
         @Getter
         @Setter
         private String protocol;
@@ -378,6 +389,9 @@ public class ApiTokenAndUrlInformation {
         private String authentificationPassword;
         @Getter
         @Setter
+        private String authorizationPathVariable;
+        @Getter
+        @Setter
         private String stationListPathVariable;
         @Getter
         @Setter
@@ -435,6 +449,7 @@ public class ApiTokenAndUrlInformation {
     @Getter
     @Setter
     public static class ApiTokenAndUrlInformationBuilder {
+        private String apiName;
         private String protocol;
         private String host;
         private Integer port = -1;
@@ -477,6 +492,7 @@ public class ApiTokenAndUrlInformation {
         private String authentificationUser;
         private String authentificationType;
         private String authentificationPassword;
+        private String authorizationPathVariable;
         private String stationListPathVariable;
         private String journeyPathVariable;
         private String travelPointPathVariable;
@@ -553,6 +569,8 @@ public class ApiTokenAndUrlInformation {
             this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
             this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
             this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
+            this.apiName = apiTokenAndUrlInformation.getApiName();
+            this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
