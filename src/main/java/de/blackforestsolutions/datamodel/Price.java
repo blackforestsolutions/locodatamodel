@@ -10,6 +10,8 @@ import java.util.Currency;
 @Getter
 public class Price implements Serializable {
 
+    private static final long serialVersionUID = 6106269076155338045L;
+
     private double value;
 
     private Currency currency;

@@ -13,6 +13,7 @@ import java.util.Map;
 @Getter
 public class TravelLine implements Serializable {
 
+    private static final long serialVersionUID = 6106269076155338045L;
     private String name;
     private TravelPoint origin;
     private TravelPoint direction;

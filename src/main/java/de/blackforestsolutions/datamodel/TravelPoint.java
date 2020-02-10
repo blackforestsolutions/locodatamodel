@@ -10,19 +10,16 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 @Setter
 @Getter
 @Slf4j
 public class TravelPoint implements Serializable {
 
-    private static final int HASHCODECONSTANT_SEVENTEEN = 17;
-
-    private static final int HASHCODECONSTANT_THIRTY_ONE = 31;
+    private static final long serialVersionUID = 6106269076155338045L;
+    private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
+    private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
     private String city = "";
 
@@ -112,7 +109,7 @@ public class TravelPoint implements Serializable {
 
     @Override
     public int hashCode() {
-        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE);
+        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASH_CODE_CONSTANT_SEVENTEEN, HASH_CODE_CONSTANT_THIRTY_ONE);
         for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
             try {
                 if (attributeToCheck.get(this) != null) {
@@ -123,6 +120,47 @@ public class TravelPoint implements Serializable {
             }
         }
         return hashCodeBuilder.toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        TravelPoint that = (TravelPoint) o;
+        return Objects.equals(city, that.city)
+                && Objects.equals(country, that.country)
+                &&
+                Objects.equals(postalCode, that.postalCode)
+                &&
+                Objects.equals(stateOrProvince, that.stateOrProvince)
+                &&
+                Objects.equals(street, that.street)
+                &&
+                Objects.equals(streetNumber, that.streetNumber)
+                &&
+                Objects.equals(gpsCoordinates, that.gpsCoordinates)
+                &&
+                Objects.equals(airportId, that.airportId)
+                &&
+                Objects.equals(airportName, that.airportName)
+                &&
+                Objects.equals(platform, that.platform)
+                &&
+                Objects.equals(terminal, that.terminal)
+                &&
+                Objects.equals(departureTime, that.departureTime)
+                &&
+                Objects.equals(arrivalTime, that.arrivalTime)
+                &&
+                Objects.equals(stationName, that.stationName)
+                &&
+                Objects.equals(stationId, that.stationId)
+                &&
+                Objects.equals(vehicleTypes, that.vehicleTypes);
     }
 
     /**
@@ -146,13 +184,11 @@ public class TravelPoint implements Serializable {
      */
     public boolean hasEmptyString() throws IllegalAccessException {
         for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
-            if (attributeToCheck.get(this) != null) {
-                if (attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
-                    String value = (String) attributeToCheck.get(this);
-                    if (StringUtils.isEmpty(value)) {
-                        System.out.println(attributeToCheck.getName() + " is empty in TravelPoint");
-                        return true;
-                    }
+            if (attributeToCheck.get(this) != null && attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
+                String value = (String) attributeToCheck.get(this);
+                if (StringUtils.isEmpty(value)) {
+                    System.out.println(attributeToCheck.getName() + " is empty in TravelPoint");
+                    return true;
                 }
             }
         }
