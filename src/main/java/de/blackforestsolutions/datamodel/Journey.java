@@ -14,16 +14,19 @@ import org.springframework.data.geo.Distance;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.time.Duration;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Setter
 @Getter
 @Slf4j
 public class Journey implements Serializable {
 
-    private static final int HASHCODECONSTANT_SEVENTEEN = 17;
-
-    private static final int HASHCODECONSTANT_THIRTY_ONE = 31;
+    private static final long serialVersionUID = 6106269076155338045L;
+    private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
+    private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
     @Id
     private UUID id;
@@ -202,12 +205,10 @@ public class Journey implements Serializable {
      */
     public boolean hasEmptyString() throws IllegalAccessException {
         for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
-            if (attributeToCheck.get(this) != null) {
-                if (attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
-                    String value = (String) attributeToCheck.get(this);
-                    if (StringUtils.isEmpty(value)) {
-                        return true;
-                    }
+            if (attributeToCheck.get(this) != null && attributeToCheck.get(this).getClass().toString().equals(String.class.toString())) {
+                String value = (String) attributeToCheck.get(this);
+                if (StringUtils.isEmpty(value)) {
+                    return true;
                 }
             }
         }
@@ -216,7 +217,7 @@ public class Journey implements Serializable {
 
     @Override
     public int hashCode() {
-        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE);
+        HashCodeBuilder hashCodeBuilder = new HashCodeBuilder(HASH_CODE_CONSTANT_SEVENTEEN, HASH_CODE_CONSTANT_THIRTY_ONE);
         for (Field attributeToCheck : this.getClass().getDeclaredFields()) {
             try {
                 if (attributeToCheck.get(this) != null) {
@@ -227,5 +228,67 @@ public class Journey implements Serializable {
             }
         }
         return hashCodeBuilder.toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Journey journey = (Journey) o;
+        return matchesRequest == journey.matchesRequest
+                &&
+                Objects.equals(id, journey.id)
+                &&
+                Objects.equals(start, journey.start)
+                &&
+                Objects.equals(destination, journey.destination)
+                &&
+                Objects.equals(travelLine, journey.travelLine)
+                &&
+                travelProvider == journey.travelProvider
+                &&
+                Objects.equals(unknownTravelProvider, journey.unknownTravelProvider)
+                &&
+                Objects.equals(startTime, journey.startTime)
+                &&
+                Objects.equals(arrivalTime, journey.arrivalTime)
+                &&
+                Objects.equals(duration, journey.duration)
+                &&
+                Objects.equals(price, journey.price)
+                &&
+                Objects.equals(priceWithCommision, journey.priceWithCommision)
+                &&
+                Objects.equals(childPrice, journey.childPrice)
+                &&
+                Objects.equals(journeysRelated, journey.journeysRelated)
+                &&
+                Objects.equals(betweenTrips, journey.betweenTrips)
+                &&
+                Objects.equals(distance, journey.distance)
+                &&
+                Objects.equals(providerId, journey.providerId)
+                &&
+                Objects.equals(delay, journey.delay)
+                &&
+                Objects.equals(vehicleType, journey.vehicleType)
+                &&
+                Objects.equals(vehicleName, journey.vehicleName)
+                &&
+                Objects.equals(vehicleNumber, journey.vehicleNumber)
+                &&
+                Objects.equals(startStatus, journey.startStatus)
+                &&
+                Objects.equals(arrivalStatus, journey.arrivalStatus)
+                &&
+                Objects.equals(startTimeUpdated, journey.startTimeUpdated)
+                &&
+                Objects.equals(arrivalTimeUpdated, journey.arrivalTimeUpdated)
+                &&
+                Objects.equals(description, journey.description);
     }
 }
