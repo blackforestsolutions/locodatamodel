@@ -10,8 +10,9 @@ import java.io.Serializable;
 @Setter
 public class Coordinates implements Serializable {
 
-    private static final int HASHCODECONSTANT_SEVENTEEN = 17;
-    private static final int HASHCODECONSTANT_THIRTY_ONE = 31;
+    private static final long serialVersionUID = 6106269076155338045L;
+    private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
+    private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
     private double latitude;
     private double longitude;
 
@@ -49,7 +50,7 @@ public class Coordinates implements Serializable {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(HASHCODECONSTANT_SEVENTEEN, HASHCODECONSTANT_THIRTY_ONE) // two randomly chosen prime numbers
+        return new HashCodeBuilder(HASH_CODE_CONSTANT_SEVENTEEN, HASH_CODE_CONSTANT_THIRTY_ONE) // two randomly chosen prime numbers
                 .append(latitude)
                 .append(longitude)
                 .toHashCode();
