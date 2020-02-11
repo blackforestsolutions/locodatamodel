@@ -2,6 +2,7 @@ package de.blackforestsolutions.datamodel;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -71,7 +72,10 @@ public class ApiTokenAndUrlInformation {
     private final String mic;
     private final String checksum;
     private final String mac;
-
+    private final String hafasRtMode;
+    private final String cliendId;
+    private final String clientVersion;
+    private final String clientName;
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -135,6 +139,10 @@ public class ApiTokenAndUrlInformation {
         this.checksum = apiTokenAndUrlInformation.getChecksum();
         this.mic = apiTokenAndUrlInformation.getMic();
         this.mac = apiTokenAndUrlInformation.getMac();
+        this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
+        this.cliendId = apiTokenAndUrlInformation.getCliendId();
+        this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
+        this.clientName = apiTokenAndUrlInformation.getClientName();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -199,6 +207,10 @@ public class ApiTokenAndUrlInformation {
         this.mic = apiTokenAndUrlInformation.getMic();
         this.mac = apiTokenAndUrlInformation.getMac();
         this.checksum = apiTokenAndUrlInformation.getChecksum();
+        this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
+        this.cliendId = apiTokenAndUrlInformation.getCliendId();
+        this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
+        this.clientName = apiTokenAndUrlInformation.getClientName();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -263,6 +275,10 @@ public class ApiTokenAndUrlInformation {
         this.mic = apiTokenAndUrlInformation.getMic();
         this.mac = apiTokenAndUrlInformation.getMac();
         this.checksum = apiTokenAndUrlInformation.getChecksum();
+        this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
+        this.cliendId = apiTokenAndUrlInformation.getCliendId();
+        this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
+        this.clientName = apiTokenAndUrlInformation.getClientName();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -450,6 +466,18 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String mac;
+        @Getter
+        @Setter
+        private String hafasRtMode;
+        @Getter
+        @Setter
+        private String cliendId;
+        @Getter
+        @Setter
+        private String clientVersion;
+        @Getter
+        @Setter
+        private String clientName;
 
 
         public ApiTokenAndUrlInformationBuilderConfig() {
@@ -525,6 +553,10 @@ public class ApiTokenAndUrlInformation {
         private String checksum;
         private String mic;
         private String mac;
+        private String hafasRtMode;
+        private String cliendId;
+        private String clientVersion;
+        private String clientName;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -589,6 +621,10 @@ public class ApiTokenAndUrlInformation {
             this.mic = apiTokenAndUrlInformation.getMic();
             this.mac = apiTokenAndUrlInformation.getMac();
             this.checksum = apiTokenAndUrlInformation.getChecksum();
+            this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
+            this.cliendId = apiTokenAndUrlInformation.getCliendId();
+            this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
+            this.clientName = apiTokenAndUrlInformation.getClientName();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
