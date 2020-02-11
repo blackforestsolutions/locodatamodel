@@ -75,6 +75,7 @@ public class ApiTokenAndUrlInformation {
     private final String cliendId;
     private final String clientVersion;
     private final String clientName;
+    private final String clientType;
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -142,6 +143,7 @@ public class ApiTokenAndUrlInformation {
         this.cliendId = apiTokenAndUrlInformation.getCliendId();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
+        this.clientType = apiTokenAndUrlInformation.getClientType();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -210,6 +212,8 @@ public class ApiTokenAndUrlInformation {
         this.cliendId = apiTokenAndUrlInformation.getCliendId();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
+        this.clientType = apiTokenAndUrlInformation.getClientType();
+
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -278,6 +282,8 @@ public class ApiTokenAndUrlInformation {
         this.cliendId = apiTokenAndUrlInformation.getCliendId();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
+        this.clientType = apiTokenAndUrlInformation.getClientType();
+
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -477,6 +483,10 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String clientName;
+        @Getter
+        @Setter
+        private String clientType;
+
 
 
         public ApiTokenAndUrlInformationBuilderConfig() {
@@ -556,6 +566,7 @@ public class ApiTokenAndUrlInformation {
         private String cliendId;
         private String clientVersion;
         private String clientName;
+        private String clientType;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -624,6 +635,8 @@ public class ApiTokenAndUrlInformation {
             this.cliendId = apiTokenAndUrlInformation.getCliendId();
             this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
             this.clientName = apiTokenAndUrlInformation.getClientName();
+            this.clientType = apiTokenAndUrlInformation.getClientType();
+
         }
 
         public ApiTokenAndUrlInformationBuilder() {
