@@ -52,7 +52,6 @@ public class ApiTokenAndUrlInformation {
     private final String authentificationUser;
     private final String authentificationType;
     private final String authentificationPassword;
-    private final String authorizationPathVariable;
     private final String stationListPathVariable;
     private final String journeyPathVariable;
     private final String travelPointPathVariable;
@@ -68,6 +67,10 @@ public class ApiTokenAndUrlInformation {
     private final Boolean allowReducedPrice;
     private final Boolean allowIntermediateStops;
     private final Boolean hvvReturnContSearchData;
+
+    private final String mic;
+    private final String checksum;
+    private final String mac;
 
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
@@ -129,7 +132,9 @@ public class ApiTokenAndUrlInformation {
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
         this.apiName = apiTokenAndUrlInformation.getApiName();
-        this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
+        this.checksum = apiTokenAndUrlInformation.getChecksum();
+        this.mic = apiTokenAndUrlInformation.getMic();
+        this.mac = apiTokenAndUrlInformation.getMac();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -191,7 +196,9 @@ public class ApiTokenAndUrlInformation {
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
         this.apiName = apiTokenAndUrlInformation.getApiName();
-        this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
+        this.mic = apiTokenAndUrlInformation.getMic();
+        this.mac = apiTokenAndUrlInformation.getMac();
+        this.checksum = apiTokenAndUrlInformation.getChecksum();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -253,7 +260,9 @@ public class ApiTokenAndUrlInformation {
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
         this.apiName = apiTokenAndUrlInformation.getApiName();
-        this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
+        this.mic = apiTokenAndUrlInformation.getMic();
+        this.mac = apiTokenAndUrlInformation.getMac();
+        this.checksum = apiTokenAndUrlInformation.getChecksum();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -389,9 +398,6 @@ public class ApiTokenAndUrlInformation {
         private String authentificationPassword;
         @Getter
         @Setter
-        private String authorizationPathVariable;
-        @Getter
-        @Setter
         private String stationListPathVariable;
         @Getter
         @Setter
@@ -435,6 +441,15 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private Boolean hvvReturnContSearchData;
+        @Getter
+        @Setter
+        private String checksum;
+        @Getter
+        @Setter
+        private String mic;
+        @Getter
+        @Setter
+        private String mac;
 
 
         public ApiTokenAndUrlInformationBuilderConfig() {
@@ -492,7 +507,6 @@ public class ApiTokenAndUrlInformation {
         private String authentificationUser;
         private String authentificationType;
         private String authentificationPassword;
-        private String authorizationPathVariable;
         private String stationListPathVariable;
         private String journeyPathVariable;
         private String travelPointPathVariable;
@@ -508,7 +522,9 @@ public class ApiTokenAndUrlInformation {
         private Boolean allowReducedPrice;
         private Boolean allowIntermediateStops;
         private Boolean hvvReturnContSearchData;
-
+        private String checksum;
+        private String mic;
+        private String mac;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -570,7 +586,9 @@ public class ApiTokenAndUrlInformation {
             this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
             this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
             this.apiName = apiTokenAndUrlInformation.getApiName();
-            this.authorizationPathVariable = apiTokenAndUrlInformation.getAuthorizationPathVariable();
+            this.mic = apiTokenAndUrlInformation.getMic();
+            this.mac = apiTokenAndUrlInformation.getMac();
+            this.checksum = apiTokenAndUrlInformation.getChecksum();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
