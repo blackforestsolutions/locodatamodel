@@ -3,6 +3,8 @@ package de.blackforestsolutions.datamodel;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Time;
+import java.time.Duration;
 import java.util.Date;
 
 @Getter
@@ -76,6 +78,12 @@ public class ApiTokenAndUrlInformation {
     private final String clientVersion;
     private final String clientName;
     private final String clientType;
+    private final Integer transfers;
+    private final Duration maxTansferTime;
+    private final String hafasProductionValue;
+    private final String forDisabledPersons;
+    private final String walkingSpeed;
+    private final Boolean allowCoordinates;
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -144,6 +152,12 @@ public class ApiTokenAndUrlInformation {
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
+        this.transfers = apiTokenAndUrlInformation.getTransfers();
+        this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+        this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
+        this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
+        this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
+        this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
@@ -213,7 +227,12 @@ public class ApiTokenAndUrlInformation {
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
-
+        this.transfers = apiTokenAndUrlInformation.getTransfers();
+        this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+        this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
+        this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
+        this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
+        this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
     }
 
     public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
@@ -283,7 +302,12 @@ public class ApiTokenAndUrlInformation {
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
-
+        this.transfers = apiTokenAndUrlInformation.getTransfers();
+        this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+        this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
+        this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
+        this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
+        this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -486,8 +510,24 @@ public class ApiTokenAndUrlInformation {
         @Getter
         @Setter
         private String clientType;
-
-
+        @Getter
+        @Setter
+        private Integer transfers;
+        @Getter
+        @Setter
+        private Duration maxTansferTime;
+        @Getter
+        @Setter
+        private String hafasProductionValue;
+        @Getter
+        @Setter
+        private String forDisabledPersons;
+        @Getter
+        @Setter
+        private String walkingSpeed;
+        @Getter
+        @Setter
+        private Boolean allowCoordinates;
 
         public ApiTokenAndUrlInformationBuilderConfig() {
         }
@@ -567,6 +607,12 @@ public class ApiTokenAndUrlInformation {
         private String clientVersion;
         private String clientName;
         private String clientType;
+        private Integer transfers;
+        private Duration maxTansferTime;
+        private String hafasProductionValue;
+        private String forDisabledPersons;
+        private String walkingSpeed;
+        private Boolean allowCoordinates;
 
         private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -636,7 +682,12 @@ public class ApiTokenAndUrlInformation {
             this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
             this.clientName = apiTokenAndUrlInformation.getClientName();
             this.clientType = apiTokenAndUrlInformation.getClientType();
-
+            this.transfers = apiTokenAndUrlInformation.getTransfers();
+            this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+            this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
+            this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
+            this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
+            this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
         }
 
         public ApiTokenAndUrlInformationBuilder() {
