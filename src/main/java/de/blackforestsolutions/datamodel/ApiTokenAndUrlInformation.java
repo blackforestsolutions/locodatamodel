@@ -3,7 +3,6 @@ package de.blackforestsolutions.datamodel;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Duration;
 import java.util.Date;
 
 @Getter
@@ -78,7 +77,7 @@ public class ApiTokenAndUrlInformation {
     private final String clientName;
     private final String clientType;
     private final Integer transfers;
-    private final Duration maxTansferTime;
+    private final Integer maxTansferTime;
     private final String hafasProductionValue;
     private final String forDisabledPersons;
     private final String walkingSpeed;
@@ -514,7 +513,7 @@ public class ApiTokenAndUrlInformation {
         private Integer transfers;
         @Getter
         @Setter
-        private Duration maxTansferTime;
+        private Integer maxTansferTime;
         @Getter
         @Setter
         private String hafasProductionValue;
@@ -607,7 +606,7 @@ public class ApiTokenAndUrlInformation {
         private String clientName;
         private String clientType;
         private Integer transfers;
-        private Duration maxTansferTime;
+        private Integer maxTansferTime;
         private String hafasProductionValue;
         private String forDisabledPersons;
         private String walkingSpeed;
