@@ -77,7 +77,7 @@ public class ApiTokenAndUrlInformation {
     private final String clientName;
     private final String clientType;
     private final Integer transfers;
-    private final Integer maxTansferTime;
+    private final Integer minTransferTime;
     private final String hafasProductionValue;
     private final String forDisabledPersons;
     private final String walkingSpeed;
@@ -151,7 +151,7 @@ public class ApiTokenAndUrlInformation {
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
         this.transfers = apiTokenAndUrlInformation.getTransfers();
-        this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+        this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
         this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
         this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
         this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
@@ -226,7 +226,7 @@ public class ApiTokenAndUrlInformation {
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
         this.transfers = apiTokenAndUrlInformation.getTransfers();
-        this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+        this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
         this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
         this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
         this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
@@ -301,7 +301,7 @@ public class ApiTokenAndUrlInformation {
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
         this.transfers = apiTokenAndUrlInformation.getTransfers();
-        this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+        this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
         this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
         this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
         this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
@@ -513,7 +513,7 @@ public class ApiTokenAndUrlInformation {
         private Integer transfers;
         @Getter
         @Setter
-        private Integer maxTansferTime;
+        private Integer minTransferTime;
         @Getter
         @Setter
         private String hafasProductionValue;
@@ -606,7 +606,7 @@ public class ApiTokenAndUrlInformation {
         private String clientName;
         private String clientType;
         private Integer transfers;
-        private Integer maxTansferTime;
+        private Integer minTransferTime;
         private String hafasProductionValue;
         private String forDisabledPersons;
         private String walkingSpeed;
@@ -681,7 +681,7 @@ public class ApiTokenAndUrlInformation {
             this.clientName = apiTokenAndUrlInformation.getClientName();
             this.clientType = apiTokenAndUrlInformation.getClientType();
             this.transfers = apiTokenAndUrlInformation.getTransfers();
-            this.maxTansferTime = apiTokenAndUrlInformation.getMaxTansferTime();
+            this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
             this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
             this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
             this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
