@@ -3,7 +3,6 @@ package de.blackforestsolutions.datamodel;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Time;
 import java.time.Duration;
 import java.util.Date;
 
