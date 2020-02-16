@@ -1,6 +1,7 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,49 +13,47 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.*;
 
-@Setter
-@Getter
 @Slf4j
-public class TravelPoint implements Serializable {
+@Getter
+@JsonDeserialize(builder = TravelPoint.TravelPointBuilder.class)
+public final class TravelPoint implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
-    private String city = "";
+    private final String city;
 
-    private Locale country;
+    private final Locale country;
 
-    private String postalCode = "";
+    private final String postalCode;
 
-    private String stateOrProvince = "";
+    private final String stateOrProvince;
 
-    private String street = "";
+    private final String street;
 
-    private String streetNumber = "";
+    private final String streetNumber;
 
-    private Coordinates gpsCoordinates = new Coordinates(0, 0);
+    @JsonDeserialize(using = CoordinatesDeserializer.class)
+    private final Coordinates gpsCoordinates;
 
-    private String airportId = "";
+    private final String airportId;
 
-    private String airportName = "";
+    private final String airportName;
 
-    private String platform = "";
+    private final String platform;
 
-    private String terminal = "";
+    private final String terminal;
 
-    private Date departureTime;
+    private final Date departureTime;
 
-    private Date arrivalTime;
+    private final Date arrivalTime;
 
-    private String stationName = "";
+    private final String stationName;
 
-    private String stationId = "";
+    private final String stationId;
 
-    private List<String> vehicleTypes = new ArrayList<>();
-
-    public TravelPoint() {
-    }
+    private final List<String> vehicleTypes;
 
     /**
      * Copy constructor for travel point.
@@ -80,6 +79,25 @@ public class TravelPoint implements Serializable {
         this.vehicleTypes = travelPoint.getVehicleTypes();
     }
 
+    private TravelPoint(TravelPointBuilder travelPoint) {
+        this.city = travelPoint.getCity();
+        this.country = travelPoint.getCountry();
+        this.postalCode = travelPoint.getPostalCode();
+        this.stateOrProvince = travelPoint.getStateOrProvince();
+        this.street = travelPoint.getStreet();
+        this.streetNumber = travelPoint.getStreetNumber();
+        this.gpsCoordinates = travelPoint.getGpsCoordinates();
+        this.airportId = travelPoint.getAirportId();
+        this.airportName = travelPoint.getAirportName();
+        this.platform = travelPoint.getPlatform();
+        this.terminal = travelPoint.getTerminal();
+        this.departureTime = travelPoint.getDepartureTime();
+        this.arrivalTime = travelPoint.getArrivalTime();
+        this.stationName = travelPoint.getStationName();
+        this.stationId = travelPoint.getStationId();
+        this.vehicleTypes = travelPoint.getVehicleTypes();
+    }
+
     public Date getDepartureTime() {
         if (departureTime != null) {
             return (Date) departureTime.clone();
@@ -87,24 +105,11 @@ public class TravelPoint implements Serializable {
         return null;
     }
 
-    public void setDepartureTime(Date departureTime) {
-        this.departureTime = (Date) departureTime.clone();
-    }
-
     public Date getArrivalTime() {
         if (arrivalTime != null) {
             return (Date) arrivalTime.clone();
         }
         return null;
-    }
-
-    public void setArrivalTime(Date arrivalTime) {
-        this.arrivalTime = (Date) arrivalTime.clone();
-    }
-
-    @JsonDeserialize(using = CoordinatesDeserializer.class)
-    public void setGpsCoordinates(Coordinates gpsCoordinates) {
-        this.gpsCoordinates = gpsCoordinates;
     }
 
     @Override
@@ -193,5 +198,69 @@ public class TravelPoint implements Serializable {
             }
         }
         return false;
+    }
+
+    @Setter
+    @Getter
+    @JsonPOJOBuilder(withPrefix = "set")
+    public static class TravelPointBuilder {
+
+        private String city = "";
+
+        private Locale country;
+
+        private String postalCode = "";
+
+        private String stateOrProvince = "";
+
+        private String street = "";
+
+        private String streetNumber = "";
+
+        private Coordinates gpsCoordinates = new Coordinates.CoordinatesBuilder(0, 0).build();
+
+        private String airportId = "";
+
+        private String airportName = "";
+
+        private String platform = "";
+
+        private String terminal = "";
+
+        private Date departureTime;
+
+        private Date arrivalTime;
+
+        private String stationName = "";
+
+        private String stationId = "";
+
+        private List<String> vehicleTypes = new ArrayList<>();
+
+        public Date getDepartureTime() {
+            if (departureTime != null) {
+                return (Date) departureTime.clone();
+            }
+            return null;
+        }
+
+        public void setDepartureTime(Date departureTime) {
+            this.departureTime = (Date) departureTime.clone();
+        }
+
+        public Date getArrivalTime() {
+            if (arrivalTime != null) {
+                return (Date) arrivalTime.clone();
+            }
+            return null;
+        }
+
+        public void setArrivalTime(Date arrivalTime) {
+            this.arrivalTime = (Date) arrivalTime.clone();
+        }
+
+        public TravelPoint build() {
+            return new TravelPoint(this);
+        }
     }
 }
