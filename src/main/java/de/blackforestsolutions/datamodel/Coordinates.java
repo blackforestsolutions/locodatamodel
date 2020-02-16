@@ -1,5 +1,7 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -7,21 +9,25 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import java.io.Serializable;
 
 @Getter
-@Setter
-public class Coordinates implements Serializable {
+@JsonDeserialize(builder = Coordinates.CoordinatesBuilder.class)
+public final class Coordinates implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
-    private double latitude;
-    private double longitude;
 
-    public Coordinates() {
+    private final double latitude;
+
+    private final double longitude;
+
+    public Coordinates(Coordinates coordinates) {
+        this.latitude = coordinates.getLatitude();
+        this.longitude = coordinates.getLongitude();
     }
 
-    public Coordinates(double latitude, double longitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
+    private Coordinates(CoordinatesBuilder coordinates) {
+        this.latitude = coordinates.getLatitude();
+        this.longitude = coordinates.getLongitude();
     }
 
     @Override
@@ -54,5 +60,27 @@ public class Coordinates implements Serializable {
                 .append(latitude)
                 .append(longitude)
                 .toHashCode();
+    }
+
+    @Setter
+    @Getter
+    @JsonPOJOBuilder(withPrefix = "set")
+    public static class CoordinatesBuilder {
+
+        private double latitude;
+        private double longitude;
+
+        public CoordinatesBuilder() {
+
+        }
+
+        public CoordinatesBuilder(double latitude, double longitude) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+        }
+
+        public Coordinates build() {
+            return new Coordinates(this);
+        }
     }
 }

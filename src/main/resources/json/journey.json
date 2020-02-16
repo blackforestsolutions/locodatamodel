@@ -43,7 +43,7 @@
     "vehicleTypes": []
   },
   "travelLine": {
-    "name": null,
+    "name": "",
     "origin": {
       "city": "Hamburg",
       "country": "de_DE",
@@ -140,19 +140,19 @@
     "value": 234.9,
     "currency": "EUR",
     "symbol": "€",
-    "affiliateLink": null
+    "affiliateLink": ""
   },
   "priceWithCommision": {
     "value": 234.9,
     "currency": "EUR",
     "symbol": "€",
-    "affiliateLink": null
+    "affiliateLink": ""
   },
   "childPrice": {
     "value": 234.9,
     "currency": "EUR",
     "symbol": "€",
-    "affiliateLink": null
+    "affiliateLink": ""
   },
   "journeysRelated": [
     "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
@@ -203,7 +203,7 @@
         "vehicleTypes": []
       },
       "travelLine": {
-        "name": null,
+        "name": "",
         "origin": {
           "city": "Hamburg",
           "country": "de_DE",
@@ -300,24 +300,24 @@
         "value": 234.9,
         "currency": "EUR",
         "symbol": "€",
-        "affiliateLink": null
+        "affiliateLink": ""
       },
       "priceWithCommision": {
         "value": 234.9,
         "currency": "EUR",
         "symbol": "€",
-        "affiliateLink": null
+        "affiliateLink": ""
       },
       "childPrice": {
         "value": 234.9,
         "currency": "EUR",
         "symbol": "€",
-        "affiliateLink": null
+        "affiliateLink": ""
       },
       "journeysRelated": [
         "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
       ],
-      "betweenTrips": null,
+      "betweenTrips": [],
       "distance": {
         "value": 20000.0,
         "metric": "KILOMETERS"

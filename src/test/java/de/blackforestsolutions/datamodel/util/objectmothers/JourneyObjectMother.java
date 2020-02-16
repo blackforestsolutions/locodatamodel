@@ -14,9 +14,8 @@ import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
 public class JourneyObjectMother {
 
-    public static Journey getJourneyBerlinHamburg() {
-        //Coordinates coordinates = new Coordinates(43974.48, 397937.34);
-        Journey journey = new Journey();
+    public static Journey.JourneyBuilder getJourneyBerlinHamburg() {
+        Journey.JourneyBuilder journey = new Journey.JourneyBuilder(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
         journey.setStart(getTravelPointBrandenBurg());
         journey.setTravelLine(getBerlinHamburgTravelLine());
         journey.setDestination(getTravelPointHamburg());
@@ -26,14 +25,13 @@ public class JourneyObjectMother {
         journey.setMatchesRequest(false);
         journey.setStartTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
         journey.setArrivalTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
-        journey.setId(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
-        Price price = new Price();
+        Price.PriceBuilder price = new Price.PriceBuilder();
         price.setCurrency(Currency.getInstance("EUR"));
         price.setSymbol("€");
         price.setValue(234.90);
-        journey.setPrice(price);
-        journey.setChildPrice(price);
-        journey.setPriceWithCommision(price);
+        journey.setPrice(price.build());
+        journey.setChildPrice(price.build());
+        journey.setPriceWithCommision(price.build());
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
         journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));
@@ -53,7 +51,7 @@ public class JourneyObjectMother {
     private static List<Journey> getBetweenTrips() {
         List<Journey> betweenTrips = new ArrayList<>();
 
-        Journey journey = new Journey();
+        Journey.JourneyBuilder journey = new Journey.JourneyBuilder(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
         journey.setStart(getTravelPointBrandenBurg());
         journey.setTravelLine(getBerlinHamburgTravelLine());
         journey.setDestination(getTravelPointHamburg());
@@ -63,14 +61,13 @@ public class JourneyObjectMother {
         journey.setMatchesRequest(false);
         journey.setStartTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
         journey.setArrivalTimeUpdated(Date.from(Instant.ofEpochMilli(1L)));
-        journey.setId(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a"));
-        Price price = new Price();
+        Price.PriceBuilder price = new Price.PriceBuilder();
         price.setCurrency(Currency.getInstance("EUR"));
         price.setSymbol("€");
         price.setValue(234.90);
-        journey.setPrice(price);
-        journey.setChildPrice(price);
-        journey.setPriceWithCommision(price);
+        journey.setPrice(price.build());
+        journey.setChildPrice(price.build());
+        journey.setPriceWithCommision(price.build());
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
         journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));
@@ -83,13 +80,13 @@ public class JourneyObjectMother {
         journey.setArrivalStatus("arrivalStatus");
         journey.setDescription("description");
 
-        betweenTrips.add(journey);
+        betweenTrips.add(journey.build());
 
         return betweenTrips;
     }
 
     public static TravelPoint getTravelPointBrandenBurg() {
-        TravelPoint start = new TravelPoint();
+        TravelPoint.TravelPointBuilder start = new TravelPoint.TravelPointBuilder();
         start.setCity("Berlin");
         start.setPostalCode("64664");
         start.setStateOrProvince("Brandenburg");
@@ -98,22 +95,22 @@ public class JourneyObjectMother {
         start.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
         start.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
         start.setCountry(new Locale("DE", "DE"));
-        start.setGpsCoordinates(new Coordinates(1, 0));
-        return start;
+        start.setGpsCoordinates(new Coordinates.CoordinatesBuilder(1, 0).build());
+        return start.build();
     }
 
     public static TravelPoint getTravelPointHamburg() {
-        TravelPoint destination = new TravelPoint();
+        TravelPoint.TravelPointBuilder destination = new TravelPoint.TravelPointBuilder();
         destination.setCity("Hamburg");
         destination.setPostalCode("58974");
         destination.setStateOrProvince("Hamburg");
         destination.setStreetNumber("6");
         destination.setStreet("Fischmarkt");
         destination.setCountry(new Locale("DE", "DE"));
-        destination.setGpsCoordinates(new Coordinates(1, 0));
+        destination.setGpsCoordinates(new Coordinates.CoordinatesBuilder(1, 0).build());
         destination.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
         destination.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
-        return destination;
+        return destination.build();
     }
 
     public static String getJourneyStringBerlinHamburg() {
@@ -121,11 +118,11 @@ public class JourneyObjectMother {
     }
 
     public static TravelLine getBerlinHamburgTravelLine() {
-        TravelLine travelLine = new TravelLine();
+        TravelLine.TravelLineBuilder travelLine = new TravelLine.TravelLineBuilder();
         travelLine.setOrigin(getTravelPointHamburg());
         travelLine.getBetweenHolds().put(2, getTravelPointHamburg());
         travelLine.getBetweenHolds().put(1, getTravelPointBrandenBurg());
         travelLine.setDirection(getTravelPointBrandenBurg());
-        return travelLine;
+        return travelLine.build();
     }
 }
