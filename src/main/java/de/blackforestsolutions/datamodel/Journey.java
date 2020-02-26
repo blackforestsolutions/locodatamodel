@@ -86,8 +86,6 @@ public final class Journey implements Serializable {
 
     private final String description;
 
-    private List<String> remarks;
-
     /**
      * Copy Constructor
      *
@@ -120,7 +118,6 @@ public final class Journey implements Serializable {
         this.startTimeUpdated = journey.getStartTimeUpdated();
         this.arrivalTimeUpdated = journey.getArrivalTimeUpdated();
         this.description = journey.getDescription();
-        this.remarks = journey.getRemarks();
     }
 
     private Journey(JourneyBuilder journey) {
@@ -150,7 +147,6 @@ public final class Journey implements Serializable {
         this.startTimeUpdated = journey.getStartTimeUpdated();
         this.arrivalTimeUpdated = journey.getArrivalTimeUpdated();
         this.description = journey.getDescription();
-        this.remarks = journey.getRemarks();
     }
 
     public Date getStartTimeUpdated() {
@@ -288,9 +284,7 @@ public final class Journey implements Serializable {
                 &&
                 Objects.equals(arrivalTimeUpdated, journey.arrivalTimeUpdated)
                 &&
-                Objects.equals(description, journey.description)
-                &&
-                Objects.equals(remarks, journey.getRemarks());
+                Objects.equals(description, journey.description);
     }
 
     @Setter
