@@ -14,11 +14,11 @@ import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
 public class JsonMapperServiceTest {
 
-    private LocoJsonMapper classUnderTest = new LocoJsonMapper();
+    private final LocoJsonMapper classUnderTest = new LocoJsonMapper();
 
     @Test
     public void test_map_journey_returns_jsonobject() throws JsonProcessingException {
-        Journey journey = JourneyObjectMother.getJourneyBerlinHamburg();
+        Journey journey = JourneyObjectMother.getJourneyBerlinHamburg().build();
 
         String result = classUnderTest.map(journey);
 

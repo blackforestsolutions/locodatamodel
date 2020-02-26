@@ -1,19 +1,24 @@
 package de.blackforestsolutions.datamodel;
 
 import de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother;
+import org.assertj.core.api.WritableAssertionInfo;
+import org.assertj.core.internal.Strings;
 import org.junit.jupiter.api.Test;
+
+import java.util.UUID;
+import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class JourneyTest {
 
-    Journey classUnderTest = JourneyObjectMother.getJourneyBerlinHamburg();
+    Journey.JourneyBuilder classUnderTest = JourneyObjectMother.getJourneyBerlinHamburg();
 
     @Test
     public void test_hasNullAttributes_with_no_null_attribute_is_false() throws IllegalAccessException {
 
-        boolean result = classUnderTest.hasNullAttributes();
+        boolean result = classUnderTest.build().hasNullAttributes();
 
         assertThat(result).isFalse();
     }
@@ -22,7 +27,7 @@ public class JourneyTest {
     public void test_hasNullAttributes_with_a_null_attribute_is_true() throws IllegalAccessException {
         classUnderTest.setStart(null);
 
-        boolean result = classUnderTest.hasNullAttributes();
+        boolean result = classUnderTest.build().hasNullAttributes();
 
         assertThat(result).isTrue();
     }
@@ -31,7 +36,7 @@ public class JourneyTest {
     public void test_hasEmptyString_with_empty_string_attribute_is_true() throws IllegalAccessException {
         classUnderTest.setStartStatus("");
 
-        boolean result = classUnderTest.hasEmptyString();
+        boolean result = classUnderTest.build().hasEmptyString();
 
         assertThat(result).isTrue();
     }
@@ -40,7 +45,7 @@ public class JourneyTest {
     public void test_hasEmptyString_with_no_empty_string_attribute_is_false() throws IllegalAccessException {
         classUnderTest = JourneyObjectMother.getJourneyBerlinHamburg();
 
-        boolean result = classUnderTest.hasEmptyString();
+        boolean result = classUnderTest.build().hasEmptyString();
 
         assertThat(result).isFalse();
     }
@@ -64,19 +69,23 @@ public class JourneyTest {
 
     @Test
     public void test_Journey_copy_constructor_with_complete_object_returns_copy() {
-        Journey testData = JourneyObjectMother.getJourneyBerlinHamburg();
+        Journey testData = JourneyObjectMother.getJourneyBerlinHamburg().build();
+        Pattern checkPattern = Pattern.compile("([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})");
 
         Journey result = new Journey(testData);
 
-        assertThat(result).isEqualToComparingFieldByField(testData);
+        assertThat(result).isEqualToIgnoringGivenFields(testData, "id");
+        Strings.instance().assertContainsPattern(new WritableAssertionInfo(), testData.getId().toString(), checkPattern);
     }
 
     @Test
     public void test_Journey_copy_constructor_with_not_complete_object_returns_copy() {
-        Journey testData = new Journey();
+        Journey testData = new Journey.JourneyBuilder(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a")).build();
+        Pattern checkPattern = Pattern.compile("([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})");
 
         Journey result = new Journey(testData);
 
-        assertThat(result).isEqualToComparingFieldByField(testData);
+        assertThat(result).isEqualToIgnoringGivenFields(testData, "id");
+        Strings.instance().assertContainsPattern(new WritableAssertionInfo(), testData.getId().toString(), checkPattern);
     }
 }

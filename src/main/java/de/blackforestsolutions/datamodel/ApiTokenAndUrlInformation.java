@@ -1,12 +1,13 @@
 package de.blackforestsolutions.datamodel;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
-public class ApiTokenAndUrlInformation {
+public final class ApiTokenAndUrlInformation {
 
     private final String apiName;
     private final String protocol;
@@ -83,82 +84,7 @@ public class ApiTokenAndUrlInformation {
     private final String walkingSpeed;
     private final Boolean allowCoordinates;
 
-    public ApiTokenAndUrlInformation(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
-        this.protocol = apiTokenAndUrlInformation.getProtocol();
-        this.host = apiTokenAndUrlInformation.getHost();
-        this.port = apiTokenAndUrlInformation.getPort();
-        this.apiVersion = apiTokenAndUrlInformation.getApiVersion();
-        this.pathVariable = apiTokenAndUrlInformation.getPathVariable();
-        this.departure = apiTokenAndUrlInformation.getDeparture();
-        this.arrival = apiTokenAndUrlInformation.getArrival();
-        this.departureDate = apiTokenAndUrlInformation.getDepartureDate();
-        this.arrivalDate = apiTokenAndUrlInformation.getArrivalDate();
-        this.xOriginationIpKey = apiTokenAndUrlInformation.getXOriginationIpKey();
-        this.xOriginationIp = apiTokenAndUrlInformation.getXOriginationIp();
-        this.authorizationKey = apiTokenAndUrlInformation.getAuthorizationKey();
-        this.authorization = apiTokenAndUrlInformation.getAuthorization();
-        this.path = apiTokenAndUrlInformation.getPath();
-        this.hazelcastPath = apiTokenAndUrlInformation.getHazelcastPath();
-        this.hazelcastWritePath = apiTokenAndUrlInformation.getHazelcastWritePath();
-        this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
-        this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
-        this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
-        this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
-        this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
-        this.stationId = apiTokenAndUrlInformation.getStationId();
-        this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
-        this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
-        this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
-        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
-        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
-        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
-        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
-        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.language = apiTokenAndUrlInformation.getLanguage();
-        this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
-        this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
-        this.authentificationPassword = apiTokenAndUrlInformation.getAuthentificationPassword();
-        this.stationListPathVariable = apiTokenAndUrlInformation.getStationListPathVariable();
-        this.journeyPathVariable = apiTokenAndUrlInformation.getJourneyPathVariable();
-        this.travelPointPathVariable = apiTokenAndUrlInformation.getTravelPointPathVariable();
-        this.resultLength = apiTokenAndUrlInformation.getResultLength();
-        this.distanceFromTravelPoint = apiTokenAndUrlInformation.getDistanceFromTravelPoint();
-        this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
-        this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
-        this.tariff = apiTokenAndUrlInformation.getTariff();
-        this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
-        this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
-        this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
-        this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
-        this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
-        this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
-        this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
-        this.apiName = apiTokenAndUrlInformation.getApiName();
-        this.checksum = apiTokenAndUrlInformation.getChecksum();
-        this.mic = apiTokenAndUrlInformation.getMic();
-        this.mac = apiTokenAndUrlInformation.getMac();
-        this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
-        this.cliendId = apiTokenAndUrlInformation.getCliendId();
-        this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
-        this.clientName = apiTokenAndUrlInformation.getClientName();
-        this.clientType = apiTokenAndUrlInformation.getClientType();
-        this.transfers = apiTokenAndUrlInformation.getTransfers();
-        this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
-        this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
-        this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
-        this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
-        this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
-    }
-
-    public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
+    private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
         this.host = apiTokenAndUrlInformation.getHost();
         this.port = apiTokenAndUrlInformation.getPort();
@@ -217,84 +143,9 @@ public class ApiTokenAndUrlInformation {
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
         this.apiName = apiTokenAndUrlInformation.getApiName();
+        this.checksum = apiTokenAndUrlInformation.getChecksum();
         this.mic = apiTokenAndUrlInformation.getMic();
         this.mac = apiTokenAndUrlInformation.getMac();
-        this.checksum = apiTokenAndUrlInformation.getChecksum();
-        this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
-        this.cliendId = apiTokenAndUrlInformation.getCliendId();
-        this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
-        this.clientName = apiTokenAndUrlInformation.getClientName();
-        this.clientType = apiTokenAndUrlInformation.getClientType();
-        this.transfers = apiTokenAndUrlInformation.getTransfers();
-        this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
-        this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
-        this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
-        this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
-        this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
-    }
-
-    public ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilderConfig apiTokenAndUrlInformation) {
-        this.protocol = apiTokenAndUrlInformation.getProtocol();
-        this.host = apiTokenAndUrlInformation.getHost();
-        this.port = apiTokenAndUrlInformation.getPort();
-        this.apiVersion = apiTokenAndUrlInformation.getApiVersion();
-        this.pathVariable = apiTokenAndUrlInformation.getPathVariable();
-        this.departure = apiTokenAndUrlInformation.getDeparture();
-        this.arrival = apiTokenAndUrlInformation.getArrival();
-        this.departureDate = null;
-        this.arrivalDate = null;
-        this.xOriginationIpKey = apiTokenAndUrlInformation.getXOriginationIpKey();
-        this.xOriginationIp = apiTokenAndUrlInformation.getXOriginationIp();
-        this.authorizationKey = apiTokenAndUrlInformation.getAuthorizationKey();
-        this.authorization = apiTokenAndUrlInformation.getAuthorization();
-        this.path = null;
-        this.hazelcastPath = apiTokenAndUrlInformation.getHazelcastPath();
-        this.hazelcastWritePath = apiTokenAndUrlInformation.getHazelcastWritePath();
-        this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
-        this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
-        this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPathVariable();
-        this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
-        this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
-        this.germanRailDatePathVariable = null;
-        this.stationId = null;
-        this.journeyDetailsId = null;
-        this.bahnLocation = null;
-        this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
-        this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
-        this.startLocation = apiTokenAndUrlInformation.getStartLocation();
-        this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
-        this.locationPath = apiTokenAndUrlInformation.getLocationPath();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
-        this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
-        this.language = apiTokenAndUrlInformation.getLanguage();
-        this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
-        this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
-        this.authentificationPassword = apiTokenAndUrlInformation.getAuthentificationPassword();
-        this.stationListPathVariable = apiTokenAndUrlInformation.getStationListPathVariable();
-        this.journeyPathVariable = apiTokenAndUrlInformation.getJourneyPathVariable();
-        this.travelPointPathVariable = apiTokenAndUrlInformation.getTravelPointPathVariable();
-        this.resultLength = apiTokenAndUrlInformation.getResultLength();
-        this.distanceFromTravelPoint = apiTokenAndUrlInformation.getDistanceFromTravelPoint();
-        this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformation.getResultLengthBeforeDepartureTime();
-        this.resultLengthAfterDepartureTime = apiTokenAndUrlInformation.getResultLengthAfterDepartureTime();
-        this.tariff = apiTokenAndUrlInformation.getTariff();
-        this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
-        this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
-        this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
-        this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
-        this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
-        this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
-        this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
-        this.apiName = apiTokenAndUrlInformation.getApiName();
-        this.mic = apiTokenAndUrlInformation.getMic();
-        this.mac = apiTokenAndUrlInformation.getMac();
-        this.checksum = apiTokenAndUrlInformation.getChecksum();
         this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
         this.cliendId = apiTokenAndUrlInformation.getCliendId();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
@@ -330,214 +181,10 @@ public class ApiTokenAndUrlInformation {
         return null;
     }
 
-    public static class ApiTokenAndUrlInformationBuilderConfig {
-        @Getter
-        @Setter
-        private String apiName;
-        @Getter
-        @Setter
-        private String protocol;
-        @Getter
-        @Setter
-        private String host;
-        @Getter
-        @Setter
-        private Integer port = -1;
-        @Getter
-        @Setter
-        private String apiVersion;
-        @Getter
-        @Setter
-        private String pathVariable;
-        @Getter
-        @Setter
-        private String departure;
-        @Getter
-        @Setter
-        private String arrival;
-        @Getter
-        @Setter
-        private String hazelcastPath;
-        @Getter
-        @Setter
-        private String hazelcastWritePath;
-        @Getter
-        @Setter
-        private String hazelcastReadAllPath;
-        @Getter
-        @Setter
-        private String hazelcastSearchPath;
-        @Getter
-        @Setter
-        private String xOriginationIpKey;
-        @Getter
-        @Setter
-        private String xOriginationIp;
-        @Getter
-        @Setter
-        private String authorizationKey;
-        @Getter
-        @Setter
-        private String authorization;
-        @Getter
-        @Setter
-        private String germanRailJourneyDeatilsPath;
-        @Getter
-        @Setter
-        private String germanRailArrivalBoardPath;
-        @Getter
-        @Setter
-        private String germanRailLocationPath;
-        @Getter
-        @Setter
-        private String germanRailDepartureBoardPathVariable;
-        @Getter
-        @Setter
-        private String datePathVariable;
-        @Getter
-        @Setter
-        private String searchChRoutePathVariable;
-        @Getter
-        @Setter
-        private String searchChResults;
-        @Getter
-        @Setter
-        private String searchChDelayParameter;
-        @Getter
-        @Setter
-        private String timePathVariable;
-        @Getter
-        @Setter
-        private String startLocation;
-        @Getter
-        @Setter
-        private String destinationLocation;
-        @Getter
-        @Setter
-        private String locationPath;
-        @Getter
-        @Setter
-        private String searchChTermParameter;
-        @Getter
-        @Setter
-        private String searchChStationId;
-        @Getter
-        @Setter
-        private String searchChStationCoordinateParameter;
-        @Getter
-        @Setter
-        private String locationSearchTerm;
-        @Getter
-        @Setter
-        private String language;
-        @Getter
-        @Setter
-        private String authentificationUser;
-        @Getter
-        @Setter
-        private String authentificationType;
-        @Getter
-        @Setter
-        private String authentificationPassword;
-        @Getter
-        @Setter
-        private String stationListPathVariable;
-        @Getter
-        @Setter
-        private String journeyPathVariable;
-        @Getter
-        @Setter
-        private String travelPointPathVariable;
-        @Getter
-        @Setter
-        private int resultLength;
-        @Getter
-        @Setter
-        private int distanceFromTravelPoint;
-        @Getter
-        @Setter
-        private int resultLengthBeforeDepartureTime;
-        @Getter
-        @Setter
-        private int resultLengthAfterDepartureTime;
-        @Getter
-        @Setter
-        private String tariff;
-        @Getter
-        @Setter
-        private Boolean timeIsDeparture;
-        @Getter
-        @Setter
-        private Boolean hvvFilterEquivalent;
-        @Getter
-        @Setter
-        private Boolean hvvAllowTypeSwitch;
-        @Getter
-        @Setter
-        private Boolean allowTariffDetails;
-        @Getter
-        @Setter
-        private Boolean allowReducedPrice;
-        @Getter
-        @Setter
-        private Boolean allowIntermediateStops;
-        @Getter
-        @Setter
-        private Boolean hvvReturnContSearchData;
-        @Getter
-        @Setter
-        private String checksum;
-        @Getter
-        @Setter
-        private String mic;
-        @Getter
-        @Setter
-        private String mac;
-        @Getter
-        @Setter
-        private String hafasRtMode;
-        @Getter
-        @Setter
-        private String cliendId;
-        @Getter
-        @Setter
-        private String clientVersion;
-        @Getter
-        @Setter
-        private String clientName;
-        @Getter
-        @Setter
-        private String clientType;
-        @Getter
-        @Setter
-        private Integer transfers;
-        @Getter
-        @Setter
-        private Integer minTransferTime;
-        @Getter
-        @Setter
-        private String hafasProductionValue;
-        @Getter
-        @Setter
-        private String forDisabledPersons;
-        @Getter
-        @Setter
-        private String walkingSpeed;
-        @Getter
-        @Setter
-        private Boolean allowCoordinates;
-
-        public ApiTokenAndUrlInformationBuilderConfig() {
-        }
-
-        public ApiTokenAndUrlInformation build() {
-            return new ApiTokenAndUrlInformation(this);
-        }
-
-    }
 
     @Getter
     @Setter
+    @NoArgsConstructor
     public static class ApiTokenAndUrlInformationBuilder {
         private String apiName;
         private String protocol;
@@ -612,7 +259,7 @@ public class ApiTokenAndUrlInformation {
         private String walkingSpeed;
         private Boolean allowCoordinates;
 
-        private ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
+        public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
             this.host = apiTokenAndUrlInformation.getHost();
             this.port = apiTokenAndUrlInformation.getPort();
@@ -667,7 +314,6 @@ public class ApiTokenAndUrlInformation {
             this.hvvFilterEquivalent = apiTokenAndUrlInformation.getHvvFilterEquivalent();
             this.hvvAllowTypeSwitch = apiTokenAndUrlInformation.getHvvAllowTypeSwitch();
             this.allowTariffDetails = apiTokenAndUrlInformation.getAllowTariffDetails();
-            this.timeIsDeparture = apiTokenAndUrlInformation.getTimeIsDeparture();
             this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
             this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
             this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
@@ -686,10 +332,6 @@ public class ApiTokenAndUrlInformation {
             this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
             this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
             this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
-        }
-
-        public ApiTokenAndUrlInformationBuilder() {
-
         }
 
         public Date getGermanRailDatePathVariable() {

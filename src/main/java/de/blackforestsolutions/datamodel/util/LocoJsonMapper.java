@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class LocoJsonMapper {
 
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     public LocoJsonMapper() {
         this.mapper = new ObjectMapper();

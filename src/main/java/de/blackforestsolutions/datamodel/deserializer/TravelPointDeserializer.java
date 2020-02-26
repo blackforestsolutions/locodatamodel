@@ -16,7 +16,6 @@ public class TravelPointDeserializer extends JsonDeserializer<TravelPoint> {
         ObjectCodec objectCodec = jsonParser.getCodec();
         JsonNode node = objectCodec.readTree(jsonParser);
         ObjectMapper mapper = new ObjectMapper();
-        TravelPoint result = mapper.treeToValue(node, TravelPoint.class);
-        return result;
+        return mapper.treeToValue(node, TravelPoint.class);
     }
 }

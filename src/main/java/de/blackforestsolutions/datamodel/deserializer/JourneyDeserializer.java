@@ -6,16 +6,17 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.blackforestsolutions.datamodel.Price;
+import de.blackforestsolutions.datamodel.Journey;
 
 import java.io.IOException;
 
-public class PriceDeserializer extends JsonDeserializer<Price> {
+public class JourneyDeserializer extends JsonDeserializer<Journey> {
+
     @Override
-    public Price deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
+    public Journey deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectCodec objectCodec = jsonParser.getCodec();
         JsonNode node = objectCodec.readTree(jsonParser);
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.treeToValue(node, Price.class);
+        return mapper.treeToValue(node, Journey.class);
     }
 }

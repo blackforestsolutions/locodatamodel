@@ -1,7 +1,6 @@
 package de.blackforestsolutions.datamodel.deserializer;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -13,11 +12,10 @@ import java.io.IOException;
 
 public class CoordinatesDeserializer extends JsonDeserializer<Coordinates> {
     @Override
-    public Coordinates deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public Coordinates deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectCodec objectCodec = jsonParser.getCodec();
         JsonNode node = objectCodec.readTree(jsonParser);
         ObjectMapper mapper = new ObjectMapper();
-        Coordinates result = mapper.treeToValue(node, Coordinates.class);
-        return result;
+        return mapper.treeToValue(node, Coordinates.class);
     }
 }
