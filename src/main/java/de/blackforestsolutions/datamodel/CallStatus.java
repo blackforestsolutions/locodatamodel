@@ -7,13 +7,13 @@ public class CallStatus {
     @Getter
     private final Object calledObject;
     @Getter
-    private final CallStatus callStatus;
+    private final Status status;
     @Getter
     private final Exception exception;
 
-    public CallStatus(Object calledObject, CallStatus callStatus, Exception exception) {
+    public CallStatus(Object calledObject, Status status, Exception exception) {
         this.calledObject = calledObject;
-        this.callStatus = callStatus;
+        this.status = status;
         this.exception = exception;
     }
 }
