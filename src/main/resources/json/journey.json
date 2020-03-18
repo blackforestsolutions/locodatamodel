@@ -154,6 +154,12 @@
     "symbol": "€",
     "affiliateLink": ""
   },
+  "reducedPrice": {
+    "value": 234.9,
+    "currency": "EUR",
+    "symbol": "€",
+    "affiliateLink": ""
+  },
   "journeysRelated": [
     "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
   ],
@@ -309,6 +315,12 @@
         "affiliateLink": ""
       },
       "childPrice": {
+        "value": 234.9,
+        "currency": "EUR",
+        "symbol": "€",
+        "affiliateLink": ""
+      },
+      "reducedPrice": {
         "value": 234.9,
         "currency": "EUR",
         "symbol": "€",
