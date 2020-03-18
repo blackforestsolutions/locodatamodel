@@ -11,7 +11,21 @@ public enum TravelProvider implements Serializable {
     CONDOR,
     BRITISHAIRWAYS,
     FLIXBUS,
-    HVV;
+    HVV,
+    VBB,
+    NAHSH,
+    PKP,
+    BVG,
+    NASA,
+    RMV,
+    CMTA,
+    SBAHNMUENCHEN,
+    VGS,
+    CFL,
+    NVV,
+    VBN,
+    RSAG,
+    VMT;
 
     public static TravelProvider map(String providerVariable) {
         if (providerVariable.equalsIgnoreCase("LH") || providerVariable.equalsIgnoreCase("LX")) {
