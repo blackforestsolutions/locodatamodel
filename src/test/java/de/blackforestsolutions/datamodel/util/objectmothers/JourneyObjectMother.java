@@ -32,6 +32,7 @@ public class JourneyObjectMother {
         journey.setPrice(price.build());
         journey.setChildPrice(price.build());
         journey.setPriceWithCommision(price.build());
+        journey.setReducedPrice(price.build());
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
         journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));
@@ -68,6 +69,7 @@ public class JourneyObjectMother {
         journey.setPrice(price.build());
         journey.setChildPrice(price.build());
         journey.setPriceWithCommision(price.build());
+        journey.setReducedPrice(price.build());
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
         journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));

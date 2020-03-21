@@ -56,6 +56,9 @@ public final class Journey implements Serializable {
     @JsonDeserialize(using = PriceDeserializer.class)
     private final Price childPrice;
 
+    @JsonDeserialize(using = PriceDeserializer.class)
+    private final Price reducedPrice;
+
     private final List<UUID> journeysRelated;
 
     @JsonDeserialize(contentUsing = JourneyDeserializer.class)
@@ -104,6 +107,7 @@ public final class Journey implements Serializable {
         this.price = journey.getPrice();
         this.priceWithCommision = journey.getPriceWithCommision();
         this.childPrice = journey.getChildPrice();
+        this.reducedPrice = journey.getReducedPrice();
         this.journeysRelated = journey.getJourneysRelated();
         this.betweenTrips = journey.getBetweenTrips();
         this.distance = journey.getDistance();
@@ -133,6 +137,7 @@ public final class Journey implements Serializable {
         this.price = journey.getPrice();
         this.priceWithCommision = journey.getPriceWithCommision();
         this.childPrice = journey.getChildPrice();
+        this.reducedPrice = journey.getReducedPrice();
         this.journeysRelated = journey.getJourneysRelated();
         this.betweenTrips = journey.getBetweenTrips();
         this.distance = journey.getDistance();
@@ -317,6 +322,8 @@ public final class Journey implements Serializable {
 
         private Price childPrice;
 
+        private Price reducedPrice;
+
         private List<UUID> journeysRelated = new ArrayList<>();
 
         private List<Journey> betweenTrips = new ArrayList<>();
@@ -344,6 +351,8 @@ public final class Journey implements Serializable {
         private Date arrivalTimeUpdated;
 
         private String description = "";
+
+        private List<String> remarks = new ArrayList<>();
 
         public JourneyBuilder() {
 

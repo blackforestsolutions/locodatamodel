@@ -9,6 +9,7 @@ import java.util.Date;
 @Getter
 public final class ApiTokenAndUrlInformation {
 
+    private final String apiName;
     private final String protocol;
     private final String host;
     private final Integer port;
@@ -55,10 +56,10 @@ public final class ApiTokenAndUrlInformation {
     private final String stationListPathVariable;
     private final String journeyPathVariable;
     private final String travelPointPathVariable;
-    private final int resultLength;
-    private final int distanceFromTravelPoint;
-    private final int resultLengthBeforeDepartureTime;
-    private final int resultLengthAfterDepartureTime;
+    private final Integer resultLength;
+    private final Integer distanceFromTravelPoint;
+    private final Integer resultLengthBeforeDepartureTime;
+    private final Integer resultLengthAfterDepartureTime;
     private final String tariff;
     private final Boolean timeIsDeparture;
     private final Boolean hvvFilterEquivalent;
@@ -67,6 +68,21 @@ public final class ApiTokenAndUrlInformation {
     private final Boolean allowReducedPrice;
     private final Boolean allowIntermediateStops;
     private final Boolean hvvReturnContSearchData;
+
+    private final String mic;
+    private final String checksum;
+    private final String mac;
+    private final String hafasRtMode;
+    private final String cliendId;
+    private final String clientVersion;
+    private final String clientName;
+    private final String clientType;
+    private final Integer transfers;
+    private final Integer minTransferTime;
+    private final String hafasProductionValue;
+    private final String forDisabledPersons;
+    private final String walkingSpeed;
+    private final Boolean allowCoordinates;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -126,6 +142,21 @@ public final class ApiTokenAndUrlInformation {
         this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
         this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
         this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
+        this.apiName = apiTokenAndUrlInformation.getApiName();
+        this.checksum = apiTokenAndUrlInformation.getChecksum();
+        this.mic = apiTokenAndUrlInformation.getMic();
+        this.mac = apiTokenAndUrlInformation.getMac();
+        this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
+        this.cliendId = apiTokenAndUrlInformation.getCliendId();
+        this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
+        this.clientName = apiTokenAndUrlInformation.getClientName();
+        this.clientType = apiTokenAndUrlInformation.getClientType();
+        this.transfers = apiTokenAndUrlInformation.getTransfers();
+        this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
+        this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
+        this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
+        this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
+        this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -150,10 +181,12 @@ public final class ApiTokenAndUrlInformation {
         return null;
     }
 
+
     @Getter
     @Setter
     @NoArgsConstructor
     public static class ApiTokenAndUrlInformationBuilder {
+        private String apiName;
         private String protocol;
         private String host;
         private Integer port = -1;
@@ -199,10 +232,10 @@ public final class ApiTokenAndUrlInformation {
         private String stationListPathVariable;
         private String journeyPathVariable;
         private String travelPointPathVariable;
-        private int resultLength;
-        private int distanceFromTravelPoint;
-        private int resultLengthBeforeDepartureTime;
-        private int resultLengthAfterDepartureTime;
+        private Integer resultLength;
+        private Integer distanceFromTravelPoint;
+        private Integer resultLengthBeforeDepartureTime;
+        private Integer resultLengthAfterDepartureTime;
         private String tariff;
         private Boolean timeIsDeparture;
         private Boolean hvvFilterEquivalent;
@@ -211,7 +244,20 @@ public final class ApiTokenAndUrlInformation {
         private Boolean allowReducedPrice;
         private Boolean allowIntermediateStops;
         private Boolean hvvReturnContSearchData;
-
+        private String checksum;
+        private String mic;
+        private String mac;
+        private String hafasRtMode;
+        private String cliendId;
+        private String clientVersion;
+        private String clientName;
+        private String clientType;
+        private Integer transfers;
+        private Integer minTransferTime;
+        private String hafasProductionValue;
+        private String forDisabledPersons;
+        private String walkingSpeed;
+        private Boolean allowCoordinates;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -271,6 +317,21 @@ public final class ApiTokenAndUrlInformation {
             this.allowReducedPrice = apiTokenAndUrlInformation.getAllowReducedPrice();
             this.allowIntermediateStops = apiTokenAndUrlInformation.getAllowIntermediateStops();
             this.hvvReturnContSearchData = apiTokenAndUrlInformation.getHvvReturnContSearchData();
+            this.apiName = apiTokenAndUrlInformation.getApiName();
+            this.mic = apiTokenAndUrlInformation.getMic();
+            this.mac = apiTokenAndUrlInformation.getMac();
+            this.checksum = apiTokenAndUrlInformation.getChecksum();
+            this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
+            this.cliendId = apiTokenAndUrlInformation.getCliendId();
+            this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
+            this.clientName = apiTokenAndUrlInformation.getClientName();
+            this.clientType = apiTokenAndUrlInformation.getClientType();
+            this.transfers = apiTokenAndUrlInformation.getTransfers();
+            this.minTransferTime = apiTokenAndUrlInformation.getMinTransferTime();
+            this.hafasProductionValue = apiTokenAndUrlInformation.getHafasProductionValue();
+            this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
+            this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
+            this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
         }
 
         public Date getGermanRailDatePathVariable() {
