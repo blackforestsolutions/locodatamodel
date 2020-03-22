@@ -16,6 +16,10 @@ public final class Price implements Serializable {
 
     private final double value;
 
+    private final double childValue;
+
+    private final double reducedValue;
+
     private final Currency currency;
 
     private final String symbol;
@@ -29,6 +33,8 @@ public final class Price implements Serializable {
      */
     public Price(Price price) {
         this.value = price.getValue();
+        this.childValue = price.getChildValue();
+        this.reducedValue = price.getReducedValue();
         this.currency = price.getCurrency();
         this.symbol = price.getSymbol();
         this.affiliateLink = price.getAffiliateLink();
@@ -36,6 +42,8 @@ public final class Price implements Serializable {
 
     private Price(PriceBuilder price) {
         this.value = price.getValue();
+        this.childValue = price.getChildValue();
+        this.reducedValue = price.getReducedValue();
         this.currency = price.getCurrency();
         this.symbol = price.getSymbol();
         this.affiliateLink = price.getAffiliateLink();
@@ -47,6 +55,10 @@ public final class Price implements Serializable {
     public static class PriceBuilder {
 
         private double value;
+
+        private double childValue;
+
+        private double reducedValue;
 
         private Currency currency;
 
