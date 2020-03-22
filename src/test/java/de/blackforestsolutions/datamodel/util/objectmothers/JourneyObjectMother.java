@@ -29,10 +29,9 @@ public class JourneyObjectMother {
         price.setCurrency(Currency.getInstance("EUR"));
         price.setSymbol("€");
         price.setValue(234.90);
+        price.setReducedValue(234.90);
+        price.setChildValue(234.90);
         journey.setPrice(price.build());
-        journey.setChildPrice(price.build());
-        journey.setPriceWithCommision(price.build());
-        journey.setReducedPrice(price.build());
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
         journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));
@@ -66,10 +65,9 @@ public class JourneyObjectMother {
         price.setCurrency(Currency.getInstance("EUR"));
         price.setSymbol("€");
         price.setValue(234.90);
+        price.setReducedValue(234.90);
+        price.setChildValue(234.90);
         journey.setPrice(price.build());
-        journey.setChildPrice(price.build());
-        journey.setPriceWithCommision(price.build());
-        journey.setReducedPrice(price.build());
         journey.setUnknownTravelProvider("unknownTravelProvider");
         journey.setDuration(Duration.ofSeconds(22222L));
         journey.setDistance(new Distance(20000L, Metrics.KILOMETERS));

@@ -138,24 +138,8 @@
   "duration": 22222.000000000,
   "price": {
     "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "priceWithCommision": {
-    "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "childPrice": {
-    "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "reducedPrice": {
-    "value": 234.9,
+    "childValue": 234.9,
+    "reducedValue": 234.9,
     "currency": "EUR",
     "symbol": "€",
     "affiliateLink": ""
@@ -304,24 +288,8 @@
       "duration": 22222.000000000,
       "price": {
         "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
-      },
-      "priceWithCommision": {
-        "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
-      },
-      "childPrice": {
-        "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
-      },
-      "reducedPrice": {
-        "value": 234.9,
+        "childValue": 234.9,
+        "reducedValue": 234.9,
         "currency": "EUR",
         "symbol": "€",
         "affiliateLink": ""

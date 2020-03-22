@@ -299,12 +299,6 @@ public final class Journey implements Serializable {
 
         private Price price;
 
-        private Price priceWithCommision;
-
-        private Price childPrice;
-
-        private Price reducedPrice;
-
         private List<UUID> journeysRelated = new ArrayList<>();
 
         private List<Journey> betweenTrips = new ArrayList<>();
