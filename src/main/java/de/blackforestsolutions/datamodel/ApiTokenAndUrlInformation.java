@@ -83,6 +83,8 @@ public final class ApiTokenAndUrlInformation {
     private final String forDisabledPersons;
     private final String walkingSpeed;
     private final Boolean allowCoordinates;
+    private final double latitude;
+    private final double longitude;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -157,6 +159,8 @@ public final class ApiTokenAndUrlInformation {
         this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
         this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
         this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
+        this.latitude = apiTokenAndUrlInformation.getLatitude();
+        this.longitude = apiTokenAndUrlInformation.getLongitude();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -258,6 +262,8 @@ public final class ApiTokenAndUrlInformation {
         private String forDisabledPersons;
         private String walkingSpeed;
         private Boolean allowCoordinates;
+        private double latitude;
+        private double longitude;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -332,6 +338,8 @@ public final class ApiTokenAndUrlInformation {
             this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
             this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
             this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
+            this.latitude = apiTokenAndUrlInformation.getLatitude();
+            this.longitude = apiTokenAndUrlInformation.getLongitude();
         }
 
         public Date getGermanRailDatePathVariable() {
