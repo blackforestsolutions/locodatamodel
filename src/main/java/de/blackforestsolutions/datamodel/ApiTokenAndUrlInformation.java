@@ -1,5 +1,8 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,6 +10,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @Getter
+@JsonDeserialize(builder = ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder.class)
 public final class ApiTokenAndUrlInformation {
 
     private final String apiName;
@@ -83,8 +87,11 @@ public final class ApiTokenAndUrlInformation {
     private final String forDisabledPersons;
     private final String walkingSpeed;
     private final Boolean allowCoordinates;
-    private final double latitude;
-    private final double longitude;
+
+    @JsonDeserialize(using = CoordinatesDeserializer.class)
+    private final Coordinates departureCoordinates;
+    @JsonDeserialize(using = CoordinatesDeserializer.class)
+    private final Coordinates arrivalCoordinates;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -159,8 +166,8 @@ public final class ApiTokenAndUrlInformation {
         this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
         this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
         this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
-        this.latitude = apiTokenAndUrlInformation.getLatitude();
-        this.longitude = apiTokenAndUrlInformation.getLongitude();
+        this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
+        this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -189,6 +196,7 @@ public final class ApiTokenAndUrlInformation {
     @Getter
     @Setter
     @NoArgsConstructor
+    @JsonPOJOBuilder(withPrefix = "set")
     public static class ApiTokenAndUrlInformationBuilder {
         private String apiName;
         private String protocol;
@@ -262,8 +270,8 @@ public final class ApiTokenAndUrlInformation {
         private String forDisabledPersons;
         private String walkingSpeed;
         private Boolean allowCoordinates;
-        private double latitude;
-        private double longitude;
+        private Coordinates arrivalCoordinates;
+        private Coordinates departureCoordinates;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -338,8 +346,8 @@ public final class ApiTokenAndUrlInformation {
             this.forDisabledPersons = apiTokenAndUrlInformation.getForDisabledPersons();
             this.walkingSpeed = apiTokenAndUrlInformation.getWalkingSpeed();
             this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
-            this.latitude = apiTokenAndUrlInformation.getLatitude();
-            this.longitude = apiTokenAndUrlInformation.getLongitude();
+            this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
+            this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
         }
 
         public Date getGermanRailDatePathVariable() {
