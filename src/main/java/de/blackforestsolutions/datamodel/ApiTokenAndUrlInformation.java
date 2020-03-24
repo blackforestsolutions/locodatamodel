@@ -92,6 +92,7 @@ public final class ApiTokenAndUrlInformation {
     private final Coordinates departureCoordinates;
     @JsonDeserialize(using = CoordinatesDeserializer.class)
     private final Coordinates arrivalCoordinates;
+    private final String outputFormat;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -168,6 +169,7 @@ public final class ApiTokenAndUrlInformation {
         this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
         this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
+        this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -272,6 +274,7 @@ public final class ApiTokenAndUrlInformation {
         private Boolean allowCoordinates;
         private Coordinates arrivalCoordinates;
         private Coordinates departureCoordinates;
+        private String outputFormat;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -348,6 +351,7 @@ public final class ApiTokenAndUrlInformation {
             this.allowCoordinates = apiTokenAndUrlInformation.getAllowCoordinates();
             this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
             this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
+            this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
         }
 
         public Date getGermanRailDatePathVariable() {
