@@ -203,6 +203,45 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- 3. Convert java datamodel to typescript datamodel -->
+            <plugin>
+                <groupId>cz.habarta.typescript-generator</groupId>
+                <artifactId>typescript-generator-maven-plugin</artifactId>
+                <version>${maven.typescript-generator.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jsonLibrary>jackson2</jsonLibrary>
+                    <classes>
+                        <class>de.blackforestsolutions.datamodel.Journey</class>
+                    </classes>
+                    <excludeClasses>
+                        <class>java.io.Serializable</class>
+                    </excludeClasses>
+                    <customTypeMappings>
+                        <mapping>java.time.Duration:number</mapping>
+                        <mapping>org.springframework.data.geo.Distance:number</mapping>
+                        <mapping>java.util.Currency:string</mapping>
+                        <mapping>java.util.Locale:string</mapping>
+                    </customTypeMappings>
+                    <mapEnum>asNumberBasedEnum</mapEnum>
+                    <nonConstEnums>true</nonConstEnums>
+                    <declarePropertiesAsReadOnly>true</declarePropertiesAsReadOnly>
+                    <noEslintDisable>true</noEslintDisable>
+                    <noTslintDisable>true</noTslintDisable>
+                    <noFileComment>true</noFileComment>
+                    <outputFile>target/typescript-generator/locodatamodel.ts</outputFile>
+                    <outputFileType>implementationFile</outputFileType>
+                    <outputKind>module</outputKind>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
