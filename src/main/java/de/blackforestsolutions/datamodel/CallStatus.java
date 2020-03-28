@@ -2,8 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import lombok.Getter;
 
-import java.util.Objects;
-
 public class CallStatus {
 
     @Getter
