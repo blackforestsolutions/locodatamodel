@@ -3,11 +3,13 @@ package de.blackforestsolutions.datamodel;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
+import de.blackforestsolutions.datamodel.deserializer.DistanceDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.springframework.data.geo.Distance;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -55,6 +57,9 @@ public final class TravelPoint implements Serializable {
 
     private final List<String> vehicleTypes;
 
+    @JsonDeserialize(using = DistanceDeserializer.class)
+    private final Distance distance;
+
     /**
      * Copy constructor for travel point.
      *
@@ -77,6 +82,7 @@ public final class TravelPoint implements Serializable {
         this.stationName = travelPoint.getStationName();
         this.stationId = travelPoint.getStationId();
         this.vehicleTypes = travelPoint.getVehicleTypes();
+        this.distance = travelPoint.getDistance();
     }
 
     private TravelPoint(TravelPointBuilder travelPoint) {
@@ -96,6 +102,7 @@ public final class TravelPoint implements Serializable {
         this.stationName = travelPoint.getStationName();
         this.stationId = travelPoint.getStationId();
         this.vehicleTypes = travelPoint.getVehicleTypes();
+        this.distance = travelPoint.getDistance();
     }
 
     public Date getDepartureTime() {
@@ -236,6 +243,8 @@ public final class TravelPoint implements Serializable {
         private String stationId = "";
 
         private List<String> vehicleTypes = new ArrayList<>();
+
+        private Distance distance;
 
         public Date getDepartureTime() {
             if (departureTime != null) {
