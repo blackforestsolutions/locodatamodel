@@ -246,6 +246,26 @@ public final class TravelPoint implements Serializable {
 
         private Distance distance;
 
+        public TravelPointBuilder(TravelPoint travelPoint) {
+            city = travelPoint.getCity();
+            country = travelPoint.getCountry();
+            postalCode = travelPoint.getPostalCode();
+            stateOrProvince = travelPoint.getStateOrProvince();
+            street = travelPoint.getStreet();
+            streetNumber = travelPoint.getStreetNumber();
+            gpsCoordinates = travelPoint.getGpsCoordinates();
+            airportId = travelPoint.getAirportId();
+            airportName = travelPoint.getAirportName();
+            platform = travelPoint.getPlatform();
+            terminal = travelPoint.getTerminal();
+            departureTime = travelPoint.getDepartureTime();
+            arrivalTime = travelPoint.getArrivalTime();
+            stationName = travelPoint.getStationName();
+            stationId = travelPoint.getStationId();
+            vehicleTypes = travelPoint.getVehicleTypes();
+            distance = travelPoint.getDistance();
+        }
+
         public Date getDepartureTime() {
             if (departureTime != null) {
                 return (Date) departureTime.clone();
