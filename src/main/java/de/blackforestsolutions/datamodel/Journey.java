@@ -10,7 +10,6 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.springdoc.core.Constants;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Distance;
 
