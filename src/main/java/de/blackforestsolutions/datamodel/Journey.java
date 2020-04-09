@@ -26,7 +26,7 @@ public final class Journey implements Serializable {
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
-    private static final String NUMBER = "number";
+    private static final String OPENAPI_INTEGER_TYPE = "number";
 
     @Id
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
@@ -56,7 +56,7 @@ public final class Journey implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTime;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = NUMBER)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OPENAPI_INTEGER_TYPE)
     private final Duration duration;
 
     @JsonDeserialize(using = PriceDeserializer.class)
@@ -83,13 +83,13 @@ public final class Journey implements Serializable {
     private final List<Journey> betweenTrips;
 
     @JsonDeserialize(using = DistanceDeserializer.class)
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = NUMBER)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OPENAPI_INTEGER_TYPE)
     private final Distance distance;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String providerId;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OPENAPI_INTEGER_TYPE)
     private final Duration delay;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
