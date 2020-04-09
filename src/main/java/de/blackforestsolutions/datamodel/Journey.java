@@ -3,6 +3,7 @@ package de.blackforestsolutions.datamodel;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.deserializer.*;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.*;
 
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 @Getter
 @Slf4j
 @JsonDeserialize(builder = Journey.JourneyBuilder.class)
@@ -39,6 +41,7 @@ public final class Journey implements Serializable {
 
     private final TravelProvider travelProvider;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String unknownTravelProvider;
 
     private final Date startTime;
