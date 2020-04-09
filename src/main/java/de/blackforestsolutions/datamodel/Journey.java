@@ -50,10 +50,10 @@ public final class Journey implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String unknownTravelProvider;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, format = OpenApiConfiguration.OPENAPI_DATE_FORMAT)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_DATE_FORMAT)
     private final Date startTime;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, format = OpenApiConfiguration.OPENAPI_DATE_FORMAT)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, format = OpenApiConfiguration.DATE)
     private final Date arrivalTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
@@ -113,14 +113,13 @@ public final class Journey implements Serializable {
     @Schema(
             accessMode = Schema.AccessMode.READ_ONLY,
             format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
-            type = Constants.OPENAPI_STRING_TYPE
+            type = OpenApiConfiguration.OBJECT
     )
     private final Date startTimeUpdated;
 
     @Schema(
             accessMode = Schema.AccessMode.READ_ONLY,
-            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
-            type = Constants.OPENAPI_STRING_TYPE
+            type = OpenApiConfiguration.DATE
     )
     private final Date arrivalTimeUpdated;
 
