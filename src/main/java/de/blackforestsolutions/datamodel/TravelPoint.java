@@ -2,6 +2,7 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.configuration.OpenApiConfiguration;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
@@ -58,10 +59,18 @@ public final class TravelPoint implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String terminal;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(
+            accessMode = Schema.AccessMode.READ_ONLY,
+            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
+            type = Constants.OPENAPI_STRING_TYPE
+    )
     private final Date departureTime;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(
+            accessMode = Schema.AccessMode.READ_ONLY,
+            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
+            type = Constants.OPENAPI_STRING_TYPE
+    )
     private final Date arrivalTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)

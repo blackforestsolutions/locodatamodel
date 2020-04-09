@@ -2,6 +2,7 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.configuration.OpenApiConfiguration;
 import de.blackforestsolutions.datamodel.deserializer.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.springdoc.core.Constants;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.geo.Distance;
 
@@ -25,8 +27,6 @@ public final class Journey implements Serializable {
     private static final long serialVersionUID = 6106269076155338045L;
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
-
-    private static final String OPENAPI_INTEGER_TYPE = "number";
 
     @Id
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
@@ -50,13 +50,13 @@ public final class Journey implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String unknownTravelProvider;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, format = OpenApiConfiguration.OPENAPI_DATE_FORMAT)
     private final Date startTime;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, format = OpenApiConfiguration.OPENAPI_DATE_FORMAT)
     private final Date arrivalTime;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OPENAPI_INTEGER_TYPE)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Duration duration;
 
     @JsonDeserialize(using = PriceDeserializer.class)
@@ -83,13 +83,13 @@ public final class Journey implements Serializable {
     private final List<Journey> betweenTrips;
 
     @JsonDeserialize(using = DistanceDeserializer.class)
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OPENAPI_INTEGER_TYPE)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Distance distance;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String providerId;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OPENAPI_INTEGER_TYPE)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Duration delay;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
@@ -110,10 +110,18 @@ public final class Journey implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final boolean matchesRequest;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(
+            accessMode = Schema.AccessMode.READ_ONLY,
+            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
+            type = Constants.OPENAPI_STRING_TYPE
+    )
     private final Date startTimeUpdated;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(
+            accessMode = Schema.AccessMode.READ_ONLY,
+            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
+            type = Constants.OPENAPI_STRING_TYPE
+    )
     private final Date arrivalTimeUpdated;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)

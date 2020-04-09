@@ -2,11 +2,13 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.configuration.OpenApiConfiguration;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springdoc.core.Constants;
 
 import java.util.Date;
 
@@ -24,8 +26,9 @@ public final class ApiTokenAndUrlInformation {
     private final String departure;
     @Schema(required = true)
     private final String arrival;
-    @Schema(required = true)
+    @Schema(required = true, format = OpenApiConfiguration.OPENAPI_DATE_FORMAT, type = Constants.OPENAPI_STRING_TYPE)
     private final Date departureDate;
+    @Schema(format = OpenApiConfiguration.OPENAPI_DATE_FORMAT, type = Constants.OPENAPI_STRING_TYPE)
     private final Date arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;
