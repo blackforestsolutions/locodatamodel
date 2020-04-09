@@ -17,7 +17,6 @@ import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.*;
 
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 @Getter
 @Slf4j
 @JsonDeserialize(builder = Journey.JourneyBuilder.class)
@@ -27,69 +26,97 @@ public final class Journey implements Serializable {
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
+    private static final String NUMBER = "number";
+
     @Id
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final UUID id;
 
     @JsonDeserialize(using = TravelPointDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelPoint start;
 
     @JsonDeserialize(using = TravelPointDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelPoint destination;
 
     @JsonDeserialize(using = TravelLineDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelLine travelLine;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelProvider travelProvider;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String unknownTravelProvider;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date startTime;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTime;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = NUMBER)
     private final Duration duration;
 
     @JsonDeserialize(using = PriceDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Price price;
 
     @JsonDeserialize(using = PriceDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Price priceWithCommision;
 
     @JsonDeserialize(using = PriceDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Price childPrice;
 
     @JsonDeserialize(using = PriceDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Price reducedPrice;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<UUID> journeysRelated;
 
     @JsonDeserialize(contentUsing = JourneyDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<Journey> betweenTrips;
 
     @JsonDeserialize(using = DistanceDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = NUMBER)
     private final Distance distance;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String providerId;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Duration delay;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String vehicleType;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String vehicleName;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String vehicleNumber;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String startStatus;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String arrivalStatus;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final boolean matchesRequest;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date startTimeUpdated;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTimeUpdated;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String description;
 
     /**

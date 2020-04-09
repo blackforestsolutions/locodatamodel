@@ -2,6 +2,7 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -16,8 +17,10 @@ public final class Coordinates implements Serializable {
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final double latitude;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final double longitude;
 
     public Coordinates(Coordinates coordinates) {

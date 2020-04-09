@@ -3,11 +3,13 @@ package de.blackforestsolutions.datamodel;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.springdoc.core.Constants;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -22,37 +24,53 @@ public final class TravelPoint implements Serializable {
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String city;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = Constants.OPENAPI_STRING_TYPE)
     private final Locale country;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String postalCode;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String stateOrProvince;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String street;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String streetNumber;
 
     @JsonDeserialize(using = CoordinatesDeserializer.class)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Coordinates gpsCoordinates;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String airportId;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String airportName;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String platform;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String terminal;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date departureTime;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTime;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String stationName;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String stationId;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<String> vehicleTypes;
 
     /**
