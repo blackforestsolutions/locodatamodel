@@ -12,6 +12,7 @@ import java.util.Currency;
 
 @Getter
 @JsonDeserialize(builder = Price.PriceBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Price implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;

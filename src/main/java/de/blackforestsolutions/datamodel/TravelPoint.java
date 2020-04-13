@@ -19,6 +19,7 @@ import java.util.*;
 @Slf4j
 @Getter
 @JsonDeserialize(builder = TravelPoint.TravelPointBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class TravelPoint implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
@@ -59,18 +60,10 @@ public final class TravelPoint implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String terminal;
 
-    @Schema(
-            accessMode = Schema.AccessMode.READ_ONLY,
-            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
-            type = Constants.OPENAPI_STRING_TYPE
-    )
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date departureTime;
 
-    @Schema(
-            accessMode = Schema.AccessMode.READ_ONLY,
-            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
-            type = Constants.OPENAPI_STRING_TYPE
-    )
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)

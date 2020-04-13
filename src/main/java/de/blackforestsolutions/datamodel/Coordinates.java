@@ -11,16 +11,17 @@ import java.io.Serializable;
 
 @Getter
 @JsonDeserialize(builder = Coordinates.CoordinatesBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Coordinates implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final double latitude;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final double longitude;
 
     public Coordinates(Coordinates coordinates) {

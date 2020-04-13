@@ -26,13 +26,8 @@ public final class ApiTokenAndUrlInformation {
     private final String departure;
     @Schema(required = true)
     private final String arrival;
-    @Schema(
-            required = true,
-            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
-            type = OpenApiConfiguration.OBJECT
-    )
+    @Schema(required = true)
     private final Date departureDate;
-    @Schema(format = OpenApiConfiguration.DATE, type = Constants.OPENAPI_STRING_TYPE)
     private final Date arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;

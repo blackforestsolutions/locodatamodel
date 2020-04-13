@@ -13,6 +13,7 @@ import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = TravelLine.TravelLineBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class TravelLine implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;

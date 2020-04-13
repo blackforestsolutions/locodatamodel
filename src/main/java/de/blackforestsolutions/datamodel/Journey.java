@@ -21,6 +21,7 @@ import java.util.*;
 @Getter
 @Slf4j
 @JsonDeserialize(builder = Journey.JourneyBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Journey implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
@@ -32,11 +33,11 @@ public final class Journey implements Serializable {
     private final UUID id;
 
     @JsonDeserialize(using = TravelPointDeserializer.class)
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final TravelPoint start;
 
     @JsonDeserialize(using = TravelPointDeserializer.class)
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final TravelPoint destination;
 
     @JsonDeserialize(using = TravelLineDeserializer.class)
@@ -49,10 +50,10 @@ public final class Journey implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String unknownTravelProvider;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_DATE_FORMAT)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date startTime;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, format = OpenApiConfiguration.DATE)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
@@ -109,17 +110,10 @@ public final class Journey implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final boolean matchesRequest;
 
-    @Schema(
-            accessMode = Schema.AccessMode.READ_ONLY,
-            format = OpenApiConfiguration.OPENAPI_DATE_FORMAT,
-            type = OpenApiConfiguration.OBJECT
-    )
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date startTimeUpdated;
 
-    @Schema(
-            accessMode = Schema.AccessMode.READ_ONLY,
-            type = OpenApiConfiguration.DATE
-    )
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTimeUpdated;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
