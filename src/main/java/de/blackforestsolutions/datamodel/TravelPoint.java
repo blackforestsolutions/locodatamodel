@@ -2,7 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.configuration.OpenApiConfiguration;
 import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
