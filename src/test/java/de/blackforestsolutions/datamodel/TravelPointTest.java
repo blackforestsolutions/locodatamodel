@@ -1,13 +1,13 @@
 package de.blackforestsolutions.datamodel;
 
-import de.blackforestsolutions.datamodel.util.objectmothers.TravelpointObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TravelPointTest {
 
-    private final TravelPoint.TravelPointBuilder classUnderTest = TravelpointObjectMother.getTravelPoint();
+    private final TravelPoint.TravelPointBuilder classUnderTest = TravelPointObjectMother.getTravelPointWithNoEmptyFields();
 
     @Test
     public void test_hasNullAttributes_with_no_null_attribute_is_false() throws IllegalAccessException {
@@ -28,6 +28,7 @@ public class TravelPointTest {
 
     @Test
     public void test_hasEmptyString_with_empty_string_attribute_is_true() throws IllegalAccessException {
+        classUnderTest.setStationName("");
 
         boolean result = classUnderTest.build().hasEmptyString();
 
@@ -36,7 +37,7 @@ public class TravelPointTest {
 
     @Test
     public void test_hasEmptyString_with_no_empty_string_attribute_is_false() throws IllegalAccessException {
-        TravelPoint classUnderTest = TravelpointObjectMother.getTravelPointWithNoEmptyStrings();
+        TravelPoint classUnderTest = TravelPointObjectMother.getTravelPointWithNoEmptyFields().build();
 
         boolean result = classUnderTest.hasEmptyString();
 
@@ -62,7 +63,7 @@ public class TravelPointTest {
 
     @Test
     public void test_TravelPoint_copy_constructor_with_complete_object_returns_copy() {
-        TravelPoint testData = TravelpointObjectMother.getTravelPointWithNoEmptyStrings();
+        TravelPoint testData = TravelPointObjectMother.getTravelPointWithNoEmptyFields().build();
 
         TravelPoint result = new TravelPoint(testData);
 

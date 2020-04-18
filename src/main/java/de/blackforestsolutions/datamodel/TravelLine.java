@@ -2,13 +2,11 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = TravelLine.TravelLineBuilder.class)
@@ -18,13 +16,11 @@ public final class TravelLine implements Serializable {
 
     private final String name;
 
-    @JsonDeserialize(using = TravelPointDeserializer.class)
     private final TravelPoint origin;
 
-    @JsonDeserialize(using = TravelPointDeserializer.class)
     private final TravelPoint direction;
 
-    private final Map<Integer, TravelPoint> betweenHolds;
+    private final HashMap<Integer, TravelPoint> betweenHolds;
 
     /**
      * Copy constructor
@@ -45,6 +41,13 @@ public final class TravelLine implements Serializable {
         this.betweenHolds = travelLine.getBetweenHolds();
     }
 
+    public HashMap<Integer, TravelPoint> getBetweenHolds() {
+        if (betweenHolds != null) {
+            return (HashMap<Integer, TravelPoint>) betweenHolds.clone();
+        }
+        return null;
+    }
+
     @Setter
     @Getter
     @JsonPOJOBuilder(withPrefix = "set")
@@ -56,10 +59,21 @@ public final class TravelLine implements Serializable {
 
         private TravelPoint direction;
 
-        private Map<Integer, TravelPoint> betweenHolds = new HashMap<>();
+        private HashMap<Integer, TravelPoint> betweenHolds = new HashMap<>();
 
         public TravelLine build() {
             return new TravelLine(this);
+        }
+
+        public void setBetweenHolds(HashMap<Integer, TravelPoint> betweenHolds) {
+            this.betweenHolds = (HashMap<Integer, TravelPoint>) betweenHolds.clone();
+        }
+
+        public HashMap<Integer, TravelPoint> getBetweenHolds() {
+            if (betweenHolds != null) {
+                return (HashMap<Integer, TravelPoint>) betweenHolds.clone();
+            }
+            return null;
         }
     }
 

@@ -2,19 +2,22 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.deserializer.*;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.geo.Distance;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.time.Duration;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Slf4j
@@ -28,66 +31,24 @@ public final class Journey implements Serializable {
     @Id
     private final UUID id;
 
-    @JsonDeserialize(using = TravelPointDeserializer.class)
-    private final TravelPoint start;
-
-    @JsonDeserialize(using = TravelPointDeserializer.class)
-    private final TravelPoint destination;
-
-    @JsonDeserialize(using = TravelLineDeserializer.class)
-    private final TravelLine travelLine;
-
-    private final TravelProvider travelProvider;
-
-    private final String unknownTravelProvider;
-
-    private final Date startTime;
-
-    private final Date arrivalTime;
-
-    private final Duration duration;
-
-    @JsonDeserialize(using = PriceDeserializer.class)
-    private final Price price;
-
-    @JsonDeserialize(using = PriceDeserializer.class)
-    private final Price priceWithCommision;
-
-    @JsonDeserialize(using = PriceDeserializer.class)
-    private final Price childPrice;
-
-    @JsonDeserialize(using = PriceDeserializer.class)
-    private final Price reducedPrice;
+    private final LinkedHashMap<UUID, Leg> legs;
 
     private final List<UUID> journeysRelated;
 
-    @JsonDeserialize(contentUsing = JourneyDeserializer.class)
-    private final List<Journey> betweenTrips;
+    /**
+     * search for First and last travelPoint method
+     * startTime and Arrival time
+     * duration total journey
+     * distance total journey
+     * price total journey
+     * list of incidents
+     */
 
-    @JsonDeserialize(using = DistanceDeserializer.class)
-    private final Distance distance;
-
-    private final String providerId;
-
-    private final Duration delay;
-
-    private final String vehicleType;
-
-    private final String vehicleName;
-
-    private final String vehicleNumber;
-
-    private final String startStatus;
-
-    private final String arrivalStatus;
-
-    private final boolean matchesRequest;
-
-    private final Date startTimeUpdated;
-
-    private final Date arrivalTimeUpdated;
-
-    private final String description;
+    /**
+     * wrapper Method
+     * legs einfügen vor und danach
+     * legs austauschen
+     */
 
     /**
      * Copy Constructor
@@ -96,92 +57,22 @@ public final class Journey implements Serializable {
      */
     public Journey(Journey journey) {
         this.id = UUID.randomUUID();
-        this.start = journey.getStart();
-        this.destination = journey.getDestination();
-        this.travelLine = journey.getTravelLine();
-        this.travelProvider = journey.getTravelProvider();
-        this.unknownTravelProvider = journey.getUnknownTravelProvider();
-        this.startTime = journey.getStartTime();
-        this.arrivalTime = journey.getArrivalTime();
-        this.duration = journey.getDuration();
-        this.price = journey.getPrice();
-        this.priceWithCommision = journey.getPriceWithCommision();
-        this.childPrice = journey.getChildPrice();
-        this.reducedPrice = journey.getReducedPrice();
+        this.legs = journey.getLegs();
         this.journeysRelated = journey.getJourneysRelated();
-        this.betweenTrips = journey.getBetweenTrips();
-        this.distance = journey.getDistance();
-        this.providerId = journey.getProviderId();
-        this.delay = journey.getDelay();
-        this.vehicleType = journey.getVehicleType();
-        this.vehicleName = journey.getVehicleName();
-        this.vehicleNumber = journey.getVehicleNumber();
-        this.startStatus = journey.getStartStatus();
-        this.arrivalStatus = journey.getArrivalStatus();
-        this.matchesRequest = journey.isMatchesRequest();
-        this.startTimeUpdated = journey.getStartTimeUpdated();
-        this.arrivalTimeUpdated = journey.getArrivalTimeUpdated();
-        this.description = journey.getDescription();
     }
 
     private Journey(JourneyBuilder journey) {
         this.id = journey.getId();
-        this.start = journey.getStart();
-        this.destination = journey.getDestination();
-        this.travelLine = journey.getTravelLine();
-        this.travelProvider = journey.getTravelProvider();
-        this.unknownTravelProvider = journey.getUnknownTravelProvider();
-        this.startTime = journey.getStartTime();
-        this.arrivalTime = journey.getArrivalTime();
-        this.duration = journey.getDuration();
-        this.price = journey.getPrice();
-        this.priceWithCommision = journey.getPriceWithCommision();
-        this.childPrice = journey.getChildPrice();
-        this.reducedPrice = journey.getReducedPrice();
+        this.legs = journey.getLegs();
         this.journeysRelated = journey.getJourneysRelated();
-        this.betweenTrips = journey.getBetweenTrips();
-        this.distance = journey.getDistance();
-        this.providerId = journey.getProviderId();
-        this.delay = journey.getDelay();
-        this.vehicleType = journey.getVehicleType();
-        this.vehicleName = journey.getVehicleName();
-        this.vehicleNumber = journey.getVehicleNumber();
-        this.startStatus = journey.getStartStatus();
-        this.arrivalStatus = journey.getArrivalStatus();
-        this.matchesRequest = journey.isMatchesRequest();
-        this.startTimeUpdated = journey.getStartTimeUpdated();
-        this.arrivalTimeUpdated = journey.getArrivalTimeUpdated();
-        this.description = journey.getDescription();
     }
 
-    public Date getStartTimeUpdated() {
-        if (startTimeUpdated != null) {
-            return (Date) startTimeUpdated.clone();
+    public LinkedHashMap<UUID, Leg> getLegs() {
+        if (legs != null) {
+            return (LinkedHashMap<UUID, Leg>) legs.clone();
         }
         return null;
     }
-
-    public Date getArrivalTimeUpdated() {
-        if (arrivalTimeUpdated != null) {
-            return (Date) arrivalTimeUpdated.clone();
-        }
-        return null;
-    }
-
-    public Date getStartTime() {
-        if (startTime != null) {
-            return (Date) startTime.clone();
-        }
-        return null;
-    }
-
-    public Date getArrivalTime() {
-        if (arrivalTime != null) {
-            return (Date) arrivalTime.clone();
-        }
-        return null;
-    }
-
 
     /**
      * Checks all first level attributes of an object and tells if there are null values
@@ -239,176 +130,43 @@ public final class Journey implements Serializable {
             return false;
         }
         Journey journey = (Journey) o;
-        return matchesRequest == journey.matchesRequest
+        return Objects.equals(id, journey.id)
                 &&
-                Objects.equals(id, journey.id)
+                Objects.equals(journey, journey.getLegs())
                 &&
-                Objects.equals(start, journey.start)
-                &&
-                Objects.equals(destination, journey.destination)
-                &&
-                Objects.equals(travelLine, journey.travelLine)
-                &&
-                travelProvider == journey.travelProvider
-                &&
-                Objects.equals(unknownTravelProvider, journey.unknownTravelProvider)
-                &&
-                Objects.equals(startTime, journey.startTime)
-                &&
-                Objects.equals(arrivalTime, journey.arrivalTime)
-                &&
-                Objects.equals(duration, journey.duration)
-                &&
-                Objects.equals(price, journey.price)
-                &&
-                Objects.equals(priceWithCommision, journey.priceWithCommision)
-                &&
-                Objects.equals(childPrice, journey.childPrice)
-                &&
-                Objects.equals(journeysRelated, journey.journeysRelated)
-                &&
-                Objects.equals(betweenTrips, journey.betweenTrips)
-                &&
-                Objects.equals(distance, journey.distance)
-                &&
-                Objects.equals(providerId, journey.providerId)
-                &&
-                Objects.equals(delay, journey.delay)
-                &&
-                Objects.equals(vehicleType, journey.vehicleType)
-                &&
-                Objects.equals(vehicleName, journey.vehicleName)
-                &&
-                Objects.equals(vehicleNumber, journey.vehicleNumber)
-                &&
-                Objects.equals(startStatus, journey.startStatus)
-                &&
-                Objects.equals(arrivalStatus, journey.arrivalStatus)
-                &&
-                Objects.equals(startTimeUpdated, journey.startTimeUpdated)
-                &&
-                Objects.equals(arrivalTimeUpdated, journey.arrivalTimeUpdated)
-                &&
-                Objects.equals(description, journey.description);
+                Objects.equals(journeysRelated, journey.journeysRelated);
     }
 
     @Setter
     @Getter
     @JsonPOJOBuilder(withPrefix = "set")
+    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class JourneyBuilder {
 
         @Id
         private UUID id;
 
-        private TravelPoint start;
+        private LinkedHashMap<UUID, Leg> legs;
 
-        private TravelPoint destination;
-
-        private TravelLine travelLine;
-
-        private TravelProvider travelProvider;
-
-        private String unknownTravelProvider = "";
-
-        private Date startTime;
-
-        private Date arrivalTime;
-
-        private Duration duration;
-
-        private Price price;
-
-        private Price priceWithCommision;
-
-        private Price childPrice;
-
-        private Price reducedPrice;
-
-        private List<UUID> journeysRelated = new ArrayList<>();
-
-        private List<Journey> betweenTrips = new ArrayList<>();
-
-        private Distance distance;
-
-        private String providerId = "";
-
-        private Duration delay;
-
-        private String vehicleType = "";
-
-        private String vehicleName = "";
-
-        private String vehicleNumber = "";
-
-        private String startStatus = "";
-
-        private String arrivalStatus = "";
-
-        private boolean matchesRequest;
-
-        private Date startTimeUpdated;
-
-        private Date arrivalTimeUpdated;
-
-        private String description = "";
-
-        private List<String> remarks = new ArrayList<>();
-
-        public JourneyBuilder() {
-
-        }
+        private List<UUID> journeysRelated;
 
         public JourneyBuilder(UUID id) {
             this.id = id;
-        }
-
-        public Date getStartTimeUpdated() {
-            if (startTimeUpdated != null) {
-                return (Date) startTimeUpdated.clone();
-            }
-            return null;
-        }
-
-        public void setStartTimeUpdated(Date startTimeUpdated) {
-            this.startTimeUpdated = (Date) startTimeUpdated.clone();
-        }
-
-        public Date getArrivalTimeUpdated() {
-            if (arrivalTimeUpdated != null) {
-                return (Date) arrivalTimeUpdated.clone();
-            }
-            return null;
-        }
-
-        public void setArrivalTimeUpdated(Date arrivalTimeUpdated) {
-            this.arrivalTimeUpdated = (Date) arrivalTimeUpdated.clone();
-        }
-
-        public Date getStartTime() {
-            if (startTime != null) {
-                return (Date) startTime.clone();
-            }
-            return null;
-        }
-
-        public void setStartTime(Date startTime) {
-            this.startTime = (Date) startTime.clone();
-        }
-
-        public Date getArrivalTime() {
-            if (arrivalTime != null) {
-                return (Date) arrivalTime.clone();
-            }
-            return null;
-        }
-
-        public void setArrivalTime(Date arrivalTime) {
-            this.arrivalTime = (Date) arrivalTime.clone();
         }
 
         public Journey build() {
             return new Journey(this);
         }
 
+        public void setLegs(LinkedHashMap<UUID, Leg> legs) {
+            this.legs = (LinkedHashMap<UUID, Leg>) legs.clone();
+        }
+
+        public LinkedHashMap<UUID, Leg> getLegs() {
+            if (legs != null) {
+                return (LinkedHashMap<UUID, Leg>) legs.clone();
+            }
+            return null;
+        }
     }
 }
