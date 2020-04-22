@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LegTest {
 
-    Leg.LegBuilder classUnderTest = LegObjectMother.getLegWithNoEmptyFields();
+    Leg.LegBuilder classUnderTest = LegObjectMother.getFirstLegWithNoEmptyFields();
 
     @Test
     public void test_hasNullAttributes_with_no_null_attribute_is_false() throws IllegalAccessException {
@@ -42,7 +42,7 @@ public class LegTest {
 
     @Test
     public void test_hasEmptyString_with_no_empty_string_attribute_is_false() throws IllegalAccessException {
-        classUnderTest = LegObjectMother.getLegWithNoEmptyFields();
+        classUnderTest = LegObjectMother.getFirstLegWithNoEmptyFields();
 
         boolean result = classUnderTest.build().hasEmptyString();
 
@@ -64,27 +64,5 @@ public class LegTest {
         int result = classUnderTest.hashCode();
 
         assertThat(result).isNotNull();
-    }
-
-    @Test
-    public void test_Leg_copy_constructor_with_complete_object_returns_copy() {
-        Leg testData = LegObjectMother.getLegWithNoEmptyFields().build();
-        Pattern checkPattern = Pattern.compile("([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})");
-
-        Leg result = new Leg(testData);
-
-        assertThat(result).isEqualToIgnoringGivenFields(testData, "id");
-        Strings.instance().assertContainsPattern(new WritableAssertionInfo(), testData.getId().toString(), checkPattern);
-    }
-
-    @Test
-    public void test_Leg_copy_constructor_with_not_complete_object_returns_copy() {
-        Leg testData = new Leg.LegBuilder(UUID.fromString("cb11896e-c38a-4f53-8d40-1f28ca690f5a")).build();
-        Pattern checkPattern = Pattern.compile("([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})");
-
-        Leg result = new Leg(testData);
-
-        assertThat(result).isEqualToIgnoringGivenFields(testData, "id");
-        Strings.instance().assertContainsPattern(new WritableAssertionInfo(), testData.getId().toString(), checkPattern);
     }
 }

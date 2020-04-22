@@ -1,8 +1,9 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import de.blackforestsolutions.datamodel.exception.CompromisedAttributeException;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,13 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.data.annotation.Id;
-
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 @Slf4j
@@ -36,21 +37,6 @@ public final class Journey implements Serializable {
     private final List<UUID> journeysRelated;
 
     /**
-     * search for First and last travelPoint method
-     * startTime and Arrival time
-     * duration total journey
-     * distance total journey
-     * price total journey
-     * list of incidents
-     */
-
-    /**
-     * wrapper Method
-     * legs einfügen vor und danach
-     * legs austauschen
-     */
-
-    /**
      * Copy Constructor
      *
      * @param journey you would like to copy
@@ -67,12 +53,179 @@ public final class Journey implements Serializable {
         this.journeysRelated = journey.getJourneysRelated();
     }
 
+
+
     public LinkedHashMap<UUID, Leg> getLegs() {
         if (legs != null) {
             return (LinkedHashMap<UUID, Leg>) legs.clone();
         }
         return null;
     }
+
+    /**
+     * @return start travelPoint from first leg
+     * @throws CompromisedAttributeException
+     */
+    @JsonIgnore
+    public TravelPoint getStartFromJourney() throws CompromisedAttributeException {
+        return legs
+                .values()
+                .stream()
+                .findFirst()
+                .map(Leg::getStart)
+                .orElseThrow(CompromisedAttributeException::new);
+    }
+
+    /**
+     * @return arrival travelPoint from last leg
+     * @throws CompromisedAttributeException
+     */
+    @JsonIgnore
+    public TravelPoint getDestinationFromJourney() throws CompromisedAttributeException {
+        return legs
+                .values()
+                .stream()
+                .reduce((first, second) -> second)
+                .map(Leg::getDestination)
+                .orElseThrow(CompromisedAttributeException::new);
+    }
+
+    /**
+     * @return start time from first leg
+     * @throws CompromisedAttributeException
+     */
+    @JsonIgnore
+    public Date getStartTimeFromJourney() throws CompromisedAttributeException {
+        return legs
+                .values()
+                .stream()
+                .findFirst()
+                .map(Leg::getStartTime)
+                .orElseThrow(CompromisedAttributeException::new);
+    }
+
+    /**
+     * @return arrival time from last leg
+     * @throws CompromisedAttributeException
+     */
+    @JsonIgnore
+    public Date getArrivalTimeFromJourney() throws CompromisedAttributeException {
+        return legs
+                .values()
+                .stream()
+                .reduce((first, second) -> second)
+                .map(Leg::getArrivalTime)
+                .orElseThrow(CompromisedAttributeException::new);
+    }
+
+    /**
+     * @return duration from whole journey
+     * @throws CompromisedAttributeException
+     */
+    @JsonIgnore
+    public Duration getDurationFromJourney() throws CompromisedAttributeException {
+        return Duration.between(
+                LocalDateTime.ofInstant(getStartTimeFromJourney().toInstant(), ZoneId.systemDefault()),
+                LocalDateTime.ofInstant(getArrivalTimeFromJourney().toInstant(), ZoneId.systemDefault())
+        );
+    }
+
+    /**
+     * @return all incidents from all legs
+     */
+    @JsonIgnore
+    public List<String> getAllIncidentsFromJourney() {
+        return legs
+                .values()
+                .stream()
+                .map(Leg::getIncidents)
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * insert a leg before all other legs
+     *
+     * @param leg
+     * @return new Journey
+     */
+    @JsonIgnore
+    public Journey insertLegBeforeAllLegs(Leg leg) {
+        JourneyBuilder journey = new JourneyBuilder(this);
+        LinkedHashMap<UUID, Leg> oldLegs = journey.getLegs();
+        LinkedHashMap<UUID, Leg> newLegs = (LinkedHashMap<UUID, Leg>) oldLegs.clone();
+        oldLegs.clear();
+        oldLegs.put(leg.getId(), leg);
+        oldLegs.putAll(newLegs);
+        journey.setLegs(oldLegs);
+        return journey.build();
+    }
+
+
+    /**
+     * append a leg at the end of all legs
+     *
+     * @param leg
+     * @return new Journey
+     */
+    @JsonIgnore
+    public Journey appendLegAfterAllLegs(Leg leg) {
+        JourneyBuilder journey = new JourneyBuilder(this);
+        LinkedHashMap<UUID, Leg> legs = journey.getLegs();
+        legs.put(leg.getId(), leg);
+        journey.setLegs(legs);
+        return journey.build();
+    }
+
+    /**
+     * @param id
+     * @param leg
+     * @return new Journey
+     */
+    @JsonIgnore
+    public Journey replaceLegById(UUID id, Leg leg) {
+        JourneyBuilder journey = new JourneyBuilder(this);
+        LinkedHashMap<UUID, Leg> legs = journey.getLegs();
+        int index = removeByKey(id, legs);
+        if (index > -1) {
+            putAt(index, leg.getId(), leg, legs);
+            journey.setLegs(legs);
+        } else {
+            log.error("replacing leg was not successful");
+        }
+        return journey.build();
+    }
+
+    private int removeByKey(UUID oldKey, LinkedHashMap<UUID, Leg> legs) {
+        Iterator<Map.Entry<UUID, Leg>> itr = legs.entrySet().iterator();
+        int foundIndex = -1;
+        int index = 0;
+        while (itr.hasNext()) {
+            Map.Entry<UUID, Leg> entry = itr.next();
+            if (entry.getKey().equals(oldKey)) {
+                itr.remove();
+                foundIndex = index;
+            }
+            index++;
+        }
+        return foundIndex;
+    }
+
+    private void putAt(int index, UUID key, Leg value, LinkedHashMap<UUID, Leg> map) {
+        int i = 0;
+        List<Map.Entry<UUID, Leg>> rest = new ArrayList<>();
+        for (Map.Entry<UUID, Leg> entry : map.entrySet()) {
+            if (i++ >= index) {
+                rest.add(entry);
+            }
+        }
+        map.put(key, value);
+        for (Map.Entry<UUID, Leg> entry : rest) {
+            map.remove(entry.getKey());
+            map.put(entry.getKey(), entry.getValue());
+        }
+    }
+
 
     /**
      * Checks all first level attributes of an object and tells if there are null values
@@ -132,7 +285,7 @@ public final class Journey implements Serializable {
         Journey journey = (Journey) o;
         return Objects.equals(id, journey.id)
                 &&
-                Objects.equals(journey, journey.getLegs())
+                Objects.equals(legs, journey.getLegs())
                 &&
                 Objects.equals(journeysRelated, journey.journeysRelated);
     }
@@ -146,12 +299,18 @@ public final class Journey implements Serializable {
         @Id
         private UUID id;
 
-        private LinkedHashMap<UUID, Leg> legs;
+        private LinkedHashMap<UUID, Leg> legs = new LinkedHashMap<>();
 
         private List<UUID> journeysRelated;
 
         public JourneyBuilder(UUID id) {
             this.id = id;
+        }
+
+        public JourneyBuilder(Journey journey) {
+            this.id = journey.getId();
+            this.legs = journey.getLegs();
+            this.journeysRelated = journey.getJourneysRelated();
         }
 
         public Journey build() {

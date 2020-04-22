@@ -61,31 +61,6 @@ public final class Leg implements Serializable {
 
     private final List<String> incidents;
 
-    /**
-     * Copy Constructor
-     *
-     * @param leg you would like to copy
-     */
-    public Leg(Leg leg) {
-        this.id = leg.getId();
-        this.start = leg.getStart();
-        this.destination = leg.getDestination();
-        this.startTime = leg.getStartTime();
-        this.arrivalTime = leg.getArrivalTime();
-        this.duration = leg.getDuration();
-        this.delay = leg.getDelay();
-        this.travelLine = leg.getTravelLine();
-        this.price = leg.getPrice();
-        this.distance = leg.getDistance();
-        this.providerId = leg.getProviderId();
-        this.travelProvider = leg.getTravelProvider();
-        this.unknownTravelProvider = leg.getUnknownTravelProvider();
-        this.vehicleType = leg.getVehicleType();
-        this.vehicleName = leg.getVehicleName();
-        this.vehicleNumber = leg.getVehicleNumber();
-        this.incidents = leg.getIncidents();
-    }
-
     private Leg(LegBuilder leg) {
         this.id = leg.getId();
         this.start = leg.getStart();

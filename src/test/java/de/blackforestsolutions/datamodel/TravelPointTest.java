@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TravelPointTest {
 
-    private final TravelPoint.TravelPointBuilder classUnderTest = TravelPointObjectMother.getTravelPointWithNoEmptyFields();
+    private final TravelPoint.TravelPointBuilder classUnderTest = TravelPointObjectMother.getStartTravelPointWithNoEmptyFields();
 
     @Test
     public void test_hasNullAttributes_with_no_null_attribute_is_false() throws IllegalAccessException {
@@ -37,7 +37,7 @@ public class TravelPointTest {
 
     @Test
     public void test_hasEmptyString_with_no_empty_string_attribute_is_false() throws IllegalAccessException {
-        TravelPoint classUnderTest = TravelPointObjectMother.getTravelPointWithNoEmptyFields().build();
+        TravelPoint classUnderTest = TravelPointObjectMother.getStartTravelPointWithNoEmptyFields().build();
 
         boolean result = classUnderTest.hasEmptyString();
 
@@ -63,7 +63,7 @@ public class TravelPointTest {
 
     @Test
     public void test_TravelPoint_copy_constructor_with_complete_object_returns_copy() {
-        TravelPoint testData = TravelPointObjectMother.getTravelPointWithNoEmptyFields().build();
+        TravelPoint testData = TravelPointObjectMother.getStartTravelPointWithNoEmptyFields().build();
 
         TravelPoint result = new TravelPoint(testData);
 

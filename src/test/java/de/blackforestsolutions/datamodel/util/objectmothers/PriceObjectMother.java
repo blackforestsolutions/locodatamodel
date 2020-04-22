@@ -17,15 +17,15 @@ public class PriceObjectMother {
         return price;
     }
 
-    private static HashMap<PriceCategory, BigDecimal> buildPriceValues() {
-        HashMap<PriceCategory, BigDecimal> values = new HashMap<>();
+    private static EnumMap<PriceCategory, BigDecimal> buildPriceValues() {
+        EnumMap<PriceCategory, BigDecimal> values = new EnumMap<>(PriceCategory.class);
         values.put(PriceCategory.CHILD, new BigDecimal("160.90"));
         values.put(PriceCategory.ADULT, new BigDecimal("234.90"));
         return values;
     }
 
-    private static HashMap<PriceCategory, String> buildPriceAffiliateLinks() {
-        HashMap<PriceCategory, String> affiliateLinks = new HashMap<>();
+    private static EnumMap<PriceCategory, String> buildPriceAffiliateLinks() {
+        EnumMap<PriceCategory, String> affiliateLinks = new EnumMap(PriceCategory.class);
         affiliateLinks.put(PriceCategory.CHILD, "www.bahn.de");
         affiliateLinks.put(PriceCategory.ADULT, "www.bahn.de");
         return affiliateLinks;

@@ -1,7 +1,7 @@
 {
   "id" : "bd1eff02-3b55-11ea-b77f-2e728ce88125",
   "start" : {
-    "city" : "Berlin",
+    "city" : "Hamburg",
     "country" : "german_DEU",
     "postalCode" : "98383",
     "street" : "Saatwinkler Damm 2",
@@ -13,11 +13,11 @@
     "terminal" : "4",
     "departureTime" : "1970-01-01T00:00:00.001+0000",
     "arrivalTime" : "1970-01-01T00:00:00.001+0000",
-    "stationName" : "Berlin Tegel",
+    "stationName" : "Hamburg Airport",
     "stationId" : "TXL"
   },
   "destination" : {
-    "city" : "Berlin",
+    "city" : "Hamburg",
     "country" : "german_DEU",
     "postalCode" : "98383",
     "street" : "Saatwinkler Damm 2",
@@ -29,7 +29,7 @@
     "terminal" : "4",
     "departureTime" : "1970-01-01T00:00:00.001+0000",
     "arrivalTime" : "1970-01-01T00:00:00.001+0000",
-    "stationName" : "Berlin Tegel",
+    "stationName" : "Hamburg Airport",
     "stationId" : "TXL"
   },
   "startTime" : "1970-01-01T00:00:00.001+0000",
@@ -39,7 +39,7 @@
   "travelLine" : {
     "name" : "Schwarzwald Bahn",
     "origin" : {
-      "city" : "Berlin",
+      "city" : "Hamburg",
       "country" : "german_DEU",
       "postalCode" : "98383",
       "street" : "Saatwinkler Damm 2",
@@ -51,11 +51,11 @@
       "terminal" : "4",
       "departureTime" : "1970-01-01T00:00:00.001+0000",
       "arrivalTime" : "1970-01-01T00:00:00.001+0000",
-      "stationName" : "Berlin Tegel",
+      "stationName" : "Hamburg Airport",
       "stationId" : "TXL"
     },
     "direction" : {
-      "city" : "Berlin",
+      "city" : "Hamburg",
       "country" : "german_DEU",
       "postalCode" : "98383",
       "street" : "Saatwinkler Damm 2",
@@ -67,12 +67,12 @@
       "terminal" : "4",
       "departureTime" : "1970-01-01T00:00:00.001+0000",
       "arrivalTime" : "1970-01-01T00:00:00.001+0000",
-      "stationName" : "Berlin Tegel",
+      "stationName" : "Hamburg Airport",
       "stationId" : "TXL"
     },
     "betweenHolds" : {
       "1" : {
-        "city" : "Berlin",
+        "city" : "Hamburg",
         "country" : "german_DEU",
         "postalCode" : "98383",
         "street" : "Saatwinkler Damm 2",
@@ -84,7 +84,7 @@
         "terminal" : "4",
         "departureTime" : "1970-01-01T00:00:00.001+0000",
         "arrivalTime" : "1970-01-01T00:00:00.001+0000",
-        "stationName" : "Berlin Tegel",
+        "stationName" : "Hamburg Airport",
         "stationId" : "TXL"
       }
     }

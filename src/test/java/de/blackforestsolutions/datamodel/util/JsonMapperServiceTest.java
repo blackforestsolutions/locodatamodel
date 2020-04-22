@@ -12,9 +12,9 @@ import java.io.IOException;
 import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
 import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
 public class JsonMapperServiceTest {
@@ -44,7 +44,7 @@ public class JsonMapperServiceTest {
 
     @Test
     public void test_map_travel_point_returns_jsonobject() throws JsonProcessingException {
-        TravelPoint travelPoint = getTravelPointWithNoEmptyFields().build();
+        TravelPoint travelPoint = getStartTravelPointWithNoEmptyFields().build();
 
         String result = classUnderTest.map(travelPoint);
 
@@ -54,7 +54,7 @@ public class JsonMapperServiceTest {
     @Test
     public void test_mapJsonToTravelPoint_with_valid_json_returns_journeyobject() throws IOException, IllegalAccessException {
         String travelPoint = getTravelPointStringWithNoEmptyFields();
-        TravelPoint expectedTravelPoint = getTravelPointWithNoEmptyFields().build();
+        TravelPoint expectedTravelPoint = getStartTravelPointWithNoEmptyFields().build();
 
         TravelPoint result = classUnderTest.mapJsonToTravelPoint(travelPoint);
 
@@ -65,7 +65,7 @@ public class JsonMapperServiceTest {
 
     @Test
     public void test_map_leg_returns_jsonobject() throws JsonProcessingException {
-        Leg leg = getLegWithNoEmptyFields().build();
+        Leg leg = getFirstLegWithNoEmptyFields().build();
 
         String result = classUnderTest.map(leg);
 
@@ -75,7 +75,7 @@ public class JsonMapperServiceTest {
     @Test
     public void test_mapJsonToLeg_with_valid_json_returns_legobject() throws IOException, IllegalAccessException {
         String leg = getLegStringWithNoEmptyFields();
-        Leg expetedLeg = getLegWithNoEmptyFields().build();
+        Leg expetedLeg = getFirstLegWithNoEmptyFields().build();
 
         Leg result = classUnderTest.mapJsonToLeg(leg);
 

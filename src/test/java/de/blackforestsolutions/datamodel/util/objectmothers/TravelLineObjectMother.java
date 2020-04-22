@@ -5,22 +5,22 @@ import de.blackforestsolutions.datamodel.TravelPoint;
 
 import java.util.HashMap;
 
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
 
 public class TravelLineObjectMother {
 
     public static TravelLine.TravelLineBuilder getTravelLineWithNoEmptyFields() {
         TravelLine.TravelLineBuilder travelLine = new TravelLine.TravelLineBuilder();
         travelLine.setName("Schwarzwald Bahn");
-        travelLine.setOrigin(getTravelPointWithNoEmptyFields().build());
-        travelLine.setDirection(getTravelPointWithNoEmptyFields().build());
+        travelLine.setOrigin(getStartTravelPointWithNoEmptyFields().build());
+        travelLine.setDirection(getStartTravelPointWithNoEmptyFields().build());
         travelLine.setBetweenHolds(buildBetweenHolds());
         return travelLine;
     }
 
     private static HashMap<Integer, TravelPoint> buildBetweenHolds() {
         HashMap<Integer, TravelPoint> betweenHolds = new HashMap<>();
-        betweenHolds.put(1, getTravelPointWithNoEmptyFields().build());
+        betweenHolds.put(1, getStartTravelPointWithNoEmptyFields().build());
         return betweenHolds;
     }
 }
