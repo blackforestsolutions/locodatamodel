@@ -5,5 +5,7 @@ public enum  VehicleType {
     TRAIN,
     CAR,
     WALK,
-    PLANE
+    PLANE,
+    FERRY,
+    BIKE
 }
