@@ -111,5 +111,6 @@
   "vehicleType" : "TRAIN",
   "vehicleName" : "ICE",
   "vehicleNumber" : "71",
-  "incidents" : [ "Weather Warning" ]
+  "incidents" : [ "Weather Warning" ],
+  "hasPrice": false
 }

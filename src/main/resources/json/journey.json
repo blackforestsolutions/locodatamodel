@@ -114,7 +114,8 @@
       "vehicleType" : "TRAIN",
       "vehicleName" : "ICE",
       "vehicleNumber" : "71",
-      "incidents" : [ "Weather Warning" ]
+      "incidents" : [ "Weather Warning" ],
+      "hasPrice": false
     },
     "ed36473a-e816-4ddd-9c09-fd3eb5bf667e" : {
       "id" : "ed36473a-e816-4ddd-9c09-fd3eb5bf667e",
@@ -229,7 +230,8 @@
       "vehicleType" : "TRAIN",
       "vehicleName" : "ICE",
       "vehicleNumber" : "71",
-      "incidents" : [ "Weather Warning" ]
+      "incidents" : [ "Weather Warning" ],
+      "hasPrice": false
     }
   },
   "journeysRelated" : [ "3b4057a4-b0c9-4d6d-9a14-d89854fa42af" ]
