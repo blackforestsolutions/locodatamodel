@@ -186,10 +186,7 @@ public final class Leg implements Serializable {
                 &&
                 Objects.equals(vehicleNumber, leg.vehicleNumber)
                 &&
-                Objects.equals(incidents, leg.incidents)
-                &&
-                Objects.equals(hasPrice, leg.getPrice());
-
+                Objects.equals(incidents, leg.incidents);
     }
 
 
