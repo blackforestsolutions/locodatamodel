@@ -61,6 +61,8 @@ public final class Leg implements Serializable {
 
     private final List<String> incidents;
 
+    private final boolean hasPrice;
+
     private Leg(LegBuilder leg) {
         this.id = leg.getId();
         this.start = leg.getStart();
@@ -79,6 +81,7 @@ public final class Leg implements Serializable {
         this.vehicleName = leg.getVehicleName();
         this.vehicleNumber = leg.getVehicleNumber();
         this.incidents = leg.getIncidents();
+        this.hasPrice = leg.getHasPrice();
     }
 
     public Date getStartTime() {
@@ -183,7 +186,9 @@ public final class Leg implements Serializable {
                 &&
                 Objects.equals(vehicleNumber, leg.vehicleNumber)
                 &&
-                Objects.equals(incidents, leg.incidents);
+                Objects.equals(incidents, leg.incidents)
+                &&
+                Objects.equals(hasPrice, leg.getPrice());
 
     }
 
@@ -229,6 +234,8 @@ public final class Leg implements Serializable {
 
         private List<String> incidents = new ArrayList<>();
 
+        private boolean hasPrice;
+
         public LegBuilder(UUID id) {
             this.id = id;
         }
@@ -253,6 +260,10 @@ public final class Leg implements Serializable {
 
         public void setArrivalTime(Date arrivalTime) {
             this.arrivalTime = (Date) arrivalTime.clone();
+        }
+
+        public boolean getHasPrice() {
+            return hasPrice;
         }
 
         public Leg build() {
