@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = TravelLine.TravelLineBuilder.class)
@@ -20,7 +21,7 @@ public final class TravelLine implements Serializable {
 
     private final TravelPoint direction;
 
-    private final HashMap<Integer, TravelPoint> betweenHolds;
+    private final Map<Integer, TravelPoint> betweenHolds;
 
     /**
      * Copy constructor
@@ -41,9 +42,9 @@ public final class TravelLine implements Serializable {
         this.betweenHolds = travelLine.getBetweenHolds();
     }
 
-    public HashMap<Integer, TravelPoint> getBetweenHolds() {
+    public Map<Integer, TravelPoint> getBetweenHolds() {
         if (betweenHolds != null) {
-            return (HashMap<Integer, TravelPoint>) betweenHolds.clone();
+            return (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
         }
         return null;
     }
@@ -59,19 +60,19 @@ public final class TravelLine implements Serializable {
 
         private TravelPoint direction;
 
-        private HashMap<Integer, TravelPoint> betweenHolds = new HashMap<>();
+        private Map<Integer, TravelPoint> betweenHolds = new HashMap<>();
 
         public TravelLine build() {
             return new TravelLine(this);
         }
 
-        public void setBetweenHolds(HashMap<Integer, TravelPoint> betweenHolds) {
-            this.betweenHolds = (HashMap<Integer, TravelPoint>) betweenHolds.clone();
+        public void setBetweenHolds(Map<Integer, TravelPoint> betweenHolds) {
+            this.betweenHolds = (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
         }
 
-        public HashMap<Integer, TravelPoint> getBetweenHolds() {
+        public Map<Integer, TravelPoint> getBetweenHolds() {
             if (betweenHolds != null) {
-                return (HashMap<Integer, TravelPoint>) betweenHolds.clone();
+                return (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
             }
             return null;
         }

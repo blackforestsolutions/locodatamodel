@@ -1,6 +1,6 @@
 package de.blackforestsolutions.datamodel;
 
-public enum  VehicleType {
+public enum VehicleType {
     BUS,
     TRAIN,
     CAR,

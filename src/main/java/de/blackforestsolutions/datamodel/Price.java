@@ -9,7 +9,8 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Currency;
-import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = Price.PriceBuilder.class)
@@ -18,14 +19,14 @@ public final class Price implements Serializable {
     private static final long serialVersionUID = 6106269076155338045L;
 
     @JsonPropertyOrder(alphabetic = true)
-    private final EnumMap<PriceCategory, BigDecimal> values;
+    private final Map<PriceCategory, BigDecimal> values;
 
     private final Currency currency;
 
     private final String symbol;
 
     @JsonPropertyOrder(alphabetic = true)
-    private final EnumMap<PriceCategory, String> affiliateLinks;
+    private final Map<PriceCategory, String> affiliateLinks;
 
     /**
      * Copy constructor
@@ -46,12 +47,12 @@ public final class Price implements Serializable {
         this.affiliateLinks = price.getAffiliateLinks();
     }
 
-    public EnumMap<PriceCategory, BigDecimal> getValues() {
-        return values.clone();
+    public Map<PriceCategory, BigDecimal> getValues() {
+        return (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
     }
 
-    public EnumMap<PriceCategory, String> getAffiliateLinks() {
-        return affiliateLinks.clone();
+    public Map<PriceCategory, String> getAffiliateLinks() {
+        return (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
     }
 
     @Setter
@@ -59,32 +60,32 @@ public final class Price implements Serializable {
     @JsonPOJOBuilder(withPrefix = "set")
     public static class PriceBuilder {
 
-        private EnumMap<PriceCategory, BigDecimal> values = new EnumMap<>(PriceCategory.class);
+        private Map<PriceCategory, BigDecimal> values = new HashMap<>();
 
         private Currency currency;
 
         private String symbol = "";
 
-        private EnumMap<PriceCategory, String> affiliateLinks = new EnumMap<>(PriceCategory.class);
+        private Map<PriceCategory, String> affiliateLinks = new HashMap<>();
 
         public Price build() {
             return new Price(this);
         }
 
-        public void setValues(EnumMap<PriceCategory, BigDecimal> values) {
-            this.values = values.clone();
+        public void setValues(Map<PriceCategory, BigDecimal> values) {
+            this.values = (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
         }
 
-        public EnumMap<PriceCategory, BigDecimal> getValues() {
-            return values.clone();
+        public Map<PriceCategory, BigDecimal> getValues() {
+            return (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
         }
 
-        public void setAffiliateLinks(EnumMap<PriceCategory, String> affiliateLinks) {
-            this.affiliateLinks = affiliateLinks.clone();
+        public void setAffiliateLinks(Map<PriceCategory, String> affiliateLinks) {
+            this.affiliateLinks = (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
         }
 
-        public EnumMap<PriceCategory, String> getAffiliateLinks() {
-            return affiliateLinks.clone();
+        public Map<PriceCategory, String> getAffiliateLinks() {
+            return (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
         }
 
     }
