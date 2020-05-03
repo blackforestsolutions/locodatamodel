@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import de.blackforestsolutions.datamodel.Journey;
+import de.blackforestsolutions.datamodel.Leg;
 import de.blackforestsolutions.datamodel.TravelPoint;
 import org.springframework.data.geo.GeoModule;
 
@@ -36,4 +37,13 @@ public class LocoJsonMapper {
     public TravelPoint mapJsonToTravelPoint(String travelPoint) throws IOException {
         return mapper.readValue(travelPoint, TravelPoint.class);
     }
+
+    public String map(Leg leg) throws JsonProcessingException {
+        return mapper.writeValueAsString(leg);
+    }
+
+    public Leg mapJsonToLeg(String leg) throws JsonProcessingException {
+        return mapper.readValue(leg, Leg.class);
+    }
+
 }

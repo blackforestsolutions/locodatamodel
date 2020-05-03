@@ -1,12 +1,16 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Currency;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = Price.PriceBuilder.class)
@@ -14,13 +18,15 @@ public final class Price implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
 
-    private final double value;
+    @JsonPropertyOrder(alphabetic = true)
+    private final Map<PriceCategory, BigDecimal> values;
 
     private final Currency currency;
 
     private final String symbol;
 
-    private final String affiliateLink;
+    @JsonPropertyOrder(alphabetic = true)
+    private final Map<PriceCategory, String> affiliateLinks;
 
     /**
      * Copy constructor
@@ -28,17 +34,25 @@ public final class Price implements Serializable {
      * @param price you would like to copy
      */
     public Price(Price price) {
-        this.value = price.getValue();
+        this.values = price.getValues();
         this.currency = price.getCurrency();
         this.symbol = price.getSymbol();
-        this.affiliateLink = price.getAffiliateLink();
+        this.affiliateLinks = price.getAffiliateLinks();
     }
 
     private Price(PriceBuilder price) {
-        this.value = price.getValue();
+        this.values = price.getValues();
         this.currency = price.getCurrency();
         this.symbol = price.getSymbol();
-        this.affiliateLink = price.getAffiliateLink();
+        this.affiliateLinks = price.getAffiliateLinks();
+    }
+
+    public Map<PriceCategory, BigDecimal> getValues() {
+        return (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
+    }
+
+    public Map<PriceCategory, String> getAffiliateLinks() {
+        return (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
     }
 
     @Setter
@@ -46,16 +60,32 @@ public final class Price implements Serializable {
     @JsonPOJOBuilder(withPrefix = "set")
     public static class PriceBuilder {
 
-        private double value;
+        private Map<PriceCategory, BigDecimal> values = new HashMap<>();
 
         private Currency currency;
 
         private String symbol = "";
 
-        private String affiliateLink = "";
+        private Map<PriceCategory, String> affiliateLinks = new HashMap<>();
 
         public Price build() {
             return new Price(this);
+        }
+
+        public void setValues(Map<PriceCategory, BigDecimal> values) {
+            this.values = (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
+        }
+
+        public Map<PriceCategory, BigDecimal> getValues() {
+            return (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
+        }
+
+        public void setAffiliateLinks(Map<PriceCategory, String> affiliateLinks) {
+            this.affiliateLinks = (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
+        }
+
+        public Map<PriceCategory, String> getAffiliateLinks() {
+            return (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
         }
 
     }

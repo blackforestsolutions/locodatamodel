@@ -1,8 +1,5 @@
 package de.blackforestsolutions.datamodel;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +7,6 @@ import lombok.Setter;
 import java.util.Date;
 
 @Getter
-@JsonDeserialize(builder = ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder.class)
 public final class ApiTokenAndUrlInformation {
 
     private final String apiName;
@@ -77,7 +73,7 @@ public final class ApiTokenAndUrlInformation {
     private final String checksum;
     private final String mac;
     private final String hafasRtMode;
-    private final String cliendId;
+    private final String clientId;
     private final String clientVersion;
     private final String clientName;
     private final String clientType;
@@ -88,9 +84,7 @@ public final class ApiTokenAndUrlInformation {
     private final String walkingSpeed;
     private final Boolean allowCoordinates;
 
-    @JsonDeserialize(using = CoordinatesDeserializer.class)
     private final Coordinates departureCoordinates;
-    @JsonDeserialize(using = CoordinatesDeserializer.class)
     private final Coordinates arrivalCoordinates;
     private final String outputFormat;
 
@@ -157,7 +151,7 @@ public final class ApiTokenAndUrlInformation {
         this.mic = apiTokenAndUrlInformation.getMic();
         this.mac = apiTokenAndUrlInformation.getMac();
         this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
-        this.cliendId = apiTokenAndUrlInformation.getCliendId();
+        this.clientId = apiTokenAndUrlInformation.getClientId();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
@@ -198,7 +192,6 @@ public final class ApiTokenAndUrlInformation {
     @Getter
     @Setter
     @NoArgsConstructor
-    @JsonPOJOBuilder(withPrefix = "set")
     public static class ApiTokenAndUrlInformationBuilder {
         private String apiName;
         private String protocol;
@@ -262,7 +255,7 @@ public final class ApiTokenAndUrlInformation {
         private String mic;
         private String mac;
         private String hafasRtMode;
-        private String cliendId;
+        private String clientId;
         private String clientVersion;
         private String clientName;
         private String clientType;
@@ -339,7 +332,7 @@ public final class ApiTokenAndUrlInformation {
             this.mac = apiTokenAndUrlInformation.getMac();
             this.checksum = apiTokenAndUrlInformation.getChecksum();
             this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
-            this.cliendId = apiTokenAndUrlInformation.getCliendId();
+            this.clientId = apiTokenAndUrlInformation.getClientId();
             this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
             this.clientName = apiTokenAndUrlInformation.getClientName();
             this.clientType = apiTokenAndUrlInformation.getClientType();

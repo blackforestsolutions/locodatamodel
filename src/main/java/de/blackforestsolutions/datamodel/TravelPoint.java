@@ -2,7 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.deserializer.CoordinatesDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +10,9 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 @Slf4j
 @Getter
@@ -28,19 +29,13 @@ public final class TravelPoint implements Serializable {
 
     private final String postalCode;
 
-    private final String stateOrProvince;
-
     private final String street;
 
-    private final String streetNumber;
-
-    @JsonDeserialize(using = CoordinatesDeserializer.class)
     private final Coordinates gpsCoordinates;
 
-    private final String airportId;
-
-    private final String airportName;
-
+    /**
+     * gate property
+     */
     private final String platform;
 
     private final String terminal;
@@ -53,8 +48,6 @@ public final class TravelPoint implements Serializable {
 
     private final String stationId;
 
-    private final List<String> vehicleTypes;
-
     /**
      * Copy constructor for travel point.
      *
@@ -64,38 +57,28 @@ public final class TravelPoint implements Serializable {
         this.city = travelPoint.getCity();
         this.country = travelPoint.getCountry();
         this.postalCode = travelPoint.getPostalCode();
-        this.stateOrProvince = travelPoint.getStateOrProvince();
         this.street = travelPoint.getStreet();
-        this.streetNumber = travelPoint.getStreetNumber();
         this.gpsCoordinates = travelPoint.getGpsCoordinates();
-        this.airportId = travelPoint.getAirportId();
-        this.airportName = travelPoint.getAirportName();
         this.platform = travelPoint.getPlatform();
         this.terminal = travelPoint.getTerminal();
         this.departureTime = travelPoint.getDepartureTime();
         this.arrivalTime = travelPoint.getArrivalTime();
         this.stationName = travelPoint.getStationName();
         this.stationId = travelPoint.getStationId();
-        this.vehicleTypes = travelPoint.getVehicleTypes();
     }
 
     private TravelPoint(TravelPointBuilder travelPoint) {
         this.city = travelPoint.getCity();
         this.country = travelPoint.getCountry();
         this.postalCode = travelPoint.getPostalCode();
-        this.stateOrProvince = travelPoint.getStateOrProvince();
         this.street = travelPoint.getStreet();
-        this.streetNumber = travelPoint.getStreetNumber();
         this.gpsCoordinates = travelPoint.getGpsCoordinates();
-        this.airportId = travelPoint.getAirportId();
-        this.airportName = travelPoint.getAirportName();
         this.platform = travelPoint.getPlatform();
         this.terminal = travelPoint.getTerminal();
         this.departureTime = travelPoint.getDepartureTime();
         this.arrivalTime = travelPoint.getArrivalTime();
         this.stationName = travelPoint.getStationName();
         this.stationId = travelPoint.getStationId();
-        this.vehicleTypes = travelPoint.getVehicleTypes();
     }
 
     public Date getDepartureTime() {
@@ -141,17 +124,9 @@ public final class TravelPoint implements Serializable {
                 &&
                 Objects.equals(postalCode, that.postalCode)
                 &&
-                Objects.equals(stateOrProvince, that.stateOrProvince)
-                &&
                 Objects.equals(street, that.street)
                 &&
-                Objects.equals(streetNumber, that.streetNumber)
-                &&
                 Objects.equals(gpsCoordinates, that.gpsCoordinates)
-                &&
-                Objects.equals(airportId, that.airportId)
-                &&
-                Objects.equals(airportName, that.airportName)
                 &&
                 Objects.equals(platform, that.platform)
                 &&
@@ -163,9 +138,7 @@ public final class TravelPoint implements Serializable {
                 &&
                 Objects.equals(stationName, that.stationName)
                 &&
-                Objects.equals(stationId, that.stationId)
-                &&
-                Objects.equals(vehicleTypes, that.vehicleTypes);
+                Objects.equals(stationId, that.stationId);
     }
 
     /**
@@ -211,17 +184,9 @@ public final class TravelPoint implements Serializable {
 
         private String postalCode = "";
 
-        private String stateOrProvince = "";
-
         private String street = "";
 
-        private String streetNumber = "";
-
         private Coordinates gpsCoordinates = new Coordinates.CoordinatesBuilder(0, 0).build();
-
-        private String airportId = "";
-
-        private String airportName = "";
 
         private String platform = "";
 
@@ -234,8 +199,6 @@ public final class TravelPoint implements Serializable {
         private String stationName = "";
 
         private String stationId = "";
-
-        private List<String> vehicleTypes = new ArrayList<>();
 
         public Date getDepartureTime() {
             if (departureTime != null) {

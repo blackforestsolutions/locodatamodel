@@ -1,18 +1,25 @@
 package de.blackforestsolutions.datamodel.util.objectmothers;
 
 import de.blackforestsolutions.datamodel.Price;
+import de.blackforestsolutions.datamodel.PriceCategory;
 
-import java.util.Currency;
-import java.util.Locale;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class PriceObjectMother {
 
-    public static Price getPriceWithNoEmptyFields() {
+    public static Price.PriceBuilder getPriceWithNoEmptyFields() {
         Price.PriceBuilder price = new Price.PriceBuilder();
-        price.setCurrency(Currency.getInstance(Locale.US));
-        price.setSymbol("$");
-        price.setValue(1.4);
-        price.setAffiliateLink("www.google.de");
-        return price.build();
+        price.setValues(Map.of(
+                PriceCategory.CHILD, new BigDecimal("160.90"),
+                PriceCategory.ADULT, new BigDecimal("234.90")
+        ));
+        price.setCurrency(Currency.getInstance("EUR"));
+        price.setSymbol("€");
+        price.setAffiliateLinks(Map.of(
+                PriceCategory.CHILD, "www.bahn.de",
+                PriceCategory.ADULT, "www.bahn.de"
+        ));
+        return price;
     }
 }

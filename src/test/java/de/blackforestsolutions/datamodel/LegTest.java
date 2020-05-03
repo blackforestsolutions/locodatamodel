@@ -1,13 +1,18 @@
 package de.blackforestsolutions.datamodel;
 
-import de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother;
+import org.assertj.core.api.WritableAssertionInfo;
+import org.assertj.core.internal.Strings;
 import org.junit.jupiter.api.Test;
+
+import java.util.UUID;
+import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TravelPointTest {
+public class LegTest {
 
-    private final TravelPoint.TravelPointBuilder classUnderTest = TravelPointObjectMother.getStartTravelPointWithNoEmptyFields();
+    Leg.LegBuilder classUnderTest = LegObjectMother.getFirstLegWithNoEmptyFields();
 
     @Test
     public void test_hasNullAttributes_with_no_null_attribute_is_false() throws IllegalAccessException {
@@ -19,7 +24,7 @@ public class TravelPointTest {
 
     @Test
     public void test_hasNullAttributes_with_a_null_attribute_is_true() throws IllegalAccessException {
-        classUnderTest.setCity(null);
+        classUnderTest.setStart(null);
 
         boolean result = classUnderTest.build().hasNullAttributes();
 
@@ -28,7 +33,7 @@ public class TravelPointTest {
 
     @Test
     public void test_hasEmptyString_with_empty_string_attribute_is_true() throws IllegalAccessException {
-        classUnderTest.setStationName("");
+        classUnderTest.setUnknownTravelProvider("");
 
         boolean result = classUnderTest.build().hasEmptyString();
 
@@ -37,9 +42,9 @@ public class TravelPointTest {
 
     @Test
     public void test_hasEmptyString_with_no_empty_string_attribute_is_false() throws IllegalAccessException {
-        TravelPoint classUnderTest = TravelPointObjectMother.getStartTravelPointWithNoEmptyFields().build();
+        classUnderTest = LegObjectMother.getFirstLegWithNoEmptyFields();
 
-        boolean result = classUnderTest.hasEmptyString();
+        boolean result = classUnderTest.build().hasEmptyString();
 
         assertThat(result).isFalse();
     }
@@ -54,28 +59,10 @@ public class TravelPointTest {
 
     @Test
     public void test_hashCode_with_object_with_null_attribute_returns_hashCode() {
-        classUnderTest.setStationId(null);
+        classUnderTest.setUnknownTravelProvider(null);
 
         int result = classUnderTest.hashCode();
 
         assertThat(result).isNotNull();
-    }
-
-    @Test
-    public void test_TravelPoint_copy_constructor_with_complete_object_returns_copy() {
-        TravelPoint testData = TravelPointObjectMother.getStartTravelPointWithNoEmptyFields().build();
-
-        TravelPoint result = new TravelPoint(testData);
-
-        assertThat(result).isEqualToComparingFieldByField(testData);
-    }
-
-    @Test
-    public void test_TravelPoint_copy_constructor_with_not_complete_object_returns_copy() {
-        TravelPoint testData = new TravelPoint.TravelPointBuilder().build();
-
-        TravelPoint result = new TravelPoint(testData);
-
-        assertThat(result).isEqualToComparingFieldByField(testData);
     }
 }

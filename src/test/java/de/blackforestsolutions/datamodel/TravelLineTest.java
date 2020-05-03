@@ -9,7 +9,7 @@ public class TravelLineTest {
 
     @Test
     public void test_TravelLine_copy_constructor_with_complete_object_returns_copy() {
-        TravelLine testData = TravelLineObjectMother.getTravelLineWithNoEmptyFields();
+        TravelLine testData = TravelLineObjectMother.getTravelLineWithNoEmptyFields().build();
 
         TravelLine result = new TravelLine(testData);
 

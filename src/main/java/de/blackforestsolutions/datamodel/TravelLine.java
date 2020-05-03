@@ -2,7 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.deserializer.TravelPointDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,10 +17,8 @@ public final class TravelLine implements Serializable {
 
     private final String name;
 
-    @JsonDeserialize(using = TravelPointDeserializer.class)
     private final TravelPoint origin;
 
-    @JsonDeserialize(using = TravelPointDeserializer.class)
     private final TravelPoint direction;
 
     private final Map<Integer, TravelPoint> betweenHolds;
@@ -45,6 +42,13 @@ public final class TravelLine implements Serializable {
         this.betweenHolds = travelLine.getBetweenHolds();
     }
 
+    public Map<Integer, TravelPoint> getBetweenHolds() {
+        if (betweenHolds != null) {
+            return (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
+        }
+        return null;
+    }
+
     @Setter
     @Getter
     @JsonPOJOBuilder(withPrefix = "set")
@@ -60,6 +64,17 @@ public final class TravelLine implements Serializable {
 
         public TravelLine build() {
             return new TravelLine(this);
+        }
+
+        public void setBetweenHolds(Map<Integer, TravelPoint> betweenHolds) {
+            this.betweenHolds = (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
+        }
+
+        public Map<Integer, TravelPoint> getBetweenHolds() {
+            if (betweenHolds != null) {
+                return (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
+            }
+            return null;
         }
     }
 

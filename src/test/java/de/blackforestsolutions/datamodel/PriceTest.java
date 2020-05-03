@@ -9,7 +9,7 @@ public class PriceTest {
 
     @Test
     public void test_Price_copy_constructor_with_complete_object_returns_copy() {
-        Price testData = PriceObjectMother.getPriceWithNoEmptyFields();
+        Price testData = PriceObjectMother.getPriceWithNoEmptyFields().build();
 
         Price result = new Price(testData);
 

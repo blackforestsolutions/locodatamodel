@@ -9,7 +9,7 @@ public class CoordinatesTest {
 
     @Test
     public void test_Coordinates_copy_constructor_with_complete_object_returns_copy() {
-        Coordinates testData = CoordinatesObjectMother.getCoordinates();
+        Coordinates testData = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build();
 
         Coordinates result = new Coordinates(testData);
 

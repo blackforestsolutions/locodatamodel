@@ -1,365 +1,238 @@
 {
-  "id": "cb11896e-c38a-4f53-8d40-1f28ca690f5a",
-  "start": {
-    "city": "Berlin",
-    "country": "de_DE",
-    "postalCode": "64664",
-    "stateOrProvince": "Brandenburg",
-    "street": "Feldweg",
-    "streetNumber": "34",
-    "gpsCoordinates": {
-      "latitude": 1.0,
-      "longitude": 0.0
-    },
-    "airportId": "",
-    "airportName": "",
-    "platform": "",
-    "terminal": "",
-    "departureTime": "1970-01-01T00:00:00.001+0000",
-    "arrivalTime": "1970-01-01T00:00:00.001+0000",
-    "stationName": "",
-    "stationId": "",
-    "vehicleTypes": []
-  },
-  "destination": {
-    "city": "Hamburg",
-    "country": "de_DE",
-    "postalCode": "58974",
-    "stateOrProvince": "Hamburg",
-    "street": "Fischmarkt",
-    "streetNumber": "6",
-    "gpsCoordinates": {
-      "latitude": 1.0,
-      "longitude": 0.0
-    },
-    "airportId": "",
-    "airportName": "",
-    "platform": "",
-    "terminal": "",
-    "departureTime": "1970-01-01T00:00:00.001+0000",
-    "arrivalTime": "1970-01-01T00:00:00.001+0000",
-    "stationName": "",
-    "stationId": "",
-    "vehicleTypes": []
-  },
-  "travelLine": {
-    "name": "",
-    "origin": {
-      "city": "Hamburg",
-      "country": "de_DE",
-      "postalCode": "58974",
-      "stateOrProvince": "Hamburg",
-      "street": "Fischmarkt",
-      "streetNumber": "6",
-      "gpsCoordinates": {
-        "latitude": 1.0,
-        "longitude": 0.0
-      },
-      "airportId": "",
-      "airportName": "",
-      "platform": "",
-      "terminal": "",
-      "departureTime": "1970-01-01T00:00:00.001+0000",
-      "arrivalTime": "1970-01-01T00:00:00.001+0000",
-      "stationName": "",
-      "stationId": "",
-      "vehicleTypes": []
-    },
-    "direction": {
-      "city": "Berlin",
-      "country": "de_DE",
-      "postalCode": "64664",
-      "stateOrProvince": "Brandenburg",
-      "street": "Feldweg",
-      "streetNumber": "34",
-      "gpsCoordinates": {
-        "latitude": 1.0,
-        "longitude": 0.0
-      },
-      "airportId": "",
-      "airportName": "",
-      "platform": "",
-      "terminal": "",
-      "departureTime": "1970-01-01T00:00:00.001+0000",
-      "arrivalTime": "1970-01-01T00:00:00.001+0000",
-      "stationName": "",
-      "stationId": "",
-      "vehicleTypes": []
-    },
-    "betweenHolds": {
-      "1": {
-        "city": "Berlin",
-        "country": "de_DE",
-        "postalCode": "64664",
-        "stateOrProvince": "Brandenburg",
-        "street": "Feldweg",
-        "streetNumber": "34",
-        "gpsCoordinates": {
-          "latitude": 1.0,
-          "longitude": 0.0
+  "id" : "5f7df5c4-3b55-11ea-b77f-2e728ce88125",
+  "legs" : {
+    "bd1eff02-3b55-11ea-b77f-2e728ce88125" : {
+      "id" : "bd1eff02-3b55-11ea-b77f-2e728ce88125",
+      "start" : {
+        "city" : "Hamburg",
+        "country" : "german_DEU",
+        "postalCode" : "98383",
+        "street" : "Saatwinkler Damm 2",
+        "gpsCoordinates" : {
+          "latitude" : 1.0,
+          "longitude" : 0.0
         },
-        "airportId": "",
-        "airportName": "",
-        "platform": "",
-        "terminal": "",
-        "departureTime": "1970-01-01T00:00:00.001+0000",
-        "arrivalTime": "1970-01-01T00:00:00.001+0000",
-        "stationName": "",
-        "stationId": "",
-        "vehicleTypes": []
+        "platform" : "3",
+        "terminal" : "4",
+        "departureTime" : "1970-01-01T00:00:00.001+0000",
+        "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+        "stationName" : "Hamburg Airport",
+        "stationId" : "TXL"
       },
-      "2": {
-        "city": "Hamburg",
-        "country": "de_DE",
-        "postalCode": "58974",
-        "stateOrProvince": "Hamburg",
-        "street": "Fischmarkt",
-        "streetNumber": "6",
-        "gpsCoordinates": {
-          "latitude": 1.0,
-          "longitude": 0.0
+      "destination" : {
+        "city" : "Hamburg",
+        "country" : "german_DEU",
+        "postalCode" : "98383",
+        "street" : "Saatwinkler Damm 2",
+        "gpsCoordinates" : {
+          "latitude" : 1.0,
+          "longitude" : 0.0
         },
-        "airportId": "",
-        "airportName": "",
-        "platform": "",
-        "terminal": "",
-        "departureTime": "1970-01-01T00:00:00.001+0000",
-        "arrivalTime": "1970-01-01T00:00:00.001+0000",
-        "stationName": "",
-        "stationId": "",
-        "vehicleTypes": []
-      }
-    }
-  },
-  "travelProvider": "DB",
-  "unknownTravelProvider": "unknownTravelProvider",
-  "startTime": "1970-01-01T00:00:00.001+0000",
-  "arrivalTime": "1970-01-01T00:00:00.001+0000",
-  "duration": 22222.000000000,
-  "price": {
-    "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "priceWithCommision": {
-    "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "childPrice": {
-    "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "reducedPrice": {
-    "value": 234.9,
-    "currency": "EUR",
-    "symbol": "€",
-    "affiliateLink": ""
-  },
-  "journeysRelated": [
-    "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
-  ],
-  "betweenTrips": [
-    {
-      "id": "cb11896e-c38a-4f53-8d40-1f28ca690f5a",
-      "start": {
-        "city": "Berlin",
-        "country": "de_DE",
-        "postalCode": "64664",
-        "stateOrProvince": "Brandenburg",
-        "street": "Feldweg",
-        "streetNumber": "34",
-        "gpsCoordinates": {
-          "latitude": 1.0,
-          "longitude": 0.0
-        },
-        "airportId": "",
-        "airportName": "",
-        "platform": "",
-        "terminal": "",
-        "departureTime": "1970-01-01T00:00:00.001+0000",
-        "arrivalTime": "1970-01-01T00:00:00.001+0000",
-        "stationName": "",
-        "stationId": "",
-        "vehicleTypes": []
+        "platform" : "3",
+        "terminal" : "4",
+        "departureTime" : "1970-01-01T00:00:00.001+0000",
+        "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+        "stationName" : "Hamburg Airport",
+        "stationId" : "TXL"
       },
-      "destination": {
-        "city": "Hamburg",
-        "country": "de_DE",
-        "postalCode": "58974",
-        "stateOrProvince": "Hamburg",
-        "street": "Fischmarkt",
-        "streetNumber": "6",
-        "gpsCoordinates": {
-          "latitude": 1.0,
-          "longitude": 0.0
-        },
-        "airportId": "",
-        "airportName": "",
-        "platform": "",
-        "terminal": "",
-        "departureTime": "1970-01-01T00:00:00.001+0000",
-        "arrivalTime": "1970-01-01T00:00:00.001+0000",
-        "stationName": "",
-        "stationId": "",
-        "vehicleTypes": []
-      },
-      "travelLine": {
-        "name": "",
-        "origin": {
-          "city": "Hamburg",
-          "country": "de_DE",
-          "postalCode": "58974",
-          "stateOrProvince": "Hamburg",
-          "street": "Fischmarkt",
-          "streetNumber": "6",
-          "gpsCoordinates": {
-            "latitude": 1.0,
-            "longitude": 0.0
+      "startTime" : "1970-01-01T00:00:00.001+0000",
+      "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+      "duration" : 22222.000000000,
+      "delay" : 22.000000000,
+      "travelLine" : {
+        "name" : "Schwarzwald Bahn",
+        "origin" : {
+          "city" : "Hamburg",
+          "country" : "german_DEU",
+          "postalCode" : "98383",
+          "street" : "Saatwinkler Damm 2",
+          "gpsCoordinates" : {
+            "latitude" : 1.0,
+            "longitude" : 0.0
           },
-          "airportId": "",
-          "airportName": "",
-          "platform": "",
-          "terminal": "",
-          "departureTime": "1970-01-01T00:00:00.001+0000",
-          "arrivalTime": "1970-01-01T00:00:00.001+0000",
-          "stationName": "",
-          "stationId": "",
-          "vehicleTypes": []
+          "platform" : "3",
+          "terminal" : "4",
+          "departureTime" : "1970-01-01T00:00:00.001+0000",
+          "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+          "stationName" : "Hamburg Airport",
+          "stationId" : "TXL"
         },
-        "direction": {
-          "city": "Berlin",
-          "country": "de_DE",
-          "postalCode": "64664",
-          "stateOrProvince": "Brandenburg",
-          "street": "Feldweg",
-          "streetNumber": "34",
-          "gpsCoordinates": {
-            "latitude": 1.0,
-            "longitude": 0.0
+        "direction" : {
+          "city" : "Hamburg",
+          "country" : "german_DEU",
+          "postalCode" : "98383",
+          "street" : "Saatwinkler Damm 2",
+          "gpsCoordinates" : {
+            "latitude" : 1.0,
+            "longitude" : 0.0
           },
-          "airportId": "",
-          "airportName": "",
-          "platform": "",
-          "terminal": "",
-          "departureTime": "1970-01-01T00:00:00.001+0000",
-          "arrivalTime": "1970-01-01T00:00:00.001+0000",
-          "stationName": "",
-          "stationId": "",
-          "vehicleTypes": []
+          "platform" : "3",
+          "terminal" : "4",
+          "departureTime" : "1970-01-01T00:00:00.001+0000",
+          "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+          "stationName" : "Hamburg Airport",
+          "stationId" : "TXL"
         },
-        "betweenHolds": {
-          "1": {
-            "city": "Berlin",
-            "country": "de_DE",
-            "postalCode": "64664",
-            "stateOrProvince": "Brandenburg",
-            "street": "Feldweg",
-            "streetNumber": "34",
-            "gpsCoordinates": {
-              "latitude": 1.0,
-              "longitude": 0.0
+        "betweenHolds" : {
+          "1" : {
+            "city" : "Hamburg",
+            "country" : "german_DEU",
+            "postalCode" : "98383",
+            "street" : "Saatwinkler Damm 2",
+            "gpsCoordinates" : {
+              "latitude" : 1.0,
+              "longitude" : 0.0
             },
-            "airportId": "",
-            "airportName": "",
-            "platform": "",
-            "terminal": "",
-            "departureTime": "1970-01-01T00:00:00.001+0000",
-            "arrivalTime": "1970-01-01T00:00:00.001+0000",
-            "stationName": "",
-            "stationId": "",
-            "vehicleTypes": []
-          },
-          "2": {
-            "city": "Hamburg",
-            "country": "de_DE",
-            "postalCode": "58974",
-            "stateOrProvince": "Hamburg",
-            "street": "Fischmarkt",
-            "streetNumber": "6",
-            "gpsCoordinates": {
-              "latitude": 1.0,
-              "longitude": 0.0
-            },
-            "airportId": "",
-            "airportName": "",
-            "platform": "",
-            "terminal": "",
-            "departureTime": "1970-01-01T00:00:00.001+0000",
-            "arrivalTime": "1970-01-01T00:00:00.001+0000",
-            "stationName": "",
-            "stationId": "",
-            "vehicleTypes": []
+            "platform" : "3",
+            "terminal" : "4",
+            "departureTime" : "1970-01-01T00:00:00.001+0000",
+            "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+            "stationName" : "Hamburg Airport",
+            "stationId" : "TXL"
           }
         }
       },
-      "travelProvider": "DB",
-      "unknownTravelProvider": "unknownTravelProvider",
-      "startTime": "1970-01-01T00:00:00.001+0000",
-      "arrivalTime": "1970-01-01T00:00:00.001+0000",
-      "duration": 22222.000000000,
-      "price": {
-        "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
+      "price" : {
+        "values" : {
+          "ADULT" : 234.90,
+          "CHILD" : 160.90
+        },
+        "currency" : "EUR",
+        "symbol" : "€",
+        "affiliateLinks" : {
+          "ADULT" : "www.bahn.de",
+          "CHILD" : "www.bahn.de"
+        }
       },
-      "priceWithCommision": {
-        "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
+      "distance" : {
+        "value" : 20000.0,
+        "metric" : "KILOMETERS"
       },
-      "childPrice": {
-        "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
+      "providerId" : "12345",
+      "travelProvider" : "DB",
+      "unknownTravelProvider" : "Deutsche Bahn AG",
+      "vehicleType" : "TRAIN",
+      "vehicleName" : "ICE",
+      "vehicleNumber" : "71",
+      "incidents" : [ "Weather Warning" ],
+      "hasPrice": false
+    },
+    "ed36473a-e816-4ddd-9c09-fd3eb5bf667e" : {
+      "id" : "ed36473a-e816-4ddd-9c09-fd3eb5bf667e",
+      "start" : {
+        "city" : "Berlin",
+        "country" : "german_DEU",
+        "postalCode" : "24768",
+        "street" : "Saatwinkler Damm 2",
+        "gpsCoordinates" : {
+          "latitude" : 1.0,
+          "longitude" : 0.0
+        },
+        "platform" : "3",
+        "terminal" : "4",
+        "departureTime" : "1970-01-01T00:00:00.001+0000",
+        "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+        "stationName" : "Berlin Tegel",
+        "stationId" : "TXL"
       },
-      "reducedPrice": {
-        "value": 234.9,
-        "currency": "EUR",
-        "symbol": "€",
-        "affiliateLink": ""
+      "destination" : {
+        "city" : "Berlin",
+        "country" : "german_DEU",
+        "postalCode" : "24768",
+        "street" : "Saatwinkler Damm 2",
+        "gpsCoordinates" : {
+          "latitude" : 1.0,
+          "longitude" : 0.0
+        },
+        "platform" : "3",
+        "terminal" : "4",
+        "departureTime" : "1970-01-01T00:00:00.001+0000",
+        "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+        "stationName" : "Berlin Tegel",
+        "stationId" : "TXL"
       },
-      "journeysRelated": [
-        "cb11896e-c38a-4f53-8d40-1f28ca690f5a"
-      ],
-      "betweenTrips": [],
-      "distance": {
-        "value": 20000.0,
-        "metric": "KILOMETERS"
+      "startTime" : "1970-01-01T00:00:00.001+0000",
+      "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+      "duration" : 22222.000000000,
+      "delay" : 22.000000000,
+      "travelLine" : {
+        "name" : "Schwarzwald Bahn",
+        "origin" : {
+          "city" : "Hamburg",
+          "country" : "german_DEU",
+          "postalCode" : "98383",
+          "street" : "Saatwinkler Damm 2",
+          "gpsCoordinates" : {
+            "latitude" : 1.0,
+            "longitude" : 0.0
+          },
+          "platform" : "3",
+          "terminal" : "4",
+          "departureTime" : "1970-01-01T00:00:00.001+0000",
+          "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+          "stationName" : "Hamburg Airport",
+          "stationId" : "TXL"
+        },
+        "direction" : {
+          "city" : "Hamburg",
+          "country" : "german_DEU",
+          "postalCode" : "98383",
+          "street" : "Saatwinkler Damm 2",
+          "gpsCoordinates" : {
+            "latitude" : 1.0,
+            "longitude" : 0.0
+          },
+          "platform" : "3",
+          "terminal" : "4",
+          "departureTime" : "1970-01-01T00:00:00.001+0000",
+          "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+          "stationName" : "Hamburg Airport",
+          "stationId" : "TXL"
+        },
+        "betweenHolds" : {
+          "1" : {
+            "city" : "Hamburg",
+            "country" : "german_DEU",
+            "postalCode" : "98383",
+            "street" : "Saatwinkler Damm 2",
+            "gpsCoordinates" : {
+              "latitude" : 1.0,
+              "longitude" : 0.0
+            },
+            "platform" : "3",
+            "terminal" : "4",
+            "departureTime" : "1970-01-01T00:00:00.001+0000",
+            "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+            "stationName" : "Hamburg Airport",
+            "stationId" : "TXL"
+          }
+        }
       },
-      "providerId": "providerId",
-      "delay": 22.000000000,
-      "vehicleType": "",
-      "vehicleName": "vehicleName",
-      "vehicleNumber": "vehicleNumber",
-      "startStatus": "startStatus",
-      "arrivalStatus": "arrivalStatus",
-      "matchesRequest": false,
-      "startTimeUpdated": "1970-01-01T00:00:00.001+0000",
-      "arrivalTimeUpdated": "1970-01-01T00:00:00.001+0000",
-      "description": "description"
+      "price" : {
+        "values" : {
+          "ADULT" : 234.90,
+          "CHILD" : 160.90
+        },
+        "currency" : "EUR",
+        "symbol" : "€",
+        "affiliateLinks" : {
+          "ADULT" : "www.bahn.de",
+          "CHILD" : "www.bahn.de"
+        }
+      },
+      "distance" : {
+        "value" : 20000.0,
+        "metric" : "KILOMETERS"
+      },
+      "providerId" : "12345",
+      "travelProvider" : "DB",
+      "unknownTravelProvider" : "Deutsche Bahn AG",
+      "vehicleType" : "TRAIN",
+      "vehicleName" : "ICE",
+      "vehicleNumber" : "71",
+      "incidents" : [ "Weather Warning" ],
+      "hasPrice": false
     }
-  ],
-  "distance": {
-    "value": 20000.0,
-    "metric": "KILOMETERS"
   },
-  "providerId": "providerId",
-  "delay": 22.000000000,
-  "vehicleType": "vehicleType",
-  "vehicleName": "vehicleName",
-  "vehicleNumber": "vehicleNumber",
-  "startStatus": "startStatus",
-  "arrivalStatus": "arrivalStatus",
-  "matchesRequest": false,
-  "startTimeUpdated": "1970-01-01T00:00:00.001+0000",
-  "arrivalTimeUpdated": "1970-01-01T00:00:00.001+0000",
-  "description": "description"
+  "journeysRelated" : [ "3b4057a4-b0c9-4d6d-9a14-d89854fa42af" ]
 }
