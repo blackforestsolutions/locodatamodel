@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -57,6 +58,7 @@ public final class Price implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     @JsonPOJOBuilder(withPrefix = "set")
     public static class PriceBuilder {
 
@@ -72,16 +74,18 @@ public final class Price implements Serializable {
             return new Price(this);
         }
 
-        public void setValues(Map<PriceCategory, BigDecimal> values) {
+        public PriceBuilder setValues(Map<PriceCategory, BigDecimal> values) {
             this.values = (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
+            return this;
         }
 
         public Map<PriceCategory, BigDecimal> getValues() {
             return (Map<PriceCategory, BigDecimal>) new HashMap<>(values).clone();
         }
 
-        public void setAffiliateLinks(Map<PriceCategory, String> affiliateLinks) {
+        public PriceBuilder setAffiliateLinks(Map<PriceCategory, String> affiliateLinks) {
             this.affiliateLinks = (Map<PriceCategory, String>) new HashMap<>(affiliateLinks).clone();
+            return this;
         }
 
         public Map<PriceCategory, String> getAffiliateLinks() {
