@@ -8,7 +8,6 @@ import java.util.Optional;
 
 @Getter
 @Setter
-@Accessors(chain = true)
 public class JourneyStatus {
 
     private Optional<Journey> journey;
