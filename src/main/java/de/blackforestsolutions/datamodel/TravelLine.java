@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -51,6 +52,7 @@ public final class TravelLine implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     @JsonPOJOBuilder(withPrefix = "set")
     public static class TravelLineBuilder {
 
@@ -66,8 +68,9 @@ public final class TravelLine implements Serializable {
             return new TravelLine(this);
         }
 
-        public void setBetweenHolds(Map<Integer, TravelPoint> betweenHolds) {
+        public TravelLineBuilder setBetweenHolds(Map<Integer, TravelPoint> betweenHolds) {
             this.betweenHolds = (Map<Integer, TravelPoint>) new HashMap<>(betweenHolds).clone();
+            return this;
         }
 
         public Map<Integer, TravelPoint> getBetweenHolds() {

@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -192,6 +193,7 @@ public final class Leg implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     @JsonPOJOBuilder(withPrefix = "set")
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class LegBuilder {
@@ -244,8 +246,9 @@ public final class Leg implements Serializable {
             return null;
         }
 
-        public void setStartTime(Date startTime) {
+        public LegBuilder setStartTime(Date startTime) {
             this.startTime = (Date) startTime.clone();
+            return this;
         }
 
         public Date getArrivalTime() {
@@ -255,8 +258,9 @@ public final class Leg implements Serializable {
             return null;
         }
 
-        public void setArrivalTime(Date arrivalTime) {
+        public LegBuilder setArrivalTime(Date arrivalTime) {
             this.arrivalTime = (Date) arrivalTime.clone();
+            return this;
         }
 
         public boolean getHasPrice() {

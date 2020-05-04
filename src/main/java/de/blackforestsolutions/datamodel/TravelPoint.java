@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -175,6 +176,7 @@ public final class TravelPoint implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     @JsonPOJOBuilder(withPrefix = "set")
     public static class TravelPointBuilder {
 
@@ -207,8 +209,9 @@ public final class TravelPoint implements Serializable {
             return null;
         }
 
-        public void setDepartureTime(Date departureTime) {
+        public TravelPointBuilder setDepartureTime(Date departureTime) {
             this.departureTime = (Date) departureTime.clone();
+            return this;
         }
 
         public Date getArrivalTime() {
@@ -218,8 +221,9 @@ public final class TravelPoint implements Serializable {
             return null;
         }
 
-        public void setArrivalTime(Date arrivalTime) {
+        public TravelPointBuilder setArrivalTime(Date arrivalTime) {
             this.arrivalTime = (Date) arrivalTime.clone();
+            return this;
         }
 
         public TravelPoint build() {

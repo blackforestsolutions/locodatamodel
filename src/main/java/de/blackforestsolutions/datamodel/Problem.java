@@ -2,6 +2,7 @@ package de.blackforestsolutions.datamodel;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public final class Problem implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     public static class ProblemBuilder {
 
         private List<Exception> exceptions = new ArrayList<>();

@@ -8,6 +8,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -292,6 +293,7 @@ public final class Journey implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     @JsonPOJOBuilder(withPrefix = "set")
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class JourneyBuilder {
@@ -317,8 +319,9 @@ public final class Journey implements Serializable {
             return new Journey(this);
         }
 
-        public void setLegs(LinkedHashMap<UUID, Leg> legs) {
+        public JourneyBuilder setLegs(LinkedHashMap<UUID, Leg> legs) {
             this.legs = (LinkedHashMap<UUID, Leg>) legs.clone();
+            return this;
         }
 
         public LinkedHashMap<UUID, Leg> getLegs() {

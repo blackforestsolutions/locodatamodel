@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.io.Serializable;
@@ -64,6 +65,7 @@ public final class Coordinates implements Serializable {
 
     @Setter
     @Getter
+    @Accessors(chain = true)
     @JsonPOJOBuilder(withPrefix = "set")
     public static class CoordinatesBuilder {
 
