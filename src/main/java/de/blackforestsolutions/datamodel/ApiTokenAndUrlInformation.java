@@ -74,6 +74,7 @@ public final class ApiTokenAndUrlInformation {
     private final String mac;
     private final String hafasRtMode;
     private final String clientId;
+    private final String clientSecrect;
     private final String clientVersion;
     private final String clientName;
     private final String clientType;
@@ -152,6 +153,7 @@ public final class ApiTokenAndUrlInformation {
         this.mac = apiTokenAndUrlInformation.getMac();
         this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
         this.clientId = apiTokenAndUrlInformation.getClientId();
+        this.clientSecrect = apiTokenAndUrlInformation.getClientSecret();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
@@ -256,6 +258,7 @@ public final class ApiTokenAndUrlInformation {
         private String mac;
         private String hafasRtMode;
         private String clientId;
+        private String clientSecret;
         private String clientVersion;
         private String clientName;
         private String clientType;
@@ -333,6 +336,7 @@ public final class ApiTokenAndUrlInformation {
             this.checksum = apiTokenAndUrlInformation.getChecksum();
             this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
             this.clientId = apiTokenAndUrlInformation.getClientId();
+            this.clientSecret = apiTokenAndUrlInformation.getClientSecrect();
             this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
             this.clientName = apiTokenAndUrlInformation.getClientName();
             this.clientType = apiTokenAndUrlInformation.getClientType();
