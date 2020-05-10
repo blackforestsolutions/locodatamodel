@@ -23,6 +23,48 @@ public class JourneyTest {
     Journey.JourneyBuilder classUnderTest = JourneyObjectMother.getJourneyWithNoEmptyFields();
     Journey.JourneyBuilder classUnderTestWithError = JourneyObjectMother.getJourneyWithEmptyLeg();
 
+    @Test
+    public void test_insertLegsBeforeAllLegs_with_third_leg_to_insert_at_the_beginning_returns_new_correct_journey_with_three_legs_insted_of_two_legs() {
+        LinkedHashMap<UUID, Leg> legsToInsert = new LinkedHashMap<>();
+        Leg thirdLeg = LegObjectMother.getThirdLegWithNoEmptyFields().build();
+        legsToInsert.put(thirdLeg.getId(), thirdLeg);
+
+        Journey result = classUnderTest.build().insertLegsBeforeAllLegs(legsToInsert);
+
+        assertThat(result).isEqualToIgnoringGivenFields(classUnderTest.build(), "legs");
+        assertThat(result.getLegs().size()).isEqualTo(3);
+        assertThat(result.getLegs().values())
+                .extracting(
+                        Leg::getId
+                )
+                .containsExactly(
+                        TEST_UUID_5,
+                        TEST_UUID_3,
+                        TEST_UUID_4
+                );
+    }
+
+    @Test
+    public void test_appendLegsAfterAllLegs_with_third_leg_to_insert_at_the_end_returns_new_correct_journey_with_three_legs_insted_of_two_legs() {
+        LinkedHashMap<UUID, Leg> legsToInsert = new LinkedHashMap<>();
+        Leg thirdLeg = LegObjectMother.getThirdLegWithNoEmptyFields().build();
+        legsToInsert.put(thirdLeg.getId(), thirdLeg);
+
+        Journey result = classUnderTest.build().appendLegsAfterAllLegs(legsToInsert);
+
+        assertThat(result).isEqualToIgnoringGivenFields(classUnderTest.build(), "legs");
+        assertThat(result.getLegs().size()).isEqualTo(3);
+        assertThat(result.getLegs().values())
+                .extracting(
+                        Leg::getId
+                )
+                .containsExactly(
+                        TEST_UUID_3,
+                        TEST_UUID_4,
+                        TEST_UUID_5
+                );
+    }
+
 
     @Test
     public void test_getStartFromJourney_returns_start_travelPoint_from_first_leg() throws CompromisedAttributeException {
@@ -128,7 +170,7 @@ public class JourneyTest {
                         TEST_UUID_5,
                         TEST_UUID_3,
                         TEST_UUID_4
-        );
+                );
         assertThat(result.getLegs().get(TEST_UUID_5)).isEqualToComparingFieldByField(thirdLeg);
         assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine");
         assertThat(result.getLegs().get(TEST_UUID_3).getPrice()).isEqualToComparingFieldByField(firstLeg.getPrice());
