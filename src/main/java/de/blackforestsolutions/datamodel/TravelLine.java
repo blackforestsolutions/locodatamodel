@@ -18,7 +18,7 @@ public final class TravelLine implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final String name;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)

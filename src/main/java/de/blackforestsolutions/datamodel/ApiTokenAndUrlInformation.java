@@ -22,6 +22,7 @@ public final class ApiTokenAndUrlInformation {
     private final String arrival;
     @Schema(required = true)
     private final Date departureDate;
+    @Schema(required = true)
     private final Date arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;

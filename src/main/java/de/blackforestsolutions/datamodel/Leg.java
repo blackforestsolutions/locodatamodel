@@ -34,10 +34,10 @@ public final class Leg implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final UUID id;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelPoint start;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelPoint destination;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)

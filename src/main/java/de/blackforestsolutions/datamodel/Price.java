@@ -29,7 +29,7 @@ public final class Price implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = Constants.OPENAPI_STRING_TYPE)
     private final Currency currency;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final String symbol;
 
     @JsonPropertyOrder(alphabetic = true)
