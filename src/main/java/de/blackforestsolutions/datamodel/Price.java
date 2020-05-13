@@ -3,9 +3,11 @@ package de.blackforestsolutions.datamodel;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.springdoc.core.Constants;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -15,18 +17,23 @@ import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = Price.PriceBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Price implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
 
     @JsonPropertyOrder(alphabetic = true)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Map<PriceCategory, BigDecimal> values;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = Constants.OPENAPI_STRING_TYPE)
     private final Currency currency;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String symbol;
 
     @JsonPropertyOrder(alphabetic = true)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Map<PriceCategory, String> affiliateLinks;
 
     /**

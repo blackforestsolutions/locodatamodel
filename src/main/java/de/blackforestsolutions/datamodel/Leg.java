@@ -2,6 +2,8 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.configuration.OpenApiConfiguration;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,7 @@ import java.util.*;
 @Getter
 @Slf4j
 @JsonDeserialize(builder = Leg.LegBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Leg implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
@@ -28,40 +31,58 @@ public final class Leg implements Serializable {
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
     @Id
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final UUID id;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final TravelPoint start;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final TravelPoint destination;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date startTime;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Date arrivalTime;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Duration duration;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Duration delay;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelLine travelLine;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Price price;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Distance distance;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String providerId;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelProvider travelProvider;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String unknownTravelProvider;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final VehicleType vehicleType;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String vehicleName;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String vehicleNumber;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<String> incidents;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final boolean hasPrice;
 
     private Leg(LegBuilder leg) {
