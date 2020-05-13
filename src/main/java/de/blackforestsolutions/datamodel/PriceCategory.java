@@ -1,6 +1,9 @@
 package de.blackforestsolutions.datamodel;
 
-public enum  PriceCategory {
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
+public enum PriceCategory {
     ADULT,
     CHILD,
     ADULT_REDUCED,
