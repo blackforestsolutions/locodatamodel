@@ -22,7 +22,11 @@ public final class ApiTokenAndUrlInformation {
     private final String xOriginationIpKey;
     private final String xOriginationIp;
     private final String authorizationKey;
-    private final String authorization;
+    /**
+     * We need to update our bearer token for lufthansa request
+     */
+    @Setter
+    private String authorization;
     private final String path;
     private final String hazelcastPath;
     private final String hazelcastWritePath;
