@@ -1,5 +1,6 @@
 package de.blackforestsolutions.datamodel;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,9 +16,13 @@ public final class ApiTokenAndUrlInformation {
     private final Integer port;
     private final String apiVersion;
     private final String pathVariable;
+    @Schema(required = true)
     private final String departure;
+    @Schema(required = true)
     private final String arrival;
+    @Schema(required = true)
     private final Date departureDate;
+    @Schema(required = true)
     private final Date arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.exception.CompromisedAttributeException;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.data.annotation.Id;
+
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.time.Duration;
@@ -24,6 +26,7 @@ import java.util.stream.Collectors;
 @Getter
 @Slf4j
 @JsonDeserialize(builder = Journey.JourneyBuilder.class)
+@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Journey implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
@@ -31,10 +34,13 @@ public final class Journey implements Serializable {
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
     @Id
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final UUID id;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final LinkedHashMap<UUID, Leg> legs;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<UUID> journeysRelated;
 
     /**
@@ -162,6 +168,24 @@ public final class Journey implements Serializable {
         return journey.build();
     }
 
+    /**
+     * insert legs before all other legs
+     *
+     * @param legs
+     * @return new Journey
+     */
+    @JsonIgnore
+    public Journey insertLegsBeforeAllLegs(LinkedHashMap<UUID, Leg> legs) {
+        JourneyBuilder journey = new JourneyBuilder(this);
+        LinkedHashMap<UUID, Leg> oldLegs = journey.getLegs();
+        LinkedHashMap<UUID, Leg> newLegs = (LinkedHashMap<UUID, Leg>) oldLegs.clone();
+        oldLegs.clear();
+        oldLegs.putAll(legs);
+        oldLegs.putAll(newLegs);
+        journey.setLegs(oldLegs);
+        return journey.build();
+    }
+
 
     /**
      * append a leg at the end of all legs
@@ -175,6 +199,21 @@ public final class Journey implements Serializable {
         LinkedHashMap<UUID, Leg> legs = journey.getLegs();
         legs.put(leg.getId(), leg);
         journey.setLegs(legs);
+        return journey.build();
+    }
+
+    /**
+     * append legs at the end of all legs
+     *
+     * @param legs
+     * @return new Journey
+     */
+    @JsonIgnore
+    public Journey appendLegsAfterAllLegs(LinkedHashMap<UUID, Leg> legs) {
+        JourneyBuilder journey = new JourneyBuilder(this);
+        LinkedHashMap<UUID, Leg> newLegs = journey.getLegs();
+        newLegs.putAll(legs);
+        journey.setLegs(newLegs);
         return journey.build();
     }
 
