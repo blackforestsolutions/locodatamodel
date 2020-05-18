@@ -157,15 +157,11 @@ public final class Journey implements Serializable {
      * @return new Journey
      */
     @JsonIgnore
-    public Journey insertLegBeforeAllLegs(Leg leg) {
-        JourneyBuilder journey = new JourneyBuilder(this);
-        LinkedHashMap<UUID, Leg> oldLegs = journey.getLegs();
-        LinkedHashMap<UUID, Leg> newLegs = (LinkedHashMap<UUID, Leg>) oldLegs.clone();
-        oldLegs.clear();
-        oldLegs.put(leg.getId(), leg);
-        oldLegs.putAll(newLegs);
-        journey.setLegs(oldLegs);
-        return journey.build();
+    public void insertLegBeforeAllLegs(Leg leg) {
+        LinkedHashMap<UUID, Leg> newLegs = (LinkedHashMap<UUID, Leg>) legs.clone();
+        legs.clear();
+        legs.put(leg.getId(), leg);
+        legs.putAll(newLegs);
     }
 
     /**
@@ -175,15 +171,11 @@ public final class Journey implements Serializable {
      * @return new Journey
      */
     @JsonIgnore
-    public Journey insertLegsBeforeAllLegs(LinkedHashMap<UUID, Leg> legs) {
-        JourneyBuilder journey = new JourneyBuilder(this);
-        LinkedHashMap<UUID, Leg> oldLegs = journey.getLegs();
-        LinkedHashMap<UUID, Leg> newLegs = (LinkedHashMap<UUID, Leg>) oldLegs.clone();
-        oldLegs.clear();
-        oldLegs.putAll(legs);
-        oldLegs.putAll(newLegs);
-        journey.setLegs(oldLegs);
-        return journey.build();
+    public void insertLegsBeforeAllLegs(LinkedHashMap<UUID, Leg> legs) {
+        LinkedHashMap<UUID, Leg> newLegs = (LinkedHashMap<UUID, Leg>) this.legs.clone();
+        this.legs.clear();
+        this.legs.putAll(legs);
+        this.legs.putAll(newLegs);
     }
 
 
@@ -194,12 +186,8 @@ public final class Journey implements Serializable {
      * @return new Journey
      */
     @JsonIgnore
-    public Journey appendLegAfterAllLegs(Leg leg) {
-        JourneyBuilder journey = new JourneyBuilder(this);
-        LinkedHashMap<UUID, Leg> legs = journey.getLegs();
+    public void appendLegAfterAllLegs(Leg leg) {
         legs.put(leg.getId(), leg);
-        journey.setLegs(legs);
-        return journey.build();
     }
 
     /**
@@ -209,12 +197,8 @@ public final class Journey implements Serializable {
      * @return new Journey
      */
     @JsonIgnore
-    public Journey appendLegsAfterAllLegs(LinkedHashMap<UUID, Leg> legs) {
-        JourneyBuilder journey = new JourneyBuilder(this);
-        LinkedHashMap<UUID, Leg> newLegs = journey.getLegs();
-        newLegs.putAll(legs);
-        journey.setLegs(newLegs);
-        return journey.build();
+    public void appendLegsAfterAllLegs(LinkedHashMap<UUID, Leg> legs) {
+        this.legs.putAll(legs);
     }
 
     /**

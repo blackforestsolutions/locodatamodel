@@ -29,7 +29,8 @@ public class JourneyTest {
         Leg thirdLeg = LegObjectMother.getThirdLegWithNoEmptyFields().build();
         legsToInsert.put(thirdLeg.getId(), thirdLeg);
 
-        Journey result = classUnderTest.build().insertLegsBeforeAllLegs(legsToInsert);
+        Journey result = classUnderTest.build();
+        result.insertLegsBeforeAllLegs(legsToInsert);
 
         assertThat(result).isEqualToIgnoringGivenFields(classUnderTest.build(), "legs");
         assertThat(result.getLegs().size()).isEqualTo(3);
@@ -50,7 +51,8 @@ public class JourneyTest {
         Leg thirdLeg = LegObjectMother.getThirdLegWithNoEmptyFields().build();
         legsToInsert.put(thirdLeg.getId(), thirdLeg);
 
-        Journey result = classUnderTest.build().appendLegsAfterAllLegs(legsToInsert);
+        Journey result = classUnderTest.build();
+        result.appendLegsAfterAllLegs(legsToInsert);
 
         assertThat(result).isEqualToIgnoringGivenFields(classUnderTest.build(), "legs");
         assertThat(result.getLegs().size()).isEqualTo(3);
@@ -147,7 +149,8 @@ public class JourneyTest {
         expectedIncidents.addAll(LegObjectMother.getFirstLegWithNoEmptyFields().getIncidents());
         expectedIncidents.addAll(LegObjectMother.getSecondLegWithNoEmptyFields().getIncidents());
 
-        List<String> result = classUnderTest.build().getAllIncidentsFromJourney();
+        Journey journey = classUnderTest.build();
+        List<String> result = journey.getAllIncidentsFromJourney();
 
         assertThat(result).isEqualTo(expectedIncidents);
     }
@@ -158,7 +161,8 @@ public class JourneyTest {
         Leg secondLeg = LegObjectMother.getSecondLegWithNoEmptyFields().build();
         Leg thirdLeg = LegObjectMother.getThirdLegWithNoEmptyFields().build();
 
-        Journey result = classUnderTest.build().insertLegBeforeAllLegs(thirdLeg);
+        Journey result = classUnderTest.build();
+        result.insertLegBeforeAllLegs(thirdLeg);
 
         assertThat(result).isEqualToIgnoringGivenFields(classUnderTest.build(), "legs");
         assertThat(result.getLegs().size()).isEqualTo(3);
@@ -186,7 +190,8 @@ public class JourneyTest {
         Leg secondLeg = LegObjectMother.getSecondLegWithNoEmptyFields().build();
         Leg thirdLeg = LegObjectMother.getThirdLegWithNoEmptyFields().build();
 
-        Journey result = classUnderTest.build().appendLegAfterAllLegs(thirdLeg);
+        Journey result = classUnderTest.build();
+        result.appendLegAfterAllLegs(thirdLeg);
 
         assertThat(result).isEqualToIgnoringGivenFields(classUnderTest.build(), "legs");
         assertThat(result.getLegs().size()).isEqualTo(3);
