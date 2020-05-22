@@ -4,9 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import de.blackforestsolutions.datamodel.Journey;
-import de.blackforestsolutions.datamodel.Leg;
-import de.blackforestsolutions.datamodel.TravelPoint;
+import de.blackforestsolutions.datamodel.*;
 import org.springframework.data.geo.GeoModule;
 
 import java.io.IOException;
@@ -44,6 +42,18 @@ public class LocoJsonMapper {
 
     public Leg mapJsonToLeg(String leg) throws JsonProcessingException {
         return mapper.readValue(leg, Leg.class);
+    }
+
+    public String map(ApiTokenAndUrlInformation apiTokenAndUrlInformation) throws JsonProcessingException {
+        ApiTokenAndUrlInformationDto dto = new ApiTokenAndUrlInformationDto(apiTokenAndUrlInformation);
+        return mapper.writeValueAsString(dto);
+    }
+
+    public ApiTokenAndUrlInformation mapJsonToApiTokenAndUrlInformation(String apiTokenAndUrlInformationDto) throws JsonProcessingException {
+        ApiTokenAndUrlInformationDto dto = mapper.readValue(apiTokenAndUrlInformationDto, ApiTokenAndUrlInformationDto.class);
+        ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder();
+        builder = builder.buildFrom(dto);
+        return builder.build();
     }
 
 }
