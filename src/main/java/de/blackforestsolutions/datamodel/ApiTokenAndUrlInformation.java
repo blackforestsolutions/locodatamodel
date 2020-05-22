@@ -83,7 +83,7 @@ public final class ApiTokenAndUrlInformation {
     private final String mac;
     private final String hafasRtMode;
     private final String clientId;
-    private final String clientSecrect;
+    private final String clientSecret;
     private final String clientVersion;
     private final String clientName;
     private final String clientType;
@@ -162,7 +162,7 @@ public final class ApiTokenAndUrlInformation {
         this.mac = apiTokenAndUrlInformation.getMac();
         this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
         this.clientId = apiTokenAndUrlInformation.getClientId();
-        this.clientSecrect = apiTokenAndUrlInformation.getClientSecret();
+        this.clientSecret = apiTokenAndUrlInformation.getClientSecret();
         this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
         this.clientName = apiTokenAndUrlInformation.getClientName();
         this.clientType = apiTokenAndUrlInformation.getClientType();
@@ -345,7 +345,7 @@ public final class ApiTokenAndUrlInformation {
             this.checksum = apiTokenAndUrlInformation.getChecksum();
             this.hafasRtMode = apiTokenAndUrlInformation.getHafasRtMode();
             this.clientId = apiTokenAndUrlInformation.getClientId();
-            this.clientSecret = apiTokenAndUrlInformation.getClientSecrect();
+            this.clientSecret = apiTokenAndUrlInformation.getClientSecret();
             this.clientVersion = apiTokenAndUrlInformation.getClientVersion();
             this.clientName = apiTokenAndUrlInformation.getClientName();
             this.clientType = apiTokenAndUrlInformation.getClientType();
@@ -358,6 +358,87 @@ public final class ApiTokenAndUrlInformation {
             this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
             this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
             this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+        }
+
+        private ApiTokenAndUrlInformationBuilder copyFrom(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
+            ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformationBuilder();
+            builder.setProtocol(apiTokenAndUrlInformationDto.getProtocol());
+            builder.setHost(apiTokenAndUrlInformationDto.getHost());
+            builder.setPort(apiTokenAndUrlInformationDto.getPort());
+            builder.setApiVersion(apiTokenAndUrlInformationDto.getApiVersion());
+            builder.setPathVariable(apiTokenAndUrlInformationDto.getPathVariable());
+            builder.setDeparture(apiTokenAndUrlInformationDto.getDeparture());
+            builder.setArrival(apiTokenAndUrlInformationDto.getArrival());
+            builder.setDepartureDate(apiTokenAndUrlInformationDto.getDepartureDate());
+            builder.setArrivalDate(apiTokenAndUrlInformationDto.getArrivalDate());
+            builder.setXOriginationIpKey(apiTokenAndUrlInformationDto.getXOriginationIpKey());
+            builder.setXOriginationIp(apiTokenAndUrlInformationDto.getXOriginationIp());
+            builder.setAuthorizationKey(apiTokenAndUrlInformationDto.getAuthorizationKey());
+            builder.setAuthorization(apiTokenAndUrlInformationDto.getAuthorization());
+            builder.setPath(apiTokenAndUrlInformationDto.getPath());
+            builder.setHazelcastPath(apiTokenAndUrlInformationDto.getHazelcastPath());
+            builder.setHazelcastWritePath(apiTokenAndUrlInformationDto.getHazelcastWritePath());
+            builder.setHazelcastReadAllPath(apiTokenAndUrlInformationDto.getHazelcastReadAllPath());
+            builder.setHazelcastSearchPath(apiTokenAndUrlInformationDto.getHazelcastSearchPath());
+            builder.setGermanRailJourneyDeatilsPath(apiTokenAndUrlInformationDto.getGermanRailJourneyDeatilsPath());
+            builder.setGermanRailDepartureBoardPath(apiTokenAndUrlInformationDto.getGermanRailDepartureBoardPath());
+            builder.setGermanRailArrivalBoardPath(apiTokenAndUrlInformationDto.getGermanRailArrivalBoardPath());
+            builder.setGermanRailLocationPath(apiTokenAndUrlInformationDto.getGermanRailLocationPath());
+            builder.setStationId(apiTokenAndUrlInformationDto.getStationId());
+            builder.setJourneyDetailsId(apiTokenAndUrlInformationDto.getJourneyDetailsId());
+            builder.setBahnLocation(apiTokenAndUrlInformationDto.getBahnLocation());
+            builder.setGermanRailDatePathVariable(apiTokenAndUrlInformationDto.getGermanRailDatePathVariable());
+            builder.setDatePathVariable(apiTokenAndUrlInformationDto.getDatePathVariable());
+            builder.setSearchChRoutePathVariable(apiTokenAndUrlInformationDto.getSearchChRoutePathVariable());
+            builder.setSearchChResults(apiTokenAndUrlInformationDto.getSearchChResults());
+            builder.setSearchChDelayParameter(apiTokenAndUrlInformationDto.getSearchChDelayParameter());
+            builder.setLocationSearchTerm(apiTokenAndUrlInformationDto.getLocationSearchTerm());
+            builder.setTimePathVariable(apiTokenAndUrlInformationDto.getTimePathVariable());
+            builder.setStartLocation(apiTokenAndUrlInformationDto.getStartLocation());
+            builder.setDestinationLocation(apiTokenAndUrlInformationDto.getDestinationLocation());
+            builder.setLocationPath(apiTokenAndUrlInformationDto.getLocationPath());
+            builder.setSearchChTermParameter(apiTokenAndUrlInformationDto.getSearchChTermParameter());
+            builder.setSearchChStationId(apiTokenAndUrlInformationDto.getSearchChStationId());
+            builder.setSearchChStationCoordinateParameter(apiTokenAndUrlInformationDto.getSearchChStationCoordinateParameter());
+            builder.setLanguage(apiTokenAndUrlInformationDto.getLanguage());
+            builder.setAuthentificationUser(apiTokenAndUrlInformationDto.getAuthentificationUser());
+            builder.setAuthentificationType(apiTokenAndUrlInformationDto.getAuthentificationType());
+            builder.setAuthentificationPassword(apiTokenAndUrlInformationDto.getAuthentificationPassword());
+            builder.setStationListPathVariable(apiTokenAndUrlInformationDto.getStationListPathVariable());
+            builder.setJourneyPathVariable(apiTokenAndUrlInformationDto.getJourneyPathVariable());
+            builder.setTravelPointPathVariable(apiTokenAndUrlInformationDto.getTravelPointPathVariable());
+            builder.setResultLength(apiTokenAndUrlInformationDto.getResultLength());
+            builder.setDistanceFromTravelPoint(apiTokenAndUrlInformationDto.getDistanceFromTravelPoint());
+            builder.setResultLengthBeforeDepartureTime(apiTokenAndUrlInformationDto.getResultLengthBeforeDepartureTime());
+            builder.setResultLengthAfterDepartureTime(apiTokenAndUrlInformationDto.getResultLengthAfterDepartureTime());
+            builder.setTariff(apiTokenAndUrlInformationDto.getTariff());
+            builder.setTimeIsDeparture(apiTokenAndUrlInformationDto.getTimeIsDeparture());
+            builder.setHvvFilterEquivalent(apiTokenAndUrlInformationDto.getHvvFilterEquivalent());
+            builder.setHvvAllowTypeSwitch(apiTokenAndUrlInformationDto.getHvvAllowTypeSwitch());
+            builder.setAllowTariffDetails(apiTokenAndUrlInformationDto.getAllowTariffDetails());
+            builder.setAllowReducedPrice(apiTokenAndUrlInformationDto.getAllowReducedPrice());
+            builder.setAllowIntermediateStops(apiTokenAndUrlInformationDto.getAllowIntermediateStops());
+            builder.setHvvReturnContSearchData(apiTokenAndUrlInformationDto.getHvvReturnContSearchData());
+            builder.setApiName(apiTokenAndUrlInformationDto.getApiName());
+            builder.setChecksum(apiTokenAndUrlInformationDto.getChecksum());
+            builder.setMic(apiTokenAndUrlInformationDto.getMic());
+            builder.setMac(apiTokenAndUrlInformationDto.getMac());
+            builder.setHafasRtMode(apiTokenAndUrlInformationDto.getHafasRtMode());
+            builder.setClientId(apiTokenAndUrlInformationDto.getClientId());
+            builder.setClientSecret(apiTokenAndUrlInformationDto.getClientSecret());
+            builder.setClientVersion(apiTokenAndUrlInformationDto.getClientVersion());
+            builder.setClientName(apiTokenAndUrlInformationDto.getClientName());
+            builder.setClientType(apiTokenAndUrlInformationDto.getClientType());
+            builder.setTransfers(apiTokenAndUrlInformationDto.getTransfers());
+            builder.setMinTransferTime(apiTokenAndUrlInformationDto.getMinTransferTime());
+            builder.setHafasProductionValue(apiTokenAndUrlInformationDto.getHafasProductionValue());
+            builder.setForDisabledPersons(apiTokenAndUrlInformationDto.getForDisabledPersons());
+            builder.setWalkingSpeed(apiTokenAndUrlInformationDto.getWalkingSpeed());
+            builder.setAllowCoordinates(apiTokenAndUrlInformationDto.getAllowCoordinates());
+            builder.setArrivalCoordinates(apiTokenAndUrlInformationDto.getArrivalCoordinates());
+            builder.setDepartureCoordinates(apiTokenAndUrlInformationDto.getDepartureCoordinates());
+            builder.setOutputFormat(apiTokenAndUrlInformationDto.getOutputFormat());
+            return builder;
         }
 
         public Date getGermanRailDatePathVariable() {
@@ -403,6 +484,10 @@ public final class ApiTokenAndUrlInformation {
             } else {
                 this.arrivalDate = null;
             }
+        }
+
+        public ApiTokenAndUrlInformationBuilder buildFrom(ApiTokenAndUrlInformationDto copySource) {
+            return copyFrom(copySource);
         }
 
         public ApiTokenAndUrlInformationBuilder buildFrom(ApiTokenAndUrlInformation copySource) {
