@@ -36,6 +36,12 @@ public final class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
+    private final String locoApiFlightPath;
+    private final String locoApiLocaterPath;
+    private final String locoApiNearestAirportsPath;
+    private final String locoApiRegionalTrainPath;
+    private final String locoApiRideSharesPath;
+    private final String locoApiRidesPath;
 
     private final String datePathVariable;
     private final String searchChRoutePathVariable;
@@ -164,6 +170,12 @@ public final class ApiTokenAndUrlInformation {
         this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
         this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+        this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+        this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+        this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+        this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
+        this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
+        this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -268,6 +280,12 @@ public final class ApiTokenAndUrlInformation {
         private Coordinates arrivalCoordinates;
         private Coordinates departureCoordinates;
         private String outputFormat;
+        private String locoApiFlightPath;
+        private String locoApiLocaterPath;
+        private String locoApiNearestAirportsPath;
+        private String locoApiRegionalTrainPath;
+        private String locoApiRideSharesPath;
+        private String locoApiRidesPath;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -345,6 +363,12 @@ public final class ApiTokenAndUrlInformation {
             this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
             this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
             this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+            this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+            this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiLocaterPath();
+            this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+            this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
+            this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
+            this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
         }
 
         public Date getGermanRailDatePathVariable() {
