@@ -4,17 +4,20 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import de.blackforestsolutions.datamodel.Journey;
 import de.blackforestsolutions.datamodel.Leg;
 import de.blackforestsolutions.datamodel.TravelPoint;
+import de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.UUID;
 
-import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_1;
 import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
 public class JsonMapperServiceTest {
@@ -84,5 +87,27 @@ public class JsonMapperServiceTest {
         Assertions.assertThat(result).isEqualToIgnoringGivenFields(expetedLeg, "price", "travelLine");
         Assertions.assertThat(result.getPrice()).isEqualToComparingFieldByField(expetedLeg.getPrice());
         Assertions.assertThat(result.getTravelLine()).isEqualToComparingFieldByField(expetedLeg.getTravelLine());
+    }
+
+    @Test
+    public void test_() throws JsonProcessingException {
+        Map<UUID, Journey> journeys = JourneyObjectMother.getJourneyMapWithNoEmptyFields();
+
+        String result = classUnderTest.map(journeys);
+
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getJourneysStringWithNoEmptyFields()));
+    }
+
+    @Test
+    public void test_m() throws IOException, IllegalAccessException {
+        String journeys = getJourneysStringWithNoEmptyFields();
+        Map<UUID, Journey> expectedJourneys = getJourneyMapWithNoEmptyFields();
+
+        Map<UUID, Journey> joruneyResult = classUnderTest.mapJsonToJourneyMap(journeys);
+
+        Assertions.assertThat(joruneyResult.size()).isEqualTo(1);
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasNullAttributes()).isFalse();
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasEmptyString()).isFalse();
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1)).isEqualToIgnoringGivenFields(expectedJourneys, "legs");
     }
 }

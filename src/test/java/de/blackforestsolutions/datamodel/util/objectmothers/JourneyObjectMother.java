@@ -35,4 +35,14 @@ public class JourneyObjectMother {
         legs.put(getSecondLegWithNoEmptyFields().getId(), getSecondLegWithNoEmptyFields().build());
         return legs;
     }
+
+    public static String getJourneysStringWithNoEmptyFields() {
+        return getResourceFileAsString("json/journeyMap.json");
+    }
+
+    public static Map<UUID,Journey> getJourneyMapWithNoEmptyFields() {
+        return Map.of(
+                getJourneyWithNoEmptyFields().getId(), getJourneyWithNoEmptyFields().build()
+        );
+    }
 }
