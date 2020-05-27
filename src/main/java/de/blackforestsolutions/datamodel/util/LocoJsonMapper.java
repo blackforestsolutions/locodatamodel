@@ -10,9 +10,7 @@ import de.blackforestsolutions.datamodel.TravelPoint;
 import org.springframework.data.geo.GeoModule;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class LocoJsonMapper {
 
@@ -55,5 +53,13 @@ public class LocoJsonMapper {
 
     public String map(Map<UUID, Journey> journeys) throws JsonProcessingException {
         return mapper.writeValueAsString(journeys);
+    }
+
+    public List<TravelPoint> mapJsonToTravelPointList(String travelPointList) throws JsonProcessingException {
+        return mapper.readValue(travelPointList, mapper.getTypeFactory().constructCollectionType(List.class, TravelPoint.class));
+    }
+
+    public String map(List<TravelPoint> travelPoints) throws JsonProcessingException {
+        return mapper.writeValueAsString(travelPoints);
     }
 }

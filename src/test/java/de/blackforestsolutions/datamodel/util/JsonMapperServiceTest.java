@@ -5,18 +5,19 @@ import de.blackforestsolutions.datamodel.Journey;
 import de.blackforestsolutions.datamodel.Leg;
 import de.blackforestsolutions.datamodel.TravelPoint;
 import de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointStringWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_1;
 import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
@@ -109,5 +110,32 @@ public class JsonMapperServiceTest {
         Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasNullAttributes()).isFalse();
         Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasEmptyString()).isFalse();
         Assertions.assertThat(joruneyResult.get(TEST_UUID_1)).isEqualToIgnoringGivenFields(expectedJourneys.get(TEST_UUID_1), "legs");
+    }
+
+    @Test
+    public void test_mapLIST_with_journeymap_returns_jsonobject() throws JsonProcessingException {
+        List<TravelPoint> travelPoints = TravelPointObjectMother.getTravelPointListWithNoEmptyFields();
+
+        String result = classUnderTest.map(travelPoints);
+
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getTravelPointListStringWithNoEmptyFields()));
+    }
+
+    @Test
+    public void test_mapLISTJsonToJourneyMap_with_valid_json_returns_journeymapobject() throws IOException, IllegalAccessException {
+        String travelPoints = getTravelPointListStringWithNoEmptyFields();
+        List<TravelPoint> expectedTravelpoints = getTravelPointListWithNoEmptyFields();
+
+        List<TravelPoint> travelPointResult = classUnderTest.mapJsonToTravelPointList(travelPoints);
+
+        Assertions.assertThat(travelPointResult.size()).isEqualTo(2);
+
+        Assertions.assertThat(travelPointResult.get(0).hasNullAttributes()).isFalse();
+        Assertions.assertThat(travelPointResult.get(0).hasEmptyString()).isFalse();
+        Assertions.assertThat(travelPointResult.get(0)).isEqualToIgnoringGivenFields(travelPointResult.get(0));
+
+        Assertions.assertThat(travelPointResult.get(1).hasNullAttributes()).isFalse();
+        Assertions.assertThat(travelPointResult.get(1).hasEmptyString()).isFalse();
+        Assertions.assertThat(travelPointResult.get(1)).isEqualToIgnoringGivenFields(travelPointResult.get(1));
     }
 }
