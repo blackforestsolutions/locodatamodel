@@ -13,10 +13,10 @@ import java.util.Map;
 import java.util.UUID;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
-import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointStringWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_1;
 import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
@@ -108,6 +108,6 @@ public class JsonMapperServiceTest {
         Assertions.assertThat(joruneyResult.size()).isEqualTo(1);
         Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasNullAttributes()).isFalse();
         Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasEmptyString()).isFalse();
-        Assertions.assertThat(joruneyResult.get(TEST_UUID_1)).isEqualToIgnoringGivenFields(expectedJourneys, "legs");
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1)).isEqualToIgnoringGivenFields(expectedJourneys.get(TEST_UUID_1), "legs");
     }
 }
