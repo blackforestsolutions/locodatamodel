@@ -90,7 +90,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_() throws JsonProcessingException {
+    public void test_map_with_journeymap_returns_jsonobject() throws JsonProcessingException {
         Map<UUID, Journey> journeys = JourneyObjectMother.getJourneyMapWithNoEmptyFields();
 
         String result = classUnderTest.map(journeys);
@@ -99,7 +99,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_m() throws IOException, IllegalAccessException {
+    public void test_mapJsonToJourneyMap_with_valid_json_returns_journeymapobject() throws IOException, IllegalAccessException {
         String journeys = getJourneysStringWithNoEmptyFields();
         Map<UUID, Journey> expectedJourneys = getJourneyMapWithNoEmptyFields();
 
