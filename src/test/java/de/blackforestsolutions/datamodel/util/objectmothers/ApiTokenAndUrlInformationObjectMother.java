@@ -85,6 +85,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setDepartureCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
         builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
         builder.setOutputFormat("setOutputFormat");
+        builder.setRadius(1000);
         return builder.build();
     }
 

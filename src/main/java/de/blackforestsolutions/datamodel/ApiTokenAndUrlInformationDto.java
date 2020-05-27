@@ -173,6 +173,8 @@ public final class ApiTokenAndUrlInformationDto {
     private Coordinates arrivalCoordinates;
     @JsonProperty("outputFormat")
     private String outputFormat;
+    @JsonProperty("radius")
+    private Integer radius;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -255,6 +257,7 @@ public final class ApiTokenAndUrlInformationDto {
         this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
         this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+        this.radius = apiTokenAndUrlInformation.getRadius();
     }
 
     public Date getGermanRailDatePathVariable() {
