@@ -54,6 +54,7 @@ public final class ApiTokenAndUrlInformation {
     private final String startLocation;
     private final String destinationLocation;
     private final String locationPath;
+    private final String coordinatesPath;
     private final String searchChTermParameter;
     private final String searchChStationId;
     private final String searchChStationCoordinateParameter;
@@ -134,6 +135,7 @@ public final class ApiTokenAndUrlInformation {
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
@@ -239,6 +241,7 @@ public final class ApiTokenAndUrlInformation {
         private String startLocation;
         private String destinationLocation;
         private String locationPath;
+        private String coordinatesPath;
         private String searchChTermParameter;
         private String searchChStationId;
         private String searchChStationCoordinateParameter;
@@ -316,6 +319,7 @@ public final class ApiTokenAndUrlInformation {
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
             this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
@@ -397,6 +401,7 @@ public final class ApiTokenAndUrlInformation {
             builder.setStartLocation(apiTokenAndUrlInformationDto.getStartLocation());
             builder.setDestinationLocation(apiTokenAndUrlInformationDto.getDestinationLocation());
             builder.setLocationPath(apiTokenAndUrlInformationDto.getLocationPath());
+            builder.setCoordinatesPath(apiTokenAndUrlInformationDto.getCoordinatesPath());
             builder.setSearchChTermParameter(apiTokenAndUrlInformationDto.getSearchChTermParameter());
             builder.setSearchChStationId(apiTokenAndUrlInformationDto.getSearchChStationId());
             builder.setSearchChStationCoordinateParameter(apiTokenAndUrlInformationDto.getSearchChStationCoordinateParameter());

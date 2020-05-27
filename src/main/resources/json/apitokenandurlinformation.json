@@ -34,6 +34,7 @@
   "startLocation": "setStartLocation",
   "destinationLocation": "setDestinationLocation",
   "locationPath": "setLocationPath",
+  "coordinatesPath": "setCoordinatesPath",
   "searchChTermParameter": "setSearchChTermParameter",
   "searchChStationId": "setSearchChStationId",
   "searchChStationCoordinateParameter": "setSearchChStationCoordinateParameter",

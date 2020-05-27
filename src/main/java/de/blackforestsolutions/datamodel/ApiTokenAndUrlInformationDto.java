@@ -89,6 +89,8 @@ public final class ApiTokenAndUrlInformationDto {
     private String destinationLocation;
     @JsonProperty("locationPath")
     private String locationPath;
+    @JsonProperty("coordinatesPath")
+    private String coordinatesPath;
     @JsonProperty("searchChTermParameter")
     private String searchChTermParameter;
     @JsonProperty("searchChStationId")
@@ -211,6 +213,7 @@ public final class ApiTokenAndUrlInformationDto {
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();

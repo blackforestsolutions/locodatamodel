@@ -43,6 +43,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setStartLocation("setStartLocation");
         builder.setDestinationLocation("setDestinationLocation");
         builder.setLocationPath("setLocationPath");
+        builder.setCoordinatesPath("setCoordinatesPath");
         builder.setSearchChTermParameter("setSearchChTermParameter");
         builder.setSearchChStationId("setSearchChStationId");
         builder.setSearchChStationCoordinateParameter("setSearchChStationCoordinateParameter");
