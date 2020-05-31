@@ -179,6 +179,8 @@ public final class ApiTokenAndUrlInformationDto {
     private Integer numberOfPersons;
     @JsonProperty("currency")
     private String currency;
+    @JsonProperty("sortDirection")
+    private String sortDirection;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -264,6 +266,7 @@ public final class ApiTokenAndUrlInformationDto {
         this.radius = apiTokenAndUrlInformation.getRadius();
         this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
         this.currency = apiTokenAndUrlInformation.getCurrency();
+        this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
     }
 
     public Date getGermanRailDatePathVariable() {

@@ -102,6 +102,7 @@ public final class ApiTokenAndUrlInformation {
     private final Integer radius;
     private final Integer numberOfPersons;
     private final String currency;
+    private final String sortDirection;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -184,6 +185,7 @@ public final class ApiTokenAndUrlInformation {
         this.radius = apiTokenAndUrlInformation.getRadius();
         this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
         this.currency = apiTokenAndUrlInformation.getCurrency();
+        this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -293,6 +295,7 @@ public final class ApiTokenAndUrlInformation {
         private Integer radius;
         private Integer numberOfPersons;
         private String currency;
+        private String sortDirection;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -375,6 +378,7 @@ public final class ApiTokenAndUrlInformation {
             this.radius = apiTokenAndUrlInformation.getRadius();
             this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
             this.currency = apiTokenAndUrlInformation.getCurrency();
+            this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
         }
 
         private ApiTokenAndUrlInformationBuilder copyFrom(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -459,6 +463,7 @@ public final class ApiTokenAndUrlInformation {
             builder.setRadius(apiTokenAndUrlInformationDto.getRadius());
             builder.setNumberOfPersons(apiTokenAndUrlInformationDto.getNumberOfPersons());
             builder.setCurrency(apiTokenAndUrlInformationDto.getCurrency());
+            builder.setSortDirection(apiTokenAndUrlInformationDto.getSortDirection());
             return builder;
         }
 

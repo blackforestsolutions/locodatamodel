@@ -88,6 +88,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setRadius(1000);
         builder.setNumberOfPersons(1);
         builder.setCurrency("Eur");
+        builder.setSortDirection("desc");
         return builder.build();
     }
 
