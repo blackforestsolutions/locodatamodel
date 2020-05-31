@@ -89,6 +89,8 @@ public final class ApiTokenAndUrlInformationDto {
     private String destinationLocation;
     @JsonProperty("locationPath")
     private String locationPath;
+    @JsonProperty("coordinatesPath")
+    private String coordinatesPath;
     @JsonProperty("searchChTermParameter")
     private String searchChTermParameter;
     @JsonProperty("searchChStationId")
@@ -171,6 +173,8 @@ public final class ApiTokenAndUrlInformationDto {
     private Coordinates arrivalCoordinates;
     @JsonProperty("outputFormat")
     private String outputFormat;
+    @JsonProperty("radius")
+    private Integer radius;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -211,6 +215,7 @@ public final class ApiTokenAndUrlInformationDto {
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
@@ -252,6 +257,7 @@ public final class ApiTokenAndUrlInformationDto {
         this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
         this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+        this.radius = apiTokenAndUrlInformation.getRadius();
     }
 
     public Date getGermanRailDatePathVariable() {

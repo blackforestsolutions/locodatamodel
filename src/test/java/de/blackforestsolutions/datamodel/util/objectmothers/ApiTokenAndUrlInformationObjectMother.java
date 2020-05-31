@@ -43,6 +43,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setStartLocation("setStartLocation");
         builder.setDestinationLocation("setDestinationLocation");
         builder.setLocationPath("setLocationPath");
+        builder.setCoordinatesPath("setCoordinatesPath");
         builder.setSearchChTermParameter("setSearchChTermParameter");
         builder.setSearchChStationId("setSearchChStationId");
         builder.setSearchChStationCoordinateParameter("setSearchChStationCoordinateParameter");
@@ -84,6 +85,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setDepartureCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
         builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
         builder.setOutputFormat("setOutputFormat");
+        builder.setRadius(1000);
         return builder.build();
     }
 

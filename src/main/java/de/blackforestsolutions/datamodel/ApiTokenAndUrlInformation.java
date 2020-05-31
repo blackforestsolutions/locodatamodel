@@ -54,6 +54,7 @@ public final class ApiTokenAndUrlInformation {
     private final String startLocation;
     private final String destinationLocation;
     private final String locationPath;
+    private final String coordinatesPath;
     private final String searchChTermParameter;
     private final String searchChStationId;
     private final String searchChStationCoordinateParameter;
@@ -98,6 +99,8 @@ public final class ApiTokenAndUrlInformation {
     private final Coordinates arrivalCoordinates;
     private final String outputFormat;
 
+    private final Integer radius;
+
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
         this.host = apiTokenAndUrlInformation.getHost();
@@ -134,6 +137,7 @@ public final class ApiTokenAndUrlInformation {
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+        this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
         this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
         this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
         this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
@@ -175,6 +179,7 @@ public final class ApiTokenAndUrlInformation {
         this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
         this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+        this.radius = apiTokenAndUrlInformation.getRadius();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -239,6 +244,7 @@ public final class ApiTokenAndUrlInformation {
         private String startLocation;
         private String destinationLocation;
         private String locationPath;
+        private String coordinatesPath;
         private String searchChTermParameter;
         private String searchChStationId;
         private String searchChStationCoordinateParameter;
@@ -280,6 +286,7 @@ public final class ApiTokenAndUrlInformation {
         private Coordinates arrivalCoordinates;
         private Coordinates departureCoordinates;
         private String outputFormat;
+        private Integer radius;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -316,6 +323,7 @@ public final class ApiTokenAndUrlInformation {
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
             this.locationPath = apiTokenAndUrlInformation.getLocationPath();
+            this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
             this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
             this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
             this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
@@ -358,6 +366,7 @@ public final class ApiTokenAndUrlInformation {
             this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
             this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
             this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
+            this.radius = apiTokenAndUrlInformation.getRadius();
         }
 
         private ApiTokenAndUrlInformationBuilder copyFrom(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -397,6 +406,7 @@ public final class ApiTokenAndUrlInformation {
             builder.setStartLocation(apiTokenAndUrlInformationDto.getStartLocation());
             builder.setDestinationLocation(apiTokenAndUrlInformationDto.getDestinationLocation());
             builder.setLocationPath(apiTokenAndUrlInformationDto.getLocationPath());
+            builder.setCoordinatesPath(apiTokenAndUrlInformationDto.getCoordinatesPath());
             builder.setSearchChTermParameter(apiTokenAndUrlInformationDto.getSearchChTermParameter());
             builder.setSearchChStationId(apiTokenAndUrlInformationDto.getSearchChStationId());
             builder.setSearchChStationCoordinateParameter(apiTokenAndUrlInformationDto.getSearchChStationCoordinateParameter());
@@ -438,6 +448,7 @@ public final class ApiTokenAndUrlInformation {
             builder.setArrivalCoordinates(apiTokenAndUrlInformationDto.getArrivalCoordinates());
             builder.setDepartureCoordinates(apiTokenAndUrlInformationDto.getDepartureCoordinates());
             builder.setOutputFormat(apiTokenAndUrlInformationDto.getOutputFormat());
+            builder.setRadius(apiTokenAndUrlInformationDto.getRadius());
             return builder;
         }
 
