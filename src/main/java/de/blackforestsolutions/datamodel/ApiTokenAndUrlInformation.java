@@ -100,6 +100,8 @@ public final class ApiTokenAndUrlInformation {
     private final String outputFormat;
 
     private final Integer radius;
+    private final Integer numberOfPersons;
+    private final String currency;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -180,6 +182,8 @@ public final class ApiTokenAndUrlInformation {
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
         this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
         this.radius = apiTokenAndUrlInformation.getRadius();
+        this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
+        this.currency = apiTokenAndUrlInformation.getCurrency();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -287,6 +291,8 @@ public final class ApiTokenAndUrlInformation {
         private Coordinates departureCoordinates;
         private String outputFormat;
         private Integer radius;
+        private Integer numberOfPersons;
+        private String currency;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -367,6 +373,8 @@ public final class ApiTokenAndUrlInformation {
             this.arrivalCoordinates = apiTokenAndUrlInformation.getArrivalCoordinates();
             this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
             this.radius = apiTokenAndUrlInformation.getRadius();
+            this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
+            this.currency = apiTokenAndUrlInformation.getCurrency();
         }
 
         private ApiTokenAndUrlInformationBuilder copyFrom(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -449,6 +457,8 @@ public final class ApiTokenAndUrlInformation {
             builder.setDepartureCoordinates(apiTokenAndUrlInformationDto.getDepartureCoordinates());
             builder.setOutputFormat(apiTokenAndUrlInformationDto.getOutputFormat());
             builder.setRadius(apiTokenAndUrlInformationDto.getRadius());
+            builder.setNumberOfPersons(apiTokenAndUrlInformationDto.getNumberOfPersons());
+            builder.setCurrency(apiTokenAndUrlInformationDto.getCurrency());
             return builder;
         }
 

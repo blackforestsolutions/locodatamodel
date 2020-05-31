@@ -86,6 +86,8 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
         builder.setOutputFormat("setOutputFormat");
         builder.setRadius(1000);
+        builder.setNumberOfPersons(1);
+        builder.setCurrency("Eur");
         return builder.build();
     }
 

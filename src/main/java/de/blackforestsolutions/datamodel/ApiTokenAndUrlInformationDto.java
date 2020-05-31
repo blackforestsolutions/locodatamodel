@@ -175,6 +175,10 @@ public final class ApiTokenAndUrlInformationDto {
     private String outputFormat;
     @JsonProperty("radius")
     private Integer radius;
+    @JsonProperty("numberOfPersons")
+    private Integer numberOfPersons;
+    @JsonProperty("currency")
+    private String currency;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -258,6 +262,8 @@ public final class ApiTokenAndUrlInformationDto {
         this.departureCoordinates = apiTokenAndUrlInformation.getDepartureCoordinates();
         this.outputFormat = apiTokenAndUrlInformation.getOutputFormat();
         this.radius = apiTokenAndUrlInformation.getRadius();
+        this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
+        this.currency = apiTokenAndUrlInformation.getCurrency();
     }
 
     public Date getGermanRailDatePathVariable() {
