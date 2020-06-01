@@ -82,5 +82,8 @@
     "longitude": 0.0
   },
   "outputFormat": "setOutputFormat",
-  "radius": 1000
+  "radius": 1000,
+  "numberOfPersons": 1,
+  "currency": "Eur",
+  "sortDirection": "desc"
 }
