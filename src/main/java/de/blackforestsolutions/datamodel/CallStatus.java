@@ -1,6 +1,7 @@
 package de.blackforestsolutions.datamodel;
 
 import lombok.Getter;
+import org.springframework.lang.NonNull;
 
 @Getter
 public class CallStatus {
@@ -11,7 +12,7 @@ public class CallStatus {
 
     private final Exception exception;
 
-    public CallStatus(Object calledObject, Status status, Exception exception) {
+    public CallStatus(Object calledObject, @NonNull Status status, Exception exception) {
         this.calledObject = calledObject;
         this.status = status;
         this.exception = exception;
