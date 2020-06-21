@@ -39,6 +39,7 @@ public final class ApiTokenAndUrlInformation {
     private final String locoApiFlightPath;
     private final String locoApiLocaterPath;
     private final String locoApiNearestAirportsPath;
+    private final String locoApiNationalTrainPath;
     private final String locoApiRegionalTrainPath;
     private final String locoApiRideSharesPath;
     private final String locoApiRidesPath;
@@ -173,6 +174,7 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
         this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
         this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+        this.locoApiNationalTrainPath = apiTokenAndUrlInformation.getLocoApiNationalTrainPath();
         this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
         this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
@@ -283,6 +285,7 @@ public final class ApiTokenAndUrlInformation {
         private String locoApiFlightPath;
         private String locoApiLocaterPath;
         private String locoApiNearestAirportsPath;
+        private String locoApiNationalTrainPath;
         private String locoApiRegionalTrainPath;
         private String locoApiRideSharesPath;
         private String locoApiRidesPath;
@@ -366,6 +369,7 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
             this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiLocaterPath();
             this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+            this.locoApiNationalTrainPath = apiTokenAndUrlInformation.getLocoApiNationalTrainPath();
             this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
             this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
             this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
