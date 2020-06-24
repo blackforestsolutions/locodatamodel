@@ -6,8 +6,6 @@ import de.blackforestsolutions.datamodel.VehicleType;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Metrics;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;

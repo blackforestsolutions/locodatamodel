@@ -3,12 +3,15 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 import de.blackforestsolutions.datamodel.Journey;
 import de.blackforestsolutions.datamodel.Leg;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.UUID;
 
+import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getSecondLegWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.*;
-import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
+import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_1;
+import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_2;
 
 public class JourneyObjectMother {
 

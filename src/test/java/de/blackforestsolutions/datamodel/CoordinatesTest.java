@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CoordinatesTest {
+class CoordinatesTest {
 
     @Test
-    public void test_Coordinates_copy_constructor_with_complete_object_returns_copy() {
+    void test_Coordinates_copy_constructor_with_complete_object_returns_copy() {
         Coordinates testData = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build();
 
         Coordinates result = new Coordinates(testData);

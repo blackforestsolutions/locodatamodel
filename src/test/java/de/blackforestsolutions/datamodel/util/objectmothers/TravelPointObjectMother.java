@@ -1,7 +1,6 @@
 package de.blackforestsolutions.datamodel.util.objectmothers;
 
 import de.blackforestsolutions.datamodel.Coordinates;
-import de.blackforestsolutions.datamodel.TravelLine;
 import de.blackforestsolutions.datamodel.TravelPoint;
 
 import java.time.Instant;
@@ -9,7 +8,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
-import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
 public class TravelPointObjectMother {
 

@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ProblemTest {
+class ProblemTest {
 
     @Test
-    public void test_Problem_copy_constructor_with_complete_object_returns_copy() {
+    void test_Problem_copy_constructor_with_complete_object_returns_copy() {
         Problem testData = ProblemObjectMother.getProblem();
 
         Problem result = new Problem(testData);

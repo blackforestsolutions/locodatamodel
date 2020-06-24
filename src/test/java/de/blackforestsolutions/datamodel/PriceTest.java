@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PriceTest {
+class PriceTest {
 
     @Test
-    public void test_Price_copy_constructor_with_complete_object_returns_copy() {
+    void test_Price_copy_constructor_with_complete_object_returns_copy() {
         Price testData = PriceObjectMother.getPriceWithNoEmptyFields().build();
 
         Price result = new Price(testData);
@@ -17,7 +17,7 @@ public class PriceTest {
     }
 
     @Test
-    public void test_Price_copy_constructor_with_not_complete_object_returns_copy() {
+    void test_Price_copy_constructor_with_not_complete_object_returns_copy() {
         Price testData = new Price.PriceBuilder().build();
 
         Price result = new Price(testData);

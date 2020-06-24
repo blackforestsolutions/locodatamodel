@@ -4,7 +4,8 @@ import de.blackforestsolutions.datamodel.Price;
 import de.blackforestsolutions.datamodel.PriceCategory;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Currency;
+import java.util.Map;
 
 public class PriceObjectMother {
 
