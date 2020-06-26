@@ -5,6 +5,7 @@ import de.blackforestsolutions.datamodel.TravelPoint;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
@@ -45,5 +46,16 @@ public class TravelPointObjectMother {
 
     public static String getTravelPointStringWithNoEmptyFields() {
         return getResourceFileAsString("json/travelpoint.json");
+    }
+
+    public static List<TravelPoint> getTravelPointListWithNoEmptyFields() {
+        return List.of(
+                getStartTravelPointWithNoEmptyFields().build(),
+                getDestinationTravelPointWithNoEmptyFields().build()
+        );
+    }
+
+    public static String getTravelPointListStringWithNoEmptyFields() {
+        return getResourceFileAsString("json/travelPointList.json");
     }
 }

@@ -5,6 +5,7 @@ import de.blackforestsolutions.datamodel.Leg;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
@@ -37,5 +38,15 @@ public class JourneyObjectMother {
         legs.put(getFirstLegWithNoEmptyFields().getId(), getFirstLegWithNoEmptyFields().build());
         legs.put(getSecondLegWithNoEmptyFields().getId(), getSecondLegWithNoEmptyFields().build());
         return legs;
+    }
+
+    public static String getJourneysStringWithNoEmptyFields() {
+        return getResourceFileAsString("json/journeyMap.json");
+    }
+
+    public static Map<UUID,Journey> getJourneyMapWithNoEmptyFields() {
+        return Map.of(
+                getJourneyWithNoEmptyFields().getId(), getJourneyWithNoEmptyFields().build()
+        );
     }
 }

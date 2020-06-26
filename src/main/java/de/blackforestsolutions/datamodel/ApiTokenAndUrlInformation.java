@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
+
 @Getter
 public final class ApiTokenAndUrlInformation {
 
@@ -45,6 +46,13 @@ public final class ApiTokenAndUrlInformation {
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
+    private final String locoApiFlightPath;
+    private final String locoApiLocaterPath;
+    private final String locoApiNearestAirportsPath;
+    private final String locoApiNationalTrainPath;
+    private final String locoApiRegionalTrainPath;
+    private final String locoApiRideSharesPath;
+    private final String locoApiRidesPath;
 
     private final String datePathVariable;
     private final String searchChRoutePathVariable;
@@ -186,6 +194,13 @@ public final class ApiTokenAndUrlInformation {
         this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
         this.currency = apiTokenAndUrlInformation.getCurrency();
         this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
+        this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+        this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiLocaterPath();
+        this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+        this.locoApiNationalTrainPath = apiTokenAndUrlInformation.getLocoApiNationalTrainPath();
+        this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
+        this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
+        this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -296,6 +311,14 @@ public final class ApiTokenAndUrlInformation {
         private Integer numberOfPersons;
         private String currency;
         private String sortDirection;
+        private String locoApiFlightPath;
+        private String locoApiLocaterPath;
+        private String locoApiNearestAirportsPath;
+        private String locoApiNationalTrainPath;
+        private String locoApiRegionalTrainPath;
+        private String locoApiRideSharesPath;
+        private String locoApiRidesPath;
+
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -379,6 +402,13 @@ public final class ApiTokenAndUrlInformation {
             this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
             this.currency = apiTokenAndUrlInformation.getCurrency();
             this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
+            this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+            this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiLocaterPath();
+            this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+            this.locoApiNationalTrainPath = apiTokenAndUrlInformation.getLocoApiNationalTrainPath();
+            this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
+            this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
+            this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
         }
 
         private ApiTokenAndUrlInformationBuilder copyFrom(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -464,6 +494,14 @@ public final class ApiTokenAndUrlInformation {
             builder.setNumberOfPersons(apiTokenAndUrlInformationDto.getNumberOfPersons());
             builder.setCurrency(apiTokenAndUrlInformationDto.getCurrency());
             builder.setSortDirection(apiTokenAndUrlInformationDto.getSortDirection());
+            builder.setLocoApiFlightPath(apiTokenAndUrlInformationDto.getLocoApiFlightPath());
+            builder.setLocoApiLocaterPath(apiTokenAndUrlInformationDto.getLocoApiLocaterPath());
+            builder.setLocoApiNearestAirportsPath(apiTokenAndUrlInformationDto.getLocoApiNearestAirportsPath());
+            builder.setLocoApiNationalTrainPath(apiTokenAndUrlInformationDto.getLocoApiNationalTrainPath());
+            builder.setLocoApiRegionalTrainPath(apiTokenAndUrlInformationDto.getLocoApiRegionalTrainPath());
+            builder.setLocoApiRideSharesPath(apiTokenAndUrlInformationDto.getLocoApiRideSharesPath());
+            builder.setLocoApiRidesPath(apiTokenAndUrlInformationDto.getLocoApiRidesPath());
+
             return builder;
         }
 

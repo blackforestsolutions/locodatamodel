@@ -89,6 +89,13 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setNumberOfPersons(1);
         builder.setCurrency("Eur");
         builder.setSortDirection("desc");
+        builder.setLocoApiFlightPath("locoApiFlightPath");
+        builder.setLocoApiLocaterPath("locoApiLocaterPath");
+        builder.setLocoApiNearestAirportsPath("locoApiNearestAirportsPath");
+        builder.setLocoApiNationalTrainPath("locoApiNationalTrainPath");
+        builder.setLocoApiRegionalTrainPath("locoApiRegionalTrainPath");
+        builder.setLocoApiRideSharesPath("locoApiRideSharesPath");
+        builder.setLocoApiRidesPath("locoApiRidesPath");
         return builder.build();
     }
 
