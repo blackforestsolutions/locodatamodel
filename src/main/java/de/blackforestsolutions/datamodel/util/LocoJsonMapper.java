@@ -78,4 +78,12 @@ public class LocoJsonMapper {
         return mapper.writeValueAsString(travelPoints);
     }
 
+    public Coordinates mapJsonToCoordinates(String coordinates) throws JsonProcessingException {
+        return mapper.readValue(coordinates, Coordinates.class);
+    }
+
+    public String map(Coordinates coordinates) throws JsonProcessingException {
+        return mapper.writeValueAsString(coordinates);
+    }
+
 }

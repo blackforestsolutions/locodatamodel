@@ -1,11 +1,9 @@
 package de.blackforestsolutions.datamodel.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import de.blackforestsolutions.datamodel.ApiTokenAndUrlInformation;
-import de.blackforestsolutions.datamodel.Journey;
-import de.blackforestsolutions.datamodel.Leg;
-import de.blackforestsolutions.datamodel.TravelPoint;
+import de.blackforestsolutions.datamodel.*;
 import de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.CoordinatesObjectMother;
 import de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother;
 import de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother;
 import org.assertj.core.api.Assertions;
@@ -17,6 +15,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformationStringWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.CoordinatesObjectMother.getCoordinatesStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
@@ -137,7 +136,7 @@ class JsonMapperServiceTest {
     }
 
     @Test
-    void test_mapLIST_with_journeymap_returns_jsonobject() throws JsonProcessingException {
+    void test_mapList_with_journeymap_returns_jsonobject() throws JsonProcessingException {
         List<TravelPoint> travelPoints = TravelPointObjectMother.getTravelPointListWithNoEmptyFields();
 
         String result = classUnderTest.map(travelPoints);
@@ -146,9 +145,8 @@ class JsonMapperServiceTest {
     }
 
     @Test
-    void test_mapLISTJsonToJourneyMap_with_valid_json_returns_journeymapobject() throws IOException, IllegalAccessException {
+    void test_mapListJsonToJourneyMap_with_valid_json_returns_journeymapobject() throws IOException, IllegalAccessException {
         String travelPoints = getTravelPointListStringWithNoEmptyFields();
-        List<TravelPoint> expectedTravelpoints = getTravelPointListWithNoEmptyFields();
 
         List<TravelPoint> travelPointResult = classUnderTest.mapJsonToTravelPointList(travelPoints);
 
@@ -161,5 +159,23 @@ class JsonMapperServiceTest {
         Assertions.assertThat(travelPointResult.get(1).hasNullAttributes()).isFalse();
         Assertions.assertThat(travelPointResult.get(1).hasEmptyString()).isFalse();
         Assertions.assertThat(travelPointResult.get(1)).isEqualToIgnoringGivenFields(travelPointResult.get(1));
+    }
+
+    @Test
+    void test_map_with_coordinates_returns_correct_json() throws JsonProcessingException {
+        Coordinates coordinates = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build();
+
+        String result = classUnderTest.map(coordinates);
+
+        Assertions.assertThat(result).isEqualTo(deleteWhitespace(getCoordinatesStringWithNoEmptyFields()));
+    }
+
+    @Test
+    void test_mapJsonToCoordinates() throws JsonProcessingException {
+        String coordinates = getCoordinatesStringWithNoEmptyFields();
+
+        Coordinates result = classUnderTest.mapJsonToCoordinates(coordinates);
+
+        Assertions.assertThat(result).isEqualToComparingFieldByField(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
     }
 }
