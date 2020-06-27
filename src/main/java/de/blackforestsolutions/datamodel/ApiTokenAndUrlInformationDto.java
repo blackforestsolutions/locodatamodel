@@ -181,6 +181,20 @@ public final class ApiTokenAndUrlInformationDto {
     private String currency;
     @JsonProperty("sortDirection")
     private String sortDirection;
+    @JsonProperty("locoApiFlightPath")
+    private String locoApiFlightPath;
+    @JsonProperty("locoApiLocaterPath")
+    private String locoApiLocaterPath;
+    @JsonProperty("locoApiNearestAirportsPath")
+    private String locoApiNearestAirportsPath;
+    @JsonProperty("locoApiNationalTrainPath")
+    private String locoApiNationalTrainPath;
+    @JsonProperty("locoApiRegionalTrainPath")
+    private String locoApiRegionalTrainPath;
+    @JsonProperty("locoApiRideSharesPath")
+    private String locoApiRideSharesPath;
+    @JsonProperty("locoApiRidesPath")
+    private String locoApiRidesPath;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -267,6 +281,13 @@ public final class ApiTokenAndUrlInformationDto {
         this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
         this.currency = apiTokenAndUrlInformation.getCurrency();
         this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
+        this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+        this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiLocaterPath();
+        this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+        this.locoApiNationalTrainPath = apiTokenAndUrlInformation.getLocoApiNationalTrainPath();
+        this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
+        this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
+        this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
     }
 
     public Date getGermanRailDatePathVariable() {

@@ -9,6 +9,10 @@ import de.blackforestsolutions.datamodel.*;
 import org.springframework.data.geo.GeoModule;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class LocoJsonMapper {
 
@@ -46,6 +50,7 @@ public class LocoJsonMapper {
         return mapper.readValue(leg, Leg.class);
     }
 
+
     public String map(ApiTokenAndUrlInformation apiTokenAndUrlInformation) throws JsonProcessingException {
         ApiTokenAndUrlInformationDto dto = new ApiTokenAndUrlInformationDto(apiTokenAndUrlInformation);
         return mapper.writeValueAsString(dto);
@@ -56,6 +61,23 @@ public class LocoJsonMapper {
         ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder();
         builder = builder.buildFrom(dto);
         return builder.build();
+    }
+
+
+    public Map<UUID, Journey> mapJsonToJourneyMap(String journeyMap) throws JsonProcessingException {
+        return mapper.readValue(journeyMap, mapper.getTypeFactory().constructMapType(HashMap.class, UUID.class, Journey.class));
+    }
+
+    public String map(Map<UUID, Journey> journeys) throws JsonProcessingException {
+        return mapper.writeValueAsString(journeys);
+    }
+
+    public List<TravelPoint> mapJsonToTravelPointList(String travelPointList) throws JsonProcessingException {
+        return mapper.readValue(travelPointList, mapper.getTypeFactory().constructCollectionType(List.class, TravelPoint.class));
+    }
+
+    public String map(List<TravelPoint> travelPoints) throws JsonProcessingException {
+        return mapper.writeValueAsString(travelPoints);
     }
 
 }

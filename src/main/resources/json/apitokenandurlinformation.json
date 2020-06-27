@@ -85,5 +85,12 @@
   "radius": 1000,
   "numberOfPersons": 1,
   "currency": "Eur",
-  "sortDirection": "desc"
+  "sortDirection": "desc",
+  "locoApiFlightPath": "locoApiFlightPath",
+  "locoApiLocaterPath": "locoApiLocaterPath",
+  "locoApiNearestAirportsPath":"locoApiNearestAirportsPath",
+  "locoApiNationalTrainPath":"locoApiNationalTrainPath",
+  "locoApiRegionalTrainPath":"locoApiRegionalTrainPath",
+  "locoApiRideSharesPath":"locoApiRideSharesPath",
+  "locoApiRidesPath":"locoApiRidesPath"
 }
