@@ -2,6 +2,8 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 
 import de.blackforestsolutions.datamodel.ApiTokenAndUrlInformation;
 
+import java.text.SimpleDateFormat;
+
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
 
 public class ApiTokenAndUrlInformationObjectMother {
@@ -16,8 +18,13 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setPathVariable("/testPathVariable/");
         builder.setDeparture("Berlin");
         builder.setArrival("Furtwangen");
-        builder.setDepartureDate(null);
-        builder.setArrivalDate(null);
+        try {
+            builder.setDepartureDate(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-27"));
+            builder.setArrivalDate(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-27"));
+            builder.setGermanRailDatePathVariable(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-27"));
+        } catch (Exception ignored) {
+
+        }
         builder.setXOriginationIpKey("testKey");
         builder.setXOriginationIp("testIp");
         builder.setAuthorizationKey("testAuthKey");
@@ -31,7 +38,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setGermanRailDepartureBoardPath("/departureBoard");
         builder.setGermanRailArrivalBoardPath("arrivalBoard");
         builder.setGermanRailLocationPath("locationPath");
-        builder.setGermanRailDatePathVariable(null);
         builder.setStationId("testStationId");
         builder.setJourneyDetailsId("testJourneyDetailsId");
         builder.setBahnLocation("testBahnLocation");
