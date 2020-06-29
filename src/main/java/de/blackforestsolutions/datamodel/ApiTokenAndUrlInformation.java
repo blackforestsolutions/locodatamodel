@@ -53,6 +53,8 @@ public final class ApiTokenAndUrlInformation {
     private final String locoApiRegionalTrainPath;
     private final String locoApiRideSharesPath;
     private final String locoApiRidesPath;
+    private final String locoApiFootPath;
+    private final String locoApiDirectConnectionPath;
 
     private final String datePathVariable;
     private final String searchChRoutePathVariable;
@@ -201,6 +203,8 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
         this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
+        this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
+        this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
     }
 
     public Date getGermanRailDatePathVariable() {
@@ -318,7 +322,8 @@ public final class ApiTokenAndUrlInformation {
         private String locoApiRegionalTrainPath;
         private String locoApiRideSharesPath;
         private String locoApiRidesPath;
-
+        private String locoApiFootPath;
+        private String locoApiDirectConnectionPath;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -409,100 +414,101 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
             this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
             this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
+            this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
+            this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
         }
 
-        private ApiTokenAndUrlInformationBuilder copyFrom(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
-            ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformationBuilder();
-            builder.setProtocol(apiTokenAndUrlInformationDto.getProtocol());
-            builder.setHost(apiTokenAndUrlInformationDto.getHost());
-            builder.setPort(apiTokenAndUrlInformationDto.getPort());
-            builder.setApiVersion(apiTokenAndUrlInformationDto.getApiVersion());
-            builder.setPathVariable(apiTokenAndUrlInformationDto.getPathVariable());
-            builder.setDeparture(apiTokenAndUrlInformationDto.getDeparture());
-            builder.setArrival(apiTokenAndUrlInformationDto.getArrival());
-            builder.setDepartureDate(apiTokenAndUrlInformationDto.getDepartureDate());
-            builder.setArrivalDate(apiTokenAndUrlInformationDto.getArrivalDate());
-            builder.setXOriginationIpKey(apiTokenAndUrlInformationDto.getXOriginationIpKey());
-            builder.setXOriginationIp(apiTokenAndUrlInformationDto.getXOriginationIp());
-            builder.setAuthorizationKey(apiTokenAndUrlInformationDto.getAuthorizationKey());
-            builder.setAuthorization(apiTokenAndUrlInformationDto.getAuthorization());
-            builder.setPath(apiTokenAndUrlInformationDto.getPath());
-            builder.setHazelcastPath(apiTokenAndUrlInformationDto.getHazelcastPath());
-            builder.setHazelcastWritePath(apiTokenAndUrlInformationDto.getHazelcastWritePath());
-            builder.setHazelcastReadAllPath(apiTokenAndUrlInformationDto.getHazelcastReadAllPath());
-            builder.setHazelcastSearchPath(apiTokenAndUrlInformationDto.getHazelcastSearchPath());
-            builder.setGermanRailJourneyDeatilsPath(apiTokenAndUrlInformationDto.getGermanRailJourneyDeatilsPath());
-            builder.setGermanRailDepartureBoardPath(apiTokenAndUrlInformationDto.getGermanRailDepartureBoardPath());
-            builder.setGermanRailArrivalBoardPath(apiTokenAndUrlInformationDto.getGermanRailArrivalBoardPath());
-            builder.setGermanRailLocationPath(apiTokenAndUrlInformationDto.getGermanRailLocationPath());
-            builder.setStationId(apiTokenAndUrlInformationDto.getStationId());
-            builder.setJourneyDetailsId(apiTokenAndUrlInformationDto.getJourneyDetailsId());
-            builder.setBahnLocation(apiTokenAndUrlInformationDto.getBahnLocation());
-            builder.setGermanRailDatePathVariable(apiTokenAndUrlInformationDto.getGermanRailDatePathVariable());
-            builder.setDatePathVariable(apiTokenAndUrlInformationDto.getDatePathVariable());
-            builder.setSearchChRoutePathVariable(apiTokenAndUrlInformationDto.getSearchChRoutePathVariable());
-            builder.setSearchChResults(apiTokenAndUrlInformationDto.getSearchChResults());
-            builder.setSearchChDelayParameter(apiTokenAndUrlInformationDto.getSearchChDelayParameter());
-            builder.setLocationSearchTerm(apiTokenAndUrlInformationDto.getLocationSearchTerm());
-            builder.setTimePathVariable(apiTokenAndUrlInformationDto.getTimePathVariable());
-            builder.setStartLocation(apiTokenAndUrlInformationDto.getStartLocation());
-            builder.setDestinationLocation(apiTokenAndUrlInformationDto.getDestinationLocation());
-            builder.setLocationPath(apiTokenAndUrlInformationDto.getLocationPath());
-            builder.setCoordinatesPath(apiTokenAndUrlInformationDto.getCoordinatesPath());
-            builder.setSearchChTermParameter(apiTokenAndUrlInformationDto.getSearchChTermParameter());
-            builder.setSearchChStationId(apiTokenAndUrlInformationDto.getSearchChStationId());
-            builder.setSearchChStationCoordinateParameter(apiTokenAndUrlInformationDto.getSearchChStationCoordinateParameter());
-            builder.setLanguage(apiTokenAndUrlInformationDto.getLanguage());
-            builder.setAuthentificationUser(apiTokenAndUrlInformationDto.getAuthentificationUser());
-            builder.setAuthentificationType(apiTokenAndUrlInformationDto.getAuthentificationType());
-            builder.setAuthentificationPassword(apiTokenAndUrlInformationDto.getAuthentificationPassword());
-            builder.setStationListPathVariable(apiTokenAndUrlInformationDto.getStationListPathVariable());
-            builder.setJourneyPathVariable(apiTokenAndUrlInformationDto.getJourneyPathVariable());
-            builder.setTravelPointPathVariable(apiTokenAndUrlInformationDto.getTravelPointPathVariable());
-            builder.setResultLength(apiTokenAndUrlInformationDto.getResultLength());
-            builder.setDistanceFromTravelPoint(apiTokenAndUrlInformationDto.getDistanceFromTravelPoint());
-            builder.setResultLengthBeforeDepartureTime(apiTokenAndUrlInformationDto.getResultLengthBeforeDepartureTime());
-            builder.setResultLengthAfterDepartureTime(apiTokenAndUrlInformationDto.getResultLengthAfterDepartureTime());
-            builder.setTariff(apiTokenAndUrlInformationDto.getTariff());
-            builder.setTimeIsDeparture(apiTokenAndUrlInformationDto.getTimeIsDeparture());
-            builder.setHvvFilterEquivalent(apiTokenAndUrlInformationDto.getHvvFilterEquivalent());
-            builder.setHvvAllowTypeSwitch(apiTokenAndUrlInformationDto.getHvvAllowTypeSwitch());
-            builder.setAllowTariffDetails(apiTokenAndUrlInformationDto.getAllowTariffDetails());
-            builder.setAllowReducedPrice(apiTokenAndUrlInformationDto.getAllowReducedPrice());
-            builder.setAllowIntermediateStops(apiTokenAndUrlInformationDto.getAllowIntermediateStops());
-            builder.setHvvReturnContSearchData(apiTokenAndUrlInformationDto.getHvvReturnContSearchData());
-            builder.setApiName(apiTokenAndUrlInformationDto.getApiName());
-            builder.setChecksum(apiTokenAndUrlInformationDto.getChecksum());
-            builder.setMic(apiTokenAndUrlInformationDto.getMic());
-            builder.setMac(apiTokenAndUrlInformationDto.getMac());
-            builder.setHafasRtMode(apiTokenAndUrlInformationDto.getHafasRtMode());
-            builder.setClientId(apiTokenAndUrlInformationDto.getClientId());
-            builder.setClientSecret(apiTokenAndUrlInformationDto.getClientSecret());
-            builder.setClientVersion(apiTokenAndUrlInformationDto.getClientVersion());
-            builder.setClientName(apiTokenAndUrlInformationDto.getClientName());
-            builder.setClientType(apiTokenAndUrlInformationDto.getClientType());
-            builder.setTransfers(apiTokenAndUrlInformationDto.getTransfers());
-            builder.setMinTransferTime(apiTokenAndUrlInformationDto.getMinTransferTime());
-            builder.setHafasProductionValue(apiTokenAndUrlInformationDto.getHafasProductionValue());
-            builder.setForDisabledPersons(apiTokenAndUrlInformationDto.getForDisabledPersons());
-            builder.setWalkingSpeed(apiTokenAndUrlInformationDto.getWalkingSpeed());
-            builder.setAllowCoordinates(apiTokenAndUrlInformationDto.getAllowCoordinates());
-            builder.setArrivalCoordinates(apiTokenAndUrlInformationDto.getArrivalCoordinates());
-            builder.setDepartureCoordinates(apiTokenAndUrlInformationDto.getDepartureCoordinates());
-            builder.setOutputFormat(apiTokenAndUrlInformationDto.getOutputFormat());
-            builder.setRadius(apiTokenAndUrlInformationDto.getRadius());
-            builder.setNumberOfPersons(apiTokenAndUrlInformationDto.getNumberOfPersons());
-            builder.setCurrency(apiTokenAndUrlInformationDto.getCurrency());
-            builder.setSortDirection(apiTokenAndUrlInformationDto.getSortDirection());
-            builder.setLocoApiFlightPath(apiTokenAndUrlInformationDto.getLocoApiFlightPath());
-            builder.setLocoApiLocaterPath(apiTokenAndUrlInformationDto.getLocoApiLocaterPath());
-            builder.setLocoApiNearestAirportsPath(apiTokenAndUrlInformationDto.getLocoApiNearestAirportsPath());
-            builder.setLocoApiNationalTrainPath(apiTokenAndUrlInformationDto.getLocoApiNationalTrainPath());
-            builder.setLocoApiRegionalTrainPath(apiTokenAndUrlInformationDto.getLocoApiRegionalTrainPath());
-            builder.setLocoApiRideSharesPath(apiTokenAndUrlInformationDto.getLocoApiRideSharesPath());
-            builder.setLocoApiRidesPath(apiTokenAndUrlInformationDto.getLocoApiRidesPath());
-
-            return builder;
+        public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
+            this.protocol = apiTokenAndUrlInformationDto.getProtocol();
+            this.host = apiTokenAndUrlInformationDto.getHost();
+            this.port = apiTokenAndUrlInformationDto.getPort();
+            this.apiVersion = apiTokenAndUrlInformationDto.getApiVersion();
+            this.pathVariable = apiTokenAndUrlInformationDto.getPathVariable();
+            this.departure = apiTokenAndUrlInformationDto.getDeparture();
+            this.arrival = apiTokenAndUrlInformationDto.getArrival();
+            this.departureDate = apiTokenAndUrlInformationDto.getDepartureDate();
+            this.arrivalDate = apiTokenAndUrlInformationDto.getArrivalDate();
+            this.xOriginationIpKey = apiTokenAndUrlInformationDto.getXOriginationIpKey();
+            this.xOriginationIp = apiTokenAndUrlInformationDto.getXOriginationIp();
+            this.authorizationKey = apiTokenAndUrlInformationDto.getAuthorizationKey();
+            this.authorization = apiTokenAndUrlInformationDto.getAuthorization();
+            this.path = apiTokenAndUrlInformationDto.getPath();
+            this.hazelcastPath = apiTokenAndUrlInformationDto.getHazelcastPath();
+            this.hazelcastWritePath = apiTokenAndUrlInformationDto.getHazelcastWritePath();
+            this.hazelcastReadAllPath = apiTokenAndUrlInformationDto.getHazelcastReadAllPath();
+            this.hazelcastSearchPath = apiTokenAndUrlInformationDto.getHazelcastSearchPath();
+            this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformationDto.getGermanRailJourneyDeatilsPath();
+            this.germanRailDepartureBoardPath = apiTokenAndUrlInformationDto.getGermanRailDepartureBoardPath();
+            this.germanRailArrivalBoardPath = apiTokenAndUrlInformationDto.getGermanRailArrivalBoardPath();
+            this.germanRailLocationPath = apiTokenAndUrlInformationDto.getGermanRailLocationPath();
+            this.germanRailDatePathVariable = apiTokenAndUrlInformationDto.getGermanRailDatePathVariable();
+            this.stationId = apiTokenAndUrlInformationDto.getStationId();
+            this.journeyDetailsId = apiTokenAndUrlInformationDto.getJourneyDetailsId();
+            this.bahnLocation = apiTokenAndUrlInformationDto.getBahnLocation();
+            this.datePathVariable = apiTokenAndUrlInformationDto.getDatePathVariable();
+            this.searchChRoutePathVariable = apiTokenAndUrlInformationDto.getSearchChRoutePathVariable();
+            this.searchChResults = apiTokenAndUrlInformationDto.getSearchChResults();
+            this.searchChDelayParameter = apiTokenAndUrlInformationDto.getSearchChDelayParameter();
+            this.timePathVariable = apiTokenAndUrlInformationDto.getTimePathVariable();
+            this.startLocation = apiTokenAndUrlInformationDto.getStartLocation();
+            this.destinationLocation = apiTokenAndUrlInformationDto.getDestinationLocation();
+            this.locationPath = apiTokenAndUrlInformationDto.getLocationPath();
+            this.coordinatesPath = apiTokenAndUrlInformationDto.getCoordinatesPath();
+            this.searchChTermParameter = apiTokenAndUrlInformationDto.getSearchChTermParameter();
+            this.searchChStationId = apiTokenAndUrlInformationDto.getSearchChStationId();
+            this.searchChStationCoordinateParameter = apiTokenAndUrlInformationDto.getSearchChStationCoordinateParameter();
+            this.locationSearchTerm = apiTokenAndUrlInformationDto.getLocationSearchTerm();
+            this.language = apiTokenAndUrlInformationDto.getLanguage();
+            this.authentificationUser = apiTokenAndUrlInformationDto.getAuthentificationUser();
+            this.authentificationType = apiTokenAndUrlInformationDto.getAuthentificationType();
+            this.authentificationPassword = apiTokenAndUrlInformationDto.getAuthentificationPassword();
+            this.stationListPathVariable = apiTokenAndUrlInformationDto.getStationListPathVariable();
+            this.journeyPathVariable = apiTokenAndUrlInformationDto.getJourneyPathVariable();
+            this.travelPointPathVariable = apiTokenAndUrlInformationDto.getTravelPointPathVariable();
+            this.resultLength = apiTokenAndUrlInformationDto.getResultLength();
+            this.distanceFromTravelPoint = apiTokenAndUrlInformationDto.getDistanceFromTravelPoint();
+            this.resultLengthBeforeDepartureTime = apiTokenAndUrlInformationDto.getResultLengthBeforeDepartureTime();
+            this.resultLengthAfterDepartureTime = apiTokenAndUrlInformationDto.getResultLengthAfterDepartureTime();
+            this.tariff = apiTokenAndUrlInformationDto.getTariff();
+            this.timeIsDeparture = apiTokenAndUrlInformationDto.getTimeIsDeparture();
+            this.hvvFilterEquivalent = apiTokenAndUrlInformationDto.getHvvFilterEquivalent();
+            this.hvvAllowTypeSwitch = apiTokenAndUrlInformationDto.getHvvAllowTypeSwitch();
+            this.allowTariffDetails = apiTokenAndUrlInformationDto.getAllowTariffDetails();
+            this.allowReducedPrice = apiTokenAndUrlInformationDto.getAllowReducedPrice();
+            this.allowIntermediateStops = apiTokenAndUrlInformationDto.getAllowIntermediateStops();
+            this.hvvReturnContSearchData = apiTokenAndUrlInformationDto.getHvvReturnContSearchData();
+            this.apiName = apiTokenAndUrlInformationDto.getApiName();
+            this.mic = apiTokenAndUrlInformationDto.getMic();
+            this.mac = apiTokenAndUrlInformationDto.getMac();
+            this.checksum = apiTokenAndUrlInformationDto.getChecksum();
+            this.hafasRtMode = apiTokenAndUrlInformationDto.getHafasRtMode();
+            this.clientId = apiTokenAndUrlInformationDto.getClientId();
+            this.clientSecret = apiTokenAndUrlInformationDto.getClientSecret();
+            this.clientVersion = apiTokenAndUrlInformationDto.getClientVersion();
+            this.clientName = apiTokenAndUrlInformationDto.getClientName();
+            this.clientType = apiTokenAndUrlInformationDto.getClientType();
+            this.transfers = apiTokenAndUrlInformationDto.getTransfers();
+            this.minTransferTime = apiTokenAndUrlInformationDto.getMinTransferTime();
+            this.hafasProductionValue = apiTokenAndUrlInformationDto.getHafasProductionValue();
+            this.forDisabledPersons = apiTokenAndUrlInformationDto.getForDisabledPersons();
+            this.walkingSpeed = apiTokenAndUrlInformationDto.getWalkingSpeed();
+            this.allowCoordinates = apiTokenAndUrlInformationDto.getAllowCoordinates();
+            this.departureCoordinates = apiTokenAndUrlInformationDto.getDepartureCoordinates();
+            this.arrivalCoordinates = apiTokenAndUrlInformationDto.getArrivalCoordinates();
+            this.outputFormat = apiTokenAndUrlInformationDto.getOutputFormat();
+            this.radius = apiTokenAndUrlInformationDto.getRadius();
+            this.numberOfPersons = apiTokenAndUrlInformationDto.getNumberOfPersons();
+            this.currency = apiTokenAndUrlInformationDto.getCurrency();
+            this.sortDirection = apiTokenAndUrlInformationDto.getSortDirection();
+            this.locoApiFlightPath = apiTokenAndUrlInformationDto.getLocoApiFlightPath();
+            this.locoApiLocaterPath = apiTokenAndUrlInformationDto.getLocoApiLocaterPath();
+            this.locoApiNearestAirportsPath = apiTokenAndUrlInformationDto.getLocoApiNearestAirportsPath();
+            this.locoApiNationalTrainPath = apiTokenAndUrlInformationDto.getLocoApiNationalTrainPath();
+            this.locoApiRegionalTrainPath = apiTokenAndUrlInformationDto.getLocoApiRegionalTrainPath();
+            this.locoApiRideSharesPath = apiTokenAndUrlInformationDto.getLocoApiRideSharesPath();
+            this.locoApiRidesPath = apiTokenAndUrlInformationDto.getLocoApiRidesPath();
+            this.locoApiFootPath = apiTokenAndUrlInformationDto.getLocoApiFootPath();
+            this.locoApiDirectConnectionPath = apiTokenAndUrlInformationDto.getLocoApiDirectConnectionPath();
         }
 
         public Date getGermanRailDatePathVariable() {
@@ -548,15 +554,6 @@ public final class ApiTokenAndUrlInformation {
             } else {
                 this.arrivalDate = null;
             }
-        }
-
-        public ApiTokenAndUrlInformationBuilder buildFrom(ApiTokenAndUrlInformationDto copySource) {
-            return copyFrom(copySource);
-        }
-
-        public ApiTokenAndUrlInformationBuilder buildFrom(ApiTokenAndUrlInformation copySource) {
-            return new ApiTokenAndUrlInformationBuilder(
-                    copySource);
         }
 
         public ApiTokenAndUrlInformation build() {

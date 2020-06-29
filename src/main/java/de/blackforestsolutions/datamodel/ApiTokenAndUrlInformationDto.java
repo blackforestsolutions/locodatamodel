@@ -195,6 +195,10 @@ public final class ApiTokenAndUrlInformationDto {
     private String locoApiRideSharesPath;
     @JsonProperty("locoApiRidesPath")
     private String locoApiRidesPath;
+    @JsonProperty("locoApiFootPath")
+    private String locoApiFootPath;
+    @JsonProperty("locoApiDirectConnectionPath")
+    private String locoApiDirectConnectionPath;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -288,6 +292,8 @@ public final class ApiTokenAndUrlInformationDto {
         this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
         this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
+        this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
+        this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
     }
 
     public Date getGermanRailDatePathVariable() {

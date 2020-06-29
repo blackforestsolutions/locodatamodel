@@ -92,5 +92,7 @@
   "locoApiNationalTrainPath":"locoApiNationalTrainPath",
   "locoApiRegionalTrainPath":"locoApiRegionalTrainPath",
   "locoApiRideSharesPath":"locoApiRideSharesPath",
-  "locoApiRidesPath":"locoApiRidesPath"
+  "locoApiRidesPath": "locoApiRidesPath",
+  "locoApiFootPath": "locoApiFootPath",
+  "locoApiDirectConnectionPath": "locoApiDirectConnectionPath"
 }

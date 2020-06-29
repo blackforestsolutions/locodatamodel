@@ -102,6 +102,8 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setLocoApiRegionalTrainPath("locoApiRegionalTrainPath");
         builder.setLocoApiRideSharesPath("locoApiRideSharesPath");
         builder.setLocoApiRidesPath("locoApiRidesPath");
+        builder.setLocoApiFootPath("locoApiFootPath");
+        builder.setLocoApiDirectConnectionPath("locoApiDirectConnectionPath");
         return builder.build();
     }
 

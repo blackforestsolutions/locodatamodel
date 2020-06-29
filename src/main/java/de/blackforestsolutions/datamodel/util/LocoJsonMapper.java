@@ -56,8 +56,7 @@ public class LocoJsonMapper {
 
     public ApiTokenAndUrlInformation mapJsonToApiTokenAndUrlInformation(String apiTokenAndUrlInformationDto) throws JsonProcessingException {
         ApiTokenAndUrlInformationDto dto = mapper.readValue(apiTokenAndUrlInformationDto, ApiTokenAndUrlInformationDto.class);
-        ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder();
-        builder = builder.buildFrom(dto);
+        ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder builder = new ApiTokenAndUrlInformation.ApiTokenAndUrlInformationBuilder(dto);
         return builder.build();
     }
 
