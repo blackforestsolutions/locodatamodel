@@ -7,8 +7,7 @@ import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Metrics;
 
 import java.time.Duration;
-import java.time.Instant;
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
@@ -24,8 +23,8 @@ public class LegObjectMother {
         Leg.LegBuilder leg = new Leg.LegBuilder(TEST_UUID_3);
         leg.setStart(getStartTravelPointWithNoEmptyFields().build());
         leg.setDestination(getStartTravelPointWithNoEmptyFields().build());
-        leg.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
-        leg.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        leg.setStartTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+        leg.setArrivalTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         leg.setDuration(Duration.ofSeconds(22222L));
         leg.setDelay(Duration.ofSeconds(22L));
         leg.setTravelLine(getTravelLineWithNoEmptyFields().build());
@@ -45,8 +44,8 @@ public class LegObjectMother {
         Leg.LegBuilder leg = new Leg.LegBuilder(TEST_UUID_4);
         leg.setStart(getDestinationTravelPointWithNoEmptyFields().build());
         leg.setDestination(getDestinationTravelPointWithNoEmptyFields().build());
-        leg.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
-        leg.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        leg.setStartTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+        leg.setArrivalTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         leg.setDuration(Duration.ofSeconds(22222L));
         leg.setDelay(Duration.ofSeconds(22L));
         leg.setTravelLine(getTravelLineWithNoEmptyFields().build());
@@ -66,8 +65,8 @@ public class LegObjectMother {
         Leg.LegBuilder leg = new Leg.LegBuilder(TEST_UUID_5);
         leg.setStart(getDestinationTravelPointWithNoEmptyFields().build());
         leg.setDestination(getDestinationTravelPointWithNoEmptyFields().build());
-        leg.setStartTime(Date.from(Instant.ofEpochMilli(1L)));
-        leg.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        leg.setStartTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+        leg.setArrivalTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         leg.setDuration(Duration.ofSeconds(22222L));
         leg.setDelay(Duration.ofSeconds(22L));
         leg.setTravelLine(getTravelLineWithNoEmptyFields().build());

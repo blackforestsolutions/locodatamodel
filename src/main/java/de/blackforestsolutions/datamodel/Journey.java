@@ -18,8 +18,7 @@ import org.springframework.data.annotation.Id;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -102,7 +101,7 @@ public final class Journey implements Serializable {
      * @throws CompromisedAttributeException
      */
     @JsonIgnore
-    public Date getStartTimeFromJourney() throws CompromisedAttributeException {
+    public ZonedDateTime getStartTimeFromJourney() throws CompromisedAttributeException {
         return legs
                 .values()
                 .stream()
@@ -116,7 +115,7 @@ public final class Journey implements Serializable {
      * @throws CompromisedAttributeException
      */
     @JsonIgnore
-    public Date getArrivalTimeFromJourney() throws CompromisedAttributeException {
+    public ZonedDateTime getArrivalTimeFromJourney() throws CompromisedAttributeException {
         return legs
                 .values()
                 .stream()
@@ -131,10 +130,7 @@ public final class Journey implements Serializable {
      */
     @JsonIgnore
     public Duration getDurationFromJourney() throws CompromisedAttributeException {
-        return Duration.between(
-                LocalDateTime.ofInstant(getStartTimeFromJourney().toInstant(), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(getArrivalTimeFromJourney().toInstant(), ZoneId.systemDefault())
-        );
+        return Duration.between(getStartTimeFromJourney(), getArrivalTimeFromJourney());
     }
 
     /**

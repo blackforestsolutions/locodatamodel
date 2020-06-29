@@ -18,7 +18,11 @@ import org.springframework.data.geo.Distance;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.time.Duration;
-import java.util.*;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @Slf4j
@@ -41,10 +45,10 @@ public final class Leg implements Serializable {
     private final TravelPoint destination;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private final Date startTime;
+    private final ZonedDateTime startTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private final Date arrivalTime;
+    private final ZonedDateTime arrivalTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = OpenApiConfiguration.OPENAPI_INTEGER_TYPE)
     private final Duration duration;
@@ -104,20 +108,6 @@ public final class Leg implements Serializable {
         this.vehicleNumber = leg.getVehicleNumber();
         this.incidents = leg.getIncidents();
         this.hasPrice = leg.getHasPrice();
-    }
-
-    public Date getStartTime() {
-        if (startTime != null) {
-            return (Date) startTime.clone();
-        }
-        return null;
-    }
-
-    public Date getArrivalTime() {
-        if (arrivalTime != null) {
-            return (Date) arrivalTime.clone();
-        }
-        return null;
     }
 
     /**
@@ -226,9 +216,9 @@ public final class Leg implements Serializable {
 
         private TravelPoint destination;
 
-        private Date startTime;
+        private ZonedDateTime startTime;
 
-        private Date arrivalTime;
+        private ZonedDateTime arrivalTime;
 
         private Duration duration;
 
@@ -256,32 +246,9 @@ public final class Leg implements Serializable {
 
         private boolean hasPrice;
 
+
         public LegBuilder(UUID id) {
             this.id = id;
-        }
-
-        public Date getStartTime() {
-            if (startTime != null) {
-                return (Date) startTime.clone();
-            }
-            return null;
-        }
-
-        public LegBuilder setStartTime(Date startTime) {
-            this.startTime = (Date) startTime.clone();
-            return this;
-        }
-
-        public Date getArrivalTime() {
-            if (arrivalTime != null) {
-                return (Date) arrivalTime.clone();
-            }
-            return null;
-        }
-
-        public LegBuilder setArrivalTime(Date arrivalTime) {
-            this.arrivalTime = (Date) arrivalTime.clone();
-            return this;
         }
 
         public boolean getHasPrice() {

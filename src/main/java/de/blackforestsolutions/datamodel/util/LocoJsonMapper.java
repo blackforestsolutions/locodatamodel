@@ -4,10 +4,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
 import de.blackforestsolutions.datamodel.*;
+import de.blackforestsolutions.datamodel.deserializer.ZonedDateTimeDeserializer;
 import org.springframework.data.geo.GeoModule;
 
 import java.io.IOException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +23,10 @@ public class LocoJsonMapper {
 
     public LocoJsonMapper() {
         this.mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+        JavaTimeModule module = new JavaTimeModule();
+        module.addSerializer(new ZonedDateTimeSerializer(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        module.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
+        mapper.registerModule(module);
         mapper.registerModule(new GeoModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }

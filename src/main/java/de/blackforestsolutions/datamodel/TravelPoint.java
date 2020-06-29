@@ -13,7 +13,7 @@ import org.springdoc.core.Constants;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -52,10 +52,10 @@ public final class TravelPoint implements Serializable {
     private final String terminal;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private final Date departureTime;
+    private final ZonedDateTime departureTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private final Date arrivalTime;
+    private final ZonedDateTime arrivalTime;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String stationName;
@@ -94,20 +94,6 @@ public final class TravelPoint implements Serializable {
         this.arrivalTime = travelPoint.getArrivalTime();
         this.stationName = travelPoint.getStationName();
         this.stationId = travelPoint.getStationId();
-    }
-
-    public Date getDepartureTime() {
-        if (departureTime != null) {
-            return (Date) departureTime.clone();
-        }
-        return null;
-    }
-
-    public Date getArrivalTime() {
-        if (arrivalTime != null) {
-            return (Date) arrivalTime.clone();
-        }
-        return null;
     }
 
     @Override
@@ -208,37 +194,13 @@ public final class TravelPoint implements Serializable {
 
         private String terminal = "";
 
-        private Date departureTime;
+        private ZonedDateTime departureTime;
 
-        private Date arrivalTime;
+        private ZonedDateTime arrivalTime;
 
         private String stationName = "";
 
         private String stationId = "";
-
-        public Date getDepartureTime() {
-            if (departureTime != null) {
-                return (Date) departureTime.clone();
-            }
-            return null;
-        }
-
-        public TravelPointBuilder setDepartureTime(Date departureTime) {
-            this.departureTime = (Date) departureTime.clone();
-            return this;
-        }
-
-        public Date getArrivalTime() {
-            if (arrivalTime != null) {
-                return (Date) arrivalTime.clone();
-            }
-            return null;
-        }
-
-        public TravelPointBuilder setArrivalTime(Date arrivalTime) {
-            this.arrivalTime = (Date) arrivalTime.clone();
-            return this;
-        }
 
         public TravelPoint build() {
             return new TravelPoint(this);

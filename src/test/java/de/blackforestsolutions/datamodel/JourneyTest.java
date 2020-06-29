@@ -10,9 +10,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.*;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.*;
@@ -96,9 +98,9 @@ class JourneyTest {
 
     @Test
     void test_getStartTimeFromJourney_returns_startTime_from_first_leg() throws CompromisedAttributeException {
-        Date expectedStartTime = LegObjectMother.getFirstLegWithNoEmptyFields().build().getStartTime();
+        ZonedDateTime expectedStartTime = LegObjectMother.getFirstLegWithNoEmptyFields().build().getStartTime();
 
-        Date result = classUnderTest.build().getStartTimeFromJourney();
+        ZonedDateTime result = classUnderTest.build().getStartTimeFromJourney();
 
         assertThat(result).isEqualTo(expectedStartTime);
     }
@@ -110,12 +112,9 @@ class JourneyTest {
 
     @Test
     void test_getDurationFromJourney_returns_total_duration_from_all_leg() throws CompromisedAttributeException {
-        Date startTime = LegObjectMother.getFirstLegWithNoEmptyFields().build().getStartTime();
-        Date arrivalTime = LegObjectMother.getSecondLegWithNoEmptyFields().build().getArrivalTime();
-        Duration expectedDuration = Duration.between(
-                LocalDateTime.ofInstant(startTime.toInstant(), ZoneId.systemDefault()),
-                LocalDateTime.ofInstant(arrivalTime.toInstant(), ZoneId.systemDefault())
-        );
+        ZonedDateTime startTime = LegObjectMother.getFirstLegWithNoEmptyFields().build().getStartTime();
+        ZonedDateTime arrivalTime = LegObjectMother.getSecondLegWithNoEmptyFields().build().getArrivalTime();
+        Duration expectedDuration = Duration.between(startTime, arrivalTime);
 
         Duration result = classUnderTest.build().getDurationFromJourney();
 
@@ -129,9 +128,9 @@ class JourneyTest {
 
     @Test
     void test_getArrivalTimeFromJourney_returns_arrivalTime_from_last_leg() throws CompromisedAttributeException {
-        Date expectedArrivalTime = LegObjectMother.getSecondLegWithNoEmptyFields().build().getArrivalTime();
+        ZonedDateTime expectedArrivalTime = LegObjectMother.getSecondLegWithNoEmptyFields().build().getArrivalTime();
 
-        Date result = classUnderTest.build().getArrivalTimeFromJourney();
+        ZonedDateTime result = classUnderTest.build().getArrivalTimeFromJourney();
 
         assertThat(result).isEqualTo(expectedArrivalTime);
     }

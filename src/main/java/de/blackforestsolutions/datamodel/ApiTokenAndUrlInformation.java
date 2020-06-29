@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 
 @Getter
@@ -22,9 +22,9 @@ public final class ApiTokenAndUrlInformation {
     @Schema(required = true)
     private final String arrival;
     @Schema(required = true)
-    private final Date departureDate;
+    private final ZonedDateTime departureDate;
     @Schema(required = true)
-    private final Date arrivalDate;
+    private final ZonedDateTime arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;
     private final String authorizationKey;
@@ -42,7 +42,7 @@ public final class ApiTokenAndUrlInformation {
     private final String germanRailDepartureBoardPath;
     private final String germanRailArrivalBoardPath;
     private final String germanRailLocationPath;
-    private final Date germanRailDatePathVariable;
+    private final ZonedDateTime germanRailDatePathVariable;
     private final String stationId;
     private final String journeyDetailsId;
     private final String bahnLocation;
@@ -207,29 +207,6 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
     }
 
-    public Date getGermanRailDatePathVariable() {
-        if (germanRailDatePathVariable != null) {
-            return (Date) germanRailDatePathVariable.clone();
-        }
-        return null;
-    }
-
-
-    public Date getDepartureDate() {
-        if (departureDate != null) {
-            return (Date) departureDate.clone();
-        }
-        return null;
-    }
-
-    public Date getArrivalDate() {
-        if (arrivalDate != null) {
-            return (Date) arrivalDate.clone();
-        }
-        return null;
-    }
-
-
     @Getter
     @Setter
     @NoArgsConstructor
@@ -242,8 +219,8 @@ public final class ApiTokenAndUrlInformation {
         private String pathVariable;
         private String departure;
         private String arrival;
-        private Date departureDate;
-        private Date arrivalDate;
+        private ZonedDateTime departureDate;
+        private ZonedDateTime arrivalDate;
         private String xOriginationIpKey;
         private String xOriginationIp;
         private String authorizationKey;
@@ -257,7 +234,7 @@ public final class ApiTokenAndUrlInformation {
         private String germanRailDepartureBoardPath;
         private String germanRailArrivalBoardPath;
         private String germanRailLocationPath;
-        private Date germanRailDatePathVariable;
+        private ZonedDateTime germanRailDatePathVariable;
         private String stationId;
         private String journeyDetailsId;
         private String bahnLocation;
@@ -509,51 +486,6 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiRidesPath = apiTokenAndUrlInformationDto.getLocoApiRidesPath();
             this.locoApiFootPath = apiTokenAndUrlInformationDto.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformationDto.getLocoApiDirectConnectionPath();
-        }
-
-        public Date getGermanRailDatePathVariable() {
-            if (germanRailDatePathVariable != null) {
-                return (Date) germanRailDatePathVariable.clone();
-            }
-            return null;
-        }
-
-        public void setGermanRailDatePathVariable(Date germanRailDatePathVariable) {
-            if (germanRailDatePathVariable != null) {
-                this.germanRailDatePathVariable = (Date) germanRailDatePathVariable.clone();
-            } else {
-                this.germanRailDatePathVariable = null;
-            }
-        }
-
-        public Date getDepartureDate() {
-            if (departureDate != null) {
-                return (Date) departureDate.clone();
-            }
-            return null;
-        }
-
-        public void setDepartureDate(Date departureDate) {
-            if (departureDate != null) {
-                this.departureDate = (Date) departureDate.clone();
-            } else {
-                this.departureDate = null;
-            }
-        }
-
-        public Date getArrivalDate() {
-            if (arrivalDate != null) {
-                return (Date) arrivalDate.clone();
-            }
-            return null;
-        }
-
-        public void setArrivalDate(Date arrivalDate) {
-            if (arrivalDate != null) {
-                this.arrivalDate = (Date) arrivalDate.clone();
-            } else {
-                this.arrivalDate = null;
-            }
         }
 
         public ApiTokenAndUrlInformation build() {

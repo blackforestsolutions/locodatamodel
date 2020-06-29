@@ -2,7 +2,7 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 
 import de.blackforestsolutions.datamodel.ApiTokenAndUrlInformation;
 
-import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
 
@@ -19,9 +19,9 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setDeparture("Berlin");
         builder.setArrival("Furtwangen");
         try {
-            builder.setDepartureDate(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-27"));
-            builder.setArrivalDate(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-27"));
-            builder.setGermanRailDatePathVariable(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-27"));
+            builder.setDepartureDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+            builder.setArrivalDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+            builder.setGermanRailDatePathVariable(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         } catch (Exception ignored) {
 
         }

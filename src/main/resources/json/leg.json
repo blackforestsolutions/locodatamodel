@@ -11,8 +11,8 @@
     },
     "platform" : "3",
     "terminal" : "4",
-    "departureTime" : "1970-01-01T00:00:00.001+0000",
-    "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+    "departureTime": "2020-06-29T10:15:30+01:00",
+    "arrivalTime": "2020-06-29T10:15:30+01:00",
     "stationName" : "Hamburg Airport",
     "stationId" : "TXL"
   },
@@ -27,13 +27,13 @@
     },
     "platform" : "3",
     "terminal" : "4",
-    "departureTime" : "1970-01-01T00:00:00.001+0000",
-    "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+    "departureTime": "2020-06-29T10:15:30+01:00",
+    "arrivalTime": "2020-06-29T10:15:30+01:00",
     "stationName" : "Hamburg Airport",
     "stationId" : "TXL"
   },
-  "startTime" : "1970-01-01T00:00:00.001+0000",
-  "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+  "startTime": "2020-06-29T10:15:30+01:00",
+  "arrivalTime": "2020-06-29T10:15:30+01:00",
   "duration" : 22222.000000000,
   "delay" : 22.000000000,
   "travelLine" : {
@@ -49,8 +49,8 @@
       },
       "platform" : "3",
       "terminal" : "4",
-      "departureTime" : "1970-01-01T00:00:00.001+0000",
-      "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+      "departureTime": "2020-06-29T10:15:30+01:00",
+      "arrivalTime": "2020-06-29T10:15:30+01:00",
       "stationName" : "Hamburg Airport",
       "stationId" : "TXL"
     },
@@ -65,8 +65,8 @@
       },
       "platform" : "3",
       "terminal" : "4",
-      "departureTime" : "1970-01-01T00:00:00.001+0000",
-      "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+      "departureTime": "2020-06-29T10:15:30+01:00",
+      "arrivalTime": "2020-06-29T10:15:30+01:00",
       "stationName" : "Hamburg Airport",
       "stationId" : "TXL"
     },
@@ -82,8 +82,8 @@
         },
         "platform" : "3",
         "terminal" : "4",
-        "departureTime" : "1970-01-01T00:00:00.001+0000",
-        "arrivalTime" : "1970-01-01T00:00:00.001+0000",
+        "departureTime": "2020-06-29T10:15:30+01:00",
+        "arrivalTime": "2020-06-29T10:15:30+01:00",
         "stationName" : "Hamburg Airport",
         "stationId" : "TXL"
       }
