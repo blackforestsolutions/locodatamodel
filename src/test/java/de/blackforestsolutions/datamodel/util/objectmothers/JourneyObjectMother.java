@@ -3,12 +3,16 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 import de.blackforestsolutions.datamodel.Journey;
 import de.blackforestsolutions.datamodel.Leg;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.UUID;
 
+import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getSecondLegWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.*;
-import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
+import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_1;
+import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_2;
 
 public class JourneyObjectMother {
 
@@ -34,5 +38,15 @@ public class JourneyObjectMother {
         legs.put(getFirstLegWithNoEmptyFields().getId(), getFirstLegWithNoEmptyFields().build());
         legs.put(getSecondLegWithNoEmptyFields().getId(), getSecondLegWithNoEmptyFields().build());
         return legs;
+    }
+
+    public static String getJourneysStringWithNoEmptyFields() {
+        return getResourceFileAsString("json/journeyMap.json");
+    }
+
+    public static Map<UUID,Journey> getJourneyMapWithNoEmptyFields() {
+        return Map.of(
+                getJourneyWithNoEmptyFields().getId(), getJourneyWithNoEmptyFields().build()
+        );
     }
 }

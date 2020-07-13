@@ -1,31 +1,35 @@
 package de.blackforestsolutions.datamodel.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import de.blackforestsolutions.datamodel.ApiTokenAndUrlInformation;
-import de.blackforestsolutions.datamodel.Journey;
-import de.blackforestsolutions.datamodel.Leg;
-import de.blackforestsolutions.datamodel.TravelPoint;
+import de.blackforestsolutions.datamodel.*;
 import de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.CoordinatesObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformationStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.CoordinatesObjectMother.getCoordinatesStringWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getTravelPointStringWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.*;
+import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.TEST_UUID_1;
 import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
-public class JsonMapperServiceTest {
+
+class JsonMapperServiceTest {
 
     private final LocoJsonMapper classUnderTest = new LocoJsonMapper();
 
     @Test
-    public void test_map_journey_returns_jsonobject() throws JsonProcessingException {
+    void test_map_journey_returns_jsonobject() throws JsonProcessingException {
         Journey journey = getJourneyWithNoEmptyFields().build();
 
         String result = classUnderTest.map(journey);
@@ -34,7 +38,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_mapJsonToJourney_with_valid_json_returns_journeyobject() throws IOException, IllegalAccessException {
+    void test_mapJsonToJourney_with_valid_json_returns_journeyobject() throws IOException, IllegalAccessException {
         String journey = getJourneyStringWithNoEmptyFields();
         Journey expectedJourney = getJourneyWithNoEmptyFields().build();
 
@@ -46,7 +50,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_map_travel_point_returns_jsonobject() throws JsonProcessingException {
+    void test_map_travel_point_returns_jsonobject() throws JsonProcessingException {
         TravelPoint travelPoint = getStartTravelPointWithNoEmptyFields().build();
 
         String result = classUnderTest.map(travelPoint);
@@ -55,7 +59,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_mapJsonToTravelPoint_with_valid_json_returns_journeyobject() throws IOException, IllegalAccessException {
+    void test_mapJsonToTravelPoint_with_valid_json_returns_journeyobject() throws IOException, IllegalAccessException {
         String travelPoint = getTravelPointStringWithNoEmptyFields();
         TravelPoint expectedTravelPoint = getStartTravelPointWithNoEmptyFields().build();
 
@@ -67,7 +71,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_map_leg_returns_jsonobject() throws JsonProcessingException {
+    void test_map_leg_returns_jsonobject() throws JsonProcessingException {
         Leg leg = getFirstLegWithNoEmptyFields().build();
 
         String result = classUnderTest.map(leg);
@@ -76,7 +80,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_mapJsonToLeg_with_valid_json_returns_legobject() throws IOException, IllegalAccessException {
+    void test_mapJsonToLeg_with_valid_json_returns_legobject() throws IOException, IllegalAccessException {
         String leg = getLegStringWithNoEmptyFields();
         Leg expetedLeg = getFirstLegWithNoEmptyFields().build();
 
@@ -90,7 +94,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_map_ApiTokenAndUrlInformation_returns_jsonobject() throws JsonProcessingException {
+    void test_map_ApiTokenAndUrlInformation_returns_jsonobject() throws JsonProcessingException {
         ApiTokenAndUrlInformation apiTokenAndUrlInformation = ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformation();
 
         String result = classUnderTest.map(apiTokenAndUrlInformation);
@@ -99,7 +103,7 @@ public class JsonMapperServiceTest {
     }
 
     @Test
-    public void test_mapJsonToApiTokenAndUrlInformation_with_valid_json_returns_ApiTokenAndUrlInformation() throws IOException {
+    void test_mapJsonToApiTokenAndUrlInformation_with_valid_json_returns_ApiTokenAndUrlInformation() throws IOException {
         ApiTokenAndUrlInformation apiTokenAndUrlInformation = ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformation();
         String apiTokenAndUrlInformationString = getApiTokenAndUrlInformationStringWithNoEmptyFields();
 
@@ -108,4 +112,70 @@ public class JsonMapperServiceTest {
         Assertions.assertThat(result).isEqualToIgnoringNullFields(apiTokenAndUrlInformation);
     }
 
+
+    @Test
+    void test_map_with_journeymap_returns_jsonobject() throws JsonProcessingException {
+        Map<UUID, Journey> journeys = JourneyObjectMother.getJourneyMapWithNoEmptyFields();
+
+        String result = classUnderTest.map(journeys);
+
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getJourneysStringWithNoEmptyFields()));
+    }
+
+    @Test
+    void test_mapJsonToJourneyMap_with_valid_json_returns_journeymapobject() throws IOException, IllegalAccessException {
+        String journeys = getJourneysStringWithNoEmptyFields();
+        Map<UUID, Journey> expectedJourneys = getJourneyMapWithNoEmptyFields();
+
+        Map<UUID, Journey> joruneyResult = classUnderTest.mapJsonToJourneyMap(journeys);
+
+        Assertions.assertThat(joruneyResult.size()).isEqualTo(1);
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasNullAttributes()).isFalse();
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1).hasEmptyString()).isFalse();
+        Assertions.assertThat(joruneyResult.get(TEST_UUID_1)).isEqualToIgnoringGivenFields(expectedJourneys.get(TEST_UUID_1), "legs");
+    }
+
+    @Test
+    void test_mapList_with_journeymap_returns_jsonobject() throws JsonProcessingException {
+        List<TravelPoint> travelPoints = TravelPointObjectMother.getTravelPointListWithNoEmptyFields();
+
+        String result = classUnderTest.map(travelPoints);
+
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getTravelPointListStringWithNoEmptyFields()));
+    }
+
+    @Test
+    void test_mapListJsonToJourneyMap_with_valid_json_returns_journeymapobject() throws IOException, IllegalAccessException {
+        String travelPoints = getTravelPointListStringWithNoEmptyFields();
+
+        List<TravelPoint> travelPointResult = classUnderTest.mapJsonToTravelPointList(travelPoints);
+
+        Assertions.assertThat(travelPointResult.size()).isEqualTo(2);
+
+        Assertions.assertThat(travelPointResult.get(0).hasNullAttributes()).isFalse();
+        Assertions.assertThat(travelPointResult.get(0).hasEmptyString()).isFalse();
+        Assertions.assertThat(travelPointResult.get(0)).isEqualToIgnoringGivenFields(travelPointResult.get(0));
+
+        Assertions.assertThat(travelPointResult.get(1).hasNullAttributes()).isFalse();
+        Assertions.assertThat(travelPointResult.get(1).hasEmptyString()).isFalse();
+        Assertions.assertThat(travelPointResult.get(1)).isEqualToIgnoringGivenFields(travelPointResult.get(1));
+    }
+
+    @Test
+    void test_map_with_coordinates_returns_correct_json() throws JsonProcessingException {
+        Coordinates coordinates = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build();
+
+        String result = classUnderTest.map(coordinates);
+
+        Assertions.assertThat(result).isEqualTo(deleteWhitespace(getCoordinatesStringWithNoEmptyFields()));
+    }
+
+    @Test
+    void test_mapJsonToCoordinates() throws JsonProcessingException {
+        String coordinates = getCoordinatesStringWithNoEmptyFields();
+
+        Coordinates result = classUnderTest.mapJsonToCoordinates(coordinates);
+
+        Assertions.assertThat(result).isEqualToComparingFieldByField(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
+    }
 }

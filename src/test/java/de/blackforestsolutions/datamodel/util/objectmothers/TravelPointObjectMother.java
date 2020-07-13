@@ -1,15 +1,13 @@
 package de.blackforestsolutions.datamodel.util.objectmothers;
 
 import de.blackforestsolutions.datamodel.Coordinates;
-import de.blackforestsolutions.datamodel.TravelLine;
 import de.blackforestsolutions.datamodel.TravelPoint;
 
-import java.time.Instant;
-import java.util.Date;
+import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Locale;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
-import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 
 public class TravelPointObjectMother {
 
@@ -22,8 +20,8 @@ public class TravelPointObjectMother {
         travelPoint.setGpsCoordinates(new Coordinates.CoordinatesBuilder(1, 0).build());
         travelPoint.setPlatform("3");
         travelPoint.setTerminal("4");
-        travelPoint.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
-        travelPoint.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        travelPoint.setDepartureTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+        travelPoint.setArrivalTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         travelPoint.setStationName("Hamburg Airport");
         travelPoint.setStationId("TXL");
         return travelPoint;
@@ -38,8 +36,8 @@ public class TravelPointObjectMother {
         travelPoint.setGpsCoordinates(new Coordinates.CoordinatesBuilder(1, 0).build());
         travelPoint.setPlatform("3");
         travelPoint.setTerminal("4");
-        travelPoint.setDepartureTime(Date.from(Instant.ofEpochMilli(1L)));
-        travelPoint.setArrivalTime(Date.from(Instant.ofEpochMilli(1L)));
+        travelPoint.setDepartureTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+        travelPoint.setArrivalTime(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         travelPoint.setStationName("Berlin Tegel");
         travelPoint.setStationId("TXL");
         return travelPoint;
@@ -47,5 +45,16 @@ public class TravelPointObjectMother {
 
     public static String getTravelPointStringWithNoEmptyFields() {
         return getResourceFileAsString("json/travelpoint.json");
+    }
+
+    public static List<TravelPoint> getTravelPointListWithNoEmptyFields() {
+        return List.of(
+                getStartTravelPointWithNoEmptyFields().build(),
+                getDestinationTravelPointWithNoEmptyFields().build()
+        );
+    }
+
+    public static String getTravelPointListStringWithNoEmptyFields() {
+        return getResourceFileAsString("json/travelPointList.json");
     }
 }

@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -31,10 +31,10 @@ public final class ApiTokenAndUrlInformationDto {
     private String arrival;
     @Schema(required = true)
     @JsonProperty("departureDate")
-    private Date departureDate;
+    private ZonedDateTime departureDate;
     @Schema(required = true)
     @JsonProperty("arrivalDate")
-    private Date arrivalDate;
+    private ZonedDateTime arrivalDate;
     @JsonProperty("xOriginationIpKey")
     private String xOriginationIpKey;
     @JsonProperty("xOriginationIp")
@@ -66,7 +66,7 @@ public final class ApiTokenAndUrlInformationDto {
     @JsonProperty("germanRailLocationPath")
     private String germanRailLocationPath;
     @JsonProperty("germanRailDatePathVariable")
-    private Date germanRailDatePathVariable;
+    private ZonedDateTime germanRailDatePathVariable;
     @JsonProperty("stationId")
     private String stationId;
     @JsonProperty("journeyDetailsId")
@@ -181,6 +181,24 @@ public final class ApiTokenAndUrlInformationDto {
     private String currency;
     @JsonProperty("sortDirection")
     private String sortDirection;
+    @JsonProperty("locoApiFlightPath")
+    private String locoApiFlightPath;
+    @JsonProperty("locoApiLocaterPath")
+    private String locoApiLocaterPath;
+    @JsonProperty("locoApiNearestAirportsPath")
+    private String locoApiNearestAirportsPath;
+    @JsonProperty("locoApiNationalTrainPath")
+    private String locoApiNationalTrainPath;
+    @JsonProperty("locoApiRegionalTrainPath")
+    private String locoApiRegionalTrainPath;
+    @JsonProperty("locoApiRideSharesPath")
+    private String locoApiRideSharesPath;
+    @JsonProperty("locoApiRidesPath")
+    private String locoApiRidesPath;
+    @JsonProperty("locoApiFootPath")
+    private String locoApiFootPath;
+    @JsonProperty("locoApiDirectConnectionPath")
+    private String locoApiDirectConnectionPath;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -267,50 +285,14 @@ public final class ApiTokenAndUrlInformationDto {
         this.numberOfPersons = apiTokenAndUrlInformation.getNumberOfPersons();
         this.currency = apiTokenAndUrlInformation.getCurrency();
         this.sortDirection = apiTokenAndUrlInformation.getSortDirection();
-    }
-
-    public Date getGermanRailDatePathVariable() {
-        if (germanRailDatePathVariable != null) {
-            return (Date) germanRailDatePathVariable.clone();
-        }
-        return null;
-    }
-
-    public void setGermanRailDatePathVariable(Date germanRailDatePathVariable) {
-        if (germanRailDatePathVariable != null) {
-            this.germanRailDatePathVariable = (Date) germanRailDatePathVariable.clone();
-        } else {
-            this.germanRailDatePathVariable = null;
-        }
-    }
-
-    public Date getDepartureDate() {
-        if (departureDate != null) {
-            return (Date) departureDate.clone();
-        }
-        return null;
-    }
-
-    public void setDepartureDate(Date departureDate) {
-        if (departureDate != null) {
-            this.departureDate = (Date) departureDate.clone();
-        } else {
-            this.departureDate = null;
-        }
-    }
-
-    public Date getArrivalDate() {
-        if (arrivalDate != null) {
-            return (Date) arrivalDate.clone();
-        }
-        return null;
-    }
-
-    public void setArrivalDate(Date arrivalDate) {
-        if (arrivalDate != null) {
-            this.arrivalDate = (Date) arrivalDate.clone();
-        } else {
-            this.arrivalDate = null;
-        }
+        this.locoApiFlightPath = apiTokenAndUrlInformation.getLocoApiFlightPath();
+        this.locoApiLocaterPath = apiTokenAndUrlInformation.getLocoApiLocaterPath();
+        this.locoApiNearestAirportsPath = apiTokenAndUrlInformation.getLocoApiNearestAirportsPath();
+        this.locoApiNationalTrainPath = apiTokenAndUrlInformation.getLocoApiNationalTrainPath();
+        this.locoApiRegionalTrainPath = apiTokenAndUrlInformation.getLocoApiRegionalTrainPath();
+        this.locoApiRideSharesPath = apiTokenAndUrlInformation.getLocoApiRideSharesPath();
+        this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
+        this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
+        this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
     }
 }

@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TravelLineTest {
+class TravelLineTest {
 
     @Test
-    public void test_TravelLine_copy_constructor_with_complete_object_returns_copy() {
+    void test_TravelLine_copy_constructor_with_complete_object_returns_copy() {
         TravelLine testData = TravelLineObjectMother.getTravelLineWithNoEmptyFields().build();
 
         TravelLine result = new TravelLine(testData);
@@ -17,7 +17,7 @@ public class TravelLineTest {
     }
 
     @Test
-    public void test_TravelLine_copy_constructor_with_not_complete_object_returns_copy() {
+    void test_TravelLine_copy_constructor_with_not_complete_object_returns_copy() {
         TravelLine testData = new TravelLine.TravelLineBuilder().build();
 
         TravelLine result = new TravelLine(testData);

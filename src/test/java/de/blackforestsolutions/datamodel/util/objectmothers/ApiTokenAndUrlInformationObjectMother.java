@@ -2,6 +2,8 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 
 import de.blackforestsolutions.datamodel.ApiTokenAndUrlInformation;
 
+import java.time.ZonedDateTime;
+
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
 
 public class ApiTokenAndUrlInformationObjectMother {
@@ -16,8 +18,13 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setPathVariable("/testPathVariable/");
         builder.setDeparture("Berlin");
         builder.setArrival("Furtwangen");
-        builder.setDepartureDate(null);
-        builder.setArrivalDate(null);
+        try {
+            builder.setDepartureDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+            builder.setArrivalDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+            builder.setGermanRailDatePathVariable(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
+        } catch (Exception ignored) {
+
+        }
         builder.setXOriginationIpKey("testKey");
         builder.setXOriginationIp("testIp");
         builder.setAuthorizationKey("testAuthKey");
@@ -31,7 +38,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setGermanRailDepartureBoardPath("/departureBoard");
         builder.setGermanRailArrivalBoardPath("arrivalBoard");
         builder.setGermanRailLocationPath("locationPath");
-        builder.setGermanRailDatePathVariable(null);
         builder.setStationId("testStationId");
         builder.setJourneyDetailsId("testJourneyDetailsId");
         builder.setBahnLocation("testBahnLocation");
@@ -89,6 +95,15 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setNumberOfPersons(1);
         builder.setCurrency("Eur");
         builder.setSortDirection("desc");
+        builder.setLocoApiFlightPath("locoApiFlightPath");
+        builder.setLocoApiLocaterPath("locoApiLocaterPath");
+        builder.setLocoApiNearestAirportsPath("locoApiNearestAirportsPath");
+        builder.setLocoApiNationalTrainPath("locoApiNationalTrainPath");
+        builder.setLocoApiRegionalTrainPath("locoApiRegionalTrainPath");
+        builder.setLocoApiRideSharesPath("locoApiRideSharesPath");
+        builder.setLocoApiRidesPath("locoApiRidesPath");
+        builder.setLocoApiFootPath("locoApiFootPath");
+        builder.setLocoApiDirectConnectionPath("locoApiDirectConnectionPath");
         return builder.build();
     }
 
