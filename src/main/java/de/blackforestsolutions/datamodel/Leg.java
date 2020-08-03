@@ -89,6 +89,9 @@ public final class Leg implements Serializable {
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final boolean hasPrice;
 
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
+    private final Geojson geojson;
+
     private Leg(LegBuilder leg) {
         this.id = leg.getId();
         this.start = leg.getStart();
@@ -108,6 +111,7 @@ public final class Leg implements Serializable {
         this.vehicleNumber = leg.getVehicleNumber();
         this.incidents = leg.getIncidents();
         this.hasPrice = leg.getHasPrice();
+        this.geojson = leg.getGeojson();
     }
 
     /**
@@ -246,6 +250,7 @@ public final class Leg implements Serializable {
 
         private boolean hasPrice;
 
+        private Geojson geojson;
 
         public LegBuilder(UUID id) {
             this.id = id;
