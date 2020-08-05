@@ -22,8 +22,6 @@ public final class ApiTokenAndUrlInformation {
     @Schema(required = true)
     private final String arrival;
     @Schema(required = true)
-    private final ZonedDateTime departureDate;
-    @Schema(required = true)
     private final ZonedDateTime arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;
@@ -121,7 +119,6 @@ public final class ApiTokenAndUrlInformation {
         this.pathVariable = apiTokenAndUrlInformation.getPathVariable();
         this.departure = apiTokenAndUrlInformation.getDeparture();
         this.arrival = apiTokenAndUrlInformation.getArrival();
-        this.departureDate = apiTokenAndUrlInformation.getDepartureDate();
         this.arrivalDate = apiTokenAndUrlInformation.getArrivalDate();
         this.xOriginationIpKey = apiTokenAndUrlInformation.getXOriginationIpKey();
         this.xOriginationIp = apiTokenAndUrlInformation.getXOriginationIp();
@@ -217,7 +214,6 @@ public final class ApiTokenAndUrlInformation {
         private String pathVariable;
         private String departure;
         private String arrival;
-        private ZonedDateTime departureDate;
         private ZonedDateTime arrivalDate;
         private String xOriginationIpKey;
         private String xOriginationIp;
@@ -307,7 +303,6 @@ public final class ApiTokenAndUrlInformation {
             this.pathVariable = apiTokenAndUrlInformation.getPathVariable();
             this.departure = apiTokenAndUrlInformation.getDeparture();
             this.arrival = apiTokenAndUrlInformation.getArrival();
-            this.departureDate = apiTokenAndUrlInformation.getDepartureDate();
             this.arrivalDate = apiTokenAndUrlInformation.getArrivalDate();
             this.xOriginationIpKey = apiTokenAndUrlInformation.getXOriginationIpKey();
             this.xOriginationIp = apiTokenAndUrlInformation.getXOriginationIp();
@@ -399,7 +394,6 @@ public final class ApiTokenAndUrlInformation {
             this.pathVariable = apiTokenAndUrlInformationDto.getPathVariable();
             this.departure = apiTokenAndUrlInformationDto.getDeparture();
             this.arrival = apiTokenAndUrlInformationDto.getArrival();
-            this.departureDate = apiTokenAndUrlInformationDto.getDepartureDate();
             this.arrivalDate = apiTokenAndUrlInformationDto.getArrivalDate();
             this.xOriginationIpKey = apiTokenAndUrlInformationDto.getXOriginationIpKey();
             this.xOriginationIp = apiTokenAndUrlInformationDto.getXOriginationIp();

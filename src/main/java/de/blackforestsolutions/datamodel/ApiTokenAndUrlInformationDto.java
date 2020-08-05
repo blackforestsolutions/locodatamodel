@@ -30,9 +30,6 @@ public final class ApiTokenAndUrlInformationDto {
     @JsonProperty("arrival")
     private String arrival;
     @Schema(required = true)
-    @JsonProperty("departureDate")
-    private ZonedDateTime departureDate;
-    @Schema(required = true)
     @JsonProperty("arrivalDate")
     private ZonedDateTime arrivalDate;
     @JsonProperty("xOriginationIpKey")
@@ -209,7 +206,6 @@ public final class ApiTokenAndUrlInformationDto {
         this.pathVariable = apiTokenAndUrlInformation.getPathVariable();
         this.departure = apiTokenAndUrlInformation.getDeparture();
         this.arrival = apiTokenAndUrlInformation.getArrival();
-        this.departureDate = apiTokenAndUrlInformation.getDepartureDate();
         this.arrivalDate = apiTokenAndUrlInformation.getArrivalDate();
         this.xOriginationIpKey = apiTokenAndUrlInformation.getXOriginationIpKey();
         this.xOriginationIp = apiTokenAndUrlInformation.getXOriginationIp();

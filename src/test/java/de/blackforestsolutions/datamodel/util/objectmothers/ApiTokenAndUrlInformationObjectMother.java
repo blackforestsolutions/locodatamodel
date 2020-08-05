@@ -19,7 +19,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setDeparture("Berlin");
         builder.setArrival("Furtwangen");
         try {
-            builder.setDepartureDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
             builder.setArrivalDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
             builder.setGermanRailDatePathVariable(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         } catch (Exception ignored) {

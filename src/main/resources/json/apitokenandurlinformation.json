@@ -7,7 +7,6 @@
   "pathVariable": "/testPathVariable/",
   "departure": "Berlin",
   "arrival": "Furtwangen",
-  "departureDate": "2020-06-29T10:15:30+01:00",
   "arrivalDate": "2020-06-29T10:15:30+01:00",
   "xOriginationIpKey": "testKey",
   "xOriginationIp": "testIp",
