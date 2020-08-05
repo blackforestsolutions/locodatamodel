@@ -71,8 +71,6 @@ public final class ApiTokenAndUrlInformationDto {
     private String stationId;
     @JsonProperty("journeyDetailsId")
     private String journeyDetailsId;
-    @JsonProperty("bahnLocation")
-    private String bahnLocation;
     @JsonProperty("datePathVariable")
     private String datePathVariable;
     @JsonProperty("searchChRoutePathVariable")
@@ -228,7 +226,6 @@ public final class ApiTokenAndUrlInformationDto {
         this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
         this.stationId = apiTokenAndUrlInformation.getStationId();
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
-        this.bahnLocation = apiTokenAndUrlInformation.getBahnLocation();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
         this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
         this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();

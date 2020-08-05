@@ -40,7 +40,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setGermanRailLocationPath("locationPath");
         builder.setStationId("testStationId");
         builder.setJourneyDetailsId("testJourneyDetailsId");
-        builder.setBahnLocation("testBahnLocation");
         builder.setDatePathVariable("dataPathVariable");
         builder.setSearchChRoutePathVariable("SearchChRoutePathVariable");
         builder.setSearchChResults("setSearchChResults");
