@@ -7,12 +7,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
-@JsonDeserialize(builder = Price.PriceBuilder.class)
+@JsonDeserialize(builder = GeoJson.GeoJsonBuilder.class)
 @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-public class GeoJson {
+public class GeoJson implements Serializable {
 
     private static final long serialVersionUID = -2529427008797565631L;
 
@@ -20,7 +21,7 @@ public class GeoJson {
     private String type;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private List<List<Double>> coordinates = null;
+    private List<List<Double>> coordinates;
 
     public GeoJson(GeoJson geojson) {
         this.type = geojson.getType();
