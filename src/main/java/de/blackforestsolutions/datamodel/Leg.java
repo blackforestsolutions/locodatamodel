@@ -90,7 +90,7 @@ public final class Leg implements Serializable {
     private final boolean hasPrice;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private final Geojson geojson;
+    private final GeoJson geojson;
 
     private Leg(LegBuilder leg) {
         this.id = leg.getId();
@@ -250,7 +250,7 @@ public final class Leg implements Serializable {
 
         private boolean hasPrice;
 
-        private Geojson geojson;
+        private GeoJson geojson;
 
         public LegBuilder(UUID id) {
             this.id = id;
