@@ -41,17 +41,11 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setStationId("testStationId");
         builder.setJourneyDetailsId("testJourneyDetailsId");
         builder.setDatePathVariable("dataPathVariable");
-        builder.setSearchChRoutePathVariable("SearchChRoutePathVariable");
-        builder.setSearchChResults("setSearchChResults");
-        builder.setSearchChDelayParameter("setSearchChDelayParameter");
         builder.setTimePathVariable("setTimePathVariable");
         builder.setStartLocation("setStartLocation");
         builder.setDestinationLocation("setDestinationLocation");
         builder.setLocationPath("setLocationPath");
         builder.setCoordinatesPath("setCoordinatesPath");
-        builder.setSearchChTermParameter("setSearchChTermParameter");
-        builder.setSearchChStationId("setSearchChStationId");
-        builder.setSearchChStationCoordinateParameter("setSearchChStationCoordinateParameter");
         builder.setLocationSearchTerm("setLocationSearchTerm");
         builder.setLanguage("setLanguage");
         builder.setAuthentificationUser("setAuthentificationUser");
