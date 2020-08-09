@@ -73,12 +73,6 @@ public final class ApiTokenAndUrlInformationDto {
     private String journeyDetailsId;
     @JsonProperty("datePathVariable")
     private String datePathVariable;
-    @JsonProperty("searchChRoutePathVariable")
-    private String searchChRoutePathVariable;
-    @JsonProperty("searchChResults")
-    private String searchChResults;
-    @JsonProperty("searchChDelayParameter")
-    private String searchChDelayParameter;
     @JsonProperty("timePathVariable")
     private String timePathVariable;
     @JsonProperty("startLocation")
@@ -89,12 +83,6 @@ public final class ApiTokenAndUrlInformationDto {
     private String locationPath;
     @JsonProperty("coordinatesPath")
     private String coordinatesPath;
-    @JsonProperty("searchChTermParameter")
-    private String searchChTermParameter;
-    @JsonProperty("searchChStationId")
-    private String searchChStationId;
-    @JsonProperty("searchChStationCoordinateParameter")
-    private String searchChStationCoordinateParameter;
     @JsonProperty("locationSearchTerm")
     private String locationSearchTerm;
     @JsonProperty("language")
@@ -228,18 +216,12 @@ public final class ApiTokenAndUrlInformationDto {
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
         this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
         this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
         this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.language = apiTokenAndUrlInformation.getLanguage();
         this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
         this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
