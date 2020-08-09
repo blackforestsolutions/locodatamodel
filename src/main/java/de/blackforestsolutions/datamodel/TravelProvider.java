@@ -28,7 +28,9 @@ public enum TravelProvider implements Serializable {
     NVV,
     VBN,
     RSAG,
-    VMT;
+    VMT,
+    BLABLACAR,
+    BLABLABUS;
 
     public static TravelProvider map(String providerVariable) {
         if (providerVariable.equalsIgnoreCase("LH") || providerVariable.equalsIgnoreCase("LX")) {
