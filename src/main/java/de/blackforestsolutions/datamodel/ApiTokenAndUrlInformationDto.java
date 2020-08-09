@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -197,6 +198,8 @@ public final class ApiTokenAndUrlInformationDto {
     private String locoApiFootPath;
     @JsonProperty("locoApiDirectConnectionPath")
     private String locoApiDirectConnectionPath;
+    @JsonProperty("ages")
+    private List<Integer> ages;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -291,5 +294,6 @@ public final class ApiTokenAndUrlInformationDto {
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
+        this.ages = apiTokenAndUrlInformation.getAges();
     }
 }

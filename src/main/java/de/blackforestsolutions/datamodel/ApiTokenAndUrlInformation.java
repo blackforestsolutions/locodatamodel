@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 
 @Getter
@@ -113,6 +114,8 @@ public final class ApiTokenAndUrlInformation {
     private final String currency;
     private final String sortDirection;
 
+    private final List<Integer> ages;
+
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
         this.host = apiTokenAndUrlInformation.getHost();
@@ -203,6 +206,7 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
+        this.ages = apiTokenAndUrlInformation.getAges();
     }
 
     @Getter
@@ -298,6 +302,7 @@ public final class ApiTokenAndUrlInformation {
         private String locoApiRidesPath;
         private String locoApiFootPath;
         private String locoApiDirectConnectionPath;
+        private List<Integer> ages;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -389,6 +394,7 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
             this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
+            this.ages = apiTokenAndUrlInformation.getAges();
         }
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -481,6 +487,7 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiRidesPath = apiTokenAndUrlInformationDto.getLocoApiRidesPath();
             this.locoApiFootPath = apiTokenAndUrlInformationDto.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformationDto.getLocoApiDirectConnectionPath();
+            this.ages = apiTokenAndUrlInformationDto.getAges();
         }
 
         public ApiTokenAndUrlInformation build() {

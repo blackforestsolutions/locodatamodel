@@ -93,5 +93,9 @@
   "locoApiRideSharesPath":"locoApiRideSharesPath",
   "locoApiRidesPath": "locoApiRidesPath",
   "locoApiFootPath": "locoApiFootPath",
-  "locoApiDirectConnectionPath": "locoApiDirectConnectionPath"
+  "locoApiDirectConnectionPath": "locoApiDirectConnectionPath",
+  "ages": [
+    1,
+    2
+  ]
 }

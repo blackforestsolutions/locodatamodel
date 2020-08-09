@@ -3,6 +3,7 @@ package de.blackforestsolutions.datamodel.util.objectmothers;
 import de.blackforestsolutions.datamodel.ApiTokenAndUrlInformation;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
 
@@ -103,6 +104,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setLocoApiRidesPath("locoApiRidesPath");
         builder.setLocoApiFootPath("locoApiFootPath");
         builder.setLocoApiDirectConnectionPath("locoApiDirectConnectionPath");
+        builder.setAges(List.of(1, 2));
         return builder.build();
     }
 
