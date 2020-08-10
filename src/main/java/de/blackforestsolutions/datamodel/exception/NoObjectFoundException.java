@@ -2,7 +2,7 @@ package de.blackforestsolutions.datamodel.exception;
 
 public class NoObjectFoundException extends Exception {
 
-    public NoObjectFoundException(String type) {
-        super("Object of ".concat(type).concat(" could not be found."));
+    public <T> NoObjectFoundException(Class<T> type) {
+        super("Object of ".concat(type.getName()).concat(" could not be found."));
     }
 }
