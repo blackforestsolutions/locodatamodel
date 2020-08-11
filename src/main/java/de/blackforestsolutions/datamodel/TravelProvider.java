@@ -1,10 +1,7 @@
 package de.blackforestsolutions.datamodel;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.io.Serializable;
 
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public enum TravelProvider implements Serializable {
     DB,
     SBB,

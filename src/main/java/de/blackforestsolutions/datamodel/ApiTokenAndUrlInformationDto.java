@@ -1,7 +1,6 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,16 +23,12 @@ public final class ApiTokenAndUrlInformationDto {
     private String apiVersion;
     @JsonProperty("pathVariable")
     private String pathVariable;
-    @Schema(required = true)
     @JsonProperty("departure")
     private String departure;
-    @Schema(required = true)
     @JsonProperty("arrival")
     private String arrival;
-    @Schema(required = true)
     @JsonProperty("departureDate")
     private ZonedDateTime departureDate;
-    @Schema(required = true)
     @JsonProperty("arrivalDate")
     private ZonedDateTime arrivalDate;
     @JsonProperty("xOriginationIpKey")

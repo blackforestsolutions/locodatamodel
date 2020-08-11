@@ -2,14 +2,12 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.springdoc.core.Constants;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -20,47 +18,25 @@ import java.util.Objects;
 @Slf4j
 @Getter
 @JsonDeserialize(builder = TravelPoint.TravelPointBuilder.class)
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class TravelPoint implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
     private static final int HASH_CODE_CONSTANT_SEVENTEEN = 17;
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final String city;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, type = Constants.OPENAPI_STRING_TYPE)
     private final Locale country;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String postalCode;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String street;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Coordinates gpsCoordinates;
-
     /**
      * gate property
      */
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String platform;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String terminal;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final ZonedDateTime departureTime;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final ZonedDateTime arrivalTime;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String stationName;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String stationId;
 
     /**

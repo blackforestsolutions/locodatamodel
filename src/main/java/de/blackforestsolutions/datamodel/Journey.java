@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.exception.CompromisedAttributeException;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,6 @@ import java.util.stream.Collectors;
 @Getter
 @Slf4j
 @JsonDeserialize(builder = Journey.JourneyBuilder.class)
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class Journey implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
@@ -33,13 +31,8 @@ public final class Journey implements Serializable {
     private static final int HASH_CODE_CONSTANT_THIRTY_ONE = 31;
 
     @Id
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final UUID id;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final LinkedHashMap<UUID, Leg> legs;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<UUID> journeysRelated;
 
     /**
@@ -58,7 +51,6 @@ public final class Journey implements Serializable {
         this.legs = journey.getLegs();
         this.journeysRelated = journey.getJourneysRelated();
     }
-
 
 
     public LinkedHashMap<UUID, Leg> getLegs() {
