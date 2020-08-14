@@ -1,6 +1,6 @@
 package de.blackforestsolutions.datamodel;
 
-import de.blackforestsolutions.datamodel.util.objectmothers.GeojsonObjectMother;
+import de.blackforestsolutions.datamodel.util.objectmothers.GeoJsonObjectMother;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -8,8 +8,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GeoJsonTest {
 
     @Test
-    void test_Geojson_copy_constructor_with_complete_object_returns_copy() {
-        GeoJson testData = GeojsonObjectMother.getGeojsonWithNoEmptyField().build();
+    void test_GeoJson_copy_constructor_with_complete_object_returns_copy() {
+        GeoJson testData = GeoJsonObjectMother.getGeoJsonWithNoEmptyField().build();
 
         GeoJson result = new GeoJson(testData);
 

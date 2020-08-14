@@ -1,116 +1,127 @@
 {
-  "id" : "bd1eff02-3b55-11ea-b77f-2e728ce88125",
-  "start" : {
-    "city" : "Hamburg",
-    "country" : "german_DEU",
-    "postalCode" : "98383",
-    "street" : "Saatwinkler Damm 2",
-    "gpsCoordinates" : {
-      "latitude" : 1.0,
-      "longitude" : 0.0
+  "id": "bd1eff02-3b55-11ea-b77f-2e728ce88125",
+  "start": {
+    "city": "Hamburg",
+    "country": "german_DEU",
+    "postalCode": "98383",
+    "street": "Saatwinkler Damm 2",
+    "gpsCoordinates": {
+      "latitude": 1.0,
+      "longitude": 0.0
     },
-    "platform" : "3",
-    "terminal" : "4",
+    "platform": "3",
+    "terminal": "4",
     "departureTime": "2020-06-29T10:15:30+01:00",
     "arrivalTime": "2020-06-29T10:15:30+01:00",
-    "stationName" : "Hamburg Airport",
-    "stationId" : "TXL"
+    "stationName": "Hamburg Airport",
+    "stationId": "TXL"
   },
-  "destination" : {
-    "city" : "Hamburg",
-    "country" : "german_DEU",
-    "postalCode" : "98383",
-    "street" : "Saatwinkler Damm 2",
-    "gpsCoordinates" : {
-      "latitude" : 1.0,
-      "longitude" : 0.0
+  "destination": {
+    "city": "Hamburg",
+    "country": "german_DEU",
+    "postalCode": "98383",
+    "street": "Saatwinkler Damm 2",
+    "gpsCoordinates": {
+      "latitude": 1.0,
+      "longitude": 0.0
     },
-    "platform" : "3",
-    "terminal" : "4",
+    "platform": "3",
+    "terminal": "4",
     "departureTime": "2020-06-29T10:15:30+01:00",
     "arrivalTime": "2020-06-29T10:15:30+01:00",
-    "stationName" : "Hamburg Airport",
-    "stationId" : "TXL"
+    "stationName": "Hamburg Airport",
+    "stationId": "TXL"
   },
   "startTime": "2020-06-29T10:15:30+01:00",
   "arrivalTime": "2020-06-29T10:15:30+01:00",
-  "duration" : 22222.000000000,
-  "delay" : 22.000000000,
-  "travelLine" : {
-    "name" : "Schwarzwald Bahn",
-    "origin" : {
-      "city" : "Hamburg",
-      "country" : "german_DEU",
-      "postalCode" : "98383",
-      "street" : "Saatwinkler Damm 2",
-      "gpsCoordinates" : {
-        "latitude" : 1.0,
-        "longitude" : 0.0
+  "duration": 22222.000000000,
+  "delay": 22.000000000,
+  "travelLine": {
+    "name": "Schwarzwald Bahn",
+    "origin": {
+      "city": "Hamburg",
+      "country": "german_DEU",
+      "postalCode": "98383",
+      "street": "Saatwinkler Damm 2",
+      "gpsCoordinates": {
+        "latitude": 1.0,
+        "longitude": 0.0
       },
-      "platform" : "3",
-      "terminal" : "4",
+      "platform": "3",
+      "terminal": "4",
       "departureTime": "2020-06-29T10:15:30+01:00",
       "arrivalTime": "2020-06-29T10:15:30+01:00",
-      "stationName" : "Hamburg Airport",
-      "stationId" : "TXL"
+      "stationName": "Hamburg Airport",
+      "stationId": "TXL"
     },
-    "direction" : {
-      "city" : "Hamburg",
-      "country" : "german_DEU",
-      "postalCode" : "98383",
-      "street" : "Saatwinkler Damm 2",
-      "gpsCoordinates" : {
-        "latitude" : 1.0,
-        "longitude" : 0.0
+    "direction": {
+      "city": "Hamburg",
+      "country": "german_DEU",
+      "postalCode": "98383",
+      "street": "Saatwinkler Damm 2",
+      "gpsCoordinates": {
+        "latitude": 1.0,
+        "longitude": 0.0
       },
-      "platform" : "3",
-      "terminal" : "4",
+      "platform": "3",
+      "terminal": "4",
       "departureTime": "2020-06-29T10:15:30+01:00",
       "arrivalTime": "2020-06-29T10:15:30+01:00",
-      "stationName" : "Hamburg Airport",
-      "stationId" : "TXL"
+      "stationName": "Hamburg Airport",
+      "stationId": "TXL"
     },
-    "betweenHolds" : {
-      "1" : {
-        "city" : "Hamburg",
-        "country" : "german_DEU",
-        "postalCode" : "98383",
-        "street" : "Saatwinkler Damm 2",
-        "gpsCoordinates" : {
-          "latitude" : 1.0,
-          "longitude" : 0.0
+    "betweenHolds": {
+      "1": {
+        "city": "Hamburg",
+        "country": "german_DEU",
+        "postalCode": "98383",
+        "street": "Saatwinkler Damm 2",
+        "gpsCoordinates": {
+          "latitude": 1.0,
+          "longitude": 0.0
         },
-        "platform" : "3",
-        "terminal" : "4",
+        "platform": "3",
+        "terminal": "4",
         "departureTime": "2020-06-29T10:15:30+01:00",
         "arrivalTime": "2020-06-29T10:15:30+01:00",
-        "stationName" : "Hamburg Airport",
-        "stationId" : "TXL"
+        "stationName": "Hamburg Airport",
+        "stationId": "TXL"
       }
     }
   },
-  "price" : {
-    "values" : {
-      "ADULT" : 234.90,
-      "CHILD" : 160.90
+  "price": {
+    "values": {
+      "ADULT": 234.90,
+      "CHILD": 160.90
     },
-    "currency" : "EUR",
-    "symbol" : "€",
-    "affiliateLinks" : {
-      "ADULT" : "www.bahn.de",
-      "CHILD" : "www.bahn.de"
+    "currency": "EUR",
+    "symbol": "€",
+    "affiliateLinks": {
+      "ADULT": "www.bahn.de",
+      "CHILD": "www.bahn.de"
     }
   },
-  "distance" : {
-    "value" : 20000.0,
-    "metric" : "KILOMETERS"
+  "distance": {
+    "value": 20000.0,
+    "metric": "KILOMETERS"
   },
-  "providerId" : "12345",
-  "travelProvider" : "DB",
-  "unknownTravelProvider" : "Deutsche Bahn AG",
-  "vehicleType" : "TRAIN",
-  "vehicleName" : "ICE",
-  "vehicleNumber" : "71",
-  "incidents" : [ "Weather Warning" ],
-  "hasPrice": false
+  "providerId": "12345",
+  "travelProvider": "DB",
+  "unknownTravelProvider": "Deutsche Bahn AG",
+  "vehicleType": "TRAIN",
+  "vehicleName": "ICE",
+  "vehicleNumber": "71",
+  "incidents": [
+    "Weather Warning"
+  ],
+  "hasPrice": false,
+  "geojson": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        13.388798,
+        52.517033
+      ]
+    ]
+  }
 }

@@ -117,7 +117,16 @@
       "incidents": [
         "Weather Warning"
       ],
-      "hasPrice": false
+      "hasPrice": false,
+      "geojson": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.388798,
+            52.517033
+          ]
+        ]
+      }
     },
     "ed36473a-e816-4ddd-9c09-fd3eb5bf667e": {
       "id": "ed36473a-e816-4ddd-9c09-fd3eb5bf667e",
@@ -235,7 +244,16 @@
       "incidents": [
         "Weather Warning"
       ],
-      "hasPrice": false
+      "hasPrice": false,
+      "geojson": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            13.388798,
+            52.517033
+          ]
+        ]
+      }
     }
   },
   "journeysRelated": [

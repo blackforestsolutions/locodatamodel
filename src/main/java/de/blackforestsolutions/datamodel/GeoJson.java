@@ -1,11 +1,11 @@
 package de.blackforestsolutions.datamodel;
-// todo auch testen
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @JsonDeserialize(builder = GeoJson.GeoJsonBuilder.class)
 @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-public class GeoJson implements Serializable {
+public final class GeoJson implements Serializable {
 
     private static final long serialVersionUID = -2529427008797565631L;
 
@@ -43,6 +43,7 @@ public class GeoJson implements Serializable {
     @Getter
     @Setter
     @JsonPOJOBuilder(withPrefix = "set")
+    @Accessors(chain = true)
     public static class GeoJsonBuilder {
 
         private String type;
@@ -52,5 +53,6 @@ public class GeoJson implements Serializable {
         public GeoJson build() {
             return new GeoJson(this);
         }
+
     }
 }
