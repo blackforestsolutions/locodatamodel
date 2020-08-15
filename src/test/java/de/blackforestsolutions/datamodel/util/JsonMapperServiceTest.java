@@ -82,15 +82,16 @@ class JsonMapperServiceTest {
     @Test
     void test_mapJsonToLeg_with_valid_json_returns_legobject() throws IOException, IllegalAccessException {
         String leg = getLegStringWithNoEmptyFields();
-        Leg expetedLeg = getFirstLegWithNoEmptyFields().build();
+        Leg expectedLeg = getFirstLegWithNoEmptyFields().build();
 
         Leg result = classUnderTest.mapJsonToLeg(leg);
 
         Assertions.assertThat(result.hasNullAttributes()).isFalse();
         Assertions.assertThat(result.hasEmptyString()).isFalse();
-        Assertions.assertThat(result).isEqualToIgnoringGivenFields(expetedLeg, "price", "travelLine");
-        Assertions.assertThat(result.getPrice()).isEqualToComparingFieldByField(expetedLeg.getPrice());
-        Assertions.assertThat(result.getTravelLine()).isEqualToComparingFieldByField(expetedLeg.getTravelLine());
+        Assertions.assertThat(result).isEqualToIgnoringGivenFields(expectedLeg, "price", "travelLine", "geojson");
+        Assertions.assertThat(result.getPrice()).isEqualToComparingFieldByField(expectedLeg.getPrice());
+        Assertions.assertThat(result.getTravelLine()).isEqualToComparingFieldByField(expectedLeg.getTravelLine());
+        Assertions.assertThat(result.getGeojson()).isEqualToComparingFieldByField(expectedLeg.getGeojson());
     }
 
     @Test

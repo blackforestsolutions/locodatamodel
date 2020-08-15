@@ -171,12 +171,14 @@ class JourneyTest {
                         TEST_UUID_4
                 );
         assertThat(result.getLegs().get(TEST_UUID_5)).isEqualToComparingFieldByField(thirdLeg);
-        assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine");
+        assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine", "geojson");
         assertThat(result.getLegs().get(TEST_UUID_3).getPrice()).isEqualToComparingFieldByField(firstLeg.getPrice());
         assertThat(result.getLegs().get(TEST_UUID_3).getTravelLine()).isEqualToComparingFieldByField(firstLeg.getTravelLine());
-        assertThat(result.getLegs().get(TEST_UUID_4)).isEqualToIgnoringGivenFields(secondLeg, "price", "travelLine");
+        assertThat(result.getLegs().get(TEST_UUID_3).getGeojson()).isEqualToComparingFieldByField(secondLeg.getGeojson());
+        assertThat(result.getLegs().get(TEST_UUID_4)).isEqualToIgnoringGivenFields(secondLeg, "price", "travelLine", "geojson");
         assertThat(result.getLegs().get(TEST_UUID_4).getPrice()).isEqualToComparingFieldByField(secondLeg.getPrice());
         assertThat(result.getLegs().get(TEST_UUID_4).getTravelLine()).isEqualToComparingFieldByField(secondLeg.getTravelLine());
+        assertThat(result.getLegs().get(TEST_UUID_4).getGeojson()).isEqualToComparingFieldByField(secondLeg.getGeojson());
     }
 
     @Test
@@ -199,12 +201,14 @@ class JourneyTest {
                         TEST_UUID_5
                 );
         assertThat(result.getLegs().get(TEST_UUID_5)).isEqualToComparingFieldByField(thirdLeg);
-        assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine");
+        assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine", "geojson");
         assertThat(result.getLegs().get(TEST_UUID_3).getPrice()).isEqualToComparingFieldByField(firstLeg.getPrice());
         assertThat(result.getLegs().get(TEST_UUID_3).getTravelLine()).isEqualToComparingFieldByField(firstLeg.getTravelLine());
-        assertThat(result.getLegs().get(TEST_UUID_4)).isEqualToIgnoringGivenFields(secondLeg, "price", "travelLine");
+        assertThat(result.getLegs().get(TEST_UUID_3).getGeojson()).isEqualToComparingFieldByField(secondLeg.getGeojson());
+        assertThat(result.getLegs().get(TEST_UUID_4)).isEqualToIgnoringGivenFields(secondLeg, "price", "travelLine", "geojson");
         assertThat(result.getLegs().get(TEST_UUID_4).getPrice()).isEqualToComparingFieldByField(secondLeg.getPrice());
         assertThat(result.getLegs().get(TEST_UUID_4).getTravelLine()).isEqualToComparingFieldByField(secondLeg.getTravelLine());
+        assertThat(result.getLegs().get(TEST_UUID_4).getGeojson()).isEqualToComparingFieldByField(secondLeg.getGeojson());
     }
 
     @Test
@@ -226,9 +230,10 @@ class JourneyTest {
                         TEST_UUID_5
                 );
         assertThat(result.getLegs().get(TEST_UUID_5)).isEqualToComparingFieldByField(thirdLeg);
-        assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine");
+        assertThat(result.getLegs().get(TEST_UUID_3)).isEqualToIgnoringGivenFields(firstLeg, "price", "travelLine", "geojson");
         assertThat(result.getLegs().get(TEST_UUID_3).getPrice()).isEqualToComparingFieldByField(firstLeg.getPrice());
         assertThat(result.getLegs().get(TEST_UUID_3).getTravelLine()).isEqualToComparingFieldByField(firstLeg.getTravelLine());
+        assertThat(result.getLegs().get(TEST_UUID_3).getGeojson()).isEqualToComparingFieldByField(firstLeg.getGeojson());
         assertThat(result.getLegs().containsKey(TEST_UUID_4)).isFalse();
     }
 

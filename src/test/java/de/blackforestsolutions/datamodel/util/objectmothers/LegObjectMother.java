@@ -11,6 +11,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFileAsString;
+import static de.blackforestsolutions.datamodel.util.objectmothers.GeoJsonObjectMother.getGeoJsonWithNoEmptyField;
 import static de.blackforestsolutions.datamodel.util.objectmothers.PriceObjectMother.getPriceWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelLineObjectMother.getTravelLineWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getDestinationTravelPointWithNoEmptyFields;
@@ -37,6 +38,7 @@ public class LegObjectMother {
         leg.setVehicleName("ICE");
         leg.setVehicleNumber("71");
         leg.setIncidents(List.of("Weather Warning"));
+        leg.setGeojson(getGeoJsonWithNoEmptyField().build());
         return leg;
     }
 
@@ -58,6 +60,7 @@ public class LegObjectMother {
         leg.setVehicleName("ICE");
         leg.setVehicleNumber("71");
         leg.setIncidents(List.of("Weather Warning"));
+        leg.setGeojson(getGeoJsonWithNoEmptyField().build());
         return leg;
     }
 
