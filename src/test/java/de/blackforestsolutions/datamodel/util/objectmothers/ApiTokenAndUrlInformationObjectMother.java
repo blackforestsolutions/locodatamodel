@@ -21,7 +21,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         try {
             builder.setDepartureDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
             builder.setArrivalDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
-            builder.setGermanRailDatePathVariable(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         } catch (Exception ignored) {
 
         }
@@ -34,10 +33,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setHazelcastWritePath("/hazelCastWritePath/");
         builder.setHazelcastReadAllPath("/hazelcastReadPath/");
         builder.setHazelcastSearchPath("/hazelcastSearchPath/");
-        builder.setGermanRailJourneyDeatilsPath("/germanRailDetailsPath/");
-        builder.setGermanRailDepartureBoardPath("/departureBoard");
-        builder.setGermanRailArrivalBoardPath("arrivalBoard");
-        builder.setGermanRailLocationPath("locationPath");
         builder.setStationId("testStationId");
         builder.setJourneyDetailsId("testJourneyDetailsId");
         builder.setDatePathVariable("dataPathVariable");
