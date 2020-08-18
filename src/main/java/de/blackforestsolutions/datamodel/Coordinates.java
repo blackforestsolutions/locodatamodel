@@ -1,15 +1,19 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.io.Serializable;
 
+@Slf4j
 @Getter
 @JsonDeserialize(builder = Coordinates.CoordinatesBuilder.class)
 @Schema(accessMode = Schema.AccessMode.READ_ONLY)
@@ -65,6 +69,17 @@ public final class Coordinates implements Serializable {
                 .append(latitude)
                 .append(longitude)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        LocoJsonMapper jsonMapper = new LocoJsonMapper();
+        try {
+            return jsonMapper.map(this);
+        } catch (JsonProcessingException e) {
+            log.error("Coordinates-Object could not be mapped: ", e);
+            return super.toString();
+        }
     }
 
     @Setter

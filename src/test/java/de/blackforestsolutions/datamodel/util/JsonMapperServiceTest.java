@@ -164,11 +164,11 @@ class JsonMapperServiceTest {
 
     @Test
     void test_map_with_coordinates_returns_correct_json() throws JsonProcessingException {
-        Coordinates coordinates = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build();
+        Coordinates coordinates = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields();
 
         String result = classUnderTest.map(coordinates);
 
-        Assertions.assertThat(result).isEqualTo(deleteWhitespace(getCoordinatesStringWithNoEmptyFields()));
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getCoordinatesStringWithNoEmptyFields()));
     }
 
     @Test
@@ -177,6 +177,6 @@ class JsonMapperServiceTest {
 
         Coordinates result = classUnderTest.mapJsonToCoordinates(coordinates);
 
-        Assertions.assertThat(result).isEqualToComparingFieldByField(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
+        Assertions.assertThat(result).isEqualToComparingFieldByField(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields());
     }
 }

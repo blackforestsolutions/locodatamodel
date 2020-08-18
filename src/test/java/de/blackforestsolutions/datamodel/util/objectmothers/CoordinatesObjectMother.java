@@ -6,8 +6,8 @@ import static de.blackforestsolutions.datamodel.testutil.TestUtils.getResourceFi
 
 public class CoordinatesObjectMother {
 
-    public static Coordinates.CoordinatesBuilder getCoordinatesWithNoEmptyFields() {
-        return new Coordinates.CoordinatesBuilder(0, 0);
+    public static Coordinates getCoordinatesWithNoEmptyFields() {
+        return new Coordinates.CoordinatesBuilder(0, 0).build();
     }
 
     public static String getCoordinatesStringWithNoEmptyFields() {

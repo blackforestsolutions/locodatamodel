@@ -76,8 +76,8 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setForDisabledPersons("setForDisabledPersons");
         builder.setWalkingSpeed("setWalkingSpeed");
         builder.setAllowCoordinates(false);
-        builder.setDepartureCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
-        builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
+        builder.setDepartureCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields());
+        builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields());
         builder.setOutputFormat("setOutputFormat");
         builder.setRadius(1000);
         builder.setNumberOfPersons(1);
