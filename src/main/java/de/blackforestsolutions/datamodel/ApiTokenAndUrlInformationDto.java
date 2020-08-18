@@ -57,16 +57,6 @@ public final class ApiTokenAndUrlInformationDto {
     private String hazelcastReadAllPath;
     @JsonProperty("hazelcastSearchPath")
     private String hazelcastSearchPath;
-    @JsonProperty("germanRailJourneyDeatilsPath")
-    private String germanRailJourneyDeatilsPath;
-    @JsonProperty("germanRailDepartureBoardPath")
-    private String germanRailDepartureBoardPath;
-    @JsonProperty("germanRailArrivalBoardPath")
-    private String germanRailArrivalBoardPath;
-    @JsonProperty("germanRailLocationPath")
-    private String germanRailLocationPath;
-    @JsonProperty("germanRailDatePathVariable")
-    private ZonedDateTime germanRailDatePathVariable;
     @JsonProperty("stationId")
     private String stationId;
     @JsonProperty("journeyDetailsId")
@@ -208,13 +198,8 @@ public final class ApiTokenAndUrlInformationDto {
         this.hazelcastWritePath = apiTokenAndUrlInformation.getHazelcastWritePath();
         this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
         this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
-        this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
-        this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
-        this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
         this.stationId = apiTokenAndUrlInformation.getStationId();
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
-        this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
         this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
