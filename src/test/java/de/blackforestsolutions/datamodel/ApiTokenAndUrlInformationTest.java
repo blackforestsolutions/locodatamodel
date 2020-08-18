@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformation;
 import static de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformationStringWithNoEmptyFields;
-import static org.apache.commons.lang3.StringUtils.deleteWhitespace;
+import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

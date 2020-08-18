@@ -18,7 +18,7 @@ import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMoth
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getDestinationTravelPointWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.*;
-import static org.apache.commons.lang3.StringUtils.deleteWhitespace;
+import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
