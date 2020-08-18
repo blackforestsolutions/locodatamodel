@@ -28,6 +28,7 @@ public class LocoJsonMapper {
         module.addDeserializer(ZonedDateTime.class, new ZonedDateTimeDeserializer());
         mapper.registerModule(module);
         mapper.registerModule(new GeoModule());
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
 

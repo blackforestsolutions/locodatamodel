@@ -22,7 +22,6 @@ public class ApiTokenAndUrlInformationObjectMother {
         try {
             builder.setDepartureDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
             builder.setArrivalDate(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
-            builder.setGermanRailDatePathVariable(ZonedDateTime.parse("2020-06-29T10:15:30+01:00"));
         } catch (Exception ignored) {
 
         }
@@ -35,24 +34,14 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setHazelcastWritePath("/hazelCastWritePath/");
         builder.setHazelcastReadAllPath("/hazelcastReadPath/");
         builder.setHazelcastSearchPath("/hazelcastSearchPath/");
-        builder.setGermanRailJourneyDeatilsPath("/germanRailDetailsPath/");
-        builder.setGermanRailDepartureBoardPath("/departureBoard");
-        builder.setGermanRailArrivalBoardPath("arrivalBoard");
-        builder.setGermanRailLocationPath("locationPath");
         builder.setStationId("testStationId");
         builder.setJourneyDetailsId("testJourneyDetailsId");
         builder.setDatePathVariable("dataPathVariable");
-        builder.setSearchChRoutePathVariable("SearchChRoutePathVariable");
-        builder.setSearchChResults("setSearchChResults");
-        builder.setSearchChDelayParameter("setSearchChDelayParameter");
         builder.setTimePathVariable("setTimePathVariable");
         builder.setStartLocation("setStartLocation");
         builder.setDestinationLocation("setDestinationLocation");
         builder.setLocationPath("setLocationPath");
         builder.setCoordinatesPath("setCoordinatesPath");
-        builder.setSearchChTermParameter("setSearchChTermParameter");
-        builder.setSearchChStationId("setSearchChStationId");
-        builder.setSearchChStationCoordinateParameter("setSearchChStationCoordinateParameter");
         builder.setLocationSearchTerm("setLocationSearchTerm");
         builder.setLanguage("setLanguage");
         builder.setAuthentificationUser("setAuthentificationUser");
@@ -88,8 +77,8 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setForDisabledPersons("setForDisabledPersons");
         builder.setWalkingSpeed("setWalkingSpeed");
         builder.setAllowCoordinates(false);
-        builder.setDepartureCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
-        builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
+        builder.setDepartureCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields());
+        builder.setArrivalCoordinates(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields());
         builder.setOutputFormat("setOutputFormat");
         builder.setRadius(1000);
         builder.setNumberOfPersons(1);

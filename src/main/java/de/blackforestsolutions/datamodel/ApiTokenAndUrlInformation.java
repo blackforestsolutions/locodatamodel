@@ -1,13 +1,16 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZonedDateTime;
 import java.util.List;
 
-
+@Slf4j
 @Getter
 public final class ApiTokenAndUrlInformation {
 
@@ -34,11 +37,6 @@ public final class ApiTokenAndUrlInformation {
     private final String hazelcastWritePath;
     private final String hazelcastReadAllPath;
     private final String hazelcastSearchPath;
-    private final String germanRailJourneyDeatilsPath;
-    private final String germanRailDepartureBoardPath;
-    private final String germanRailArrivalBoardPath;
-    private final String germanRailLocationPath;
-    private final ZonedDateTime germanRailDatePathVariable;
     private final String stationId;
     private final String journeyDetailsId;
     private final String locoApiFlightPath;
@@ -52,17 +50,11 @@ public final class ApiTokenAndUrlInformation {
     private final String locoApiDirectConnectionPath;
 
     private final String datePathVariable;
-    private final String searchChRoutePathVariable;
-    private final String searchChResults;
-    private final String searchChDelayParameter;
     private final String timePathVariable;
     private final String startLocation;
     private final String destinationLocation;
     private final String locationPath;
     private final String coordinatesPath;
-    private final String searchChTermParameter;
-    private final String searchChStationId;
-    private final String searchChStationCoordinateParameter;
     private final String locationSearchTerm;
     private final String language;
     private final String authentificationUser;
@@ -130,26 +122,15 @@ public final class ApiTokenAndUrlInformation {
         this.hazelcastWritePath = apiTokenAndUrlInformation.getHazelcastWritePath();
         this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
         this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
-        this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
-        this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
-        this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
         this.stationId = apiTokenAndUrlInformation.getStationId();
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
-        this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
         this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
         this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.language = apiTokenAndUrlInformation.getLanguage();
         this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
         this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();
@@ -204,6 +185,17 @@ public final class ApiTokenAndUrlInformation {
         this.ages = apiTokenAndUrlInformation.getAges();
     }
 
+    @Override
+    public String toString() {
+        LocoJsonMapper jsonMapper = new LocoJsonMapper();
+        try {
+            return jsonMapper.map(this);
+        } catch (JsonProcessingException e) {
+            log.error("ApiTokenAndUrlInformation-Object could not be mapped: ", e);
+            return super.toString();
+        }
+    }
+
     @Getter
     @Setter
     @NoArgsConstructor
@@ -227,25 +219,14 @@ public final class ApiTokenAndUrlInformation {
         private String hazelcastWritePath;
         private String hazelcastReadAllPath;
         private String hazelcastSearchPath;
-        private String germanRailJourneyDeatilsPath;
-        private String germanRailDepartureBoardPath;
-        private String germanRailArrivalBoardPath;
-        private String germanRailLocationPath;
-        private ZonedDateTime germanRailDatePathVariable;
         private String stationId;
         private String journeyDetailsId;
         private String datePathVariable;
-        private String searchChRoutePathVariable;
-        private String searchChResults;
-        private String searchChDelayParameter;
         private String timePathVariable;
         private String startLocation;
         private String destinationLocation;
         private String locationPath;
         private String coordinatesPath;
-        private String searchChTermParameter;
-        private String searchChStationId;
-        private String searchChStationCoordinateParameter;
         private String locationSearchTerm;
         private String language;
         private String authentificationUser;
@@ -318,25 +299,14 @@ public final class ApiTokenAndUrlInformation {
             this.hazelcastWritePath = apiTokenAndUrlInformation.getHazelcastWritePath();
             this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
             this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
-            this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-            this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
-            this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
-            this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
-            this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
             this.stationId = apiTokenAndUrlInformation.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
             this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-            this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
-            this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
-            this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
             this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
             this.startLocation = apiTokenAndUrlInformation.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
             this.locationPath = apiTokenAndUrlInformation.getLocationPath();
             this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
-            this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-            this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-            this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
             this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
             this.language = apiTokenAndUrlInformation.getLanguage();
             this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
@@ -411,25 +381,14 @@ public final class ApiTokenAndUrlInformation {
             this.hazelcastWritePath = apiTokenAndUrlInformationDto.getHazelcastWritePath();
             this.hazelcastReadAllPath = apiTokenAndUrlInformationDto.getHazelcastReadAllPath();
             this.hazelcastSearchPath = apiTokenAndUrlInformationDto.getHazelcastSearchPath();
-            this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformationDto.getGermanRailJourneyDeatilsPath();
-            this.germanRailDepartureBoardPath = apiTokenAndUrlInformationDto.getGermanRailDepartureBoardPath();
-            this.germanRailArrivalBoardPath = apiTokenAndUrlInformationDto.getGermanRailArrivalBoardPath();
-            this.germanRailLocationPath = apiTokenAndUrlInformationDto.getGermanRailLocationPath();
-            this.germanRailDatePathVariable = apiTokenAndUrlInformationDto.getGermanRailDatePathVariable();
             this.stationId = apiTokenAndUrlInformationDto.getStationId();
             this.journeyDetailsId = apiTokenAndUrlInformationDto.getJourneyDetailsId();
             this.datePathVariable = apiTokenAndUrlInformationDto.getDatePathVariable();
-            this.searchChRoutePathVariable = apiTokenAndUrlInformationDto.getSearchChRoutePathVariable();
-            this.searchChResults = apiTokenAndUrlInformationDto.getSearchChResults();
-            this.searchChDelayParameter = apiTokenAndUrlInformationDto.getSearchChDelayParameter();
             this.timePathVariable = apiTokenAndUrlInformationDto.getTimePathVariable();
             this.startLocation = apiTokenAndUrlInformationDto.getStartLocation();
             this.destinationLocation = apiTokenAndUrlInformationDto.getDestinationLocation();
             this.locationPath = apiTokenAndUrlInformationDto.getLocationPath();
             this.coordinatesPath = apiTokenAndUrlInformationDto.getCoordinatesPath();
-            this.searchChTermParameter = apiTokenAndUrlInformationDto.getSearchChTermParameter();
-            this.searchChStationId = apiTokenAndUrlInformationDto.getSearchChStationId();
-            this.searchChStationCoordinateParameter = apiTokenAndUrlInformationDto.getSearchChStationCoordinateParameter();
             this.locationSearchTerm = apiTokenAndUrlInformationDto.getLocationSearchTerm();
             this.language = apiTokenAndUrlInformationDto.getLanguage();
             this.authentificationUser = apiTokenAndUrlInformationDto.getAuthentificationUser();

@@ -1,7 +1,9 @@
 package de.blackforestsolutions.datamodel;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -50,6 +52,7 @@ public final class Leg implements Serializable {
     private final String vehicleNumber;
     private final List<String> incidents;
     private final boolean hasPrice;
+    private final GeoJson geojson;
 
     private Leg(LegBuilder leg) {
         this.id = leg.getId();
@@ -70,6 +73,7 @@ public final class Leg implements Serializable {
         this.vehicleNumber = leg.getVehicleNumber();
         this.incidents = leg.getIncidents();
         this.hasPrice = leg.getHasPrice();
+        this.geojson = leg.getGeojson();
     }
 
     /**
@@ -163,6 +167,17 @@ public final class Leg implements Serializable {
                 Objects.equals(incidents, leg.incidents);
     }
 
+    @Override
+    public String toString() {
+        LocoJsonMapper jsonMapper = new LocoJsonMapper();
+        try {
+            return jsonMapper.map(this);
+        } catch (JsonProcessingException e) {
+            log.error("Leg-Object could not be mapped: ", e);
+            return super.toString();
+        }
+    }
+
 
     @Setter
     @Getter
@@ -208,6 +223,7 @@ public final class Leg implements Serializable {
 
         private boolean hasPrice;
 
+        private GeoJson geojson;
 
         public LegBuilder(UUID id) {
             this.id = id;

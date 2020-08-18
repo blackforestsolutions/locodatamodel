@@ -53,28 +53,12 @@ public final class ApiTokenAndUrlInformationDto {
     private String hazelcastReadAllPath;
     @JsonProperty("hazelcastSearchPath")
     private String hazelcastSearchPath;
-    @JsonProperty("germanRailJourneyDeatilsPath")
-    private String germanRailJourneyDeatilsPath;
-    @JsonProperty("germanRailDepartureBoardPath")
-    private String germanRailDepartureBoardPath;
-    @JsonProperty("germanRailArrivalBoardPath")
-    private String germanRailArrivalBoardPath;
-    @JsonProperty("germanRailLocationPath")
-    private String germanRailLocationPath;
-    @JsonProperty("germanRailDatePathVariable")
-    private ZonedDateTime germanRailDatePathVariable;
     @JsonProperty("stationId")
     private String stationId;
     @JsonProperty("journeyDetailsId")
     private String journeyDetailsId;
     @JsonProperty("datePathVariable")
     private String datePathVariable;
-    @JsonProperty("searchChRoutePathVariable")
-    private String searchChRoutePathVariable;
-    @JsonProperty("searchChResults")
-    private String searchChResults;
-    @JsonProperty("searchChDelayParameter")
-    private String searchChDelayParameter;
     @JsonProperty("timePathVariable")
     private String timePathVariable;
     @JsonProperty("startLocation")
@@ -85,12 +69,6 @@ public final class ApiTokenAndUrlInformationDto {
     private String locationPath;
     @JsonProperty("coordinatesPath")
     private String coordinatesPath;
-    @JsonProperty("searchChTermParameter")
-    private String searchChTermParameter;
-    @JsonProperty("searchChStationId")
-    private String searchChStationId;
-    @JsonProperty("searchChStationCoordinateParameter")
-    private String searchChStationCoordinateParameter;
     @JsonProperty("locationSearchTerm")
     private String locationSearchTerm;
     @JsonProperty("language")
@@ -218,26 +196,15 @@ public final class ApiTokenAndUrlInformationDto {
         this.hazelcastWritePath = apiTokenAndUrlInformation.getHazelcastWritePath();
         this.hazelcastReadAllPath = apiTokenAndUrlInformation.getHazelcastReadAllPath();
         this.hazelcastSearchPath = apiTokenAndUrlInformation.getHazelcastSearchPath();
-        this.germanRailJourneyDeatilsPath = apiTokenAndUrlInformation.getGermanRailJourneyDeatilsPath();
-        this.germanRailDepartureBoardPath = apiTokenAndUrlInformation.getGermanRailDepartureBoardPath();
-        this.germanRailArrivalBoardPath = apiTokenAndUrlInformation.getGermanRailArrivalBoardPath();
-        this.germanRailLocationPath = apiTokenAndUrlInformation.getGermanRailLocationPath();
         this.stationId = apiTokenAndUrlInformation.getStationId();
         this.journeyDetailsId = apiTokenAndUrlInformation.getJourneyDetailsId();
-        this.germanRailDatePathVariable = apiTokenAndUrlInformation.getGermanRailDatePathVariable();
         this.datePathVariable = apiTokenAndUrlInformation.getDatePathVariable();
-        this.searchChRoutePathVariable = apiTokenAndUrlInformation.getSearchChRoutePathVariable();
-        this.searchChResults = apiTokenAndUrlInformation.getSearchChResults();
-        this.searchChDelayParameter = apiTokenAndUrlInformation.getSearchChDelayParameter();
         this.locationSearchTerm = apiTokenAndUrlInformation.getLocationSearchTerm();
         this.timePathVariable = apiTokenAndUrlInformation.getTimePathVariable();
         this.startLocation = apiTokenAndUrlInformation.getStartLocation();
         this.destinationLocation = apiTokenAndUrlInformation.getDestinationLocation();
         this.locationPath = apiTokenAndUrlInformation.getLocationPath();
         this.coordinatesPath = apiTokenAndUrlInformation.getCoordinatesPath();
-        this.searchChTermParameter = apiTokenAndUrlInformation.getSearchChTermParameter();
-        this.searchChStationId = apiTokenAndUrlInformation.getSearchChStationId();
-        this.searchChStationCoordinateParameter = apiTokenAndUrlInformation.getSearchChStationCoordinateParameter();
         this.language = apiTokenAndUrlInformation.getLanguage();
         this.authentificationUser = apiTokenAndUrlInformation.getAuthentificationUser();
         this.authentificationType = apiTokenAndUrlInformation.getAuthentificationType();

@@ -12,8 +12,8 @@ public class PriceObjectMother {
     public static Price.PriceBuilder getPriceWithNoEmptyFields() {
         Price.PriceBuilder price = new Price.PriceBuilder();
         price.setValues(Map.of(
-                PriceCategory.CHILD, new BigDecimal("160.90"),
-                PriceCategory.ADULT, new BigDecimal("234.90")
+                PriceCategory.CHILD, new BigDecimal("160.9"),
+                PriceCategory.ADULT, new BigDecimal("234.9")
         ));
         price.setCurrency(Currency.getInstance("EUR"));
         price.setSymbol("€");
