@@ -31,7 +31,7 @@ public class CallStatus<T> {
         try {
             return jsonMapper.map(this);
         } catch (JsonProcessingException e) {
-            log.error("Coordinates-Object could not be mapped: ", e);
+            log.error("CallStatus-Object could not be mapped: ", e);
             return super.toString();
         }
     }
