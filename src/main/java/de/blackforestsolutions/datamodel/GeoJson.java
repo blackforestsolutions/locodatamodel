@@ -18,10 +18,10 @@ public final class GeoJson implements Serializable {
     private static final long serialVersionUID = -2529427008797565631L;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private String type;
+    private final String type;
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private List<List<Double>> coordinates;
+    private final List<List<Double>> coordinates;
 
     public GeoJson(GeoJson geojson) {
         this.type = geojson.getType();

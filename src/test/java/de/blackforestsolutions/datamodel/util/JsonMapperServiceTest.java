@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.ApiTokenAndUrlInformationObjectMother.getApiTokenAndUrlInformationStringWithNoEmptyFields;
+import static de.blackforestsolutions.datamodel.util.objectmothers.CallStatusObjectMother.getCallStatusTravelPoint;
+import static de.blackforestsolutions.datamodel.util.objectmothers.CallStatusObjectMother.getJsonCallStatusTravelPoint;
 import static de.blackforestsolutions.datamodel.util.objectmothers.CoordinatesObjectMother.getCoordinatesStringWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
@@ -164,11 +166,11 @@ class JsonMapperServiceTest {
 
     @Test
     void test_map_with_coordinates_returns_correct_json() throws JsonProcessingException {
-        Coordinates coordinates = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build();
+        Coordinates coordinates = CoordinatesObjectMother.getCoordinatesWithNoEmptyFields();
 
         String result = classUnderTest.map(coordinates);
 
-        Assertions.assertThat(result).isEqualTo(deleteWhitespace(getCoordinatesStringWithNoEmptyFields()));
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getCoordinatesStringWithNoEmptyFields()));
     }
 
     @Test
@@ -177,6 +179,24 @@ class JsonMapperServiceTest {
 
         Coordinates result = classUnderTest.mapJsonToCoordinates(coordinates);
 
-        Assertions.assertThat(result).isEqualToComparingFieldByField(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields().build());
+        Assertions.assertThat(result).isEqualToComparingFieldByField(CoordinatesObjectMother.getCoordinatesWithNoEmptyFields());
+    }
+
+    @Test
+    void test_map_with_callStatusTravelPoint_returns_correct_json() throws JsonProcessingException {
+        CallStatus<TravelPoint> testData = getCallStatusTravelPoint();
+
+        String result = classUnderTest.map(testData);
+
+        Assertions.assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getJsonCallStatusTravelPoint()));
+    }
+
+    @Test
+    void test_mapJsonToCallStatus() throws JsonProcessingException {
+        String callStatusJson = getJsonCallStatusTravelPoint();
+
+        CallStatus<TravelPoint> result = classUnderTest.mapJsonToCallStatus(callStatusJson, TravelPoint.class);
+
+        Assertions.assertThat(result).isEqualToComparingFieldByField(getCallStatusTravelPoint());
     }
 }

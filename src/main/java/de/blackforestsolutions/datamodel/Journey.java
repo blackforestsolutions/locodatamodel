@@ -1,9 +1,11 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.exception.CompromisedAttributeException;
+import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -58,7 +60,6 @@ public final class Journey implements Serializable {
         this.legs = journey.getLegs();
         this.journeysRelated = journey.getJourneysRelated();
     }
-
 
 
     public LinkedHashMap<UUID, Leg> getLegs() {
@@ -311,6 +312,17 @@ public final class Journey implements Serializable {
     }
 
     @Override
+    public String toString() {
+        LocoJsonMapper jsonMapper = new LocoJsonMapper();
+        try {
+            return jsonMapper.map(this);
+        } catch (JsonProcessingException e) {
+            log.error("Journey-Object could not be mapped: ", e);
+            return super.toString();
+        }
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -352,18 +364,6 @@ public final class Journey implements Serializable {
 
         public Journey build() {
             return new Journey(this);
-        }
-
-        public JourneyBuilder setLegs(LinkedHashMap<UUID, Leg> legs) {
-            this.legs = (LinkedHashMap<UUID, Leg>) legs.clone();
-            return this;
-        }
-
-        public LinkedHashMap<UUID, Leg> getLegs() {
-            if (legs != null) {
-                return (LinkedHashMap<UUID, Leg>) legs.clone();
-            }
-            return null;
         }
     }
 }

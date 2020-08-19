@@ -94,8 +94,8 @@
       },
       "price": {
         "values": {
-          "ADULT": 234.90,
-          "CHILD": 160.90
+          "ADULT": 234.9,
+          "CHILD": 160.9
         },
         "currency": "EUR",
         "symbol": "€",
@@ -221,8 +221,8 @@
       },
       "price": {
         "values": {
-          "ADULT": 234.90,
-          "CHILD": 160.90
+          "ADULT": 234.9,
+          "CHILD": 160.9
         },
         "currency": "EUR",
         "symbol": "€",
