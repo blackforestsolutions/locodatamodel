@@ -1,9 +1,7 @@
 package de.blackforestsolutions.datamodel;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -165,17 +163,6 @@ public final class Leg implements Serializable {
                 Objects.equals(vehicleNumber, leg.vehicleNumber)
                 &&
                 Objects.equals(incidents, leg.incidents);
-    }
-
-    @Override
-    public String toString() {
-        LocoJsonMapper jsonMapper = new LocoJsonMapper();
-        try {
-            return jsonMapper.map(this);
-        } catch (JsonProcessingException e) {
-            log.error("Leg-Object could not be mapped: ", e);
-            return super.toString();
-        }
     }
 
 

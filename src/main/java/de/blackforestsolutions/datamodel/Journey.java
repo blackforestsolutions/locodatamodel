@@ -1,11 +1,9 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import de.blackforestsolutions.datamodel.exception.CompromisedAttributeException;
-import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -302,17 +300,6 @@ public final class Journey implements Serializable {
             }
         }
         return hashCodeBuilder.toHashCode();
-    }
-
-    @Override
-    public String toString() {
-        LocoJsonMapper jsonMapper = new LocoJsonMapper();
-        try {
-            return jsonMapper.map(this);
-        } catch (JsonProcessingException e) {
-            log.error("Journey-Object could not be mapped: ", e);
-            return super.toString();
-        }
     }
 
     @Override

@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.*;
+import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyWithEmptyLeg;
+import static de.blackforestsolutions.datamodel.util.objectmothers.JourneyObjectMother.getJourneyWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.*;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getDestinationTravelPointWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.TravelPointObjectMother.getStartTravelPointWithNoEmptyFields;
 import static de.blackforestsolutions.datamodel.util.objectmothers.UUIDObjectMother.*;
-import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class JourneyTest {
 
@@ -311,41 +311,5 @@ class JourneyTest {
         Journey.JourneyBuilder result = new Journey.JourneyBuilder(testData);
 
         assertThat(result).isEqualToComparingFieldByField(testData);
-    }
-
-    @Test
-    void test_toString_with_apiToken_returns_apiToken_as_json_string() {
-
-        String result = classUnderTest.build().toString();
-
-        assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getJourneyStringWithNoEmptyFields()));
-    }
-
-    @Test
-    void test_isEqualTo_with_journey_and_junit4_returns_equal_value() {
-
-        assertThat(classUnderTest.build()).isEqualTo(classUnderTest.build());
-    }
-
-    @Test
-    void test_assertEquals_with_journey_and_junit5_returns_equal_value() {
-
-        assertEquals(classUnderTest.build(), classUnderTest.build());
-    }
-
-    @Test
-    void test_isNotEqualTo_with_journey_and_junit4_returns_not_an_equal_value() {
-        Journey.JourneyBuilder classUnderTest = new Journey.JourneyBuilder(this.classUnderTest.build());
-        classUnderTest.setLegs(null);
-
-        assertThat(classUnderTest.build()).isNotEqualTo(getJourneyWithNoEmptyFields().build());
-    }
-
-    @Test
-    void test_assertNotEquals_with_journey_and_junit5_returns_not_an_equal_value() {
-        Journey.JourneyBuilder classUnderTest = new Journey.JourneyBuilder(this.classUnderTest.build());
-        classUnderTest.setLegs(null);
-
-        assertNotEquals(getJourneyWithNoEmptyFields(), classUnderTest.build());
     }
 }

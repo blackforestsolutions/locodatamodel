@@ -1,7 +1,5 @@
 package de.blackforestsolutions.datamodel;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import de.blackforestsolutions.datamodel.util.LocoJsonMapper;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -183,17 +181,6 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
         this.ages = apiTokenAndUrlInformation.getAges();
-    }
-
-    @Override
-    public String toString() {
-        LocoJsonMapper jsonMapper = new LocoJsonMapper();
-        try {
-            return jsonMapper.map(this);
-        } catch (JsonProcessingException e) {
-            log.error("ApiTokenAndUrlInformation-Object could not be mapped: ", e);
-            return super.toString();
-        }
     }
 
     @Getter

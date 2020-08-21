@@ -3,11 +3,7 @@ package de.blackforestsolutions.datamodel;
 import org.junit.jupiter.api.Test;
 
 import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getFirstLegWithNoEmptyFields;
-import static de.blackforestsolutions.datamodel.util.objectmothers.LegObjectMother.getLegStringWithNoEmptyFields;
-import static org.apache.commons.lang.StringUtils.deleteWhitespace;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class LegTest {
 
@@ -63,40 +59,5 @@ class LegTest {
         int result = classUnderTest.hashCode();
 
         assertThat(result).isNotNull();
-    }
-
-    @Test
-    void test_toString_with_leg_returns_apiToken_as_json_string() {
-
-        String result = classUnderTest.build().toString();
-
-        assertThat(deleteWhitespace(result)).isEqualTo(deleteWhitespace(getLegStringWithNoEmptyFields()));
-    }
-
-    @Test
-    void test_isEqualTo_with_leg_and_junit4_returns_equal_value() {
-
-        assertThat(classUnderTest.build()).isEqualTo(classUnderTest.build());
-    }
-
-    @Test
-    void test_assertEquals_with_leg_and_junit5_returns_equal_value() {
-
-        assertEquals(classUnderTest.build(), classUnderTest.build());
-    }
-
-
-    @Test
-    void test_isNotEqualTo_with_leg_and_junit4_returns_not_an_equal_value() {
-        classUnderTest.setStart(null);
-
-        assertThat(classUnderTest.build()).isNotEqualTo(getFirstLegWithNoEmptyFields().build());
-    }
-
-    @Test
-    void test_assertNotEquals_with_leg_and_junit5_returns_not_an_equal_value() {
-        classUnderTest.setStart(null);
-
-        assertNotEquals(getFirstLegWithNoEmptyFields(), classUnderTest.build());
     }
 }

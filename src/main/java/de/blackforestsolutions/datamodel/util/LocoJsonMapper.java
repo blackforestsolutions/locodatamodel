@@ -1,7 +1,6 @@
 package de.blackforestsolutions.datamodel.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -92,15 +91,6 @@ public class LocoJsonMapper {
 
     public String map(Coordinates coordinates) throws JsonProcessingException {
         return mapper.writeValueAsString(coordinates);
-    }
-
-    public <T> CallStatus<T> mapJsonToCallStatus(String json, Class<T> calledObjectClass) throws JsonProcessingException {
-        JavaType type = mapper.getTypeFactory().constructParametricType(CallStatus.class, calledObjectClass);
-        return mapper.readValue(json, type);
-    }
-
-    public <T> String map(CallStatus<T> callStatus) throws JsonProcessingException {
-        return mapper.writeValueAsString(callStatus);
     }
 
 }
