@@ -94,6 +94,7 @@ public class ApiTokenAndUrlInformationObjectMother {
         builder.setLocoApiFootPath("locoApiFootPath");
         builder.setLocoApiDirectConnectionPath("locoApiDirectConnectionPath");
         builder.setAges(List.of(1, 2));
+        builder.setCountry("DE");
         return builder.build();
     }
 

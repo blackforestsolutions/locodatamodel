@@ -173,6 +173,8 @@ public final class ApiTokenAndUrlInformationDto {
     private String locoApiDirectConnectionPath;
     @JsonProperty("ages")
     private List<Integer> ages;
+    @JsonProperty("country")
+    private String country;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -257,5 +259,6 @@ public final class ApiTokenAndUrlInformationDto {
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
         this.ages = apiTokenAndUrlInformation.getAges();
+        this.country = apiTokenAndUrlInformation.getCountry();
     }
 }

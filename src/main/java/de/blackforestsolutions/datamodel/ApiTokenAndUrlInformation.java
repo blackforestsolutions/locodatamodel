@@ -101,6 +101,8 @@ public final class ApiTokenAndUrlInformation {
 
     private final List<Integer> ages;
 
+    private final String country;
+
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
         this.host = apiTokenAndUrlInformation.getHost();
@@ -181,6 +183,7 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
         this.ages = apiTokenAndUrlInformation.getAges();
+        this.country = apiTokenAndUrlInformation.getCountry();
     }
 
     @Getter
@@ -266,6 +269,7 @@ public final class ApiTokenAndUrlInformation {
         private String locoApiFootPath;
         private String locoApiDirectConnectionPath;
         private List<Integer> ages;
+        private String country;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -347,6 +351,7 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
             this.ages = apiTokenAndUrlInformation.getAges();
+            this.country = apiTokenAndUrlInformation.getCountry();
         }
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -429,6 +434,7 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiFootPath = apiTokenAndUrlInformationDto.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformationDto.getLocoApiDirectConnectionPath();
             this.ages = apiTokenAndUrlInformationDto.getAges();
+            this.country = apiTokenAndUrlInformationDto.getCountry();
         }
 
         public ApiTokenAndUrlInformation build() {
