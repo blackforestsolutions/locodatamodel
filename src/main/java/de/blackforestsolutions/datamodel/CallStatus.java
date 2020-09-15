@@ -12,11 +12,11 @@ public class CallStatus<T> {
 
     private final Status status;
 
-    private final Exception exception;
+    private final Throwable throwable;
 
-    public CallStatus(T calledObject, @NonNull Status status, Exception exception) {
+    public CallStatus(T calledObject, @NonNull Status status, Throwable throwable) {
         this.calledObject = calledObject;
         this.status = status;
-        this.exception = exception;
+        this.throwable = throwable;
     }
 }

@@ -1,10 +1,7 @@
 package de.blackforestsolutions.datamodel;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.io.Serializable;
 
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public enum TravelProvider implements Serializable {
     DB,
     SBB,
@@ -28,7 +25,9 @@ public enum TravelProvider implements Serializable {
     NVV,
     VBN,
     RSAG,
-    VMT;
+    VMT,
+    BLABLACAR,
+    BLABLABUS;
 
     public static TravelProvider map(String providerVariable) {
         if (providerVariable.equalsIgnoreCase("LH") || providerVariable.equalsIgnoreCase("LX")) {

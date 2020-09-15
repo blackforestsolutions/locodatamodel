@@ -2,7 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -12,15 +11,12 @@ import java.util.List;
 
 @Getter
 @JsonDeserialize(builder = GeoJson.GeoJsonBuilder.class)
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class GeoJson implements Serializable {
 
     private static final long serialVersionUID = -2529427008797565631L;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final String type;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final List<List<Double>> coordinates;
 
     public GeoJson(GeoJson geojson) {

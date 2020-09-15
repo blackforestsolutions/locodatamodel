@@ -1,11 +1,11 @@
 package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,16 +23,12 @@ public final class ApiTokenAndUrlInformationDto {
     private String apiVersion;
     @JsonProperty("pathVariable")
     private String pathVariable;
-    @Schema(required = true)
     @JsonProperty("departure")
     private String departure;
-    @Schema(required = true)
     @JsonProperty("arrival")
     private String arrival;
-    @Schema(required = true)
     @JsonProperty("departureDate")
     private ZonedDateTime departureDate;
-    @Schema(required = true)
     @JsonProperty("arrivalDate")
     private ZonedDateTime arrivalDate;
     @JsonProperty("xOriginationIpKey")
@@ -175,6 +171,10 @@ public final class ApiTokenAndUrlInformationDto {
     private String locoApiFootPath;
     @JsonProperty("locoApiDirectConnectionPath")
     private String locoApiDirectConnectionPath;
+    @JsonProperty("ages")
+    private List<Integer> ages;
+    @JsonProperty("country")
+    private String country;
 
     public ApiTokenAndUrlInformationDto() {
     }
@@ -258,5 +258,7 @@ public final class ApiTokenAndUrlInformationDto {
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
+        this.ages = apiTokenAndUrlInformation.getAges();
+        this.country = apiTokenAndUrlInformation.getCountry();
     }
 }

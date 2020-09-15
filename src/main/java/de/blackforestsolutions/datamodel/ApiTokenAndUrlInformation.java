@@ -1,12 +1,12 @@
 package de.blackforestsolutions.datamodel;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Slf4j
 @Getter
@@ -18,13 +18,9 @@ public final class ApiTokenAndUrlInformation {
     private final Integer port;
     private final String apiVersion;
     private final String pathVariable;
-    @Schema(required = true)
     private final String departure;
-    @Schema(required = true)
     private final String arrival;
-    @Schema(required = true)
     private final ZonedDateTime departureDate;
-    @Schema(required = true)
     private final ZonedDateTime arrivalDate;
     private final String xOriginationIpKey;
     private final String xOriginationIp;
@@ -102,6 +98,10 @@ public final class ApiTokenAndUrlInformation {
     private final Integer numberOfPersons;
     private final String currency;
     private final String sortDirection;
+
+    private final List<Integer> ages;
+
+    private final String country;
 
     private ApiTokenAndUrlInformation(ApiTokenAndUrlInformationBuilder apiTokenAndUrlInformation) {
         this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -182,6 +182,8 @@ public final class ApiTokenAndUrlInformation {
         this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
         this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
         this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
+        this.ages = apiTokenAndUrlInformation.getAges();
+        this.country = apiTokenAndUrlInformation.getCountry();
     }
 
     @Getter
@@ -266,6 +268,8 @@ public final class ApiTokenAndUrlInformation {
         private String locoApiRidesPath;
         private String locoApiFootPath;
         private String locoApiDirectConnectionPath;
+        private List<Integer> ages;
+        private String country;
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformation apiTokenAndUrlInformation) {
             this.protocol = apiTokenAndUrlInformation.getProtocol();
@@ -346,6 +350,8 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiRidesPath = apiTokenAndUrlInformation.getLocoApiRidesPath();
             this.locoApiFootPath = apiTokenAndUrlInformation.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformation.getLocoApiDirectConnectionPath();
+            this.ages = apiTokenAndUrlInformation.getAges();
+            this.country = apiTokenAndUrlInformation.getCountry();
         }
 
         public ApiTokenAndUrlInformationBuilder(ApiTokenAndUrlInformationDto apiTokenAndUrlInformationDto) {
@@ -427,6 +433,8 @@ public final class ApiTokenAndUrlInformation {
             this.locoApiRidesPath = apiTokenAndUrlInformationDto.getLocoApiRidesPath();
             this.locoApiFootPath = apiTokenAndUrlInformationDto.getLocoApiFootPath();
             this.locoApiDirectConnectionPath = apiTokenAndUrlInformationDto.getLocoApiDirectConnectionPath();
+            this.ages = apiTokenAndUrlInformationDto.getAges();
+            this.country = apiTokenAndUrlInformationDto.getCountry();
         }
 
         public ApiTokenAndUrlInformation build() {

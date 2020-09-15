@@ -2,7 +2,6 @@ package de.blackforestsolutions.datamodel;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -13,21 +12,13 @@ import java.util.Map;
 
 @Getter
 @JsonDeserialize(builder = TravelLine.TravelLineBuilder.class)
-@Schema(accessMode = Schema.AccessMode.READ_ONLY)
 public final class TravelLine implements Serializable {
 
     private static final long serialVersionUID = 6106269076155338045L;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, required = true)
     private final String name;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelPoint origin;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final TravelPoint direction;
-
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private final Map<Integer, TravelPoint> betweenHolds;
 
     /**
